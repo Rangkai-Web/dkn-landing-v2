@@ -1,41 +1,41 @@
 @import "tailwindcss";
 
-/* Local Alegreya Sans Font Faces */
-@font-face {
-  font-family: "alegreyasansR";
-  src: url("../font/alegreya-sans/AlegreyaSans-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "alegreyasansM";
-  src: url("../font/alegreya-sans/AlegreyaSans-Medium.ttf") format("truetype");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "alegreyasansB";
-  src: url("../font/alegreya-sans/AlegreyaSans-Bold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
 @theme {
-  --color-primary: #1f5e5a;
-  --color-secondary: #2f7f7a;
-  --color-accent: #8fd14f;
-  --color-bg: #f5f7f6;
-  --color-text: #1a1a1a;
-  --color-dark: #1a1a1a;
+  --color-midnight: #060C18;
+  --color-deep: #0D1829;
+  --color-navy: #142238;
+  --color-ink: #1A2E4A;
+  --color-teal-primary: #1A7A6E;
+  --color-teal-secondary: #22A094;
+  --color-teal-pale: #EBF7F5;
+  --color-gold-primary: #C4923A;
+  --color-gold-secondary: #D9AA55;
+  --color-gold-tertiary: #EDD27A;
+  --color-gold-pale: #FBF5E8;
+  --color-slate: #4E6070;
+  --color-mist: #F4F6F9;
+
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", ui-serif, Georgia, serif;
 }
 
 :root {
-  --gradient: linear-gradient(135deg, #1f5e5a, #2f7f7a);
+  --midnight: #060C18;
+  --deep: #0D1829;
+  --navy: #142238;
+  --ink: #1A2E4A;
+  --teal: #1A7A6E;
+  --teal2: #22A094;
+  --teal-pale: #EBF7F5;
+  --gold: #C4923A;
+  --gold2: #D9AA55;
+  --gold3: #EDD27A;
+  --gold-pale: #FBF5E8;
+  --slate: #4E6070;
+  --mist: #F4F6F9;
+  --border: rgba(20, 34, 56, 0.1);
+  --sans: "Plus Jakarta Sans", sans-serif;
+  --serif: "Cormorant Garamond", serif;
 }
 
 html {
@@ -43,54 +43,18 @@ html {
 }
 
 body {
-  font-family: "alegreyasansR", sans-serif;
-  color: var(--color-text);
-  background-color: var(--color-bg);
+  font-family: var(--sans);
+  color: var(--ink);
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
-h1,
-h2,
-h3,
-h4 {
-  font-family: "alegreyasansM", sans-serif;
+/* Base Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--sans);
 }
 
-.bg-primary {
-  background-color: var(--color-primary);
-}
-
-.bg-secondary {
-  background-color: var(--color-secondary);
-}
-
-.bg-accent {
-  background-color: var(--color-accent);
-}
-
-.bg-dark {
-  background-color: var(--color-dark);
-}
-
-.text-primary {
-  color: var(--color-primary);
-}
-
-.text-secondary {
-  color: var(--color-secondary);
-}
-
-.text-accent {
-  color: var(--color-accent);
-}
-
-.border-primary {
-  border-color: var(--color-primary);
-}
-
-.hover\:text-primary:hover {
-  color: var(--color-primary) !important;
-}
-
-.hover\:bg-dark:hover {
-  background-color: var(--color-dark) !important;
+.font-serif {
+  font-family: var(--serif);
 }

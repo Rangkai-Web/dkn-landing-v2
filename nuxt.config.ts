@@ -59,7 +59,10 @@ export default defineNuxtConfig({
     indexable: true,
   },
   fonts: {
-    families: [],
+    families: [
+      { name: 'Plus Jakarta Sans', provider: 'google', weights: [300, 400, 500, 600, 700, 800] },
+      { name: 'Cormorant Garamond', provider: 'google', weights: [400, 600], italics: [400, 600] }
+    ],
   },
   image: {
     quality: 80,

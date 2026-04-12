@@ -1,85 +1,44 @@
 <template>
-  <div>
-    <Header />
-    <Hero />
-    <About />
-    <VissionMission />
-    <CoreValues />
-    <Service />
-    <Training />
-    <WhyUs />
-    <Cta />
-    <Product />
-    <Testimoni />
-    <Contact />
-    <Faq />
-    <Footer />
+  <div class="bg-white">
+    <AppHeader />
+    <HomeHero />
+    <HomeWhy />
+    <HomeProblems />
+    <HomeFramework />
+    <HomeServices />
+    <HomeWebinarCta />
+    <HomeLms />
+    <HomeFinalCta />
+    <LeadCapture />
+    <AppFooter />
+    <WhatsAppFab />
   </div>
 </template>
 
 <script setup lang="ts">
 useSeoMeta({
-  title: "DKN Digital - Dayaguna Kompetensi Nusantara",
+  title: "DKN Indonesia — Where Competence Moves Forward",
   description:
-    "Mitra pengembangan SDM profesional, unggul, dan berdaya saing. Solusi pelatihan dan pengembangan karir digital terpercaya.",
-  ogTitle: "DKN Digital - Partner Pengembangan SDM Strategis",
+    "Mitra strategis pengembangan kinerja dan kompetensi untuk institusi keuangan, perbankan, dan asuransi Indonesia. Didirikan oleh praktisi, untuk praktisi.",
+  ogTitle: "DKN Indonesia — Dimana Kompetensi Menggerakkan Performa",
   ogDescription:
-    "Solusi pengembangan SDM profesional untuk menghadapi dinamika dunia kerja.",
+    "Membantu tim Anda bergerak dari aktivitas tinggi menjadi hasil yang terukur secara konsisten melalui DKN Performance Framework.",
   ogImage: "/favicon.ico",
   ogUrl: "https://dkn.digital",
   ogType: "website",
-  ogSiteName: "DKN Digital",
+  ogSiteName: "DKN Indonesia",
   twitterCard: "summary_large_image",
-  twitterTitle: "DKN Digital - Pengembangan SDM",
-  twitterDescription:
-    "Mitra pengembangan SDM profesional, unggul, dan berdaya saing.",
-  twitterImage: "/favicon.ico",
-  keywords:
-    "pengembangan sdm, pelatihan kerja, digital marketing, training sdm, dkn digital, jakarta, depok",
-  author: "DKN Digital",
+  author: "PT Dayaguna Kompetensi Nusantara",
   robots: {
     index: true,
     follow: true,
   },
-  themeColor: "#1F5E5A",
+  themeColor: "#060C18",
 });
 
 useHead({
   htmlAttrs: {
-    lang: "en",
+    lang: "id",
   },
-  link: [
-    {
-      rel: "canonical",
-      href: "https://asihangger.com",
-    },
-    {
-      rel: "alternate",
-      type: "application/rss+xml",
-      href: "https://asihangger.com/rss.xml",
-    },
-  ],
-  script: [
-    {
-      type: "application/ld+json",
-      innerHTML: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        name: "DKN Digital",
-        url: "https://dkn.digital",
-        logo: "https://dkn.digital/logo/dkn-logo.jpeg",
-        description:
-          "Mitra pengembangan SDM profesional, unggul, dan berdaya saing.",
-        sameAs: ["https://www.instagram.com/dkndigital/"],
-        contactPoint: {
-          "@type": "ContactPoint",
-          telephone: "+6287831377755",
-          contactType: "customer service",
-          areaServed: "ID",
-          availableLanguage: ["id", "en"],
-        },
-      }),
-    },
-  ],
 });
 </script>
