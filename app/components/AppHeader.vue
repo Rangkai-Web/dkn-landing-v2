@@ -1,11 +1,10 @@
 <template>
   <nav
-    class="sticky top-0 z-[100] flex h-[68px] items-center justify-between border-b border-white/10 bg-midnight/97 px-4 md:px-[52px] backdrop-blur-lg"
+    class="sticky top-0 z-100 flex h-[68px] items-center justify-between border-b border-white/10 bg-midnight/97 px-4 md:px-[52px] backdrop-blur-lg"
   >
     <div class="flex items-center gap-4 lg:gap-0">
       <!-- Mobile Menu Toggle (Index Only) -->
       <button
-        v-if="!isWebinarPage"
         class="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/5 transition-colors hover:bg-white/10 lg:hidden"
         @click="isMenuOpen = !isMenuOpen"
         aria-label="Toggle menu"
@@ -38,7 +37,7 @@
             {{ profile?.site_name?.split(" ")[1] || "Indonesia" }}
           </div>
           <div
-            class="hidden md:block mt-[1px] text-[10px] tracking-[0.4px] text-white/30"
+            class="hidden md:block mt-px text-[10px] tracking-[0.4px] text-white/30"
           >
             PT Dayaguna Kompetensi Nusantara
           </div>
@@ -47,7 +46,7 @@
     </div>
 
     <!-- Desktop Nav Links -->
-    <div v-if="!isWebinarPage" class="hidden gap-7 lg:flex">
+    <div class="hidden gap-7 lg:flex">
       <a
         v-for="link in navLinks"
         :key="link.href"
@@ -60,44 +59,24 @@
 
     <!-- Right Actions -->
     <div class="flex items-center gap-2.5">
-      <template v-if="!isWebinarPage">
-        <NuxtLink
-          to="/#webinar"
-          class="hidden md:inline-flex items-center rounded-md border border-white/12 bg-white/7 px-[18px] py-2 text-[13px] font-medium text-white/75 no-underline transition-all hover:bg-white/13"
-        >
-          Webinar Gratis
-        </NuxtLink>
-        <NuxtLink
-          to="/webinar"
-          class="inline-flex items-center rounded-md bg-teal-secondary px-3.5 md:px-5 py-[9px] text-[13px] font-semibold text-white no-underline transition-all hover:bg-teal-primary"
-        >
-          {{ isMobile ? "Daftar Webinar" : "Daftar Webinar →" }}
-        </NuxtLink>
-      </template>
-      <template v-else>
-        <a
-          href="#register"
-          class="inline-flex items-center gap-[7px] rounded-md bg-gold-primary px-4 md:px-[22px] py-[9px] text-[13px] font-extrabold text-midnight transition-all hover:bg-gold-secondary whitespace-nowrap"
-        >
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2.5"
-            class="h-3.5 w-3.5 shrink-0"
-          >
-            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-          </svg>
-          <span class="hidden xs:inline">Amankan Slot Sekarang</span>
-          <span class="xs:hidden">Daftar Slot</span>
-        </a>
-      </template>
+      <NuxtLink
+        to="/webinar"
+        class="hidden md:inline-flex items-center rounded-md border border-white/12 bg-white/7 px-[18px] py-2 text-[13px] font-medium text-white/75 no-underline transition-all hover:bg-white/13"
+      >
+        Webinar Gratis
+      </NuxtLink>
+      <NuxtLink
+        to="/contact"
+        class="inline-flex items-center rounded-md bg-teal-secondary px-3.5 md:px-5 py-[9px] text-[13px] font-semibold text-white no-underline transition-all hover:bg-teal-primary"
+      >
+        {{ isMobile ? "Diskusi Corporate" : "Diskusi Corporate" }}
+      </NuxtLink>
     </div>
 
     <!-- Mobile Menu Overlay -->
     <Transition name="fade-slide">
       <div
-        v-if="isMenuOpen && !isWebinarPage"
+        v-if="isMenuOpen"
         class="fixed inset-0 top-[68px] z-90 flex flex-col lg:hidden"
       >
         <div
@@ -133,7 +112,7 @@ const store = useProfileStore();
 const { profile, isLoading, error } = storeToRefs(store);
 
 const route = useRoute();
-const isWebinarPage = computed(() => route.path === "/webinar");
+// const isWebinarPage = computed(() => route.path === "/webinar");
 
 const isMenuOpen = ref(false);
 const closeMenu = () => {
@@ -168,12 +147,14 @@ onMounted(() => {
 });
 
 const navLinks = [
-  { label: "Tentang DKN", href: "#why" },
-  { label: "Tantangan", href: "#problems" },
-  { label: "Metodologi", href: "#framework" },
-  { label: "Layanan", href: "#services" },
-  { label: "Webinar", href: "#webinar" },
-  { label: "Platform LMS", href: "#platform" },
+  { label: "Webinar", href: "/webinar" },
+  { label: "Program Belajar", href: "/program" },
+  { label: "Layanan Corporate", href: "/" },
+  // { label: "Tentang DKN", href: "/#tentang" },
+  { label: "Resources", href: "/resources" },
+  { label: "Produk", href: "/produk" },
+  { label: "Konsultasi", href: "/contact" },
+  { label: "Kontak", href: "/contact-detail" },
 ];
 </script>
 

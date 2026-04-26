@@ -66,42 +66,35 @@
           <h5
             class="mb-3.5 text-[10px] font-bold uppercase tracking-[1.5px] text-white/24"
           >
-            Navigasi
+            Platform
           </h5>
           <ul class="flex flex-col gap-[9px] list-none p-0">
             <li>
               <NuxtLink
-                to="/#why"
-                class="text-[13px] text-white/44 no-underline transition-colors hover:text-white"
-                >Tentang DKN</NuxtLink
-              >
-            </li>
-            <li>
-              <NuxtLink
-                to="/#problems"
-                class="text-[13px] text-white/44 no-underline transition-colors hover:text-white"
-                >Tantangan</NuxtLink
-              >
-            </li>
-            <li>
-              <NuxtLink
-                to="/#framework"
-                class="text-[13px] text-white/44 no-underline transition-colors hover:text-white"
-                >Metodologi</NuxtLink
-              >
-            </li>
-            <li>
-              <NuxtLink
-                to="/#services"
-                class="text-[13px] text-white/44 no-underline transition-colors hover:text-white"
-                >Layanan</NuxtLink
-              >
-            </li>
-            <li>
-              <NuxtLink
                 to="/webinar"
                 class="text-[13px] text-white/44 no-underline transition-colors hover:text-white"
-                >Webinar</NuxtLink
+                >Webinar Gratis</NuxtLink
+              >
+            </li>
+            <li>
+              <NuxtLink
+                to="/webinar#rekaman"
+                class="text-[13px] text-white/44 no-underline transition-colors hover:text-white"
+                >Rekaman Webinar</NuxtLink
+              >
+            </li>
+            <li>
+              <NuxtLink
+                to="/program"
+                class="text-[13px] text-white/44 no-underline transition-colors hover:text-white"
+                >Program Belajar</NuxtLink
+              >
+            </li>
+            <li>
+              <NuxtLink
+                to="/program#lms"
+                class="text-[13px] text-white/44 no-underline transition-colors hover:text-white"
+                >Akses LMS</NuxtLink
               >
             </li>
           </ul>
@@ -111,35 +104,42 @@
           <h5
             class="mb-3.5 text-[10px] font-bold uppercase tracking-[1.5px] text-white/24"
           >
-            Program
+            Layanan Corporate
           </h5>
           <ul class="flex flex-col gap-[9px] list-none p-0">
             <li>
               <NuxtLink
-                to="/#services"
+                to="/#layanan"
                 class="text-[13px] text-white/44 no-underline transition-colors hover:text-white"
                 >Corporate Training</NuxtLink
               >
             </li>
             <li>
               <NuxtLink
-                to="/#services"
+                to="/#layanan"
                 class="text-[13px] text-white/44 no-underline transition-colors hover:text-white"
-                >Consulting & Advisory</NuxtLink
+                >Advisory</NuxtLink
               >
             </li>
             <li>
               <NuxtLink
-                to="/#services"
+                to="/#layanan"
                 class="text-[13px] text-white/44 no-underline transition-colors hover:text-white"
-                >Certification Programs</NuxtLink
+                >Assessment Center</NuxtLink
               >
             </li>
             <li>
               <NuxtLink
-                to="/#platform"
+                to="/#layanan"
                 class="text-[13px] text-white/44 no-underline transition-colors hover:text-white"
-                >Digital Learning (LMS)</NuxtLink
+                >Certification</NuxtLink
+              >
+            </li>
+            <li>
+              <NuxtLink
+                to="/contact"
+                class="text-[13px] text-white/44 no-underline transition-colors hover:text-white"
+                >Konsultasi</NuxtLink
               >
             </li>
           </ul>

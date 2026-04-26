@@ -1,6 +1,6 @@
 <template>
   <a 
-    href="https://wa.me/62812XXXXXXXX" 
+    :href="whatsappLink" 
     target="_blank" 
     rel="noopener" 
     class="fixed bottom-[26px] right-[26px] z-[999] flex h-[52px] w-[52px] items-center justify-center rounded-full bg-[#25D366] shadow-[0_4px_20px_rgba(37,211,102,0.28)] transition-transform hover:scale-[1.08]"
@@ -12,4 +12,18 @@
 </template>
 
 <script setup lang="ts">
+import { useProfileStore } from "~/stores/profileStore";
+
+const store = useProfileStore();
+const { profile, isLoading, error } = storeToRefs(store);
+
+onMounted(() => {
+  store.fetchProfile();
+});
+
+const whatsappLink = computed(() => {
+  if (!profile.value?.contact?.whatsapp_number) return '';
+  const phoneNumber = profile.value.contact.whatsapp_number.replace(/\D/g, '');
+  return `https://wa.me/${phoneNumber}`;
+});
 </script>
