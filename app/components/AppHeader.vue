@@ -2,10 +2,10 @@
   <nav
     class="sticky top-0 z-100 flex h-[68px] items-center justify-between border-b border-white/10 bg-midnight/97 px-4 md:px-[52px] backdrop-blur-lg"
   >
-    <div class="flex items-center gap-4 lg:gap-0">
+    <div class="flex items-center gap-4 xl:gap-0">
       <!-- Mobile Menu Toggle (Index Only) -->
       <button
-        class="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/5 transition-colors hover:bg-white/10 lg:hidden"
+        class="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/5 transition-colors hover:bg-white/10 xl:hidden"
         @click="isMenuOpen = !isMenuOpen"
         aria-label="Toggle menu"
       >
@@ -25,6 +25,8 @@
         <NuxtImg
           :src="profile?.logo_url || '/logo/dkn-logo.webp'"
           alt="Logo DKN"
+          width="40"
+          height="40"
           class="w-10 h-10 rounded-xl"
         />
         <div class="leading-tight">
@@ -46,15 +48,15 @@
     </div>
 
     <!-- Desktop Nav Links -->
-    <div class="hidden gap-7 lg:flex">
-      <a
+    <div class="hidden gap-7 xl:flex">
+      <NuxtLink
         v-for="link in navLinks"
         :key="link.href"
-        :href="link.href"
+        :to="link.href"
         class="text-[13px] font-medium text-white/50 no-underline transition-colors hover:text-white"
       >
         {{ link.label }}
-      </a>
+      </NuxtLink>
     </div>
 
     <!-- Right Actions -->
@@ -77,20 +79,20 @@
     <Transition name="fade-slide">
       <div
         v-if="isMenuOpen"
-        class="fixed inset-0 top-[68px] z-90 flex flex-col lg:hidden"
+        class="fixed inset-0 top-[68px] z-90 flex flex-col xl:hidden"
       >
         <div
           class="flex flex-col gap-6 pt-4 bg-midnight/95 p-6 backdrop-blur-xl"
         >
-          <a
+          <NuxtLink
             v-for="link in navLinks"
             :key="link.href"
-            :href="link.href"
+            :to="link.href"
             class="text-lg font-semibold text-white/70 transition-colors hover:text-white"
             @click="closeMenu"
           >
             {{ link.label }}
-          </a>
+          </NuxtLink>
           <div class="my-4 h-px bg-white/10" />
           <NuxtLink
             to="/webinar"

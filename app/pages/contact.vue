@@ -84,7 +84,7 @@
                 </div>
 
                 <div>
-                  <button type="submit" class="btn btn--gold btn--lg btn--block" style="margin-bottom:10px">
+                  <button type="submit" class="btn btn--gold btn--lg btn--block text-mist" style="margin-bottom:10px">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
                     Kirim Permintaan Konsultasi
                   </button>
@@ -116,21 +116,21 @@
                     <div class="ci-ico"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.6)" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
                     <div>
                       <div class="ci-label">WhatsApp</div>
-                      <div class="ci-value"><a href="https://wa.me/628XXXXXXXXXX" target="_blank" rel="noopener">+62 812-XXXX-XXXX</a></div>
+                      <div class="ci-value"><a :href="`https://wa.me/${profile?.contact?.whatsapp_number}`" target="_blank" rel="noopener">+{{ profile?.contact?.whatsapp_number }}</a></div>
                     </div>
                   </div>
                   <div class="contact-info-item">
                     <div class="ci-ico"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.6)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
                     <div>
                       <div class="ci-label">Email</div>
-                      <div class="ci-value"><a href="mailto:info@dknindonesia.co.id">info@dknindonesia.co.id</a></div>
+                      <div class="ci-value"><a :href="`mailto:${profile?.contact?.email}`">{{ profile?.contact?.email }}</a></div>
                     </div>
                   </div>
                   <div class="contact-info-item">
                     <div class="ci-ico"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.6)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
                     <div>
                       <div class="ci-label">Kantor</div>
-                      <div class="ci-value">Jl. Sudirman Kav. 25<br>Jakarta Pusat 10220</div>
+                      <div class="ci-value">{{ profile?.contact?.address }}</div>
                     </div>
                   </div>
                   <div class="contact-info-item">
@@ -144,7 +144,7 @@
               </div>
 
               <!-- WA Quick CTA -->
-              <a class="wa-cta-card" href="https://wa.me/628XXXXXXXXXX?text=Halo%20DKN%2C%20saya%20ingin%20berkonsultasi%20tentang%20kebutuhan%20training%20perusahaan%20kami." target="_blank" rel="noopener">
+              <a class="wa-cta-card" :href="`https://wa.me/${profile?.contact?.whatsapp_number}?text=Halo%20DKN%2C%20saya%20ingin%20berkonsultasi%20tentang%20kebutuhan%20training%20perusahaan%20kami.`" target="_blank" rel="noopener">
                 <div class="wa-cta-card__ico">
                   <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.99 2C6.473 2 2 6.473 2 11.99c0 1.776.46 3.447 1.263 4.913L2.05 21.95l5.173-1.195A9.94 9.94 0 0011.99 22c5.516 0 9.99-4.474 9.99-9.99C21.98 6.473 17.506 2 11.99 2zm0 18.18c-1.608 0-3.11-.44-4.395-1.203l-.315-.187-3.27.756.783-3.176-.205-.328A8.16 8.16 0 013.82 11.99c0-4.503 3.667-8.17 8.17-8.17 4.503 0 8.17 3.667 8.17 8.17 0 4.503-3.667 8.19-8.17 8.19z"/></svg>
                 </div>
@@ -243,22 +243,45 @@
 </template>
 
 <script setup lang="ts">
+import { useProfileStore } from "~/stores/profileStore";
+
 useSeoMeta({
   title: 'Konsultasi Corporate — DKN Indonesia',
   description: 'Konsultasi corporate training dan advisory DKN Indonesia — diskusikan kebutuhan pengembangan SDM organisasi Anda.',
 });
 
+const form = ref({
+  name: "",
+  email: "",
+  company: "",
+  message: "",
+});
 const submitted = ref(false);
 
 const handleSubmit = () => {
   // Logic for form submission would go here
   submitted.value = true;
+  const whatsappMessage = `Halo DKN, saya ingin berkonsultasi tentang kebutuhan training perusahaan kami. Berikut adalah detailnya:
+
+Nama: ${form.value.name}
+Email: ${form.value.email}
+Perusahaan: ${form.value.company}
+Kebutuhan: ${form.value.message}`;
+  const whatsappUrl = `https://wa.me/${profile.value?.contact.whatsapp_number}?text=${encodeURIComponent(whatsappMessage)}`;
+  window.open(whatsappUrl, '_blank');
 };
 
 useHead({
   htmlAttrs: {
     lang: "id",
   },
+});
+
+const store = useProfileStore();
+const { profile, isLoading, error } = storeToRefs(store);
+
+onMounted(() => {
+  store.fetchProfile();
 });
 </script>
 
@@ -441,5 +464,8 @@ useHead({
   .form-row-2 { grid-template-columns: 1fr; }
   .process-steps { grid-template-columns: 1fr 1fr; }
   .process-conn { display: none; }
+  .contact-form-card {
+    padding: 24px;
+  }
 }
 </style>

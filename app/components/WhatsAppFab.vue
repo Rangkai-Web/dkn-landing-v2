@@ -3,6 +3,7 @@
     :href="whatsappLink" 
     target="_blank" 
     rel="noopener" 
+    aria-label="Hubungi kami melalui WhatsApp"
     class="fixed bottom-[26px] right-[26px] z-[999] flex h-[52px] w-[52px] items-center justify-center rounded-full bg-[#25D366] shadow-[0_4px_20px_rgba(37,211,102,0.28)] transition-transform hover:scale-[1.08]"
   >
     <svg viewBox="0 0 24 24" fill="white" class="h-[26px] w-[26px]">

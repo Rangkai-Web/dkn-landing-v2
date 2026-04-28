@@ -15,11 +15,11 @@
             Anda dan organisasi tumbuh secara kompetensi secara berkelanjutan.
           </p>
           <div class="mt-32" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-            <a href="#artikel" class="btn btn--gold btn--lg">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+            <NuxtLink to="#artikel" class="btn btn--gold btn--lg">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20" height="20" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
               Baca Artikel Terbaru
-            </a>
-            <a href="#katalog" class="btn btn--ghost-w btn--lg">Lihat Katalog Training</a>
+            </NuxtLink>
+            <NuxtLink to="#katalog" class="btn btn--ghost-w btn--lg">Lihat Katalog Training</NuxtLink>
           </div>
         </div>
       </section>
@@ -34,18 +34,18 @@
 
           <!-- Category tabs -->
           <div class="section-tabs mt-32">
-            <a href="#" class="section-tab is-active">Semua</a>
-            <a href="#" class="section-tab">Sales &amp; Marketing</a>
-            <a href="#" class="section-tab">Leadership</a>
-            <a href="#" class="section-tab">Risk Management</a>
-            <a href="#" class="section-tab">Pengembangan SDM</a>
-            <a href="#" class="section-tab">Digital Learning</a>
+            <NuxtLink to="/resources" class="section-tab is-active">Semua</NuxtLink>
+            <NuxtLink to="/resources?cat=sales" class="section-tab">Sales &amp; Marketing</NuxtLink>
+            <NuxtLink to="/resources?cat=leadership" class="section-tab">Leadership</NuxtLink>
+            <NuxtLink to="/resources?cat=risk" class="section-tab">Risk Management</NuxtLink>
+            <NuxtLink to="/resources?cat=sdm" class="section-tab">Pengembangan SDM</NuxtLink>
+            <NuxtLink to="/resources?cat=digital" class="section-tab">Digital Learning</NuxtLink>
           </div>
 
           <!-- Featured article -->
           <div class="article-featured">
             <div class="article-featured__thumb" style="background:linear-gradient(135deg,var(--midnight),#1A3050)">
-              <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="rgba(34,160,148,.45)" stroke-width="1.2">
+              <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="rgba(34,160,148,.45)" stroke-width="1.2" aria-hidden="true">
                 <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
               </svg>
             </div>
@@ -54,14 +54,14 @@
               <div class="article-featured__title">Mengapa Sales Aktif Tinggi tapi Closing Tetap Rendah? Ini Akar Masalahnya</div>
               <div class="article-featured__summary">Banyak tim sales bekerja keras — meeting penuh, telepon tidak berhenti, pipeline terlihat panjang. Tapi angka closing tidak bergerak. Artikel ini membahas lima penyebab struktural yang sering diabaikan dan cara memperbaikinya secara sistematis.</div>
               <div class="article-featured__meta">
-                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>18 Januari 2025</span>
-                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>8 menit baca</span>
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>18 Januari 2025</span>
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>8 menit baca</span>
                 <span>Darmawan Kusuma, MM</span>
               </div>
-              <a href="#" class="btn btn--teal btn--md">
+              <NuxtLink to="/resources/article-slug" class="btn btn--teal btn--md justify-center">
                 Baca Selengkapnya
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </NuxtLink>
             </div>
           </div>
 
@@ -71,14 +71,14 @@
             <!-- Article 1 -->
             <div class="article-card">
               <div class="article-card__thumb" style="background:linear-gradient(135deg,#071a12,#0d3824)">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(26,122,110,.5)" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(26,122,110,.5)" stroke-width="1.5" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
                 <div class="article-card__cat-badge"><span class="tag tag--free" style="font-size:10px">Leadership</span></div>
               </div>
               <div class="article-card__body">
-                <div class="article-card__date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>10 Januari 2025</div>
+                <div class="article-card__date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="11" height="11" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>10 Januari 2025</div>
                 <div class="article-card__title">Tiga Kesalahan Fatal Supervisor Baru dalam 90 Hari Pertama</div>
                 <div class="article-card__summary">Transisi dari top performer ke pemimpin adalah perubahan terbesar dalam karir. Kebanyakan gagal bukan karena tidak kompeten, tapi karena tidak memiliki framework yang tepat.</div>
-                <a href="#" class="btn btn--outline-teal btn--sm">Baca Selengkapnya →</a>
+                <NuxtLink to="/resources/supervisor-errors" class="btn btn--outline-teal btn--sm justify-center">Baca Selengkapnya →</NuxtLink>
               </div>
               <div class="article-card__footer">
                 <div class="article-card__author">
@@ -88,21 +88,21 @@
                     <div class="article-card__author-role">Senior Trainer DKN</div>
                   </div>
                 </div>
-                <div class="article-card__read-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>6 mnt</div>
+                <div class="article-card__read-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="11" height="11" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>6 mnt</div>
               </div>
             </div>
 
             <!-- Article 2 -->
             <div class="article-card">
               <div class="article-card__thumb" style="background:linear-gradient(135deg,#1a0e00,#2a1500)">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(196,146,58,.5)" stroke-width="1.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(196,146,58,.5)" stroke-width="1.5" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
                 <div class="article-card__cat-badge"><span class="tag tag--gold" style="font-size:10px">Sertifikasi</span></div>
               </div>
               <div class="article-card__body">
-                <div class="article-card__date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>3 Januari 2025</div>
+                <div class="article-card__date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="11" height="11" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>3 Januari 2025</div>
                 <div class="article-card__title">Panduan Persiapan LSPP Manajemen Risiko: Strategi yang Jarang Dibahas</div>
                 <div class="article-card__summary">Lulus LSPP bukan hanya soal hafal materi. Ada pola ujian, strategi waktu, dan cara berpikir yang harus dikuasai. Berikut panduan dari praktisi yang sudah melewatinya.</div>
-                <a href="#" class="btn btn--outline-teal btn--sm">Baca Selengkapnya →</a>
+                <NuxtLink to="/resources/lspp-risk-guide" class="btn btn--outline-teal btn--sm justify-center">Baca Selengkapnya →</NuxtLink>
               </div>
               <div class="article-card__footer">
                 <div class="article-card__author">
@@ -112,21 +112,21 @@
                     <div class="article-card__author-role">Expert Partner DKN</div>
                   </div>
                 </div>
-                <div class="article-card__read-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>9 mnt</div>
+                <div class="article-card__read-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="11" height="11" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>9 mnt</div>
               </div>
             </div>
 
             <!-- Article 3 -->
             <div class="article-card">
               <div class="article-card__thumb" style="background:linear-gradient(135deg,#060e28,#0a1a40)">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(55,138,221,.5)" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(55,138,221,.5)" stroke-width="1.5" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
                 <div class="article-card__cat-badge"><span class="tag tag--teal" style="font-size:10px">Digital Learning</span></div>
               </div>
               <div class="article-card__body">
-                <div class="article-card__date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>28 Desember 2024</div>
+                <div class="article-card__date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="11" height="11" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>28 Desember 2024</div>
                 <div class="article-card__title">LMS sebagai Infrastruktur Belajar Korporat: Bukan Fitur, tapi Sistem</div>
                 <div class="article-card__summary">Banyak perusahaan memandang LMS sebagai pelengkap pelatihan. Padahal, LMS yang dirancang benar adalah sistem pengelola kompetensi organisasi jangka panjang.</div>
-                <a href="#" class="btn btn--outline-teal btn--sm">Baca Selengkapnya →</a>
+                <NuxtLink to="/resources/lms-corporate" class="btn btn--outline-teal btn--sm justify-center">Baca Selengkapnya →</NuxtLink>
               </div>
               <div class="article-card__footer">
                 <div class="article-card__author">
@@ -136,17 +136,17 @@
                     <div class="article-card__author-role">Founder DKN</div>
                   </div>
                 </div>
-                <div class="article-card__read-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>7 mnt</div>
+                <div class="article-card__read-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="11" height="11" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>7 mnt</div>
               </div>
             </div>
 
           </div>
 
           <div class="mt-32" style="text-align:center">
-            <a href="#" class="btn btn--outline-dark btn--lg">
+            <NuxtLink to="/resources/articles" class="btn btn--outline-dark btn--lg">
               Lihat Semua Artikel
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20" height="20" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </NuxtLink>
           </div>
         </div>
       </section>
@@ -163,62 +163,62 @@
 
             <div class="insight-card">
               <div class="insight-card__ico" style="background:rgba(34,160,148,.12);border:1px solid rgba(34,160,148,.2)">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#22A094" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="#22A094" stroke-width="2" width="20" height="20" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
               </div>
               <div class="insight-card__cat">Tren SDM 2025</div>
               <div class="insight-card__title">Kompetensi Apa yang Paling Dicari Industri Perbankan Tahun Ini?</div>
               <div class="insight-card__desc">Pergeseran kebutuhan kompetensi akibat digitalisasi, regulasi OJK terbaru, dan ekspektasi nasabah yang berubah — apa yang harus dipersiapkan profesional keuangan.</div>
-              <a href="#" class="btn btn--outline-teal btn--sm">Pelajari →</a>
+              <NuxtLink to="/resources/competency-trends" class="btn btn--outline-teal btn--sm justify-center">Pelajari →</NuxtLink>
             </div>
 
             <div class="insight-card">
               <div class="insight-card__ico" style="background:rgba(196,146,58,.12);border:1px solid rgba(196,146,58,.2)">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#D9AA55" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="#D9AA55" stroke-width="2" width="20" height="20" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
               </div>
               <div class="insight-card__cat">Pengembangan Organisasi</div>
               <div class="insight-card__title">Mengapa Program Training Mahal Tidak Selalu Menghasilkan Perubahan</div>
               <div class="insight-card__desc">Investasi training yang besar sering berakhir tanpa dampak terukur. Ini bukan soal konten — tapi soal desain program dan sistem reinforcement yang gagal dibangun.</div>
-              <a href="#" class="btn btn--outline-teal btn--sm">Pelajari →</a>
+              <NuxtLink to="/resources/training-impact" class="btn btn--outline-teal btn--sm justify-center">Pelajari →</NuxtLink>
             </div>
 
             <div class="insight-card">
               <div class="insight-card__ico" style="background:rgba(139,92,246,.12);border:1px solid rgba(139,92,246,.2)">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" width="20" height="20" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
               </div>
               <div class="insight-card__cat">Digital Learning</div>
               <div class="insight-card__title">Hybrid Learning sebagai Standar Baru Pengembangan Kompetensi Korporat</div>
               <div class="insight-card__desc">Kombinasi online-offline bukan lagi tren — ini adalah keharusan. Bagaimana merancang sistem hybrid learning yang benar-benar efektif untuk tim Anda.</div>
-              <a href="#" class="btn btn--outline-teal btn--sm">Pelajari →</a>
+              <NuxtLink to="/resources/hybrid-learning" class="btn btn--outline-teal btn--sm justify-center">Pelajari →</NuxtLink>
             </div>
 
             <div class="insight-card">
               <div class="insight-card__ico" style="background:rgba(226,75,74,.1);border:1px solid rgba(226,75,74,.18)">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#D63F3E" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="#D63F3E" stroke-width="2" width="20" height="20" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               </div>
               <div class="insight-card__cat">Risk &amp; Compliance</div>
               <div class="insight-card__title">Dampak Regulasi OJK Terbaru terhadap Kebutuhan Sertifikasi SDM Perbankan</div>
               <div class="insight-card__desc">Perubahan regulasi OJK membawa implikasi langsung pada persyaratan sertifikasi. Apa yang harus dipersiapkan institusi keuangan dan profesionalnya sekarang.</div>
-              <a href="#" class="btn btn--outline-teal btn--sm">Pelajari →</a>
+              <NuxtLink to="/resources/ojk-regulation" class="btn btn--outline-teal btn--sm justify-center">Pelajari →</NuxtLink>
             </div>
 
             <div class="insight-card">
               <div class="insight-card__ico" style="background:rgba(34,160,148,.12);border:1px solid rgba(34,160,148,.2)">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#22A094" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="#22A094" stroke-width="2" width="20" height="20" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
               </div>
               <div class="insight-card__cat">Sales &amp; Performance</div>
               <div class="insight-card__title">Framework Coaching Sales yang Bisa Langsung Diterapkan Manajer</div>
               <div class="insight-card__desc">Manajer yang baik bukan yang paling pintar menjual — tapi yang paling efektif mengembangkan kemampuan tim. Berikut model coaching yang terbukti bekerja.</div>
-              <a href="#" class="btn btn--outline-teal btn--sm">Pelajari →</a>
+              <NuxtLink to="/resources/sales-coaching" class="btn btn--outline-teal btn--sm justify-center">Pelajari →</NuxtLink>
             </div>
 
             <div class="insight-card">
               <div class="insight-card__ico" style="background:rgba(196,146,58,.12);border:1px solid rgba(196,146,58,.2)">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#D9AA55" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="#D9AA55" stroke-width="2" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
               </div>
               <div class="insight-card__cat">Advisory &amp; Strategi</div>
               <div class="insight-card__title">Assessment Center: Investasi SDM yang Sering Dianggap Remeh</div>
               <div class="insight-card__desc">Keputusan promosi yang salah bisa merugikan organisasi jutaan rupiah dan berbulan-bulan produktivitas. Assessment center yang baik mencegah kesalahan mahal ini.</div>
-              <a href="#" class="btn btn--outline-teal btn--sm">Pelajari →</a>
+              <NuxtLink to="/resources/assessment-center" class="btn btn--outline-teal btn--sm justify-center">Pelajari →</NuxtLink>
             </div>
 
           </div>
@@ -236,37 +236,37 @@
           <div class="mt-48" style="display:flex;flex-direction:column;gap:14px">
 
             <div class="katalog-card">
-              <div class="katalog-card__ico" style="background:rgba(34,160,148,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#22A094" stroke-width="2" width="22" height="22"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+              <div class="katalog-card__ico" style="background:rgba(34,160,148,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#22A094" stroke-width="2" width="22" height="22" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
               <div class="katalog-card__info">
                 <div class="katalog-card__cat">Sales &amp; Marketing</div>
                 <div class="katalog-card__title">Sales Mastery for Banking Professionals</div>
                 <div class="katalog-card__desc">Teknik sales terstruktur dari prospecting hingga closing — konteks industri perbankan dan keuangan.</div>
               </div>
-              <div class="katalog-card__cta"><a href="program.html" class="btn btn--outline-teal btn--sm">Lihat Detail →</a></div>
+              <div class="katalog-card__cta"><NuxtLink to="/program" class="btn btn--outline-teal btn--sm">Lihat Detail →</NuxtLink></div>
             </div>
 
             <div class="katalog-card">
-              <div class="katalog-card__ico" style="background:rgba(196,146,58,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#C4923A" stroke-width="2" width="22" height="22"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+              <div class="katalog-card__ico" style="background:rgba(196,146,58,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#C4923A" stroke-width="2" width="22" height="22" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
               <div class="katalog-card__info">
                 <div class="katalog-card__cat">Leadership</div>
                 <div class="katalog-card__title">Leadership for New Supervisors</div>
                 <div class="katalog-card__desc">Framework kepemimpinan praktis untuk 90 hari pertama sebagai supervisor baru.</div>
               </div>
-              <div class="katalog-card__cta"><a href="program.html" class="btn btn--outline-teal btn--sm">Lihat Detail →</a></div>
+              <div class="katalog-card__cta"><NuxtLink to="/program" class="btn btn--outline-teal btn--sm">Lihat Detail →</NuxtLink></div>
             </div>
 
             <div class="katalog-card">
-              <div class="katalog-card__ico" style="background:rgba(55,138,221,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#378ADD" stroke-width="2" width="22" height="22"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+              <div class="katalog-card__ico" style="background:rgba(55,138,221,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#378ADD" stroke-width="2" width="22" height="22" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
               <div class="katalog-card__info">
                 <div class="katalog-card__cat">Risk &amp; Certification</div>
                 <div class="katalog-card__title">Persiapan Sertifikasi LSPP Manajemen Risiko Level 1 &amp; 2</div>
                 <div class="katalog-card__desc">600+ soal latihan, simulasi ujian penuh, dan strategi dari praktisi berpengalaman.</div>
               </div>
-              <div class="katalog-card__cta"><a href="program.html" class="btn btn--outline-teal btn--sm">Lihat Detail →</a></div>
+              <div class="katalog-card__cta"><NuxtLink to="/program" class="btn btn--outline-teal btn--sm">Lihat Detail →</NuxtLink></div>
             </div>
 
             <div class="katalog-card">
-              <div class="katalog-card__ico" style="background:rgba(139,92,246,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" width="22" height="22"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg></div>
+              <div class="katalog-card__ico" style="background:rgba(139,92,246,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" width="22" height="22" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg></div>
               <div class="katalog-card__info">
                 <div class="katalog-card__cat">Service Excellence</div>
                 <div class="katalog-card__title">Service Excellence &amp; Komunikasi Profesional</div>
@@ -276,13 +276,13 @@
             </div>
 
             <div class="katalog-card">
-              <div class="katalog-card__ico" style="background:rgba(26,122,110,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#1A7A6E" stroke-width="2" width="22" height="22"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+              <div class="katalog-card__ico" style="background:rgba(26,122,110,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#1A7A6E" stroke-width="2" width="22" height="22" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
               <div class="katalog-card__info">
                 <div class="katalog-card__cat">Corporate Training</div>
                 <div class="katalog-card__title">Corporate Training In-House (Custom)</div>
                 <div class="katalog-card__desc">Program dikustomisasi penuh untuk kebutuhan spesifik tim dan industri Anda — hubungi tim DKN untuk proposal.</div>
               </div>
-              <div class="katalog-card__cta"><a href="contact.html" class="btn btn--outline-teal btn--sm">Minta Proposal →</a></div>
+              <div class="katalog-card__cta"><NuxtLink to="/contact" class="btn btn--outline-teal btn--sm">Minta Proposal →</NuxtLink></div>
             </div>
 
           </div>
@@ -300,13 +300,15 @@
               <p class="mt-16">Sebelum memutuskan program berbayar, ikuti webinar live gratis DKN. Dapatkan wawasan nyata dari praktisi, sertifikat partisipasi, dan gambaran pendekatan pembelajaran kami.</p>
             </div>
             <div class="webinar-cta-banner__right">
-              <a href="webinar.html" class="btn btn--gold btn--lg">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              <NuxtLink to="/webinar" class="btn btn--gold btn--lg">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="24" height="24" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                 Ikuti Webinar Gratis
-              </a>
+              </NuxtLink>
               <div class="webinar-cta-banner__note">
-                <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="2"><path d="M9 11l3 3L22 4"/></svg>
-                Gratis · Sertifikat partisipasi · Materi dibagikan
+                <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="2" width="12" height="12" aria-hidden="true"><path d="M9 11l3 3L22 4"/></svg>
+                <p style="flex-basis: fit-content; text-align: left;">
+                  Gratis · Sertifikat partisipasi · Materi dibagikan
+                </p>
               </div>
             </div>
           </div>
@@ -516,5 +518,15 @@ useHead({
   .article-featured__thumb { height: 200px; }
   .webinar-cta-banner { flex-direction: column; }
   .webinar-cta-banner__right { align-items: flex-start; }
+  .katalog-card {
+    flex-direction: column;
+  }
+  .katalog-card__cta {
+    align-self: flex-start;
+  }
+  .article-featured__meta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 </style>

@@ -480,5 +480,6 @@ useHead({
   .rec-member-banner__right { align-items: flex-start; }
   .rec-card { flex-direction: column; }
   .rec-card__thumb { width: 100%; height: 140px; }
+  .rec-card__meta { flex-direction: column; align-items: flex-start; }
 }
 </style>

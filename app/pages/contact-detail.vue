@@ -15,11 +15,11 @@
             maupun kebutuhan informasi lainnya.
           </p>
           <div class="mt-32" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-            <a href="https://wa.me/628XXXXXXXXXX" target="_blank" rel="noopener" class="btn btn--gold btn--lg">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+            <a :href="`https://wa.me/${profile?.contact?.whatsapp_number}`" target="_blank" rel="noopener noreferrer" class="btn btn--gold btn--lg" aria-label="Chat via WhatsApp">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20" height="20" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
               Chat WhatsApp Sekarang
             </a>
-            <a href="contact.html" class="btn btn--ghost-w btn--lg">Ajukan Konsultasi Corporate</a>
+            <NuxtLink to="/contact" class="btn btn--ghost-w btn--lg">Ajukan Konsultasi Corporate</NuxtLink>
           </div>
         </div>
       </section>
@@ -37,11 +37,11 @@
             <!-- Kantor -->
             <div class="contact-info-tile">
               <div class="contact-info-tile__ico" style="background:rgba(34,160,148,.1);border:1px solid rgba(34,160,148,.18)">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#22A094" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="#22A094" stroke-width="2" width="24" height="24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
               </div>
               <div>
                 <h3>Kantor Pusat</h3>
-                <div class="contact-info-tile__value">Jl. Sudirman Kav. 25<br>Jakarta Pusat 10220</div>
+                <div class="contact-info-tile__value" v-html="profile?.contact?.address"></div>
                 <div class="contact-info-tile__note">Kunjungan dengan janji — hubungi kami terlebih dahulu</div>
               </div>
             </div>
@@ -49,11 +49,11 @@
             <!-- WhatsApp -->
             <div class="contact-info-tile">
               <div class="contact-info-tile__ico" style="background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.18)">
-                <svg viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.99 2C6.473 2 2 6.473 2 11.99c0 1.776.46 3.447 1.263 4.913L2.05 21.95l5.173-1.195A9.94 9.94 0 0011.99 22c5.516 0 9.99-4.474 9.99-9.99C21.98 6.473 17.506 2 11.99 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="#25D366" width="24" height="24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.99 2C6.473 2 2 6.473 2 11.99c0 1.776.46 3.447 1.263 4.913L2.05 21.95l5.173-1.195A9.94 9.94 0 0011.99 22c5.516 0 9.99-4.474 9.99-9.99C21.98 6.473 17.506 2 11.99 2z"/></svg>
               </div>
               <div>
                 <h3>WhatsApp</h3>
-                <div class="contact-info-tile__value"><a href="https://wa.me/628XXXXXXXXXX" target="_blank" rel="noopener">+62 812-XXXX-XXXX</a></div>
+                <div class="contact-info-tile__value"><a :href="`https://wa.me/${profile?.contact?.whatsapp_number}`" target="_blank" rel="noopener noreferrer">+{{ profile?.contact?.whatsapp_number }}</a></div>
                 <div class="contact-info-tile__note">Respons dalam jam kerja — biasanya &lt; 2 jam</div>
               </div>
             </div>
@@ -61,11 +61,11 @@
             <!-- Email -->
             <div class="contact-info-tile">
               <div class="contact-info-tile__ico" style="background:rgba(196,146,58,.1);border:1px solid rgba(196,146,58,.18)">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#C4923A" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="#C4923A" stroke-width="2" width="24" height="24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
               </div>
               <div>
                 <h3>Email Resmi</h3>
-                <div class="contact-info-tile__value"><a href="mailto:info@dknindonesia.co.id">info@dknindonesia.co.id</a></div>
+                <div class="contact-info-tile__value"><a :href="`mailto:${profile?.contact?.email}`">{{ profile?.contact?.email }}</a></div>
                 <div class="contact-info-tile__note">Untuk inquiry formal, proposal, dan dokumentasi</div>
               </div>
             </div>
@@ -73,7 +73,7 @@
             <!-- Jam Operasional -->
             <div class="contact-info-tile">
               <div class="contact-info-tile__ico" style="background:rgba(20,34,56,.07);border:1px solid rgba(20,34,56,.12)">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#142238" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="#142238" stroke-width="2" width="24" height="24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
               </div>
               <div>
                 <h3>Jam Operasional</h3>
@@ -88,16 +88,25 @@
           <div style="margin-top:36px">
             <p style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--slate);margin-bottom:16px">Ikuti Kami di Media Sosial</p>
             <div class="social-row">
-              <a href="#" class="social-link-card" target="_blank" rel="noopener">
-                <div class="social-link-card__ico" style="background:#0A66C2">
-                  <svg viewBox="0 0 24 24" fill="white"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-                </div>
-                <div>
-                  <h4>LinkedIn</h4>
-                  <p>DKN Indonesia</p>
-                </div>
-              </a>
-              <a href="#" class="social-link-card" target="_blank" rel="noopener">
+              <template v-for="social in profile?.social_media" :key="social.platform">
+                <a :href="social.url" class="social-link-card" target="_blank" rel="noopener noreferrer" :aria-label="`Ikuti kami di ${social.platform}`">
+                  <div class="social-link-card__ico" :style="`background:${social.url.includes('linkedin') ? '#0A66C2' : social.url.includes('instagram') ? 'linear-gradient(135deg,#F58529,#DD2A7B,#8134AF)' : social.url.includes('youtube') ? '#FF0000' : social.url.includes('threads') ? '#000' : social.url.includes('facebook') ? '#0A66C2' : '#0A66C2'}`">
+                    <Icon :name="social.icon" size="24" color="white" aria-hidden="true" />
+                  </div>
+                  <div>
+                    <h4>{{
+                      social.url.includes("linkedin") ? "LinkedIn" :
+                      social.url.includes("instagram") ? "Instagram" :
+                      social.url.includes("youtube") ? "YouTube" :
+                      social.url.includes("threads") ? "Threads" :
+                      social.url.includes("facebook") ? "Facebook" :
+                      "Media Sosial"
+                    }}</h4>
+                    <p>DKN Digital</p>
+                  </div>
+                </a>
+              </template>
+              <!-- <a href="#" class="social-link-card" target="_blank" rel="noopener">
                 <div class="social-link-card__ico" style="background:linear-gradient(135deg,#F58529,#DD2A7B,#8134AF)">
                   <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
                 </div>
@@ -114,7 +123,7 @@
                   <h4>YouTube</h4>
                   <p>DKN Indonesia</p>
                 </div>
-              </a>
+              </a> -->
             </div>
           </div>
         </div>
@@ -129,26 +138,29 @@
           <p class="sec-sub">Kunjungan langsung tersedia dengan janji sebelumnya. Hubungi kami via WhatsApp untuk mengatur jadwal.</p>
 
           <div class="map-wrap mt-48">
-            <!--
-              DEVELOPER NOTE: Replace this div with Google Maps embed iframe.
-              1. Dapatkan embed URL dari: maps.google.com → Share → Embed a map
-              2. Ganti <div class="map-placeholder"> dengan:
-                <iframe src="EMBED_URL" width="100%" height="420" style="border:0" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-              3. Pindahkan .map-overlay-card ke luar map-wrap jika perlu
-            -->
             <div class="map-placeholder">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
-              </svg>
-              <p>Google Maps akan tampil di sini</p>
-              <code>Ganti dengan &lt;iframe&gt; Google Maps embed</code>
+              <iframe 
+                v-if="profile?.contact?.google_maps_url"
+                :src="profile?.contact?.google_maps_url" 
+                width="100%" 
+                height="420" 
+                style="border:0" 
+                allowfullscreen 
+                loading="lazy" 
+                title="Lokasi Kantor DKN Indonesia di Google Maps"
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+              <div v-else class="map-loading">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="48" height="48" aria-hidden="true" class="animate-pulse"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <p>Memuat peta lokasi...</p>
+              </div>
             </div>
 
             <div class="map-overlay-card">
               <h4>DKN Indonesia</h4>
-              <p>Jl. Sudirman Kav. 25<br>Jakarta Pusat 10220<br>DKI Jakarta, Indonesia</p>
-              <a href="https://maps.google.com/?q=Jl+Sudirman+Kav+25+Jakarta" target="_blank" rel="noopener" class="btn btn--teal btn--sm btn--block">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <p v-html="profile?.contact?.address || 'Jl. Sudirman Kav. 25<br>Jakarta Pusat 10220'"></p>
+              <a :href="`https://maps.google.com/?q=${encodeURIComponent(profile?.contact?.address || 'DKN Indonesia')}`" target="_blank" rel="noopener noreferrer" class="btn btn--teal btn--sm btn--block" aria-label="Buka alamat DKN Indonesia di Google Maps">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
                 Buka di Google Maps
               </a>
             </div>
@@ -182,15 +194,15 @@
               <p class="mt-12">Ajukan konsultasi melalui formulir kami dan tim DKN akan menghubungi Anda dalam 1×24 jam kerja untuk mendiskusikan kebutuhan pengembangan SDM secara lebih mendalam.</p>
             </div>
             <div class="konsultasi-cta__right">
-              <a href="contact.html" class="btn btn--gold btn--lg">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+              <NuxtLink to="/contact" class="btn btn--gold btn--lg">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20" height="20" aria-hidden="true"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
                 Ajukan Konsultasi
-              </a>
+              </NuxtLink>
               <div class="konsultasi-cta__note">
-                <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="2" width="12" height="12" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                 Gratis · Tanpa komitmen · Respons 1×24 jam
               </div>
-              <a href="https://wa.me/628XXXXXXXXXX?text=Halo%20DKN%2C%20saya%20ingin%20berkonsultasi." target="_blank" rel="noopener" class="btn btn--ghost-w btn--md" style="margin-top:2px">
+              <a :href="`https://wa.me/${profile?.contact?.whatsapp_number}?text=Halo%20DKN%2C%20saya%20ingin%20berkonsultasi.`" target="_blank" rel="noopener noreferrer" class="btn btn--ghost-w btn--md" style="margin-top:2px" aria-label="Konsultasi via WhatsApp">
                 Atau via WhatsApp →
               </a>
             </div>
@@ -205,9 +217,18 @@
 </template>
 
 <script setup lang="ts">
+import { useProfileStore } from "~/stores/profileStore";
+
 useSeoMeta({
   title: 'Contact Detail - DKN Indonesia',
   description: 'Hubungi DKN Digital untuk info lebih lanjut',
+});
+
+const store = useProfileStore();
+const { profile, isLoading, error } = storeToRefs(store);
+
+onMounted(() => {
+  store.fetchProfile();
 });
 
 const submitted = ref(false);
@@ -327,14 +348,26 @@ useHead({
 }
 .map-placeholder {
   height: 420px;
+  width: 100%;
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
   gap: 14px;
   background: linear-gradient(135deg, #F0F3F8, #E8ECF2);
 }
-.map-placeholder svg { width: 52px; height: 52px; color: var(--slate); opacity: .5; }
-.map-placeholder p { font-size: 14px; color: var(--slate); text-align: center; }
-.map-placeholder code { font-size: 12px; background: rgba(20,34,56,.07); padding: 4px 10px; border-radius: 6px; color: var(--ink); font-family: monospace; }
+.map-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: var(--slate);
+}
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .5; }
+}
 /* 
   DEVELOPER NOTE:
   Replace .map-placeholder div with:

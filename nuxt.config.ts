@@ -34,7 +34,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       htmlAttrs: {
-        lang: "en",
+        lang: "id",
       },
       link: [
         {
@@ -42,7 +42,6 @@ export default defineNuxtConfig({
           href: "https://images.unsplash.com",
           crossorigin: "anonymous",
         },
-        { rel: "dns-prefetch", href: "https://images.unsplash.com" },
         { rel: "dns-prefetch", href: "https://images.unsplash.com" },
         {
           rel: "stylesheet",
@@ -55,13 +54,13 @@ export default defineNuxtConfig({
     url: "https://dkn.digital",
     name: "DKN Digital",
     description: "DKN Digital",
-    defaultLocale: "en",
+    defaultLocale: "id",
     indexable: true,
   },
   fonts: {
     families: [
       { name: 'Plus Jakarta Sans', provider: 'google', weights: [300, 400, 500, 600, 700, 800] },
-      { name: 'Cormorant Garamond', provider: 'google', weights: [400, 600], italics: [400, 600] }
+      { name: 'Cormorant Garamond', provider: 'google', weights: [400, 600], styles: ['normal', 'italic'] }
     ],
   },
   image: {

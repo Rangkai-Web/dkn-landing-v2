@@ -38,6 +38,9 @@
                   fill="none"
                   stroke="currentColor"
                   stroke-width="2.5"
+                  width="20"
+                  height="20"
+                  aria-hidden="true"
                 >
                   <rect x="3" y="4" width="18" height="18" rx="2" />
                   <path d="M16 2v4M8 2v4M3 10h18" />
@@ -51,6 +54,9 @@
                   fill="none"
                   stroke="currentColor"
                   stroke-width="2"
+                  width="20"
+                  height="20"
+                  aria-hidden="true"
                 >
                   <path
                     d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
@@ -67,6 +73,9 @@
                   fill="none"
                   stroke="currentColor"
                   stroke-width="2.5"
+                  width="12"
+                  height="12"
+                  aria-hidden="true"
                 >
                   <path d="M9 11l3 3L22 4" />
                 </svg>
@@ -118,7 +127,15 @@
                 </div>
                 <div class="hero__stat-wide">
                   <div class="hero__stat-wide-ico">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#22A094" stroke-width="2.5">
+                    <svg 
+                      viewBox="0 0 24 24" 
+                      fill="none" 
+                      stroke="#22A094" 
+                      stroke-width="2.5"
+                      width="14"
+                      height="14"
+                      aria-hidden="true"
+                    >
                       <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
                     </svg>
                   </div>
@@ -144,6 +161,9 @@
                   fill="none"
                   stroke="#22A094"
                   stroke-width="2"
+                  width="17"
+                  height="17"
+                  aria-hidden="true"
                 >
                   <rect x="3" y="4" width="18" height="18" rx="2" />
                   <path d="M16 2v4M8 2v4M3 10h18" />
@@ -161,6 +181,9 @@
                 fill="none"
                 stroke="currentColor"
                 stroke-width="2"
+                width="20"
+                height="20"
+                aria-hidden="true"
               >
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
@@ -172,6 +195,9 @@
                   fill="none"
                   stroke="#D9AA55"
                   stroke-width="2"
+                  width="17"
+                  height="17"
+                  aria-hidden="true"
                 >
                   <path d="M4 19.5A2.5 2.5 0 016.5 17H20" />
                   <path
@@ -191,6 +217,9 @@
                 fill="none"
                 stroke="currentColor"
                 stroke-width="2"
+                width="20"
+                height="20"
+                aria-hidden="true"
               >
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
@@ -202,6 +231,9 @@
                   fill="none"
                   stroke="rgba(255,255,255,0.55)"
                   stroke-width="2"
+                  width="17"
+                  height="17"
+                  aria-hidden="true"
                 >
                   <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
                   <circle cx="9" cy="7" r="4" />
@@ -238,6 +270,9 @@
                     fill="none"
                     stroke="#22A094"
                     stroke-width="2"
+                    width="24"
+                    height="24"
+                    aria-hidden="true"
                   >
                     <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
                     <circle cx="9" cy="7" r="4" />
@@ -267,6 +302,9 @@
                     fill="none"
                     stroke="#C4923A"
                     stroke-width="2"
+                    width="24"
+                    height="24"
+                    aria-hidden="true"
                   >
                     <circle cx="12" cy="12" r="10" />
                     <path d="M12 8v4M12 16h.01" />
@@ -301,6 +339,9 @@
                     fill="none"
                     stroke="#378ADD"
                     stroke-width="2"
+                    width="24"
+                    height="24"
+                    aria-hidden="true"
                   >
                     <rect x="2" y="3" width="20" height="14" rx="2" />
                     <path d="M8 21h8M12 17v4" />
@@ -333,6 +374,9 @@
                     fill="none"
                     stroke="#1A8A7E"
                     stroke-width="2"
+                    width="24"
+                    height="24"
+                    aria-hidden="true"
                   >
                     <path d="M9 11l3 3L22 4" />
                     <path
@@ -367,6 +411,9 @@
                     fill="none"
                     stroke="#8B5CF6"
                     stroke-width="2"
+                    width="24"
+                    height="24"
+                    aria-hidden="true"
                   >
                     <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
                     <polyline points="17 6 23 6 23 12" />
@@ -472,7 +519,9 @@
                     d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"
                   />
                 </svg>
-                Peserta webinar live mendapatkan sertifikat partisipasi resmi
+                <p style="flex-basis: fit-content;">
+                  Peserta webinar live mendapatkan sertifikat partisipasi resmi
+                </p>
               </div>
               <div class="mt-32">
                 <NuxtLink to="/webinar" class="btn btn--gold btn--lg">
@@ -502,6 +551,9 @@
                     fill="none"
                     stroke="#D9AA55"
                     stroke-width="2"
+                    width="16"
+                    height="16"
+                    aria-hidden="true"
                   >
                     <rect x="3" y="4" width="18" height="18" rx="2" />
                     <path d="M16 2v4M8 2v4M3 10h18" />
@@ -514,6 +566,9 @@
                     fill="none"
                     stroke="#D9AA55"
                     stroke-width="2"
+                    width="16"
+                    height="16"
+                    aria-hidden="true"
                   >
                     <circle cx="12" cy="12" r="10" />
                     <path d="M12 6v6l4 2" />
@@ -526,6 +581,9 @@
                     fill="none"
                     stroke="#D9AA55"
                     stroke-width="2"
+                    width="16"
+                    height="16"
+                    aria-hidden="true"
                   >
                     <path d="M15 10l-4 4 6 6-8-16-2 8z" />
                   </svg>
@@ -588,6 +646,7 @@
                       stroke-width="2"
                       width="16"
                       height="16"
+                      aria-hidden="true"
                     >
                       <path d="M4 19.5A2.5 2.5 0 016.5 17H20" />
                       <path
@@ -615,6 +674,7 @@
                       stroke-width="2"
                       width="16"
                       height="16"
+                      aria-hidden="true"
                     >
                       <path d="M9 11l3 3L22 4" />
                       <path
@@ -642,6 +702,7 @@
                       stroke-width="2"
                       width="16"
                       height="16"
+                      aria-hidden="true"
                     >
                       <circle cx="12" cy="8" r="6" />
                       <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11" />
@@ -687,6 +748,7 @@
                         stroke-width="2"
                         width="18"
                         height="18"
+                        aria-hidden="true"
                       >
                         <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
                       </svg>
@@ -714,6 +776,7 @@
                         stroke-width="2"
                         width="18"
                         height="18"
+                        aria-hidden="true"
                       >
                         <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
                         <circle cx="9" cy="7" r="4" />
@@ -742,6 +805,7 @@
                         stroke-width="2"
                         width="18"
                         height="18"
+                        aria-hidden="true"
                       >
                         <path d="M9 11l3 3L22 4" />
                         <path
@@ -767,6 +831,7 @@
                     stroke-width="2"
                     width="16"
                     height="16"
+                    aria-hidden="true"
                   >
                     <path d="M12 5v14M5 12h14" />
                   </svg>
@@ -806,6 +871,9 @@
                   fill="none"
                   stroke="currentColor"
                   stroke-width="2.5"
+                  width="20"
+                  height="20"
+                  aria-hidden="true"
                 >
                   <path
                     d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
@@ -819,10 +887,15 @@
                   fill="none"
                   stroke="rgba(255,255,255,.3)"
                   stroke-width="2"
+                  width="13"
+                  height="13"
+                  aria-hidden="true"
                 >
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                 </svg>
-                Gratis · Tanpa komitmen · Tim kami menghubungi dalam 1x24 jam
+                <p style="flex-basis: fit-content; text-align: left;">
+                  Gratis · Tanpa komitmen · Tim kami menghubungi dalam 1x24 jam
+                </p>
               </div>
             </div>
           </div>
@@ -1518,7 +1591,25 @@ useHead({
   height: 13px;
 }
 
+@media (max-width: 1440px) {
+  .layanan-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
 @media (max-width: 900px) {
+  .corp-cta__icon-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .hero__trust {
+    flex-direction: column;
+    align-items: baseline;
+  }
+  .hero__trust-sep {
+    display: none;
+  }
   .hero__inner {
     grid-template-columns: 1fr;
     gap: 0;
@@ -1540,7 +1631,7 @@ useHead({
     display: none;
   }
   .layanan-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
   .webinar-sec {
     grid-template-columns: 1fr;

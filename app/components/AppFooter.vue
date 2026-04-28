@@ -31,6 +31,8 @@
             <NuxtImg
               :src="profile?.logo_url || '/logo/dkn-logo.webp'"
               alt="Logo DKN"
+              width="48"
+              height="48"
               class="w-12 h-12 rounded-xl"
             />
             <div>
@@ -54,7 +56,7 @@
               :key="social.platform"
               :href="social.url"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               class="w-8 h-8 rounded-xl bg-white/[0.07] border border-white/10 flex items-center justify-center text-white/40 hover:bg-accent hover:text-primary hover:border-accent transition-all duration-300"
             >
               <Icon :name="social.icon" size="18" />
