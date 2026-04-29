@@ -1,3 +1,25 @@
+<script setup lang="ts">
+import { useProductStore } from '~/stores/productStore';
+
+const productStore = useProductStore();
+const { productsByType, featuredProduct, isLoading } = storeToRefs(productStore);
+
+onMounted(() => {
+  productStore.fetchProducts();
+});
+
+useSeoMeta({
+  title: 'Produk - DKN Indonesia',
+  description: 'Produk DKN Digital untuk membantu pengembangan soft skill dan kepemimpinan',
+});
+
+useHead({
+  htmlAttrs: {
+    lang: "id",
+  },
+});
+</script>
+
 <template>
   <div>
     <AppHeader />
@@ -40,283 +62,174 @@
             <a href="#toolkit" class="prod-filter-btn">Toolkit</a>
           </div>
 
+          <!-- Loading State -->
+          <div v-if="isLoading" class="loading-state py-64 text-center">
+            <div class="loader-spinner"></div>
+            <p class="mt-16 color-slate">Memuat daftar produk...</p>
+          </div>
 
-          <!-- ── BUKU ── -->
-          <div id="buku" style="margin-bottom:56px">
-            <div class="cat-section-header">
-              <div class="cat-section-header__ico" style="background:rgba(20,34,56,.08)"><svg viewBox="0 0 24 24" fill="none" stroke="#142238" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></div>
-              <h3>Buku</h3>
-              <span class="tag tag--navy">2 Judul</span>
-            </div>
-
-            <!-- Featured Book -->
-            <div class="product-featured" style="background:#fff">
-              <div class="product-featured__visual" style="background:linear-gradient(135deg,var(--midnight),#1A3050)">
-                <div class="product-card__cover-book" style="background:linear-gradient(160deg,#1A3050,#0A1828)">
-                  <div class="product-card__cover-book-title">Sales Excellence<br>for Banking</div>
-                </div>
+          <div v-else>
+            <!-- ── BUKU ── -->
+            <div v-if="productsByType.buku.length > 0 || featuredProduct" id="buku" style="margin-bottom:56px">
+              <div class="cat-section-header">
+                <div class="cat-section-header__ico" style="background:rgba(20,34,56,.08)"><svg viewBox="0 0 24 24" fill="none" stroke="#142238" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></div>
+                <h3>Buku</h3>
+                <span class="tag tag--navy">{{ productsByType.buku.length + (featuredProduct?.type === 'buku' ? 1 : 0) }} Judul</span>
               </div>
-              <div class="product-featured__body">
-                <div class="product-featured__tag">Buku Unggulan · Sales &amp; Marketing</div>
-                <div class="product-featured__title">Sales Excellence: Dari Aktivitas ke Konversi</div>
-                <div class="product-featured__desc">Panduan komprehensif untuk tenaga penjual di industri perbankan dan keuangan — dari mindset yang benar, pipeline management, teknik membangun kepercayaan nasabah, hingga closing yang konsisten dan terstruktur.</div>
-                <div class="product-featured__specs">
-                  <div class="product-featured__spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>284 halaman</div>
-                  <div class="product-featured__spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Tersedia fisik &amp; digital</div>
-                  <div class="product-featured__spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/></svg>Ditulis oleh praktisi perbankan 25+ tahun</div>
-                </div>
-                <div class="product-featured__footer">
-                  <div>
-                    <div class="product-featured__price">Rp 195.000</div>
-                    <div class="product-featured__note">Fisik · Gratis ongkir Jabodetabek</div>
-                  </div>
-                  <a href="#" class="btn btn--gold btn--lg">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-                    Lihat Detail
-                  </a>
-                </div>
-              </div>
-            </div>
 
-            <!-- Book 2 -->
-            <div class="grid-3">
-              <div class="product-card">
-                <div class="product-card__cover" style="background:linear-gradient(135deg,#071a12,#0d3824)">
-                  <div class="product-card__cover-book" style="background:linear-gradient(160deg,#0d3824,#050f0b)">
-                    <div class="product-card__cover-book-title">Leader Sejati</div>
+              <!-- Featured Product -->
+              <div v-if="featuredProduct" class="product-featured" style="background:#fff">
+                <div class="product-featured__visual" :style="{ background: featuredProduct.type === 'buku' ? 'linear-gradient(135deg,var(--midnight),#1A3050)' : 'linear-gradient(135deg,#060e28,#0a1a40)' }">
+                  <div v-if="featuredProduct.image" class="product-featured__img-wrap">
+                    <img :src="featuredProduct.image" :alt="featuredProduct.title" class="product-featured__img">
                   </div>
-                  <div class="product-card__type-badge"><span class="tag tag--teal">Buku</span></div>
+                  <div v-else class="product-card__cover-book" style="background:linear-gradient(160deg,#1A3050,#0A1828)">
+                    <div class="product-card__cover-book-title">{{ featuredProduct.title }}</div>
+                  </div>
                 </div>
-                <div class="product-card__body">
-                  <div class="product-card__cat">Leadership</div>
-                  <div class="product-card__title">Leader Sejati: Memimpin dengan Dampak di Era Modern</div>
-                  <div class="product-card__desc">Framework kepemimpinan praktis yang diuji di ratusan tim industri keuangan Indonesia — untuk manajer yang ingin memimpin dengan otoritas dan empati.</div>
-                  <div class="product-card__author">
-                    <div class="product-card__author-av" style="background:var(--teal)">SR</div>
-                    <div>
-                      <div class="product-card__author-name">Siti Rahayu, S.E., MM</div>
-                      <div class="product-card__author-role">Senior Trainer &amp; HR Consultant</div>
+                <div class="product-featured__body">
+                  <div class="product-featured__tag">Produk Unggulan · {{ featuredProduct.type.toUpperCase() }}</div>
+                  <div class="product-featured__title">{{ featuredProduct.title }}</div>
+                  <div class="product-featured__desc">{{ featuredProduct.description }}</div>
+                  <div class="product-featured__specs">
+                    <div v-for="meta in featuredProduct.meta" :key="meta" class="product-featured__spec">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/></svg>
+                      {{ meta }}
                     </div>
                   </div>
-                  <div class="product-card__meta">
-                    <div class="product-card__meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>220 halaman</div>
-                    <div class="product-card__meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Fisik &amp; Digital</div>
+                  <div class="product-featured__footer">
+                    <div>
+                      <div class="product-featured__price">{{ featuredProduct.price }}</div>
+                      <div class="product-featured__note" v-if="featuredProduct.type === 'buku'">Fisik · Gratis ongkir Jabodetabek</div>
+                      <div class="product-featured__note" v-else>Akses Instan Digital</div>
+                    </div>
+                    <a :href="featuredProduct.link" target="_blank" class="btn btn--gold btn--lg">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                      Lihat Detail
+                    </a>
                   </div>
-                </div>
-                <div class="product-card__footer">
-                  <div>
-                    <div class="product-card__price">Rp 175.000</div>
-                    <div class="product-card__price-note">Fisik · Gratis ongkir Jabodetabek</div>
-                  </div>
-                  <a href="#" class="btn btn--outline-teal btn--sm">Lihat Detail →</a>
                 </div>
               </div>
 
-              <!-- Coming soon placeholder -->
-              <div class="product-card" style="opacity:.65">
-                <div class="product-card__cover" style="background:linear-gradient(135deg,#1a0e00,#2a1500)">
-                  <div class="product-card__cover-book" style="background:linear-gradient(160deg,#2a1500,#100800)">
-                    <div class="product-card__cover-book-title">Risk &amp;<br>Certification</div>
+              <!-- Books List -->
+              <div class="grid-3">
+                <div v-for="prod in productsByType.buku" :key="prod.id" class="product-card">
+                  <div class="product-card__cover" style="background:linear-gradient(135deg,#071a12,#0d3824)">
+                    <img v-if="prod.image" :src="prod.image" :alt="prod.title" class="product-card__img">
+                    <div v-else class="product-card__cover-book" style="background:linear-gradient(160deg,#0d3824,#050f0b)">
+                      <div class="product-card__cover-book-title">{{ prod.title }}</div>
+                    </div>
+                    <div class="product-card__type-badge"><span class="tag tag--teal">Buku</span></div>
                   </div>
-                  <div class="product-card__type-badge"><span class="tag" style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.6);border:none;font-size:10px">Segera</span></div>
-                </div>
-                <div class="product-card__body">
-                  <div class="product-card__cat">Risk Management</div>
-                  <div class="product-card__title">Panduan Sertifikasi Manajemen Risiko Perbankan</div>
-                  <div class="product-card__desc">Panduan persiapan LSPP berbasis pengalaman nyata — pola soal, strategi waktu, dan pemahaman konseptual. Segera tersedia.</div>
-                </div>
-                <div class="product-card__footer" style="background:var(--mist)">
-                  <span class="tag tag--teal">Segera Tersedia</span>
-                  <a href="#" class="btn btn--outline-dark btn--sm">Beritahu Saya</a>
+                  <div class="product-card__body">
+                    <div class="product-card__cat">Kategori</div>
+                    <div class="product-card__title">{{ prod.title }}</div>
+                    <div class="product-card__desc">{{ prod.description }}</div>
+                    <div v-if="prod.author" class="product-card__author">
+                      <div class="product-card__author-av" style="background:var(--teal)">{{ prod.author.initials }}</div>
+                      <div>
+                        <div class="product-card__author-name">{{ prod.author.name }}</div>
+                        <div class="product-card__author-role">{{ prod.author.role }}</div>
+                      </div>
+                    </div>
+                    <div class="product-card__meta">
+                      <div v-for="meta in prod.meta" :key="meta" class="product-card__meta-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/></svg>
+                        {{ meta }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-card__footer">
+                    <div>
+                      <div class="product-card__price">{{ prod.price }}</div>
+                      <div class="product-card__price-note">Fisik · Gratis ongkir</div>
+                    </div>
+                    <a :href="prod.link" target="_blank" class="btn btn--outline-teal btn--sm">Lihat Detail →</a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
 
-          <!-- ── E-BOOK ── -->
-          <div id="ebook" style="margin-bottom:56px">
-            <div class="cat-section-header">
-              <div class="cat-section-header__ico" style="background:rgba(34,160,148,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#22A094" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-              <h3>E-book</h3>
-              <span class="tag tag--free">Akses Instan</span>
+            <!-- ── E-BOOK ── -->
+            <div v-if="productsByType.ebook.length > 0" id="ebook" style="margin-bottom:56px">
+              <div class="cat-section-header">
+                <div class="cat-section-header__ico" style="background:rgba(34,160,148,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#22A094" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+                <h3>E-book</h3>
+                <span class="tag tag--free">Akses Instan</span>
+              </div>
+
+              <div class="grid-3">
+                <div v-for="prod in productsByType.ebook" :key="prod.id" class="product-card">
+                  <div class="product-card__cover" style="background:linear-gradient(135deg,#060e28,#0a1a40)">
+                    <img v-if="prod.image" :src="prod.image" :alt="prod.title" class="product-card__img">
+                    <div v-else class="product-card__cover-ebook" style="background:rgba(34,160,148,.15);border:1px solid rgba(34,160,148,.25)">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="#22A094" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                      <div class="product-card__cover-ebook-title">{{ prod.title }}</div>
+                    </div>
+                    <div class="product-card__type-badge"><span class="tag tag--free" style="font-size:10px">E-book</span></div>
+                  </div>
+                  <div class="product-card__body">
+                    <div class="product-card__cat">Pengetahuan Praktis</div>
+                    <div class="product-card__title">{{ prod.title }}</div>
+                    <div class="product-card__desc">{{ prod.description }}</div>
+                    <div class="product-card__meta">
+                      <div v-for="meta in prod.meta" :key="meta" class="product-card__meta-item">
+                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/></svg>
+                        {{ meta }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-card__footer">
+                    <div>
+                      <div class="product-card__price">{{ prod.price }}</div>
+                      <div class="product-card__price-note">Unduh setelah pembayaran</div>
+                    </div>
+                    <a :href="prod.link" target="_blank" class="btn btn--gold btn--sm">Lihat Detail</a>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div class="grid-3">
 
-              <div class="product-card">
-                <div class="product-card__cover" style="background:linear-gradient(135deg,#060e28,#0a1a40)">
-                  <div class="product-card__cover-ebook" style="background:rgba(34,160,148,.15);border:1px solid rgba(34,160,148,.25)">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#22A094" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-                    <div class="product-card__cover-ebook-title">Sales Playbook Banking</div>
-                  </div>
-                  <div class="product-card__type-badge"><span class="tag tag--free" style="font-size:10px">E-book</span></div>
-                </div>
-                <div class="product-card__body">
-                  <div class="product-card__cat">Sales &amp; Marketing</div>
-                  <div class="product-card__title">Sales Playbook: 30 Teknik Closing yang Berhasil di Industri Perbankan</div>
-                  <div class="product-card__desc">Kompilasi 30 teknik closing yang sudah terbukti digunakan oleh tim sales terbaik di industri perbankan nasional — langsung bisa diterapkan.</div>
-                  <div class="product-card__meta">
-                    <div class="product-card__meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>68 halaman</div>
-                    <div class="product-card__meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Format PDF</div>
-                    <div class="product-card__meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>Akses instan</div>
-                  </div>
-                </div>
-                <div class="product-card__footer">
-                  <div>
-                    <div class="product-card__price">Rp 79.000</div>
-                    <div class="product-card__price-note">Unduh setelah pembayaran</div>
-                  </div>
-                  <a href="#" class="btn btn--gold btn--sm">Lihat Detail</a>
-                </div>
+            <!-- ── TOOLKIT ── -->
+            <div v-if="productsByType.toolkit.length > 0" id="toolkit">
+              <div class="cat-section-header">
+                <div class="cat-section-header__ico" style="background:rgba(139,92,246,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
+                <h3>Toolkit &amp; Template</h3>
+                <span class="tag tag--teal">Siap Pakai</span>
               </div>
 
-              <div class="product-card">
-                <div class="product-card__cover" style="background:linear-gradient(135deg,#1a0800,#2a1000)">
-                  <div class="product-card__cover-ebook" style="background:rgba(196,146,58,.15);border:1px solid rgba(196,146,58,.25)">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#D9AA55" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-                    <div class="product-card__cover-ebook-title">Leadership Handbook</div>
+              <div class="grid-3">
+                <div v-for="prod in productsByType.toolkit" :key="prod.id" class="product-card">
+                  <div class="product-card__cover" style="background:linear-gradient(135deg,#0d0618,#160828)">
+                    <img v-if="prod.image" :src="prod.image" :alt="prod.title" class="product-card__img">
+                    <div v-else class="product-card__cover-toolkit" style="background:rgba(139,92,246,.15);border:1px solid rgba(139,92,246,.25)">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="1.5" width="28" height="28"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+                      <div class="product-card__cover-toolkit-title">{{ prod.title }}</div>
+                    </div>
+                    <div class="product-card__type-badge"><span class="tag tag--teal" style="font-size:10px">Toolkit</span></div>
                   </div>
-                  <div class="product-card__type-badge"><span class="tag tag--free" style="font-size:10px">E-book</span></div>
-                </div>
-                <div class="product-card__body">
-                  <div class="product-card__cat">Leadership</div>
-                  <div class="product-card__title">New Supervisor Handbook: Panduan Praktis 90 Hari Pertama</div>
-                  <div class="product-card__desc">Panduan langkah demi langkah untuk supervisor baru — checklist, template one-on-one, dan framework delegasi yang bisa dipakai mulai hari pertama menjabat.</div>
-                  <div class="product-card__meta">
-                    <div class="product-card__meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>52 halaman</div>
-                    <div class="product-card__meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Format PDF</div>
-                    <div class="product-card__meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>Akses instan</div>
+                  <div class="product-card__body">
+                    <div class="product-card__cat">Template Digital</div>
+                    <div class="product-card__title">{{ prod.title }}</div>
+                    <div class="product-card__desc">{{ prod.description }}</div>
+                    <div class="product-card__meta">
+                      <div v-for="meta in prod.meta" :key="meta" class="product-card__meta-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/></svg>
+                        {{ meta }}
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <div class="product-card__footer">
-                  <div>
-                    <div class="product-card__price">Rp 59.000</div>
-                    <div class="product-card__price-note">Unduh setelah pembayaran</div>
+                  <div class="product-card__footer">
+                    <div>
+                      <div class="product-card__price">{{ prod.price }}</div>
+                      <div class="product-card__price-note">Unduh setelah pembayaran</div>
+                    </div>
+                    <a :href="prod.link" target="_blank" class="btn btn--gold btn--sm">Lihat Detail</a>
                   </div>
-                  <a href="#" class="btn btn--gold btn--sm">Lihat Detail</a>
                 </div>
               </div>
-
-              <div class="product-card">
-                <div class="product-card__cover" style="background:linear-gradient(135deg,#071a12,#0d3824)">
-                  <div class="product-card__cover-ebook" style="background:rgba(26,122,110,.2);border:1px solid rgba(26,122,110,.3)">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#1A7A6E" stroke-width="1.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
-                    <div class="product-card__cover-ebook-title">LSPP Study<br>Guide</div>
-                  </div>
-                  <div class="product-card__type-badge"><span class="tag tag--free" style="font-size:10px">E-book</span></div>
-                </div>
-                <div class="product-card__body">
-                  <div class="product-card__cat">Risk &amp; Certification</div>
-                  <div class="product-card__title">LSPP Study Guide: Ringkasan Materi &amp; Strategi Ujian Level 1</div>
-                  <div class="product-card__desc">Ringkasan materi ujian LSPP Level 1 dalam format yang mudah dipahami — dilengkapi tips strategi ujian dari praktisi yang sudah lulus.</div>
-                  <div class="product-card__meta">
-                    <div class="product-card__meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>88 halaman</div>
-                    <div class="product-card__meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Format PDF</div>
-                    <div class="product-card__meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>Akses instan</div>
-                  </div>
-                </div>
-                <div class="product-card__footer">
-                  <div>
-                    <div class="product-card__price">Rp 89.000</div>
-                    <div class="product-card__price-note">Unduh setelah pembayaran</div>
-                  </div>
-                  <a href="#" class="btn btn--gold btn--sm">Lihat Detail</a>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-
-          <!-- ── TOOLKIT ── -->
-          <div id="toolkit">
-            <div class="cat-section-header">
-              <div class="cat-section-header__ico" style="background:rgba(139,92,246,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
-              <h3>Toolkit &amp; Template</h3>
-              <span class="tag tag--teal">Siap Pakai</span>
-            </div>
-
-            <div class="grid-3">
-
-              <div class="product-card">
-                <div class="product-card__cover" style="background:linear-gradient(135deg,#0d0618,#160828)">
-                  <div class="product-card__cover-toolkit" style="background:rgba(139,92,246,.15);border:1px solid rgba(139,92,246,.25)">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="1.5" width="28" height="28"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
-                    <div class="product-card__cover-toolkit-title">Sales Manager Kit</div>
-                  </div>
-                  <div class="product-card__type-badge"><span class="tag tag--teal" style="font-size:10px">Toolkit</span></div>
-                </div>
-                <div class="product-card__body">
-                  <div class="product-card__cat">Sales Management</div>
-                  <div class="product-card__title">Sales Manager Toolkit: Template Coaching &amp; Monitoring Tim</div>
-                  <div class="product-card__desc">Paket lengkap untuk manajer sales: template one-on-one, scorecard tim, pipeline tracker, dan script coaching — format Excel + Google Sheets.</div>
-                  <div class="product-card__meta">
-                    <div class="product-card__meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Excel + Google Sheets</div>
-                    <div class="product-card__meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/></svg>12 template siap pakai</div>
-                  </div>
-                </div>
-                <div class="product-card__footer">
-                  <div>
-                    <div class="product-card__price">Rp 149.000</div>
-                    <div class="product-card__price-note">Unduh setelah pembayaran</div>
-                  </div>
-                  <a href="#" class="btn btn--gold btn--sm">Lihat Detail</a>
-                </div>
-              </div>
-
-              <div class="product-card">
-                <div class="product-card__cover" style="background:linear-gradient(135deg,#1a0800,#2a1200)">
-                  <div class="product-card__cover-toolkit" style="background:rgba(196,146,58,.15);border:1px solid rgba(196,146,58,.25)">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#D9AA55" stroke-width="1.5" width="28" height="28"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/></svg>
-                    <div class="product-card__cover-toolkit-title">Leadership Toolkit</div>
-                  </div>
-                  <div class="product-card__type-badge"><span class="tag tag--gold" style="font-size:10px">Toolkit</span></div>
-                </div>
-                <div class="product-card__body">
-                  <div class="product-card__cat">Leadership</div>
-                  <div class="product-card__title">Leadership Toolkit: Framework &amp; Template untuk Pemimpin Baru</div>
-                  <div class="product-card__desc">Kumpulan framework, checklist, dan template siap pakai untuk supervisor dan manajer — dari delegasi, feedback, hingga membangun kepercayaan tim.</div>
-                  <div class="product-card__meta">
-                    <div class="product-card__meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>PDF + Canva template</div>
-                    <div class="product-card__meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/></svg>8 framework siap pakai</div>
-                  </div>
-                </div>
-                <div class="product-card__footer">
-                  <div>
-                    <div class="product-card__price">Rp 119.000</div>
-                    <div class="product-card__price-note">Unduh setelah pembayaran</div>
-                  </div>
-                  <a href="#" class="btn btn--gold btn--sm">Lihat Detail</a>
-                </div>
-              </div>
-
-              <div class="product-card">
-                <div class="product-card__cover" style="background:linear-gradient(135deg,#071a12,#0d3824)">
-                  <div class="product-card__cover-toolkit" style="background:rgba(34,160,148,.15);border:1px solid rgba(34,160,148,.25)">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#22A094" stroke-width="1.5" width="28" height="28"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
-                    <div class="product-card__cover-toolkit-title">Training Design Kit</div>
-                  </div>
-                  <div class="product-card__type-badge"><span class="tag tag--teal" style="font-size:10px">Toolkit</span></div>
-                </div>
-                <div class="product-card__body">
-                  <div class="product-card__cat">Training Design</div>
-                  <div class="product-card__title">Training Design Kit: Template Merancang Program Pelatihan yang Efektif</div>
-                  <div class="product-card__desc">Template TNA, desain kurikulum, lesson plan, dan evaluasi pembelajaran — untuk HR dan trainer yang ingin merancang program training yang terukur.</div>
-                  <div class="product-card__meta">
-                    <div class="product-card__meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Word + Excel</div>
-                    <div class="product-card__meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/></svg>10 template TNA &amp; desain</div>
-                  </div>
-                </div>
-                <div class="product-card__footer">
-                  <div>
-                    <div class="product-card__price">Rp 129.000</div>
-                    <div class="product-card__price-note">Unduh setelah pembayaran</div>
-                  </div>
-                  <a href="#" class="btn btn--gold btn--sm">Lihat Detail</a>
-                </div>
-              </div>
-
             </div>
           </div>
         </div>
@@ -332,17 +245,17 @@
               <p class="mt-12">Produk DKN adalah titik awal yang baik. Untuk pembelajaran terstruktur dengan evaluasi, pendampingan, dan sertifikat penyelesaian program yang dapat diverifikasi — lihat Program Belajar Bersertifikat kami.</p>
             </div>
             <div class="program-cta-banner__right">
-              <a href="program.html" class="btn btn--gold btn--lg">
+              <NuxtLink to="/program" class="btn btn--gold btn--lg">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
                 Lihat Program Belajar
-              </a>
+              </NuxtLink>
               <div class="program-cta-banner__note">
                 <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="2"><path d="M9 11l3 3L22 4"/></svg>
                 Sertifikat penyelesaian · Evaluasi pembelajaran · Akses LMS
               </div>
-              <a href="webinar.html" class="btn btn--ghost-w btn--md" style="margin-top:2px">
+              <NuxtLink to="/webinar" class="btn btn--ghost-w btn--md" style="margin-top:2px">
                 Atau mulai dari webinar gratis →
-              </a>
+              </NuxtLink>
             </div>
           </div>
         </div>
@@ -354,29 +267,38 @@
   </div>
 </template>
 
-<script setup lang="ts">
-useSeoMeta({
-  title: 'Produk - DKN Indonesia',
-  description: 'Produk DKN Digital untuk membantu pengembangan soft skill dan kepemimpinan',
-});
-
-const submitted = ref(false);
-
-const handleSubmit = () => {
-  // Logic for form submission would go here
-  submitted.value = true;
-};
-
-useHead({
-  htmlAttrs: {
-    lang: "id",
-  },
-});
-</script>
 
 <style scoped>
 /* ── PROGRAM PAGE SPECIFIC ─── */
+.product-card__img, .product-featured__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 20px;
+}
+.product-featured__img-wrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border);
+  border-top-color: var(--gold2);
+  border-radius: 50%;
+  margin: 0 auto;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
 /* PAGE HERO */
+
 .page-hero {
   background: var(--midnight);
   padding: 100px 24px 80px;

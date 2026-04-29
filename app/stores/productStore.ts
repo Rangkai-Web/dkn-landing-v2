@@ -8,6 +8,15 @@ export interface IProduct {
   image: string;
   link: string;
   price: string;
+  // Extra fields for UI with dummy data
+  type: 'buku' | 'ebook' | 'toolkit';
+  meta: string[];
+  author?: {
+    name: string;
+    role: string;
+    initials: string;
+  };
+  isFeatured?: boolean;
 }
 
 export const useProductStore = defineStore("product", () => {
@@ -17,6 +26,39 @@ export const useProductStore = defineStore("product", () => {
   const error = ref<string | null>(null);
   const currentPage = ref(1);
   const perPage = 8;
+
+  // Helper to get dummy data based on title/id
+  const getDummyExtras = (item: any): Partial<IProduct> => {
+    const title = item.title.toLowerCase();
+    
+    // Logic to guess type
+    let type: IProduct['type'] = 'ebook';
+    if (title.includes('notion') || title.includes('template') || title.includes('toolkit')) {
+      type = 'toolkit';
+    } else if (title.includes('buku') || title.includes('hardcover')) {
+      type = 'buku';
+    }
+
+    // Dummy meta based on type
+    let meta: string[] = [];
+    if (type === 'ebook') meta = ['60+ Halaman', 'Format PDF', 'Akses Instan'];
+    if (type === 'toolkit') meta = ['Siap Pakai', 'Template Digital', 'Akses Selamanya'];
+    if (type === 'buku') meta = ['200+ Halaman', 'Fisik & Digital', 'Gratis Ongkir'];
+
+    // Dummy author
+    const authors = [
+      { name: 'Siti Rahayu, S.E., MM', role: 'Senior Trainer', initials: 'SR' },
+      { name: 'Rehan Prabowo, S.Psi., MBA.', role: 'Digital Strategist', initials: 'AP' },
+    ];
+    const author = authors[item.id % authors.length];
+
+    return {
+      type,
+      meta,
+      author,
+      isFeatured: item.id === 36, // Let's make id 36 featured for now
+    };
+  };
 
   // Actions
   const fetchProducts = async () => {
@@ -31,21 +73,20 @@ export const useProductStore = defineStore("product", () => {
         baseURL: baseUrl,
       });
 
-      if (data) {
-        products.value = data?.data?.map((item: any) => ({
+      if (data && data.data) {
+        products.value = data.data.map((item: any) => ({
           id: item.id,
           title: item.title,
           description: item.description,
-          image: item.image, // Map API image field
+          image: item.image,
           link: item.link,
           price: item.price,
+          ...getDummyExtras(item)
         }));
       }
     } catch (err: any) {
       console.error("Failed to fetch products:", err);
       error.value = err.message || "Gagal mengambil data produk";
-
-      // Fallback dummy data for development
       products.value = [];
     } finally {
       isLoading.value = false;
@@ -53,48 +94,25 @@ export const useProductStore = defineStore("product", () => {
   };
 
   // Getters
-  const totalProducts = computed(() => products.value.length);
-  const totalPages = computed(() => Math.ceil(totalProducts.value / perPage));
-
-  const paginatedProducts = computed(() => {
-    const start = (currentPage.value - 1) * perPage;
-    return products.value.slice(start, start + perPage);
+  const productsByType = computed(() => {
+    return {
+      buku: products.value.filter(p => p.type === 'buku'),
+      ebook: products.value.filter(p => p.type === 'ebook'),
+      toolkit: products.value.filter(p => p.type === 'toolkit'),
+    };
   });
 
-  // Actions
-  const goToPage = (page: number) => {
-    if (page >= 1 && page <= totalPages.value) {
-      currentPage.value = page;
-    }
-  };
-
-  const nextPage = () => {
-    if (currentPage.value < totalPages.value) {
-      currentPage.value++;
-    }
-  };
-
-  const prevPage = () => {
-    if (currentPage.value > 1) {
-      currentPage.value--;
-    }
-  };
+  const featuredProduct = computed(() => products.value.find(p => p.isFeatured));
 
   return {
-    // State
     products,
     isLoading,
     error,
     currentPage,
     perPage,
-    // Getters
-    totalProducts,
-    totalPages,
-    paginatedProducts,
-    // Actions
+    productsByType,
+    featuredProduct,
     fetchProducts,
-    goToPage,
-    nextPage,
-    prevPage,
   };
 });
+
