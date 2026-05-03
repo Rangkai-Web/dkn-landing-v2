@@ -233,58 +233,60 @@
           <h2 class="sec-h">Program Training yang Tersedia</h2>
           <p class="sec-sub">Temukan program yang paling relevan dengan kebutuhan pengembangan Anda atau organisasi Anda.</p>
 
-          <div class="mt-48" style="display:flex;flex-direction:column;gap:14px">
+          <div v-if="!trainingLoading && allTrainingsData.length === 0" class="mt-48" style="text-align:center; padding: 40px 0; color: var(--slate); font-size: 14px;">
+            Belum ada training data
+          </div>
 
-            <div class="katalog-card">
-              <div class="katalog-card__ico" style="background:rgba(34,160,148,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#22A094" stroke-width="2" width="22" height="22" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-              <div class="katalog-card__info">
-                <div class="katalog-card__cat">Sales &amp; Marketing</div>
-                <div class="katalog-card__title">Sales Mastery for Banking Professionals</div>
-                <div class="katalog-card__desc">Teknik sales terstruktur dari prospecting hingga closing — konteks industri perbankan dan keuangan.</div>
+          <div v-if="trainingLoading && allTrainingsData.length === 0" class="mt-48" style="text-align:center; padding: 40px 0;">
+            <div class="spinner"></div>
+            <p class="mt-16" style="color: var(--slate); font-size: 14px;">Memuat katalog training...</p>
+          </div>
+
+          <div v-else class="mt-48" style="display:flex;flex-direction:column;gap:14px">
+            <div v-for="item in trainings" :key="item.id" class="katalog-card">
+              <div class="katalog-card__ico" :style="{ background: getCategoryStyles(item.category).bg }">
+                <template v-if="getCategoryStyles(item.category).type === 'pulse'">
+                  <svg viewBox="0 0 24 24" fill="none" :stroke="getCategoryStyles(item.category).color" stroke-width="2" width="22" height="22" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                </template>
+                <template v-else-if="getCategoryStyles(item.category).type === 'user'">
+                  <svg viewBox="0 0 24 24" fill="none" :stroke="getCategoryStyles(item.category).color" stroke-width="2" width="22" height="22" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                </template>
+                <template v-else-if="getCategoryStyles(item.category).type === 'check'">
+                  <svg viewBox="0 0 24 24" fill="none" :stroke="getCategoryStyles(item.category).color" stroke-width="2" width="22" height="22" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+                </template>
+                <template v-else-if="getCategoryStyles(item.category).type === 'trend'">
+                  <svg viewBox="0 0 24 24" fill="none" :stroke="getCategoryStyles(item.category).color" stroke-width="2" width="22" height="22" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>
+                </template>
+                <template v-else-if="getCategoryStyles(item.category).type === 'megaphone'">
+                  <svg viewBox="0 0 24 24" fill="none" :stroke="getCategoryStyles(item.category).color" stroke-width="2" width="22" height="22" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg>
+                </template>
+                <template v-else>
+                  <svg viewBox="0 0 24 24" fill="none" :stroke="getCategoryStyles(item.category).color" stroke-width="2" width="22" height="22" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+                </template>
               </div>
-              <div class="katalog-card__cta"><NuxtLink to="/program" class="btn btn--outline-teal btn--sm">Lihat Detail →</NuxtLink></div>
+              <div class="katalog-card__info">
+                <div class="katalog-card__cat">{{ item.category }}</div>
+                <div class="katalog-card__title">{{ item.title }}</div>
+                <div class="katalog-card__desc">{{ item.description }}</div>
+              </div>
+              <div class="katalog-card__cta">
+                <NuxtLink :to="`/program?id=${item.id}`" class="btn btn--outline-teal btn--sm">Lihat Detail →</NuxtLink>
+              </div>
             </div>
 
-            <div class="katalog-card">
-              <div class="katalog-card__ico" style="background:rgba(196,146,58,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#C4923A" stroke-width="2" width="22" height="22" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
-              <div class="katalog-card__info">
-                <div class="katalog-card__cat">Leadership</div>
-                <div class="katalog-card__title">Leadership for New Supervisors</div>
-                <div class="katalog-card__desc">Framework kepemimpinan praktis untuk 90 hari pertama sebagai supervisor baru.</div>
-              </div>
-              <div class="katalog-card__cta"><NuxtLink to="/program" class="btn btn--outline-teal btn--sm">Lihat Detail →</NuxtLink></div>
+            <!-- Load More Button -->
+            <div v-if="hasMore" class="mt-32" style="text-align:center">
+              <button @click="loadMore" class="btn btn--outline-dark btn--lg" :disabled="isLoadingMore" style="min-width: 200px; display: inline-flex; align-items: center; justify-content: center; gap: 10px;">
+                <template v-if="isLoadingMore">
+                  <div class="btn-loader"></div>
+                  Memuat...
+                </template>
+                <template v-else>
+                  Lihat Lebih Banyak
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18" aria-hidden="true"><path d="M19 9l-7 7-7-7"/></svg>
+                </template>
+              </button>
             </div>
-
-            <div class="katalog-card">
-              <div class="katalog-card__ico" style="background:rgba(55,138,221,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#378ADD" stroke-width="2" width="22" height="22" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
-              <div class="katalog-card__info">
-                <div class="katalog-card__cat">Risk &amp; Certification</div>
-                <div class="katalog-card__title">Persiapan Sertifikasi LSPP Manajemen Risiko Level 1 &amp; 2</div>
-                <div class="katalog-card__desc">600+ soal latihan, simulasi ujian penuh, dan strategi dari praktisi berpengalaman.</div>
-              </div>
-              <div class="katalog-card__cta"><NuxtLink to="/program" class="btn btn--outline-teal btn--sm">Lihat Detail →</NuxtLink></div>
-            </div>
-
-            <div class="katalog-card">
-              <div class="katalog-card__ico" style="background:rgba(139,92,246,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" width="22" height="22" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg></div>
-              <div class="katalog-card__info">
-                <div class="katalog-card__cat">Service Excellence</div>
-                <div class="katalog-card__title">Service Excellence &amp; Komunikasi Profesional</div>
-                <div class="katalog-card__desc">Standar layanan prima dan komunikasi efektif untuk frontliner perbankan — segera tersedia.</div>
-              </div>
-              <div class="katalog-card__cta"><span class="tag tag--teal" style="padding:8px 14px">Segera Hadir</span></div>
-            </div>
-
-            <div class="katalog-card">
-              <div class="katalog-card__ico" style="background:rgba(26,122,110,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#1A7A6E" stroke-width="2" width="22" height="22" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
-              <div class="katalog-card__info">
-                <div class="katalog-card__cat">Corporate Training</div>
-                <div class="katalog-card__title">Corporate Training In-House (Custom)</div>
-                <div class="katalog-card__desc">Program dikustomisasi penuh untuk kebutuhan spesifik tim dan industri Anda — hubungi tim DKN untuk proposal.</div>
-              </div>
-              <div class="katalog-card__cta"><NuxtLink to="/contact" class="btn btn--outline-teal btn--sm">Minta Proposal →</NuxtLink></div>
-            </div>
-
           </div>
         </div>
       </section>
@@ -322,10 +324,44 @@
 </template>
 
 <script setup lang="ts">
+import { useTrainingStore } from '~/stores/trainingStore';
+import { storeToRefs } from 'pinia';
+
 useSeoMeta({
   title: 'Resources - DKN Indonesia',
   description: 'Resources DKN Digital',
 });
+
+// Trainings Store Logic
+const trainingStore = useTrainingStore();
+const { trainings: allTrainingsData, isLoading: trainingLoading } = storeToRefs(trainingStore);
+
+// Trigger fetch
+trainingStore.fetchTrainings();
+
+const displayLimit = ref(10);
+const isLoadingMore = ref(false);
+
+const trainings = computed(() => allTrainingsData.value.slice(0, displayLimit.value));
+const hasMore = computed(() => allTrainingsData.value.length > displayLimit.value);
+
+const loadMore = async () => {
+  isLoadingMore.value = true;
+  // Artificial delay to show loading state as requested
+  await new Promise(resolve => setTimeout(resolve, 800));
+  displayLimit.value += 10;
+  isLoadingMore.value = false;
+};
+
+const getCategoryStyles = (category: string) => {
+  const cat = category ? category.toLowerCase() : '';
+  if (cat.includes('banking')) return { bg: 'rgba(34, 160, 148, 0.1)', color: '#22A094', type: 'pulse' };
+  if (cat.includes('leadership')) return { bg: 'rgba(196, 146, 58, 0.1)', color: '#C4923A', type: 'user' };
+  if (cat.includes('finance') || cat.includes('risk')) return { bg: 'rgba(55, 138, 221, 0.1)', color: '#378ADD', type: 'check' };
+  if (cat.includes('strategy') || cat.includes('business')) return { bg: 'rgba(139, 92, 246, 0.1)', color: '#8B5CF6', type: 'trend' };
+  if (cat.includes('marketing') || cat.includes('sales')) return { bg: 'rgba(226, 75, 74, 0.1)', color: '#D63F3E', type: 'megaphone' };
+  return { bg: 'rgba(26, 122, 110, 0.1)', color: '#1A7A6E', type: 'default' };
+};
 
 const submitted = ref(false);
 
@@ -528,5 +564,32 @@ useHead({
     flex-direction: column;
     align-items: flex-start;
   }
+}
+
+/* Loading States */
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(34, 160, 148, 0.1);
+  border-top: 3px solid var(--teal);
+  border-radius: 50%;
+  margin: 0 auto;
+  animation: spin 1s linear infinite;
+}
+
+.btn-loader {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
 </style>

@@ -1,101 +1,49 @@
 import { defineStore } from "pinia";
-import { ref, computed } from "vue";
+import { ref } from "vue";
 
-export interface ICourse {
+export interface ITraining {
   id: number;
   title: string;
   description: string;
   image: string;
-  // link: string;
   category: string;
 }
 
 export const useTrainingStore = defineStore("training", () => {
   // State
-  // const activeTab = ref("Core Banking");
-  const courses = ref<ICourse[]>([]);
-  const isLoading = ref(true);
+  const trainings = ref<ITraining[]>([]);
+  const isLoading = ref(false);
   const error = ref<string | null>(null);
 
-  // Getters
-  const categories = computed(() => {
-    const cats = [...new Set(courses.value.map((c) => c.category))];
-    return cats;
-  });
-
-  const filteredCourses = computed(() => {
-    return courses.value.filter((c) => c.category === activeTab.value);
-  });
-
-  const activeCourseCount = computed(() => filteredCourses.value.length);
-
-  const activeTab = ref(categories.value[0]);
-
   // Actions
-  const setActiveTab = (tab: string) => {
-    activeTab.value = tab;
-  };
-
   const fetchTrainings = async () => {
+    // Only fetch if we don't have data yet to avoid redundant calls
+    if (trainings.value.length > 0) return;
+    
     isLoading.value = true;
     error.value = null;
 
     try {
       const config = useRuntimeConfig();
-      const baseUrl = config.public.apiBaseUrl;
-
       const data = await $fetch<any>("trainings", {
-        baseURL: baseUrl,
+        baseURL: config.public.apiBaseUrl
       });
 
-      if (data) {
-        courses.value = data?.data?.map((item: any) => ({
-          id: item.id,
-          title: item.title,
-          description: item.description,
-          image: item.image, // Map API image field
-          // link: item.link || "https://elearning.dkn.digital/login/index.php",
-          category: item.category,
-        }));
-
-        // Maintenance: If activeTab is empty or not in current categories, select the first one
-        if (
-          categories.value.length > 0 &&
-          (!activeTab.value || !categories.value.includes(activeTab.value))
-        ) {
-          const firstCategory = categories.value[0];
-          if (firstCategory) {
-            activeTab.value = firstCategory;
-          }
-        }
+      if (data && data.status === "success" && data.data) {
+        trainings.value = data.data;
       }
     } catch (err: any) {
       console.error("Failed to fetch trainings:", err);
-      error.value = err.message || "Gagal mengambil data pelatihan";
-
-      // Fallback dummy data for development
-      courses.value = [];
-
-      if (!activeTab.value || !categories.value.includes(activeTab.value)) {
-        activeTab.value = "Core Banking";
-      }
+      error.value = err.message || "Gagal mengambil data training";
     } finally {
       isLoading.value = false;
     }
   };
 
   return {
-    // State
-    activeTab,
-    courses,
+    trainings,
     isLoading,
     error,
-    // Getters
-    categories,
-    filteredCourses,
-    activeCourseCount,
-    // Actions
-    setActiveTab,
     fetchTrainings,
   };
 });
