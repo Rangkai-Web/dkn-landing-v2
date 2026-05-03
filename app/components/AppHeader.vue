@@ -33,16 +33,18 @@
           <div
             class="text-[13px] md:text-[14px] font-bold tracking-[0.3px] text-white"
           >
-            <span class="text-teal-secondary">{{
-              profile?.site_name?.split(" ")[0] || "DKN"
-            }}</span>
-            {{ profile?.site_name?.split(" ")[1] || "Indonesia" }}
+            <span class="text-teal-secondary">
+              {{
+                profile?.site_name.split(" ").slice(0, 3).join(" ") || ""
+              }}
+            </span>
+            {{ profile?.site_name.split(" ")[3] || "" }}
           </div>
-          <div
+          <!-- <div
             class="hidden md:block mt-px text-[10px] tracking-[0.4px] text-white/30"
           >
             PT Dayaguna Kompetensi Nusantara
-          </div>
+          </div> -->
         </div>
       </NuxtLink>
     </div>
@@ -62,7 +64,7 @@
     <!-- Right Actions -->
     <div class="flex items-center gap-2.5">
       <NuxtLink
-        to="/webinar"
+        to="/webinar#rekaman"
         class="hidden md:inline-flex items-center rounded-md border border-white/12 bg-white/7 px-[18px] py-2 text-[13px] font-medium text-white/75 no-underline transition-all hover:bg-white/13"
       >
         Webinar Gratis
@@ -95,7 +97,7 @@
           </NuxtLink>
           <div class="my-4 h-px bg-white/10" />
           <NuxtLink
-            to="/webinar"
+            to="/webinar#rekaman"
             class="flex items-center justify-center rounded-xl bg-teal-secondary py-4 text-center font-bold text-white shadow-lg shadow-teal-secondary/20"
             @click="closeMenu"
           >
@@ -149,9 +151,9 @@ onMounted(() => {
 });
 
 const navLinks = [
-  { label: "Webinar", href: "/webinar" },
-  { label: "Program Belajar", href: "/program" },
-  { label: "Layanan Corporate", href: "/" },
+  { label: "Webinar", href: "/webinar#live" },
+  { label: "Program Belajar Bersertifikat", href: "/program" },
+  { label: "Layanan", href: "/#layanan" },
   // { label: "Tentang DKN", href: "/#tentang" },
   { label: "Resources", href: "/resources" },
   { label: "Produk", href: "/produk" },

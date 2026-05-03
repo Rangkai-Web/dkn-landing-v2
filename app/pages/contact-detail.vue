@@ -91,7 +91,7 @@
               <template v-for="social in profile?.social_media" :key="social.platform">
                 <a :href="social.url" class="social-link-card" target="_blank" rel="noopener noreferrer" :aria-label="`Ikuti kami di ${social.platform}`">
                   <div class="social-link-card__ico" :style="`background:${social.url.includes('linkedin') ? '#0A66C2' : social.url.includes('instagram') ? 'linear-gradient(135deg,#F58529,#DD2A7B,#8134AF)' : social.url.includes('youtube') ? '#FF0000' : social.url.includes('threads') ? '#000' : social.url.includes('facebook') ? '#0A66C2' : '#0A66C2'}`">
-                    <Icon :name="social.icon" size="24" color="white" aria-hidden="true" />
+                    <Icon :name="social.icon" size="24" color="white" aria-hidden="true" style="color: #fff;" />
                   </div>
                   <div>
                     <h4>{{

@@ -9,42 +9,25 @@
       >
         <div class="ft-brand">
           <NuxtLink to="/" class="flex items-center gap-3 no-underline">
-            <!-- <div
-              class="flex h-9 w-9 items-center justify-center rounded-lg bg-linear-to-br from-teal-secondary to-gold-primary"
-            >
-              <svg viewBox="0 0 18 18" fill="none" class="h-[18px] w-[18px]">
-                <path
-                  d="M3 9a6 6 0 0 1 12 0"
-                  stroke="white"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                />
-                <path
-                  d="M6 12a3 3 0 0 1 6 0"
-                  stroke="white"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                />
-                <circle cx="9" cy="7" r="1.5" fill="white" />
-              </svg>
-            </div> -->
             <NuxtImg
               :src="profile?.logo_url || '/logo/dkn-logo.webp'"
               alt="Logo DKN"
               width="48"
               height="48"
-              class="w-12 h-12 rounded-xl"
+              class="w-12 h-12 rounded-full"
             />
             <div>
               <div class="text-[14px] font-bold tracking-[0.3px] text-white">
-                <span class="text-teal-secondary">{{
-                  profile?.site_name.split(" ")[0] || "DKN"
-                }}</span>
-                {{ profile?.site_name.split(" ")[1] || "Indonesia" }}
+                <span class="text-teal-secondary">
+                  {{
+                    profile?.site_name.split(" ").slice(0, 3).join(" ") || ""
+                  }}
+                </span>
+                {{ profile?.site_name.split(" ")[3] || "" }}
               </div>
-              <div class="mt-px text-[10px] tracking-[0.4px] text-white/30">
+              <!-- <div class="mt-px text-[10px] tracking-[0.4px] text-white/30">
                 PT Dayaguna Kompetensi Nusantara
-              </div>
+              </div> -->
             </div>
           </NuxtLink>
           <p class="mb-5 mt-3.5 text-[13px] leading-relaxed text-white/36">
