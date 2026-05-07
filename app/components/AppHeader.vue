@@ -50,7 +50,7 @@
     </div>
 
     <!-- Desktop Nav Links -->
-    <div class="hidden gap-7 xl:flex">
+    <div class="hidden gap-2.5 xl:flex">
       <NuxtLink
         v-for="link in navLinks"
         :key="link.href"
