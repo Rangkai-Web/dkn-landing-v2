@@ -3,236 +3,338 @@
     <AppHeader />
 
     <main>
-      <!-- PAGE HERO -->
+      <!-- HERO -->
       <section class="page-hero">
-        <div class="page-hero__glow"></div>
-        <div class="page-hero__grid"></div>
-        <div class="page-hero__inner">
-          <div class="chip chip--teal"><div class="chip__dot"></div>Konsultasi B2B</div>
-          <h1 class="sec-h sec-h--lg sec-h--white">Konsultasi Corporate DKN</h1>
-          <p class="sec-sub sec-sub--white mt-16">
-            Diskusikan kebutuhan pengembangan kompetensi organisasi Anda bersama tim konsultan DKN.
-            Tidak ada komitmen — hanya percakapan yang bermakna.
-          </p>
+        <div class="ph-grid"></div>
+        <div class="ph-glow"></div>
+        <div class="ph-inner">
+          <div class="pill"><div class="pill-dot"></div>Respons dalam 1 Hari Kerja</div>
+          <h1 class="ph-h">Konsultasi Corporate<br><em>dengan Tim DKN</em></h1>
+          <p class="ph-sub">Ceritakan kebutuhan pengembangan SDM organisasi Anda. Tim konsultan senior DKN akan merespons dalam satu hari kerja dengan proposal yang relevan.</p>
+          <div class="ph-channels">
+            <div class="ch-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>Form Online</div>
+            <div class="ch-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>WhatsApp Direct</div>
+            <div class="ch-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Email</div>
+          </div>
         </div>
       </section>
 
+      <!-- MAIN LAYOUT -->
+      <div class="contact-layout">
 
-      <!-- MAIN CONTACT SECTION -->
-      <section class="section bg--mist">
-        <div class="wrap">
-          <div class="contact-layout">
+        <!-- FORM -->
+        <div class="form-section">
+          <h2>Ceritakan Kebutuhan <em>Organisasi Anda</em></h2>
+          <p>Isi form di bawah ini dan tim DKN akan menghubungi Anda dalam 1 hari kerja dengan proposal awal yang relevan — tidak ada komitmen apapun di tahap ini.</p>
 
-            <!-- FORM CARD -->
-            <div class="contact-form-card">
-              <h2>Kirim Permintaan Konsultasi</h2>
-              <p>Isi formulir di bawah ini dan tim DKN akan menghubungi Anda dalam 1×24 jam kerja untuk mendiskusikan kebutuhan pelatihan organisasi Anda.</p>
+          <div class="form-card">
+            <div class="form-row">
 
-              <!--
-                DEVELOPER NOTE:
-                - action=""  → sesuaikan ke endpoint backend / form handler
-                - method="POST"
-                - Add CSRF token if using server-side rendering
-                - Consider: Formspree, EmailJS, or custom API endpoint
-              -->
-              <form v-if="!submitted" class="form-grid" id="consultForm" @submit.prevent="handleSubmit">
+              <div class="form-section-title">Informasi Kontak Anda</div>
 
-                <div class="form-row-2">
-                  <div class="form-group">
-                    <label class="form-label" for="nama">Nama Lengkap <span style="color:#E24B4A">*</span></label>
-                    <input class="form-control" type="text" id="nama" name="nama" placeholder="Nama Anda" required autocomplete="name">
-                  </div>
-                  <div class="form-group">
-                    <label class="form-label" for="perusahaan">Nama Perusahaan <span style="color:#E24B4A">*</span></label>
-                    <input class="form-control" type="text" id="perusahaan" name="perusahaan" placeholder="PT / CV / Bank ..." required autocomplete="organization">
-                  </div>
-                </div>
-
-                <div class="form-row-2">
-                  <div class="form-group">
-                    <label class="form-label" for="email">Email Bisnis <span style="color:#E24B4A">*</span></label>
-                    <input class="form-control" type="email" id="email" name="email" placeholder="nama@perusahaan.com" required autocomplete="email">
-                  </div>
-                  <div class="form-group">
-                    <label class="form-label" for="wa">Nomor WhatsApp <span style="color:#E24B4A">*</span></label>
-                    <input class="form-control" type="tel" id="wa" name="whatsapp" placeholder="+62 812 XXXX XXXX" required autocomplete="tel">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="form-label" for="jabatan">Jabatan / Posisi</label>
-                  <input class="form-control" type="text" id="jabatan" name="jabatan" placeholder="Contoh: HR Manager, Training Manager, Direktur HRD">
-                </div>
-
-                <div class="form-group">
-                  <label class="form-label" for="layanan">Layanan yang Diminati</label>
-                  <select class="form-control form-control--select" id="layanan" name="layanan">
-                    <option value="">— Pilih layanan —</option>
-                    <option value="corporate-training">Corporate Training (In-house)</option>
-                    <option value="advisory">Advisory &amp; Strategic Consulting</option>
-                    <option value="digital-learning">Digital Learning / LMS Enterprise</option>
-                    <option value="certification">Certification Programs</option>
-                    <option value="assessment">Assessment Center</option>
-                    <option value="lainnya">Lainnya / Gabungan</option>
-                  </select>
-                </div>
-
-                <div class="form-group">
-                  <label class="form-label" for="kebutuhan">Kebutuhan Training <span style="color:#E24B4A">*</span></label>
-                  <textarea class="form-control form-control--textarea" id="kebutuhan" name="kebutuhan"
-                    placeholder="Ceritakan singkat tentang kebutuhan pengembangan SDM organisasi Anda: topik yang ingin dibahas, jumlah peserta, urgency, atau tantangan spesifik yang dihadapi..." required></textarea>
-                </div>
-
-                <div>
-                  <button type="submit" class="btn btn--gold btn--lg btn--block text-mist" style="margin-bottom:10px">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-                    Kirim Permintaan Konsultasi
-                  </button>
-                  <div class="form-submit-note">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                    Informasi Anda bersifat rahasia. Tim DKN akan menghubungi dalam 1×24 jam kerja.
-                  </div>
-                </div>
-
-              </form>
-
-              <!-- Success state (shown after submit via JS) -->
-              <div v-if="submitted" class="form-success" id="formSuccess" style="display: block;">
-                <svg viewBox="0 0 24 24" fill="none" stroke="var(--teal2)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                <h3>Permintaan Terkirim!</h3>
-                <p>Terima kasih. Tim konsultan DKN akan menghubungi Anda melalui WhatsApp atau email dalam 1×24 jam kerja untuk mendiskusikan kebutuhan pelatihan Anda.</p>
+              <div class="fg">
+                <label class="flbl">Nama Lengkap <span>*</span></label>
+                <input class="finput" type="text" placeholder="Nama lengkap Anda">
               </div>
+              <div class="fg">
+                <label class="flbl">Jabatan / Posisi <span>*</span></label>
+                <input class="finput" type="text" placeholder="Jabatan Anda saat ini">
+              </div>
+              <div class="fg">
+                <label class="flbl">Nomor WhatsApp <span>*</span></label>
+                <input class="finput" type="tel" placeholder="+62 ...">
+              </div>
+              <div class="fg">
+                <label class="flbl">Email Kantor</label>
+                <input class="finput" type="email" placeholder="email@perusahaan.com">
+              </div>
+
+              <div class="form-section-title">Informasi Organisasi</div>
+
+              <div class="fg">
+                <label class="flbl">Nama Perusahaan / Institusi <span>*</span></label>
+                <input class="finput" type="text" placeholder="PT / Lembaga / Bank ...">
+              </div>
+              <div class="fg">
+                <label class="flbl">Jenis Organisasi <span>*</span></label>
+                <select class="finput fselect">
+                  <option value="">Pilih jenis organisasi...</option>
+                  <option>Bank Umum (BUMN)</option>
+                  <option>Bank Pembangunan Daerah (BPD)</option>
+                  <option>Bank Perkreditan Rakyat (BPR / BPR Syariah)</option>
+                  <option>Bank Swasta Nasional</option>
+                  <option>Perusahaan Multifinance / Leasing</option>
+                  <option>Perusahaan Asuransi</option>
+                  <option>BUMN Non-Bank</option>
+                  <option>Perusahaan Swasta (Non-Bank)</option>
+                  <option>Instansi Pemerintah / Dinas</option>
+                  <option>Universitas / Lembaga Pendidikan</option>
+                  <option>Lainnya</option>
+                </select>
+              </div>
+              <div class="fg">
+                <label class="flbl">Estimasi Jumlah Peserta</label>
+                <select class="finput fselect">
+                  <option value="">Pilih estimasi peserta...</option>
+                  <option>Kurang dari 15 orang</option>
+                  <option>15–30 orang</option>
+                  <option>30–60 orang</option>
+                  <option>60–100 orang</option>
+                  <option>Lebih dari 100 orang</option>
+                  <option>Belum ditentukan</option>
+                </select>
+              </div>
+              <div class="fg">
+                <label class="flbl">Target Level Peserta</label>
+                <select class="finput fselect">
+                  <option value="">Pilih level peserta...</option>
+                  <option>Staff / Officer</option>
+                  <option>Supervisor / Team Leader</option>
+                  <option>Manager / Assistant Manager</option>
+                  <option>Senior Manager / AVP</option>
+                  <option>VP / Director</option>
+                  <option>Mixed / Lintas Level</option>
+                </select>
+              </div>
+
+              <div class="form-section-title">Kebutuhan Pelatihan</div>
+
+              <div class="fg fg-full">
+                <label class="flbl">Layanan yang Dibutuhkan <span>*</span></label>
+                <select class="finput fselect">
+                  <option value="">Pilih jenis layanan...</option>
+                  <option>Corporate Training In-House (Program Standar DKN)</option>
+                  <option>Corporate Training Customized (Desain dari Nol)</option>
+                  <option>Advisory &amp; Konsultasi Strategis SDM</option>
+                  <option>Assessment Center</option>
+                  <option>Training Needs Analysis (TNA)</option>
+                  <option>Sertifikasi BNSP (LSP SIK)</option>
+                  <option>Webinar Korporat (Online)</option>
+                  <option>Tidak yakin — mohon bantu rekomendasikan</option>
+                </select>
+              </div>
+
+              <div class="fg fg-full">
+                <label class="flbl">Topik / Area yang Ingin Dibahas</label>
+                <select class="finput fselect">
+                  <option value="">Pilih topik prioritas...</option>
+                  <option>Leadership &amp; Management</option>
+                  <option>Sales &amp; Marketing (termasuk Smart Selling with AI)</option>
+                  <option>Banking Strategy &amp; Credit</option>
+                  <option>Risk Management</option>
+                  <option>Soft Skills (SKKNI)</option>
+                  <option>Service Excellence</option>
+                  <option>Collection &amp; Recovery</option>
+                  <option>Corporate Finance &amp; Strategy</option>
+                  <option>AI Productivity untuk Perbankan</option>
+                  <option>Program Signature DKN (Integrated Banking / Ecosystem / Funding)</option>
+                  <option>Lainnya / Tidak yakin</option>
+                </select>
+              </div>
+
+              <div class="fg fg-full">
+                <label class="flbl">Ceritakan Tantangan atau Kebutuhan Spesifik Anda</label>
+                <textarea class="finput ftextarea" placeholder="Contoh: Tim RM kami kesulitan cross-selling produk DPK kepada nasabah kredit. Kami butuh program 1-2 hari yang bisa langsung diterapkan dengan hasil terukur dalam 90 hari ke depan..."></textarea>
+              </div>
+
+              <div class="fg">
+                <label class="flbl">Estimasi Waktu Pelaksanaan</label>
+                <select class="finput fselect">
+                  <option value="">Pilih estimasi waktu...</option>
+                  <option>1–2 minggu ke depan (Segera)</option>
+                  <option>1 bulan ke depan</option>
+                  <option>2–3 bulan ke depan</option>
+                  <option>3–6 bulan ke depan</option>
+                  <option>Masih eksplorasi / belum pasti</option>
+                </select>
+              </div>
+              <div class="fg">
+                <label class="flbl">Lokasi Pelaksanaan (jika offline)</label>
+                <input class="finput" type="text" placeholder="Kota / Provinsi">
+              </div>
+
+              <div class="checkbox-row">
+                <input class="finput-check" type="checkbox" id="agree" checked>
+                <label for="agree">Saya setuju untuk dihubungi oleh tim DKN melalui WhatsApp atau email untuk diskusi lebih lanjut mengenai kebutuhan pelatihan yang disampaikan.</label>
+              </div>
+
+              <button class="btn-submit">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                Kirim — Tim DKN akan Merespons dalam 1 Hari Kerja
+              </button>
+
+              <div class="form-note">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--slate)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                Konsultasi awal gratis · Tanpa komitmen · Data Anda aman
+              </div>
+
             </div>
+          </div>
+        </div>
 
+        <!-- SIDEBAR -->
+        <div class="sidebar">
 
-            <!-- SIDEBAR -->
-            <div class="contact-sidebar">
-
-              <!-- Contact Info -->
-              <div class="contact-info-card">
-                <h3>Hubungi Kami Langsung</h3>
-                <div class="contact-info-items">
-                  <div class="contact-info-item">
-                    <div class="ci-ico"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.6)" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
-                    <div>
-                      <div class="ci-label">WhatsApp</div>
-                      <div class="ci-value"><a :href="`https://wa.me/${profile?.contact?.whatsapp_number}`" target="_blank" rel="noopener">+{{ profile?.contact?.whatsapp_number }}</a></div>
-                    </div>
-                  </div>
-                  <div class="contact-info-item">
-                    <div class="ci-ico"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.6)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-                    <div>
-                      <div class="ci-label">Email</div>
-                      <div class="ci-value"><a :href="`mailto:${profile?.contact?.email}`">{{ profile?.contact?.email }}</a></div>
-                    </div>
-                  </div>
-                  <div class="contact-info-item">
-                    <div class="ci-ico"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.6)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-                    <div>
-                      <div class="ci-label">Kantor</div>
-                      <div class="ci-value">{{ profile?.contact?.address }}</div>
-                    </div>
-                  </div>
-                  <div class="contact-info-item">
-                    <div class="ci-ico"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.6)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
-                    <div>
-                      <div class="ci-label">Jam Operasional</div>
-                      <div class="ci-value">Senin – Jumat, 08.00 – 17.00 WIB</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- WA Quick CTA -->
-              <a class="wa-cta-card" :href="`https://wa.me/${profile?.contact?.whatsapp_number}?text=Halo%20DKN%2C%20saya%20ingin%20berkonsultasi%20tentang%20kebutuhan%20training%20perusahaan%20kami.`" target="_blank" rel="noopener">
-                <div class="wa-cta-card__ico">
-                  <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.99 2C6.473 2 2 6.473 2 11.99c0 1.776.46 3.447 1.263 4.913L2.05 21.95l5.173-1.195A9.94 9.94 0 0011.99 22c5.516 0 9.99-4.474 9.99-9.99C21.98 6.473 17.506 2 11.99 2zm0 18.18c-1.608 0-3.11-.44-4.395-1.203l-.315-.187-3.27.756.783-3.176-.205-.328A8.16 8.16 0 013.82 11.99c0-4.503 3.667-8.17 8.17-8.17 4.503 0 8.17 3.667 8.17 8.17 0 4.503-3.667 8.19-8.17 8.19z"/></svg>
+          <!-- DIRECT CHANNELS -->
+          <div class="contact-card">
+            <div class="cc-title">Hubungi Langsung</div>
+            <div class="cc-channels">
+              <!-- <a :href="`https://wa.me/${profile?.contact?.whatsapp_number}?text=Halo+DKN%2C+saya+ingin+berdiskusi+tentang+kebutuhan+corporate+training+untuk+organisasi+saya`" target="_blank" rel="noopener" class="cc-ch"> -->
+              <NuxtLink
+                :to="`https://wa.me/${profile?.contact?.whatsapp_number}?text=${encodeURIComponent(
+                  'Halo DKN, saya ingin berdiskusi tentang kebutuhan corporate training untuk organisasi saya'
+                )}`"
+                target="_blank"
+                rel="noopener"
+                class="cc-ch"
+              >
+                <div class="cc-ch-ico" style="background:rgba(37,211,102,.15)">
+                  <svg viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM11.99 2C6.473 2 2 6.473 2 11.99c0 1.776.46 3.447 1.263 4.913L2.05 21.95l5.173-1.195A9.94 9.94 0 0011.99 22c5.516 0 9.99-4.474 9.99-9.99C21.98 6.473 17.506 2 11.99 2z"/></svg>
                 </div>
                 <div>
-                  <h4>Chat via WhatsApp</h4>
-                  <p>Respons lebih cepat — tim kami siap membantu</p>
+                  <div class="cc-ch-lbl">WhatsApp</div>
+                  <div class="cc-ch-val">+{{ profile?.contact?.whatsapp_number }}</div>
+                  <div class="cc-ch-sub">Respons cepat jam kerja</div>
+                </div>
+              </NuxtLink>
+              <a :href="`mailto:${profile?.contact?.email}`" class="cc-ch">
+                <div class="cc-ch-ico" style="background:rgba(34,160,148,.15)">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#22A094" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div>
+                  <div class="cc-ch-lbl">Email</div>
+                  <div class="cc-ch-val">{{profile?.contact?.email}}</div>
+                  <div class="cc-ch-sub">Untuk proposal &amp; dokumen resmi</div>
                 </div>
               </a>
-
-              <!-- Promise Card -->
-              <div class="promise-card">
-                <h4>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                  Yang Anda Dapat
-                </h4>
-                <div class="promise-items">
-                  <div class="promise-item"><svg viewBox="0 0 24 24" fill="none" stroke="var(--teal2)" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Discovery call 30 menit gratis — tanpa komitmen</div>
-                  <div class="promise-item"><svg viewBox="0 0 24 24" fill="none" stroke="var(--teal2)" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Diagnosis kebutuhan training spesifik organisasi Anda</div>
-                  <div class="promise-item"><svg viewBox="0 0 24 24" fill="none" stroke="var(--teal2)" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Rekomendasi program yang tepat sasaran dan terukur</div>
-                  <div class="promise-item"><svg viewBox="0 0 24 24" fill="none" stroke="var(--teal2)" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Proposal harga transparan sesuai kebutuhan</div>
+              <a href="https://www.dkn.digital" target="_blank" class="cc-ch">
+                <div class="cc-ch-ico" style="background:rgba(196,146,58,.15)">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#D9AA55" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
                 </div>
-              </div>
-
-              <!-- Services Tags -->
-              <div class="services-card">
-                <h4>Layanan yang Tersedia</h4>
-                <div class="services-tags">
-                  <span class="tag tag--teal">Corporate Training</span>
-                  <span class="tag tag--gold">Advisory</span>
-                  <span class="tag tag--teal">Digital Learning</span>
-                  <span class="tag tag--navy">Certification</span>
-                  <span class="tag tag--navy">Assessment Center</span>
+                <div>
+                  <div class="cc-ch-lbl">Website</div>
+                  <div class="cc-ch-val">www.dkn.digital</div>
+                  <div class="cc-ch-sub">Informasi program &amp; webinar</div>
                 </div>
-              </div>
-
+              </a>
             </div>
           </div>
-        </div>
-      </section>
 
-
-      <!-- PROSES KONSULTASI -->
-      <section class="section bg--white">
-        <div class="wrap">
-          <span class="sec-label">Proses Kami</span>
-          <h2 class="sec-h">Bagaimana Proses<br>Konsultasi Berlangsung</h2>
-          <p class="sec-sub">Transparan, tidak berbelit, dan fokus pada kebutuhan Anda.</p>
-
-          <div class="process-steps">
-            <div class="process-conn"></div>
-            <div class="process-step">
-              <div class="ps-node ps1">1</div>
-              <h4>Kirim Formulir</h4>
-              <p>Isi formulir dengan kebutuhan dan kondisi organisasi Anda</p>
-            </div>
-            <div class="process-step">
-              <div class="ps-node ps2">2</div>
-              <h4>Tim Menghubungi</h4>
-              <p>Konsultan DKN menghubungi dalam 1×24 jam kerja via WA/email</p>
-            </div>
-            <div class="process-step">
-              <div class="ps-node ps3">3</div>
-              <h4>Discovery Call</h4>
-              <p>Sesi 30 menit untuk memahami kebutuhan dan tantangan Anda</p>
-            </div>
-            <div class="process-step">
-              <div class="ps-node ps4">4</div>
-              <h4>Proposal &amp; Solusi</h4>
-              <p>Kami presentasikan solusi dan proposal yang disesuaikan</p>
+          <!-- LAYANAN -->
+          <div class="layanan-card">
+            <div class="lc-title">Layanan yang Tersedia</div>
+            <div class="lc-items">
+              <div class="lc-item">
+                <div class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="var(--teal2)" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+                <div><div class="lc-item-title">Corporate Training In-House</div><div class="lc-item-desc">Program standar DKN atau desain kustom, dilaksanakan di tempat Anda</div></div>
+              </div>
+              <div class="lc-item">
+                <div class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></div>
+                <div><div class="lc-item-title">Advisory &amp; Konsultasi Strategis</div><div class="lc-item-desc">Pendampingan TNA, desain kurikulum, dan evaluasi dampak pelatihan</div></div>
+              </div>
+              <div class="lc-item">
+                <div class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#378ADD" stroke-width="2"><path d="M9 11l3 3L22 4"/></svg></div>
+                <div><div class="lc-item-title">Sertifikasi BNSP</div><div class="lc-item-desc">Program sertifikasi kompetensi kepemimpinan bermitra LSP SIK</div></div>
+              </div>
+              <div class="lc-item">
+                <div class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg></div>
+                <div><div class="lc-item-title">Assessment Center</div><div class="lc-item-desc">Penilaian kompetensi untuk keputusan talent, promosi, dan gap analysis</div></div>
+              </div>
             </div>
           </div>
+
+          <!-- PROSES -->
+          <div class="process-card">
+            <div class="pc-title">Proses Konsultasi DKN</div>
+            <div class="process-steps">
+              <div class="ps">
+                <div class="ps-line"></div>
+                <div class="ps-num">1</div>
+                <div class="ps-body">
+                  <div class="ps-title">Anda Mengisi Form</div>
+                  <div class="ps-desc">Ceritakan kebutuhan, tantangan, dan konteks organisasi Anda</div>
+                </div>
+              </div>
+              <div class="ps">
+                <div class="ps-line"></div>
+                <div class="ps-num">2</div>
+                <div class="ps-body">
+                  <div class="ps-title">Tim DKN Merespons</div>
+                  <div class="ps-desc">Dalam 1 hari kerja, konsultan senior kami menghubungi Anda</div>
+                </div>
+              </div>
+              <div class="ps">
+                <div class="ps-line"></div>
+                <div class="ps-num">3</div>
+                <div class="ps-body">
+                  <div class="ps-title">Diskusi Kebutuhan</div>
+                  <div class="ps-desc">Sesi diskusi via Zoom atau WhatsApp untuk memahami konteks lebih dalam</div>
+                </div>
+              </div>
+              <div class="ps">
+                <div class="ps-num">4</div>
+                <div class="ps-body" style="padding-bottom:0">
+                  <div class="ps-title">Proposal Relevan</div>
+                  <div class="ps-desc">Kami menyiapkan proposal program yang sesuai dengan kebutuhan dan anggaran Anda</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
-      </section>
+      </div>
 
+      <!-- FAQ -->
+      <section class="faq-sec">
+        <div class="faq-inner">
+          <span class="lbl">FAQ</span>
+          <h2 class="sh">Pertanyaan yang Sering Ditanyakan</h2>
 
-      <!-- ALTERNATIVE: Webinar as first step -->
-      <section class="section--sm bg--mist">
-        <div class="wrap" style="text-align:center">
-          <span class="sec-label" style="display:block;text-align:center">Belum Siap Berkonsultasi?</span>
-          <h2 class="sec-h" style="font-size:26px;margin-bottom:10px">Mulai dari Webinar Gratis Kami</h2>
-          <p class="sec-sub" style="margin:0 auto 24px;max-width:420px;text-align:center">
-            Ikuti webinar gratis DKN untuk mendapatkan gambaran pendekatan dan metodologi kami
-            sebelum memutuskan untuk berkonsultasi lebih lanjut.
-          </p>
-          <NuxtLink to="/webinar" class="btn btn--outline-dark btn--lg">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-            Lihat Jadwal Webinar Gratis
-          </NuxtLink>
+          <div class="faq-list">
+
+            <div class="faq-item">
+              <div class="faq-q">Apakah konsultasi awal berbayar?
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="faq-a">Tidak. Konsultasi awal sepenuhnya gratis dan tanpa komitmen apapun. Tim DKN akan mendiskusikan kebutuhan Anda, memberikan gambaran program yang relevan, dan menyiapkan proposal — baru setelah itu keputusan ada di tangan Anda.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q">Apakah program bisa dikustomisasi untuk industri atau jabatan tertentu?
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="faq-a">Ya, sepenuhnya. DKN menyediakan dua model: program standar yang sudah siap pakai, dan program yang didesain dari awal sesuai industri, level jabatan, tantangan bisnis, dan budaya perusahaan Anda. Trainer DKN berpengalaman dalam perbankan konvensional, syariah, BPR, BPD, multifinance, dan korporasi.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q">Berapa lama persiapan yang dibutuhkan untuk program in-house?
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="faq-a">Untuk program standar DKN yang sudah tersedia, persiapan minimal 7–10 hari kerja sudah cukup. Untuk program yang dikustomisasi atau melibatkan desain modul baru, persiapan ideal adalah 3–4 minggu. Jadwal dapat disesuaikan dengan ketersediaan tim Anda.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q">Apakah DKN bisa menyelenggarakan training di luar kota Bandung?
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="faq-a">Ya. DKN telah menyelenggarakan program di berbagai kota di Indonesia. Untuk training di luar kota, biaya perjalanan dan akomodasi konsultan akan diinformasikan secara transparan dalam proposal. Kami juga menyediakan opsi webinar korporat (virtual) jika peserta tersebar di banyak lokasi.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q">Apakah peserta mendapat sertifikat?
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="faq-a">Ya. Semua peserta program belajar tatap muka DKN mendapatkan sertifikat keikutsertaan resmi dari LPK DKN. Untuk program Sertifikasi Kepemimpinan yang bermitra dengan LSP SIK, peserta yang lulus uji kompetensi mendapatkan sertifikat BNSP yang diakui secara nasional.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q">Apakah ada program untuk jumlah peserta yang sangat besar (100+ orang)?
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="faq-a">Ya, DKN berpengalaman menangani program skala besar dengan model paralel session, train-the-trainer, atau roadshow multi-lokasi. Hubungi tim kami untuk mendiskusikan model yang paling efisien dari segi waktu dan anggaran untuk kebutuhan skala besar.</div>
+            </div>
+
+          </div>
         </div>
       </section>
     </main>
@@ -286,179 +388,124 @@ onMounted(() => {
 </script>
 
 <style scoped>
-/* ── CONTACT PAGE SPECIFIC ─── */
+/* HERO */
+.page-hero{background:var(--midnight);padding:80px 52px;position:relative;overflow:hidden}
+.ph-grid{position:absolute;inset:0;opacity:.03;background-image:linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.5) 1px,transparent 1px);background-size:60px 60px}
+.ph-glow{position:absolute;top:-150px;left:50%;transform:translateX(-50%);width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(34,160,148,.08) 0%,transparent 70%);pointer-events:none}
+.ph-inner{max-width:720px;margin:0 auto;text-align:center;position:relative;z-index:2}
+.pill{display:inline-flex;align-items:center;gap:8px;background:rgba(34,160,148,.12);border:1px solid rgba(34,160,148,.28);color:var(--teal2);font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:5px 14px 5px 10px;border-radius:50px;margin-bottom:20px}
+.pill-dot{width:6px;height:6px;border-radius:50%;background:var(--teal2)}
+.ph-h{font-family:var(--serif);font-size:46px;line-height:1.1;color:#fff;font-weight:600;margin-bottom:12px}
+.ph-h em{color:var(--teal2);font-style:italic}
+.ph-sub{font-size:15px;color:rgba(255,255,255,.56);line-height:1.75;font-weight:300}
+/* HERO CHANNEL PILLS */
+.ph-channels{display:flex;gap:12px;justify-content:center;margin-top:28px;flex-wrap:wrap}
+.ch-pill{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:50px;padding:8px 16px;font-size:13px;color:rgba(255,255,255,.72)}
+.ch-pill svg{width:14px;height:14px}
+/* MAIN LAYOUT */
+.contact-layout{max-width:1100px;margin:0 auto;padding:80px 52px;display:grid;grid-template-columns:1fr 400px;gap:64px;align-items:start}
+/* FORM */
+.form-section h2{font-family:var(--serif);font-size:32px;font-weight:600;color:var(--ink);line-height:1.2;margin-bottom:8px}
+.form-section h2 em{color:var(--teal2);font-style:italic}
+.form-section p{font-size:14.5px;color:var(--slate);line-height:1.7;font-weight:300;margin-bottom:32px}
+.form-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:36px;box-shadow:0 1px 3px rgba(20,34,56,.05),0 8px 32px rgba(20,34,56,.07)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-col{display:flex;flex-direction:column;gap:14px}
+.fg{display:flex;flex-direction:column;gap:6px}
+.fg-full{grid-column:span 2}
+.flbl{font-size:12px;font-weight:700;color:var(--ink);letter-spacing:.3px}
+.flbl span{color:#e53935;margin-left:2px}
+.finput{background:var(--mist);border:1.5px solid var(--border);border-radius:8px;padding:11px 14px;font-size:14px;color:var(--ink);font-family:var(--sans);outline:none;transition:border .2s;width:100%}
+.finput:focus{border-color:var(--teal2);background:#fff}
+.finput::placeholder{color:var(--slate);opacity:.6}
+.fselect{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(20,34,56,0.5)' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;cursor:pointer}
+.ftextarea{resize:vertical;min-height:110px}
+.form-section-title{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--teal2);padding-bottom:12px;border-bottom:1px solid var(--border);margin-bottom:14px;margin-top:4px;grid-column:span 2}
+.checkbox-row{display:flex;align-items:flex-start;gap:10px;grid-column:span 2}
+.finput-check{width:16px;height:16px;margin-top:2px;flex-shrink:0;accent-color:var(--teal2)}
+.checkbox-row label{font-size:13px;color:var(--slate);line-height:1.55;cursor:pointer}
+.btn-submit{width:100%;background:var(--teal2);color:#fff;border:none;padding:14px;border-radius:10px;font-size:15px;font-weight:800;cursor:pointer;font-family:var(--sans);transition:all .2s;display:flex;align-items:center;justify-content:center;gap:10px;grid-column:span 2;margin-top:4px}
+.btn-submit:hover{background:var(--teal);transform:translateY(-1px)}
+.btn-submit svg{width:16px;height:16px}
+.form-note{font-size:12px;color:var(--slate);text-align:center;grid-column:span 2;display:flex;align-items:center;justify-content:center;gap:6px}
+.form-note svg{width:12px;height:12px}
+/* SIDEBAR */
+.sidebar{display:flex;flex-direction:column;gap:20px}
+/* CONTACT CARD */
+.contact-card{background:var(--midnight);border-radius:16px;padding:32px;border:1px solid rgba(255,255,255,.07)}
+.cc-title{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal2);margin-bottom:18px}
+.cc-channels{display:flex;flex-direction:column;gap:14px}
+.cc-ch{display:flex;align-items:center;gap:14px;padding:14px 16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:10px;cursor:pointer;text-decoration:none;transition:all .2s}
+.cc-ch:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.12)}
+.cc-ch-ico{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cc-ch-ico svg{width:18px;height:18px}
+.cc-ch-lbl{font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:2px}
+.cc-ch-val{font-size:14px;font-weight:600;color:#fff}
+.cc-ch-sub{font-size:11.5px;color:rgba(255,255,255,.35);margin-top:1px}
+/* LAYANAN CARD */
+.layanan-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:28px;box-shadow:0 1px 3px rgba(20,34,56,.05)}
+.lc-title{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal2);margin-bottom:16px}
+.lc-items{display:flex;flex-direction:column;gap:10px}
+.lc-item{display:flex;align-items:flex-start;gap:10px}
+.lc-ico{width:30px;height:30px;border-radius:7px;background:var(--mist);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.lc-ico svg{width:14px;height:14px}
+.lc-item-title{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:2px}
+.lc-item-desc{font-size:12px;color:var(--slate);line-height:1.5}
+/* PROCESS CARD */
+.process-card{background:var(--mist);border-radius:14px;padding:28px}
+.pc-title{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal2);margin-bottom:16px}
+.process-steps{display:flex;flex-direction:column;gap:0}
+.ps{display:flex;gap:14px;position:relative}
+.ps-line{position:absolute;left:15px;top:30px;bottom:-4px;width:1px;background:var(--border)}
+.ps:last-child .ps-line{display:none}
+.ps-num{width:30px;height:30px;border-radius:50%;background:var(--teal2);color:#fff;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1}
+.ps-body{padding-bottom:18px}
+.ps-title{font-size:13.5px;font-weight:700;color:var(--ink);margin-bottom:3px}
+.ps-desc{font-size:12.5px;color:var(--slate);line-height:1.5}
+/* FAQ */
+.faq-sec{background:var(--mist);padding:72px 52px}
+.faq-inner{max-width:860px;margin:0 auto}
+.lbl{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal2);display:block;margin-bottom:10px}
+.sh{font-family:var(--serif);font-size:36px;line-height:1.15;font-weight:600;margin-bottom:10px}
+.faq-list{margin-top:36px;display:flex;flex-direction:column;gap:12px}
+.faq-item{background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:0 1px 3px rgba(20,34,56,.04)}
+.faq-q{padding:20px 24px;font-size:15px;font-weight:700;color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;user-select:none}
+.faq-q:hover{background:var(--mist)}
+.faq-q svg{width:16px;height:16px;flex-shrink:0;transition:transform .2s;color:var(--teal2)}
+.faq-a{padding:0 24px 20px;font-size:14px;color:var(--slate);line-height:1.75;font-weight:300}
+/* FOOTER */
+footer{background:var(--midnight);padding:56px 52px 28px;border-top:1px solid rgba(255,255,255,.05)}
+.ft{max-width:1100px;margin:0 auto}
+.ft-top{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:48px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.07)}
+.ft-brand p{font-size:13px;color:rgba(255,255,255,.38);line-height:1.8;margin-top:14px;margin-bottom:20px}
+.ft-socials{display:flex;gap:8px}
+.fs-btn{width:32px;height:32px;border-radius:7px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);display:flex;align-items:center;justify-content:center}
+.fs-btn svg{width:13px;height:13px}
+.ft-col h5{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.26);margin-bottom:14px}
+.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.ft-col ul li a{font-size:13px;color:rgba(255,255,255,.44);text-decoration:none;transition:color .2s}
+.ft-col ul li a:hover{color:#fff}
+.ft-contact strong{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.22);display:block;margin-bottom:2px}
+.ft-contact p{font-size:13px;color:rgba(255,255,255,.44);line-height:2}
+.ft-bottom{padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.ft-bottom p{font-size:11.5px;color:rgba(255,255,255,.2)}
+.ft-legal{display:flex;gap:14px;flex-wrap:wrap}
+.ft-legal span{font-size:11px;color:rgba(255,255,255,.2)}
+.wa-fab{position:fixed;bottom:26px;right:26px;z-index:999;width:52px;height:52px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.28);transition:transform .2s}
+.wa-fab:hover{transform:scale(1.08)}
+.wa-fab svg{width:26px;height:26px}
+@media(max-width:900px){
+  nav{padding:0 20px}.nav-links,.nav-actions{display:none}
+  .page-hero{padding:52px 20px}.ph-h{font-size:32px}
+  .contact-layout{grid-template-columns:1fr;padding:52px 20px;gap:32px}
+  .form-row{grid-template-columns:1fr}
+  .fg-full,.checkbox-row,.btn-submit,.form-note,.form-section-title{grid-column:span 1}
+  .faq-sec{padding:52px 20px}
+  footer{padding:48px 20px 24px}
+  .ft-top{grid-template-columns:1fr 1fr;gap:28px}
+}
 
-/* PAGE HERO */
-.page-hero {
-  background: var(--midnight);
-  padding: 100px 24px 80px;
-  position: relative;
-  overflow: hidden;
-  text-align: center;
-}
-.page-hero__glow {
-  position: absolute;
-  top: -150px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 600px;
-  height: 600px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(34, 160, 148, 0.12) 0%, transparent 70%);
-  pointer-events: none;
-}
-.page-hero__grid {
-  position: absolute;
-  inset: 0;
-  opacity: 0.03;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.5) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.5) 1px, transparent 1px);
-  background-size: 50px 50px;
-}
-.page-hero__inner {
-  position: relative;
-  z-index: 2;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-/* FORM ELEMENTS */
-.form-group { display: flex; flex-direction: column; gap: 6px; }
-.form-label { font-size: 12px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; color: var(--slate); }
-.form-control {
-  padding: 12px 16px; border: 1px solid var(--border);
-  border-radius: var(--r-md); font-size: 14px;
-  font-family: var(--sans); color: var(--ink);
-  background: #fff; outline: none; transition: border .2s, box-shadow .2s;
-  width: 100%;
-}
-.form-control:focus {
-  border-color: var(--teal2);
-  box-shadow: 0 0 0 3px rgba(34, 160, 148, 0.1);
-}
-.form-control--textarea { min-height: 110px; resize: vertical; }
-.form-control--select {
-  cursor: pointer; appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%234E6070' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
-  background-repeat: no-repeat; background-position: right 14px center;
-}
-
-/* FORM LAYOUT */
-.contact-layout {
-  display: grid;
-  grid-template-columns: 1fr 420px;
-  gap: 60px;
-  align-items: start;
-}
-
-/* LEFT: form */
-.contact-form-card {
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: var(--r-xl);
-  padding: 40px;
-  box-shadow: var(--shadow);
-}
-.contact-form-card h2 {
-  font-family: var(--serif);
-  font-size: 28px; font-weight: 600;
-  color: var(--ink); margin-bottom: 6px;
-}
-.contact-form-card > p {
-  font-size: 14px; color: var(--slate);
-  line-height: 1.65; margin-bottom: 32px;
-}
-.form-grid { display: flex; flex-direction: column; gap: 18px; }
-.form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-
-/* Form success state placeholder */
-.form-success {
-  display: none; /* shown via JS after submit */
-  text-align: center; padding: 40px 20px;
-}
-.form-success svg { width: 56px; height: 56px; margin-bottom: 16px; }
-.form-success h3 { font-family: var(--serif); font-size: 24px; color: var(--ink); margin-bottom: 8px; }
-.form-success p { font-size: 14px; color: var(--slate); line-height: 1.65; }
-
-.form-submit-note {
-  font-size: 12px; color: var(--slate);
-  margin-top: 12px; display: flex; align-items: center; gap: 6px;
-}
-.form-submit-note svg { width: 13px; height: 13px; }
-
-/* RIGHT: info sidebar */
-.contact-sidebar { display: flex; flex-direction: column; gap: 16px; }
-
-.contact-info-card {
-  background: var(--midnight);
-  border-radius: var(--r-lg); padding: 28px;
-}
-.contact-info-card h3 {
-  font-family: var(--serif); font-size: 20px;
-  color: #fff; font-weight: 600; margin-bottom: 16px;
-}
-.contact-info-items { display: flex; flex-direction: column; gap: 14px; }
-.contact-info-item { display: flex; align-items: flex-start; gap: 12px; }
-.ci-ico {
-  width: 36px; height: 36px; border-radius: 8px;
-  background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.1);
-  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-}
-.ci-ico svg { width: 16px; height: 16px; }
-.ci-label { font-size: 11px; color: rgba(255,255,255,.35); margin-bottom: 2px; font-weight: 600; letter-spacing: .3px; text-transform: uppercase; }
-.ci-value { font-size: 13.5px; color: rgba(255,255,255,.75); line-height: 1.5; }
-.ci-value a { color: var(--teal2); text-decoration: none; }
-.ci-value a:hover { text-decoration: underline; }
-
-/* Promise card */
-.promise-card {
-  background: var(--gold-pale);
-  border: 1px solid rgba(196,146,58,.2);
-  border-radius: var(--r-lg); padding: 24px;
-}
-.promise-card h4 { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
-.promise-card h4 svg { width: 16px; height: 16px; }
-.promise-items { display: flex; flex-direction: column; gap: 9px; }
-.promise-item { display: flex; align-items: flex-start; gap: 9px; font-size: 13px; color: var(--slate); line-height: 1.5; }
-.promise-item svg { width: 14px; height: 14px; flex-shrink: 0; margin-top: 2px; }
-
-/* Services covered */
-.services-card {
-  background: var(--mist);
-  border: 1px solid var(--border);
-  border-radius: var(--r-lg); padding: 24px;
-}
-.services-card h4 { font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 12px; text-transform: uppercase; letter-spacing: .5px; }
-.services-tags { display: flex; flex-wrap: wrap; gap: 7px; }
-.services-tags .tag { font-size: 11.5px; padding: 5px 12px; }
-
-/* WA CTA in sidebar */
-.wa-cta-card {
-  background: #25D366;
-  border-radius: var(--r-lg); padding: 20px 22px;
-  display: flex; align-items: center; gap: 14px;
-  text-decoration: none;
-  transition: filter .2s;
-}
-.wa-cta-card:hover { filter: brightness(1.08); }
-.wa-cta-card__ico { flex-shrink: 0; }
-.wa-cta-card__ico svg { width: 32px; height: 32px; }
-.wa-cta-card h4 { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 2px; }
-.wa-cta-card p { font-size: 12px; color: rgba(255,255,255,.8); }
-
-/* Process steps */
-.process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; margin-top: 48px; }
-.process-conn { position: absolute; top: 22px; left: 10%; right: 10%; height: 2px; background: linear-gradient(90deg, var(--teal2), var(--gold)); z-index: 0; }
-.process-step { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 12px; }
-.ps-node { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; font-family: var(--serif); font-size: 18px; font-weight: 600; border: 2.5px solid var(--mist); }
-.ps1 { background: var(--teal2); color: #fff; }
-.ps2 { background: #1A8A7E; color: #fff; }
-.ps3 { background: #C4923A; color: #fff; }
-.ps4 { background: var(--gold); color: #fff; }
-.process-step h4 { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 5px; }
-.process-step p { font-size: 12px; color: var(--slate); line-height: 1.55; }
-
-@media (max-width:900px) {
+/* @media (max-width:900px) {
   .page-hero { padding: 80px 20px 60px; }
   .contact-layout { grid-template-columns: 1fr; }
   .form-row-2 { grid-template-columns: 1fr; }
@@ -467,5 +514,5 @@ onMounted(() => {
   .contact-form-card {
     padding: 24px;
   }
-}
+} */
 </style>

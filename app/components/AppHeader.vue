@@ -151,10 +151,10 @@ onMounted(() => {
 });
 
 const navLinks = [
-  { label: "Webinar", href: "/webinar#live" },
+  { label: "Webinar", href: "/webinar#recording" },
   { label: "Program Belajar Bersertifikat", href: "/program" },
   { label: "Layanan", href: "/#layanan" },
-  // { label: "Tentang DKN", href: "/#tentang" },
+  { label: "Tentang", href: "/tentang" },
   { label: "Resources", href: "/resources" },
   { label: "Produk", href: "/produk" },
   { label: "Konsultasi", href: "/contact" },

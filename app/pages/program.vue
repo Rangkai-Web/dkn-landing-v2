@@ -5,255 +5,555 @@
     <main>
       <!-- PAGE HERO -->
       <section class="page-hero">
-        <div class="page-hero__glow"></div>
-        <div class="page-hero__grid"></div>
-        <div class="page-hero__inner">
-          <div class="chip chip--gold"><div class="chip__dot"></div>Program Bersertifikat</div>
-          <h1 class="sec-h sec-h--lg sec-h--white">Program Belajar Bersertifikat DKN</h1>
-          <p class="sec-sub sec-sub--white mt-16">
-            Kurikulum terstruktur, evaluasi pembelajaran menyeluruh, dan sertifikat penyelesaian
-            program yang dapat diverifikasi — semua untuk satu tujuan: kompetensi yang nyata.
-          </p>
-          <div class="mt-32" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-            <a href="#program-list" class="btn btn--gold btn--lg">Lihat Semua Program</a>
-            <a href="#lms" class="btn btn--ghost-w btn--lg">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-              Akses Pembelajaran
+        <div class="ph-grid"></div>
+        <div class="ph-glow"></div>
+        <div class="ph-inner">
+          <div class="pill"><div class="pill-dot"></div>Offline · Intensif · Bersertifikat</div>
+          <h1 class="ph-h">Program Belajar<br><em>Bersertifikat LPK DKN</em></h1>
+          <p class="ph-sub">Pelatihan tatap muka intensif 1–2 hari yang dirancang dari pengalaman nyata lapangan — bukan teori akademis. Dibuka setelah kuota terpenuhi.</p>
+          <div class="ph-stats">
+            <div class="ph-stat"><div class="ph-stat-n">14</div><div class="ph-stat-l">Program tersedia</div></div>
+            <div class="ph-stat-sep"></div>
+            <div class="ph-stat"><div class="ph-stat-n">6</div><div class="ph-stat-l">Kategori keahlian</div></div>
+            <div class="ph-stat-sep"></div>
+            <div class="ph-stat"><div class="ph-stat-n">3★</div><div class="ph-stat-l">Program Signature eksklusif</div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ SERTIFIKASI BNSP — POSISI PALING ATAS ═══ -->
+      <section class="sec bg-mist" id="sertifikasi">
+        <div class="wrap">
+          <span class="lbl lbl-gold">★ Program Unggulan</span>
+          <h2 class="sh">Sertifikasi BNSP — Kompetensi yang Diakui Nasional</h2>
+          <p class="ss">Satu-satunya program DKN dengan sertifikat BNSP resmi — bermitra dengan LSP SIK. Kompetensi Anda diakui secara nasional dan dapat diverifikasi.</p>
+
+          <div class="bnsp-hero">
+            <div class="bnsp-hero-top">
+              <div>
+                <div class="bnsp-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold3)" stroke-width="2" width="12" height="12"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  Sertifikasi BNSP · Bermitra LSP SIK
+                </div>
+                <h2>Skema Pengembangan<br>Kepemimpinan <em>Bersertifikat BNSP</em></h2>
+                <p class="bnsp-desc">Program sertifikasi kepemimpinan profesional yang terdiri dari 5 unit kompetensi inti — dirancang untuk membuktikan kapabilitas kepemimpinan Anda melalui standar nasional yang diakui oleh BNSP.</p>
+                <div class="bnsp-units">
+                  <div class="bnsp-unit"><div class="bnsp-unit-num">1</div><span><strong>Integrity</strong> — Menjunjung tinggi kejujuran, etika, dan tanggung jawab</span></div>
+                  <div class="bnsp-unit"><div class="bnsp-unit-num">2</div><span><strong>Initiative</strong> — Proaktif mencari peluang dan mengambil tindakan terbaik</span></div>
+                  <div class="bnsp-unit"><div class="bnsp-unit-num">3</div><span><strong>Challenge</strong> — Berani menghadapi tantangan dan mendorong perubahan</span></div>
+                  <div class="bnsp-unit"><div class="bnsp-unit-num">4</div><span><strong>Teamwork</strong> — Berkolaborasi efektif dan membangun sinergi tim</span></div>
+                  <div class="bnsp-unit"><div class="bnsp-unit-num">5</div><span><strong>Leadership</strong> — Menginspirasi, membimbing, dan mendorong kinerja tim</span></div>
+                </div>
+              </div>
+              <div>
+                <div class="bnsp-info-card">
+                  <div class="bnsp-info-row">
+                    <div class="bnsp-ir">
+                      <div class="bnsp-ir-ico"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold2)" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+                      <div><div class="bnsp-ir-lbl">Format Pelaksanaan</div><div class="bnsp-ir-val">2 Hari Intensif</div><div class="bnsp-ir-sub">1,5 hari training + 0,5 hari uji kompetensi</div></div>
+                    </div>
+                    <div class="bnsp-ir">
+                      <div class="bnsp-ir-ico"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold2)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                      <div><div class="bnsp-ir-lbl">Mitra Sertifikasi</div><div class="bnsp-ir-val">LSP SIK</div><div class="bnsp-ir-sub">Lembaga Sertifikasi Profesi — BNSP</div></div>
+                    </div>
+                    <div class="bnsp-ir">
+                      <div class="bnsp-ir-ico"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold2)" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+                      <div><div class="bnsp-ir-lbl">Target Peserta</div><div class="bnsp-ir-val">Semua Level Profesional</div><div class="bnsp-ir-sub">Supervisor, Manager, Team Leader</div></div>
+                    </div>
+                    <div class="bnsp-ir">
+                      <div class="bnsp-ir-ico"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold2)" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/></svg></div>
+                      <div><div class="bnsp-ir-lbl">Status Kelas</div><div class="bnsp-ir-val">Waiting List</div><div class="bnsp-ir-sub">Dibuka setelah kuota terpenuhi</div></div>
+                    </div>
+                  </div>
+                  <div class="bnsp-price-note">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+                    Investasi: Harga akan diumumkan. Daftar minat sekarang untuk mendapatkan informasi pertama.
+                  </div>
+                  <a :href="`https://wa.me/${profile?.contact?.whatsapp_number}?text=Saya%20ingin%20daftar%20minat%20Sertifikasi%20Kepemimpinan%20BNSP%20DKN`" target="_blank" rel="noopener" class="btn-gold-full">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                    Daftar Minat Sertifikasi BNSP
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="bnsp-hero-bottom">
+              <div class="bnsp-hb-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/></svg>Sertifikat BNSP diakui nasional</div>
+              <div class="bnsp-hb-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/></svg>Bermitra LSP SIK resmi</div>
+              <div class="bnsp-hb-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/></svg>Uji kompetensi terstandar</div>
+              <div class="bnsp-hb-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/></svg>Tatap muka 2 hari intensif</div>
+              <div class="bnsp-hb-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/></svg>Dibuka setelah kuota terpenuhi</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ KATALOG PROGRAM OFFLINE ═══ -->
+      <section class="sec" id="katalog">
+        <div class="wrap">
+          <span class="lbl">Katalog Program</span>
+          <h2 class="sh">14 Program Belajar Offline</h2>
+          <p class="ss">Semua program dilaksanakan tatap muka intensif. Kelas dibuka setelah kuota waiting list terpenuhi — daftar minat sekarang untuk mendapatkan informasi pertama.</p>
+
+          <!-- FILTER TABS -->
+          <div class="filter-tabs">
+            <a href="#" class="ftab active">Semua Program</a>
+            <a href="#" class="ftab">Leadership</a>
+            <a href="#" class="ftab">Soft Skills</a>
+            <a href="#" class="ftab">Sales &amp; Service</a>
+            <a href="#" class="ftab">Banking &amp; Risk</a>
+            <a href="#" class="ftab">Strategy &amp; Finance</a>
+            <a href="#" class="ftab">★ Signature</a>
+          </div>
+
+          <div class="prog-grid">
+
+            <!-- 1. Smart Selling with AI -->
+            <div class="prog-card">
+              <div class="pc-head">
+                <div class="pc-top">
+                  <div class="pc-cat-code"><div class="pc-cat">Sales &amp; Marketing</div><div class="pc-code">LPK-DKN-SALE-02</div></div>
+                  <span class="pc-tag tag-wl">Daftar Minat</span>
+                </div>
+                <div class="pc-title">Smart Selling with AI for Financial Products</div>
+                <div class="pc-desc">Consultative selling yang diintegrasikan dengan AI tools — SPIN Selling, Trusted Advisor approach, dan AI Prompt Engineering untuk melipatgandakan produktivitas sales 50%+.</div>
+                <div class="pc-outcomes">
+                  <h4>Key Outcomes</h4>
+                  <div class="pc-outcome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Modern sales mindset berbasis kepercayaan</div>
+                  <div class="pc-outcome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Hands-on AI tools untuk produktivitas</div>
+                  <div class="pc-outcome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Cross-selling, closing high-value</div>
+                </div>
+              </div>
+              <div class="pc-meta">
+                <div class="pc-m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>1 Hari Penuh</div>
+                <div class="pc-m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Sales Officer, RM, Funding Officer</div>
+              </div>
+              <div class="pc-footer">
+                <div class="pc-price-note">Harga akan diumumkan</div>
+                <a :href="`https://wa.me/${profile?.contact?.whatsapp_number}?text=Saya%20ingin%20daftar%20minat%20Smart%20Selling%20with%20AI%20DKN`" target="_blank" rel="noopener" class="btn-minat">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>Daftar Minat
+                </a>
+              </div>
+            </div>
+
+            <!-- 2. Building High Performance Team -->
+            <div class="prog-card">
+              <div class="pc-head">
+                <div class="pc-top">
+                  <div class="pc-cat-code"><div class="pc-cat">Leadership</div><div class="pc-code">LPK-DKN-LEAD-02</div></div>
+                  <span class="pc-tag tag-wl">Daftar Minat</span>
+                </div>
+                <div class="pc-title">Building High Performance Team</div>
+                <div class="pc-desc">Program full-day untuk manajer membangun tim performa tinggi — psychological safety, alignment, accountability system, dan execution discipline berbasis riset McKinsey &amp; Google.</div>
+                <div class="pc-outcomes">
+                  <h4>Key Outcomes</h4>
+                  <div class="pc-outcome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Diagnosa kesehatan tim secara terstruktur</div>
+                  <div class="pc-outcome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Bangun psychological safety yang nyata</div>
+                  <div class="pc-outcome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Execution system yang menjaga performa</div>
+                </div>
+              </div>
+              <div class="pc-meta">
+                <div class="pc-m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Full Day · 2 Sesi × 4 Jam</div>
+                <div class="pc-m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Manager, AVP, VP</div>
+              </div>
+              <div class="pc-footer">
+                <div class="pc-price-note">Harga akan diumumkan</div>
+                <a :href="`https://wa.me/${profile?.contact?.whatsapp_number}?text=Saya%20ingin%20daftar%20minat%20Building%20High%20Performance%20Team%20DKN`" target="_blank" rel="noopener" class="btn-minat">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>Daftar Minat
+                </a>
+              </div>
+            </div>
+
+            <!-- 3. Coaching & Mentoring -->
+            <div class="prog-card">
+              <div class="pc-head">
+                <div class="pc-top">
+                  <div class="pc-cat-code"><div class="pc-cat">Leadership</div><div class="pc-code">LPK-DKN-LEAD-04</div></div>
+                  <span class="pc-tag tag-wl">Daftar Minat</span>
+                </div>
+                <div class="pc-title">Coaching &amp; Mentoring for Performance</div>
+                <div class="pc-desc">Mengubah manajer dari pemberi tugas menjadi performance coach. GROW Model, SBI Feedback, psychological safety, dan simulasi coaching nyata — 70% praktik langsung.</div>
+                <div class="pc-outcomes">
+                  <h4>Key Outcomes</h4>
+                  <div class="pc-outcome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>GROW Model coaching yang terstruktur</div>
+                  <div class="pc-outcome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>SBI Feedback tanpa defensiveness</div>
+                  <div class="pc-outcome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Simulasi percakapan coaching nyata</div>
+                </div>
+              </div>
+              <div class="pc-meta">
+                <div class="pc-m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Full Day · 7 Sesi</div>
+                <div class="pc-m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Supervisor &amp; Manager</div>
+              </div>
+              <div class="pc-footer">
+                <div class="pc-price-note">Harga akan diumumkan</div>
+                <a :href="`https://wa.me/${profile?.contact?.whatsapp_number}?text=Saya%20ingin%20daftar%20minat%20Coaching%20Mentoring%20DKN`" target="_blank" rel="noopener" class="btn-minat">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>Daftar Minat
+                </a>
+              </div>
+            </div>
+
+            <!-- 4. Credit Analysis Fundamental -->
+            <div class="prog-card">
+              <div class="pc-head">
+                <div class="pc-top">
+                  <div class="pc-cat-code"><div class="pc-cat">Banking &amp; Risk</div><div class="pc-code">LPK-DKN-BANK-02</div></div>
+                  <span class="pc-tag tag-wl">Daftar Minat</span>
+                </div>
+                <div class="pc-title">Credit Analysis Fundamental: Practical &amp; Decision-Based</div>
+                <div class="pc-desc">Analisis kredit berbasis keputusan — pembacaan laporan keuangan cepat, cashflow analysis, deteksi red flags, dan simulasi credit committee menggunakan kasus NPL aktual.</div>
+                <div class="pc-outcomes">
+                  <h4>Key Outcomes</h4>
+                  <div class="pc-outcome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Quick reading laporan keuangan &amp; anomali</div>
+                  <div class="pc-outcome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Cash flow based lending &amp; DSCR analysis</div>
+                  <div class="pc-outcome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Simulasi keputusan credit committee</div>
+                </div>
+              </div>
+              <div class="pc-meta">
+                <div class="pc-m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Full Day · 7 Sesi</div>
+                <div class="pc-m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Credit Analyst, Account Officer</div>
+              </div>
+              <div class="pc-footer">
+                <div class="pc-price-note">Harga akan diumumkan</div>
+                <a :href="`https://wa.me/${profile?.contact?.whatsapp_number}?text=Saya%20ingin%20daftar%20minat%20Credit%20Analysis%20DKN`" target="_blank" rel="noopener" class="btn-minat">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>Daftar Minat
+                </a>
+              </div>
+            </div>
+
+            <!-- 5. Collection Excellence -->
+            <div class="prog-card">
+              <div class="pc-head">
+                <div class="pc-top">
+                  <div class="pc-cat-code"><div class="pc-cat">Sales &amp; Service</div><div class="pc-code">LPK-DKN-SALE-05</div></div>
+                  <span class="pc-tag tag-wl">Daftar Minat</span>
+                </div>
+                <div class="pc-title">Collection Excellence Part 1 &amp; 2</div>
+                <div class="pc-desc">Program collection paling komprehensif — dari shifting mindset 'penagih' ke asset protector, segmentasi debitur, teknik negosiasi Harvard, hingga restrukturisasi 3R dan legal compliance.</div>
+                <div class="pc-outcomes">
+                  <h4>Key Outcomes</h4>
+                  <div class="pc-outcome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Lifecycle kredit bermasalah &amp; DPD strategy</div>
+                  <div class="pc-outcome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>5 teknik closing pembayaran Harvard</div>
+                  <div class="pc-outcome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Roleplay 3 skenario eksekusi nyata</div>
+                </div>
+              </div>
+              <div class="pc-meta">
+                <div class="pc-m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>2 × Full Day (Part 1 &amp; 2)</div>
+                <div class="pc-m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Collection &amp; Credit Officer</div>
+              </div>
+              <div class="pc-footer">
+                <div class="pc-price-note">Harga akan diumumkan</div>
+                <a :href="`https://wa.me/${profile?.contact?.whatsapp_number}?text=Saya%20ingin%20daftar%20minat%20Collection%20Excellence%20DKN`" target="_blank" rel="noopener" class="btn-minat">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>Daftar Minat
+                </a>
+              </div>
+            </div>
+
+            <!-- 6. Employee Financial Wellness -->
+            <div class="prog-card">
+              <div class="pc-head">
+                <div class="pc-top">
+                  <div class="pc-cat-code"><div class="pc-cat">Soft Skills</div><div class="pc-code">LPK-DKN-SOFT-04</div></div>
+                  <span class="pc-tag tag-wl">Daftar Minat</span>
+                </div>
+                <div class="pc-title">Employee Financial Wellness Program</div>
+                <div class="pc-desc">58% karyawan terdistraksi masalah keuangan. Program sehari penuh ini membawa peserta dari awareness ke aksi nyata dengan Personal Financial Roadmap — cashflow, utang, proteksi, investasi.</div>
+                <div class="pc-outcomes">
+                  <h4>Key Outcomes</h4>
+                  <div class="pc-outcome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Metode 50/30/20 &amp; cashflow pribadi</div>
+                  <div class="pc-outcome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Manajemen utang &amp; dana darurat</div>
+                  <div class="pc-outcome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Personal Financial Roadmap 1 tahun</div>
+                </div>
+              </div>
+              <div class="pc-meta">
+                <div class="pc-m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>1 Hari Penuh · 7 Sesi</div>
+                <div class="pc-m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Karyawan, prioritas Gen Y &amp; Z</div>
+              </div>
+              <div class="pc-footer">
+                <div class="pc-price-note">Harga akan diumumkan</div>
+                <a :href="`https://wa.me/${profile?.contact?.whatsapp_number}?text=Saya%20ingin%20daftar%20minat%20Employee%20Financial%20Wellness%20DKN`" target="_blank" rel="noopener" class="btn-minat">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>Daftar Minat
+                </a>
+              </div>
+            </div>
+
+            <!-- 7. Service Excellence -->
+            <div class="prog-card">
+              <div class="pc-head">
+                <div class="pc-top">
+                  <div class="pc-cat-code"><div class="pc-cat">Sales &amp; Service</div><div class="pc-code">LPK-DKN-SALE-04</div></div>
+                  <span class="pc-tag tag-wl">Daftar Minat</span>
+                </div>
+                <div class="pc-title">Service Excellence untuk Perusahaan Jasa</div>
+                <div class="pc-desc">Model 7A+S Pelayanan Prima yang dikembangkan khusus untuk konteks industri jasa Indonesia — complaint handling HEAT, service habit, dan membangun loyalitas pelanggan.</div>
+                <div class="pc-outcomes">
+                  <h4>Key Outcomes</h4>
+                  <div class="pc-outcome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Framework 7A+S Pelayanan Prima</div>
+                  <div class="pc-outcome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>HEAT complaint handling</div>
+                  <div class="pc-outcome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Service habit melalui peer accountability</div>
+                </div>
+              </div>
+              <div class="pc-meta">
+                <div class="pc-m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>1 Hari · 8 Jam Efektif</div>
+                <div class="pc-m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Frontliner, CS, Teller</div>
+              </div>
+              <div class="pc-footer">
+                <div class="pc-price-note">Harga akan diumumkan</div>
+                <a :href="`https://wa.me/${profile?.contact?.whatsapp_number}?text=Saya%20ingin%20daftar%20minat%20Service%20Excellence%20DKN`" target="_blank" rel="noopener" class="btn-minat">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>Daftar Minat
+                </a>
+              </div>
+            </div>
+
+            <!-- 8. Smart Selling KTA -->
+            <div class="prog-card">
+              <div class="pc-head">
+                <div class="pc-top">
+                  <div class="pc-cat-code"><div class="pc-cat">Sales &amp; Marketing</div><div class="pc-code">LPK-DKN-SALE-01</div></div>
+                  <span class="pc-tag tag-wl">Daftar Minat</span>
+                </div>
+                <div class="pc-title">Smart Selling KTA: From Prospecting to Closing</div>
+                <div class="pc-desc">Teknik prospecting berbasis institusi, SPIN Selling untuk needs analysis mendalam, handling keberatan ACR, dan closing berbasis sinyal pembelian nasabah — Brian Tracy &amp; Neil Rackham.</div>
+                <div class="pc-outcomes">
+                  <h4>Key Outcomes</h4>
+                  <div class="pc-outcome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Prospecting berbasis institusi &amp; payroll</div>
+                  <div class="pc-outcome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>SPIN Selling &amp; ACR objection handling</div>
+                  <div class="pc-outcome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Personal Action Plan 30 hari</div>
+                </div>
+              </div>
+              <div class="pc-meta">
+                <div class="pc-m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>1 Hari · 7 Sesi Intensif</div>
+                <div class="pc-m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Consumer Lending Officer, Relationship Officer</div>
+              </div>
+              <div class="pc-footer">
+                <div class="pc-price-note">Harga akan diumumkan</div>
+                <a :href="`https://wa.me/${profile?.contact?.whatsapp_number}?text=Saya%20ingin%20daftar%20minat%20Smart%20Selling%20KTA%20DKN`" target="_blank" rel="noopener" class="btn-minat">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>Daftar Minat
+                </a>
+              </div>
+            </div>
+
+            <!-- 9. AI Productivity Mastery -->
+            <div class="prog-card">
+              <div class="pc-head">
+                <div class="pc-top">
+                  <div class="pc-cat-code"><div class="pc-cat">Banking &amp; Risk</div><div class="pc-code">LPK-DKN-BANK-01</div></div>
+                  <span class="pc-tag tag-wl">Daftar Minat</span>
+                </div>
+                <div class="pc-title">AI Productivity Mastery for Banking Professionals</div>
+                <div class="pc-desc">Program hands-on satu hari untuk memanfaatkan AI secara praktis, aman, dan bertanggung jawab di industri perbankan — framework RCIC, use case nyata, dan AI workflow design.</div>
+                <div class="pc-outcomes">
+                  <h4>Key Outcomes</h4>
+                  <div class="pc-outcome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Framework RCIC prompting mastery</div>
+                  <div class="pc-outcome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Hands-on: analisis kredit, email, laporan</div>
+                  <div class="pc-outcome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Safe AI use sesuai regulasi OJK</div>
+                </div>
+              </div>
+              <div class="pc-meta">
+                <div class="pc-m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>1 Hari · 6 Sesi · Hands-on Lab</div>
+                <div class="pc-m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Officer s.d. Manager — semua fungsi</div>
+              </div>
+              <div class="pc-footer">
+                <div class="pc-price-note">Harga akan diumumkan</div>
+                <a :href="`https://wa.me/${profile?.contact?.whatsapp_number}?text=Saya%20ingin%20daftar%20minat%20AI%20Productivity%20Mastery%20DKN`" target="_blank" rel="noopener" class="btn-minat">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>Daftar Minat
+                </a>
+              </div>
+            </div>
+
+            <!-- 10. Strategic Business Plan -->
+            <div class="prog-card">
+              <div class="pc-head">
+                <div class="pc-top">
+                  <div class="pc-cat-code"><div class="pc-cat">Strategy &amp; Finance</div><div class="pc-code">LPK-DKN-STRAT-01</div></div>
+                  <span class="pc-tag tag-wl">Daftar Minat</span>
+                </div>
+                <div class="pc-title">Strategic Business Plan: From Strategy to Investment Decision</div>
+                <div class="pc-desc">PESTEL, Porter's Five Forces, Business Model Canvas, GTM strategy, hingga simulasi keputusan investasi NPV/IRR/Payback — berbasis studi kasus nyata WeWork, Amazon, Enron.</div>
+                <div class="pc-outcomes">
+                  <h4>Key Outcomes</h4>
+                  <div class="pc-outcome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Analisis strategis PESTEL &amp; Porter</div>
+                  <div class="pc-outcome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Business Model Canvas &amp; GTM</div>
+                  <div class="pc-outcome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>NPV, IRR, Payback Period decision</div>
+                </div>
+              </div>
+              <div class="pc-meta">
+                <div class="pc-m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Full Day · Part 1 + Part 2</div>
+                <div class="pc-m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Manager, Banker, Business Owner</div>
+              </div>
+              <div class="pc-footer">
+                <div class="pc-price-note">Harga akan diumumkan</div>
+                <a :href="`https://wa.me/${profile?.contact?.whatsapp_number}?text=Saya%20ingin%20daftar%20minat%20Strategic%20Business%20Plan%20DKN`" target="_blank" rel="noopener" class="btn-minat">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>Daftar Minat
+                </a>
+              </div>
+            </div>
+
+            <!-- 11. Think Like an Investor -->
+            <div class="prog-card">
+              <div class="pc-head">
+                <div class="pc-top">
+                  <div class="pc-cat-code"><div class="pc-cat">Strategy &amp; Finance</div><div class="pc-code">LPK-DKN-STRAT-02</div></div>
+                  <span class="pc-tag tag-wl">Daftar Minat</span>
+                </div>
+                <div class="pc-title">Think Like an Investor: Financial Awareness &amp; Decision Making</div>
+                <div class="pc-desc">Mengubah mindset dari operator ke investor — ROI, TCO, opportunity cost, buy vs lease framework, dan action plan efisiensi konkret 90 hari berbasis executive storytelling.</div>
+                <div class="pc-outcomes">
+                  <h4>Key Outcomes</h4>
+                  <div class="pc-outcome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>ROI, TCO, &amp; opportunity cost thinking</div>
+                  <div class="pc-outcome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Buy vs lease decision (5 variabel)</div>
+                  <div class="pc-outcome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Action plan efisiensi 90 hari</div>
+                </div>
+              </div>
+              <div class="pc-meta">
+                <div class="pc-m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>2 × Full Day</div>
+                <div class="pc-m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Middle–Senior Management</div>
+              </div>
+              <div class="pc-footer">
+                <div class="pc-price-note">Harga akan diumumkan</div>
+                <a :href="`https://wa.me/${profile?.contact?.whatsapp_number}?text=Saya%20ingin%20daftar%20minat%20Think%20Like%20an%20Investor%20DKN`" target="_blank" rel="noopener" class="btn-minat">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>Daftar Minat
+                </a>
+              </div>
+            </div>
+
+            <!-- ★ 12. Integrated Banking Strategy (SIGNATURE) -->
+            <div class="prog-card prog-card-sig">
+              <div class="pc-head">
+                <div class="pc-top">
+                  <div class="pc-cat-code"><div class="pc-cat pc-cat-sig">★ Program Signature</div><div class="pc-code">LPK-DKN-SIG-01</div></div>
+                  <span class="pc-tag tag-sig">Signature</span>
+                </div>
+                <div class="pc-title">Integrated Banking Strategy™</div>
+                <div class="pc-desc">Framework Integrated Banking Method — mengubah setiap kredit menjadi dominasi relasi dan aliran dana komprehensif. RM top performer memiliki 60–70% nasabah kredit sebagai nasabah dana aktif.</div>
+                <div class="pc-outcomes">
+                  <h4>Framework Eksklusif DKN</h4>
+                  <div class="pc-outcome pc-outcome-sig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Cash flow mapping &amp; aliran dana nasabah</div>
+                  <div class="pc-outcome pc-outcome-sig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Bundling, 3-layer locking, CASA activation</div>
+                  <div class="pc-outcome pc-outcome-sig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Total Relationship Value (TRV) management</div>
+                </div>
+              </div>
+              <div class="pc-meta">
+                <div class="pc-m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>1–2 Hari Intensif</div>
+                <div class="pc-m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>RM, AO, Branch Manager</div>
+              </div>
+              <div class="pc-footer">
+                <div class="pc-price-note">Harga akan diumumkan</div>
+                <a :href="`https://wa.me/${profile?.contact?.whatsapp_number}?text=Saya%20ingin%20daftar%20minat%20Integrated%20Banking%20Strategy%20DKN`" target="_blank" rel="noopener" class="btn-minat btn-minat-gold">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>Daftar Minat
+                </a>
+              </div>
+            </div>
+
+            <!-- ★ 13. Ecosystem-Based Business Strategy (SIGNATURE) -->
+            <div class="prog-card prog-card-sig">
+              <div class="pc-head">
+                <div class="pc-top">
+                  <div class="pc-cat-code"><div class="pc-cat pc-cat-sig">★ Program Signature</div><div class="pc-code">LPK-DKN-SIG-02</div></div>
+                  <span class="pc-tag tag-sig">Signature</span>
+                </div>
+                <div class="pc-title">Ecosystem-Based Business Strategy™</div>
+                <div class="pc-desc">Framework Ecosystem Domination Method — menguasai pasar melalui pendekatan ekosistem bukan individual. Top performer yang konsisten Top 3 regional hampir selalu menggunakan pendekatan ini.</div>
+                <div class="pc-outcomes">
+                  <h4>Framework Eksklusif DKN</h4>
+                  <div class="pc-outcome pc-outcome-sig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Ecosystem Mapping Canvas</div>
+                  <div class="pc-outcome pc-outcome-sig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Key player, influencer, leverage point</div>
+                  <div class="pc-outcome pc-outcome-sig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Power Mapping Matrix &amp; referral chain</div>
+                </div>
+              </div>
+              <div class="pc-meta">
+                <div class="pc-m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>1 Hari Penuh</div>
+                <div class="pc-m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Senior Executive, RM, Business Development</div>
+              </div>
+              <div class="pc-footer">
+                <div class="pc-price-note">Harga akan diumumkan</div>
+                <a :href="`https://wa.me/${profile?.contact?.whatsapp_number}?text=Saya%20ingin%20daftar%20minat%20Ecosystem%20Business%20Strategy%20DKN`" target="_blank" rel="noopener" class="btn-minat btn-minat-gold">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>Daftar Minat
+                </a>
+              </div>
+            </div>
+
+            <!-- ★ 14. Strategic Funding Acquisition (SIGNATURE) -->
+            <div class="prog-card prog-card-sig">
+              <div class="pc-head">
+                <div class="pc-top">
+                  <div class="pc-cat-code"><div class="pc-cat pc-cat-sig">★ Program Signature</div><div class="pc-code">LPK-DKN-SIG-03</div></div>
+                  <span class="pc-tag tag-sig">Signature</span>
+                </div>
+                <div class="pc-title">Strategic Funding Acquisition™</div>
+                <div class="pc-desc">Framework Funding Ecosystem Method — membangun pipeline dana proaktif dari perspektif money flow nasabah. Bank dengan CASA ratio tinggi memiliki Cost of Funds 30–50% lebih rendah.</div>
+                <div class="pc-outcomes">
+                  <h4>Framework Eksklusif DKN</h4>
+                  <div class="pc-outcome pc-outcome-sig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Map: pemetaan money flow nasabah</div>
+                  <div class="pc-outcome pc-outcome-sig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Lock: 3-layer locking strategy</div>
+                  <div class="pc-outcome pc-outcome-sig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>7 dimensi nilai non-rate proposition</div>
+                </div>
+              </div>
+              <div class="pc-meta">
+                <div class="pc-m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>1–2 Hari Intensif</div>
+                <div class="pc-m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>RM, Funding Officer, Branch Manager</div>
+              </div>
+              <div class="pc-footer">
+                <div class="pc-price-note">Harga akan diumumkan</div>
+                <a :href="`https://wa.me/${profile?.contact?.whatsapp_number}?text=Saya%20ingin%20daftar%20minat%20Strategic%20Funding%20Acquisition%20DKN`" target="_blank" rel="noopener" class="btn-minat btn-minat-gold">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>Daftar Minat
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- WAITING LIST FORM -->
+          <div class="wl-banner">
+            <div>
+              <h2 class="wl-h">Daftar Waiting List —<br>Anda yang Pertama Tahu</h2>
+              <p class="wl-p">Semua program dibuka setelah kuota waiting list terpenuhi. Daftar sekarang dan tim DKN akan menghubungi Anda langsung ketika kelas siap dibuka — lengkap dengan informasi tanggal, lokasi, dan harga.</p>
+            </div>
+            <div class="wl-form">
+              <div class="wl-form-lbl">Form Waiting List Program</div>
+              <div class="form-row">
+                <input class="finput" type="text" placeholder="Nama lengkap">
+                <input class="finput" type="email" placeholder="Email aktif">
+                <input class="finput" type="tel" placeholder="Nomor WhatsApp">
+                <select class="finput fselect">
+                  <option value="">Pilih program yang diminati...</option>
+                  <option>Sertifikasi Kepemimpinan BNSP</option>
+                  <option>Smart Selling with AI</option>
+                  <option>Building High Performance Team</option>
+                  <option>Coaching &amp; Mentoring for Performance</option>
+                  <option>Credit Analysis Fundamental</option>
+                  <option>Collection Excellence Part 1 &amp; 2</option>
+                  <option>Employee Financial Wellness</option>
+                  <option>Service Excellence</option>
+                  <option>Smart Selling KTA</option>
+                  <option>AI Productivity Mastery</option>
+                  <option>Strategic Business Plan</option>
+                  <option>Think Like an Investor</option>
+                  <option>★ Integrated Banking Strategy</option>
+                  <option>★ Ecosystem-Based Business Strategy</option>
+                  <option>★ Strategic Funding Acquisition</option>
+                </select>
+                <button class="btn-submit">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                  Daftar Waiting List Sekarang
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CORPORATE CTA -->
+      <section class="sec-sm">
+        <div class="wrap">
+          <div class="corp-strip">
+            <div class="cs-left">
+              <h2>Program ini Bisa Diselenggarakan In-House untuk Organisasi Anda</h2>
+              <p>Semua program LPK DKN dapat dikustomisasi dan diselenggarakan langsung di tempat Anda — jadwal fleksibel, konten disesuaikan industri dan level jabatan, dan ROI yang terukur.</p>
+            </div>
+            <a href="/contact" class="btn-outline-dark">
+              Minta Proposal In-House
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
           </div>
-        </div>
-      </section>
-
-
-      <!-- BENEFITS STRIP -->
-      <section class="section bg--deep" style="padding-top:48px;padding-bottom:48px">
-        <div class="wrap">
-          <div class="benefits-strip">
-            <div class="benefit-item">
-              <div class="benefit-item__ico" style="background:rgba(34,160,148,.12);border:1px solid rgba(34,160,148,.2)">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#22A094" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
-              </div>
-              <div>
-                <h4>Materi Terstruktur</h4>
-                <p>Kurikulum bertahap yang dirancang oleh praktisi industri, dikemas dalam modul video, bacaan, dan studi kasus nyata.</p>
-              </div>
-            </div>
-            <div class="benefit-item">
-              <div class="benefit-item__ico" style="background:rgba(196,146,58,.12);border:1px solid rgba(196,146,58,.2)">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#D9AA55" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
-              </div>
-              <div>
-                <h4>Evaluasi Pembelajaran</h4>
-                <p>Kuis formatif, latihan soal, dan penilaian akhir untuk memastikan pemahaman yang mendalam sebelum sertifikat diterbitkan.</p>
-              </div>
-            </div>
-            <div class="benefit-item">
-              <div class="benefit-item__ico" style="background:rgba(139,92,246,.12);border:1px solid rgba(139,92,246,.2)">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
-              </div>
-              <div>
-                <h4>Sertifikat Penyelesaian Program</h4>
-                <p>Sertifikat digital resmi yang dapat diverifikasi online, dibagikan ke LinkedIn, dan diakui sebagai bukti kompetensi profesional.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-      <!-- PROGRAM LIST -->
-      <section class="section bg--mist" id="program-list">
-        <div class="wrap">
-          <span class="sec-label">Program Tersedia</span>
-          <h2 class="sec-h">Pilih Program yang Sesuai<br>dengan Kebutuhan Anda</h2>
-          <p class="sec-sub">Setiap program dirancang untuk menghasilkan satu output: kompetensi nyata yang langsung dapat diterapkan di pekerjaan Anda.</p>
-
-          <!-- Filter tabs -->
-          <div class="filter-tabs">
-            <a href="#" class="filter-tab is-active">Semua Program</a>
-            <a href="#" class="filter-tab">Sales &amp; Marketing</a>
-            <a href="#" class="filter-tab">Leadership</a>
-            <a href="#" class="filter-tab">Risk &amp; Certification</a>
-            <a href="#" class="filter-tab">Service Excellence</a>
-          </div>
-
-          <!-- Program grid -->
-          <div class="grid-3">
-
-            <!-- PROGRAM CARD 1 -->
-            <div class="program-card">
-              <div class="program-card__head" style="background:linear-gradient(135deg,var(--midnight),#1A3050)">
-                <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="rgba(34,160,148,.5)" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-                <div class="program-card__badge"><span class="tag tag--teal">Populer</span></div>
-                <div class="program-card__level">Intermediate</div>
-              </div>
-              <div class="program-card__body">
-                <div class="program-card__cat">Sales &amp; Marketing</div>
-                <div class="program-card__title">Sales Mastery for Banking Professionals</div>
-                <div class="program-card__desc">Kuasai teknik sales yang terstruktur — dari prospecting, membangun kepercayaan nasabah, hingga closing yang konsisten di industri perbankan dan keuangan.</div>
-                <div class="program-card__specs">
-                  <div class="program-card__spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>12 modul</div>
-                  <div class="program-card__spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>8 jam belajar</div>
-                  <div class="program-card__spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Self-paced</div>
-                </div>
-                <div class="program-card__includes">
-                  <div class="program-card__include"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Video pembelajaran + materi PDF</div>
-                  <div class="program-card__include"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Kuis &amp; studi kasus industri</div>
-                  <div class="program-card__include"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Sertifikat penyelesaian program</div>
-                </div>
-              </div>
-              <div class="program-card__footer">
-                <div>
-                  <div class="program-card__price">Rp 499.000</div>
-                  <div class="program-card__price-note">Akses selamanya · 1 kali pembayaran</div>
-                </div>
-                <a href="#" class="btn btn--gold btn--sm">Daftar Program</a>
-              </div>
-            </div>
-
-            <!-- PROGRAM CARD 2 -->
-            <div class="program-card">
-              <div class="program-card__head" style="background:linear-gradient(135deg,#071a12,#0d3824)">
-                <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="rgba(26,122,110,.5)" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
-                <div class="program-card__level">Foundation</div>
-              </div>
-              <div class="program-card__body">
-                <div class="program-card__cat">Leadership</div>
-                <div class="program-card__title">Leadership for New Supervisors</div>
-                <div class="program-card__desc">Framework kepemimpinan praktis untuk supervisor baru — dari membangun otoritas, delegasi efektif, hingga cara memimpin dengan empati dan hasil nyata.</div>
-                <div class="program-card__specs">
-                  <div class="program-card__spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>10 modul</div>
-                  <div class="program-card__spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>6 jam belajar</div>
-                  <div class="program-card__spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Self-paced</div>
-                </div>
-                <div class="program-card__includes">
-                  <div class="program-card__include"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Video pembelajaran + template tools</div>
-                  <div class="program-card__include"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Simulasi skenario kepemimpinan</div>
-                  <div class="program-card__include"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Sertifikat penyelesaian program</div>
-                </div>
-              </div>
-              <div class="program-card__footer">
-                <div>
-                  <div class="program-card__price">Rp 449.000</div>
-                  <div class="program-card__price-note">Akses selamanya · 1 kali pembayaran</div>
-                </div>
-                <a href="#" class="btn btn--gold btn--sm">Daftar Program</a>
-              </div>
-            </div>
-
-            <!-- PROGRAM CARD 3 -->
-            <div class="program-card">
-              <div class="program-card__head" style="background:linear-gradient(135deg,#1a0e00,#2a1500)">
-                <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="rgba(196,146,58,.5)" stroke-width="1.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
-                <div class="program-card__badge"><span class="tag tag--gold">Unggulan</span></div>
-                <div class="program-card__level">Advanced</div>
-              </div>
-              <div class="program-card__body">
-                <div class="program-card__cat">Risk &amp; Certification</div>
-                <div class="program-card__title">Persiapan Sertifikasi LSPP Level 1 &amp; 2</div>
-                <div class="program-card__desc">Program persiapan komprehensif untuk sertifikasi manajemen risiko LSPP — mencakup seluruh materi ujian, latihan soal intensif, dan strategi menghadapi ujian dari praktisi berpengalaman.</div>
-                <div class="program-card__specs">
-                  <div class="program-card__spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>18 modul</div>
-                  <div class="program-card__spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>14 jam belajar</div>
-                  <div class="program-card__spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Self-paced</div>
-                </div>
-                <div class="program-card__includes">
-                  <div class="program-card__include"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>600+ latihan soal &amp; pembahasan</div>
-                  <div class="program-card__include"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Simulasi ujian full-length</div>
-                  <div class="program-card__include"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/></svg>Sertifikat penyelesaian program</div>
-                </div>
-              </div>
-              <div class="program-card__footer">
-                <div>
-                  <div class="program-card__price">Rp 799.000</div>
-                  <div class="program-card__price-note">Akses selamanya · 1 kali pembayaran</div>
-                </div>
-                <a href="#" class="btn btn--gold btn--sm">Daftar Program</a>
-              </div>
-            </div>
-
-          </div>
-
-          <!-- Coming soon row -->
-          <div style="margin-top:14px;padding:20px 24px;background:#fff;border:1px dashed var(--border);border-radius:var(--r-lg);display:flex;align-items:center;justify-content:space-between;gap:16px">
-            <div style="font-size:14px;color:var(--slate)">
-              <strong style="color:var(--ink)">Program Service Excellence</strong> &nbsp;·&nbsp; Komunikasi Profesional &amp; Standar Layanan Perbankan — segera tersedia
-            </div>
-            <span class="tag tag--teal">Segera</span>
-          </div>
-
-        </div>
-      </section>
-
-
-      <!-- LMS ACCESS SECTION -->
-      <section class="section bg--white" id="lms">
-        <div class="wrap">
-          <div class="lms-access-box">
-            <!-- LEFT: copy -->
-            <div>
-              <span class="sec-label" style="color:var(--teal2)">Akses Pembelajaran</span>
-              <h2 class="sec-h sec-h--white">Belajar Kapan Saja via<br>Platform LMS DKN</h2>
-              <p class="sec-sub sec-sub--white" style="margin-bottom:0">
-                Setelah mendaftar program, Anda mendapatkan akses penuh ke platform
-                Learning Management System (LMS) DKN — berbasis Moodle, dapat diakses
-                dari perangkat apapun, kapan saja.
-              </p>
-              <div class="lms-access-feats">
-                <div class="lms-feat"><div class="lms-feat__dot"><svg viewBox="0 0 12 12" fill="none" stroke="#22A094" stroke-width="2.5"><path d="M2 6l3 3 5-5"/></svg></div><span>Akses video, PDF, kuis, dan materi terstruktur per modul</span></div>
-                <div class="lms-feat"><div class="lms-feat__dot"><svg viewBox="0 0 12 12" fill="none" stroke="#22A094" stroke-width="2.5"><path d="M2 6l3 3 5-5"/></svg></div><span>Dashboard progres belajar real-time yang selalu tersimpan</span></div>
-                <div class="lms-feat"><div class="lms-feat__dot"><svg viewBox="0 0 12 12" fill="none" stroke="#22A094" stroke-width="2.5"><path d="M2 6l3 3 5-5"/></svg></div><span>Sertifikat diterbitkan otomatis setelah menyelesaikan program</span></div>
-                <div class="lms-feat"><div class="lms-feat__dot"><svg viewBox="0 0 12 12" fill="none" stroke="#22A094" stroke-width="2.5"><path d="M2 6l3 3 5-5"/></svg></div><span>Akses selamanya — tidak ada batas waktu untuk belajar</span></div>
-              </div>
-              <div style="display:flex;gap:12px;flex-wrap:wrap">
-                <a href="https://elearning.dkn.digital/" target="_blank" class="btn btn--gold btn--lg">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-                  Akses Platform LMS
-                </a>
-                <a href="#program-list" class="btn btn--ghost-w btn--lg">Lihat Program →</a>
-              </div>
-            </div>
-
-            <!-- RIGHT: LMS mock -->
-            <div class="lms-screen-mock">
-              <div class="lms-mock-bar">
-                <div class="lms-mock-dot" style="background:#E24B4A"></div>
-                <div class="lms-mock-dot" style="background:#E8C06A"></div>
-                <div class="lms-mock-dot" style="background:#1D9E75"></div>
-                <span class="lms-mock-url">lms.dknindonesia.co.id</span>
-              </div>
-              <div class="lms-mock-body">
-                <div class="lms-mock-title">Dashboard Belajar Saya</div>
-                <div class="lms-mock-prog-row"><span class="lms-mock-prog-label">Sales Mastery — Level 2</span><span class="lms-mock-prog-label" style="color:var(--teal2)">76%</span></div>
-                <div class="lms-mock-bar2"><div class="lms-mock-fill" style="width:76%;background:var(--teal2)"></div></div>
-                <div class="lms-mock-prog-row"><span class="lms-mock-prog-label">Persiapan LSPP Level 1</span><span class="lms-mock-prog-label" style="color:var(--gold2)">44%</span></div>
-                <div class="lms-mock-bar2"><div class="lms-mock-fill" style="width:44%;background:var(--gold)"></div></div>
-                <div class="lms-mock-grid">
-                  <div class="lms-mock-mod"><div class="lms-mock-mod-ico" style="background:rgba(34,160,148,.2)"></div><div class="lms-mock-mod-t">Teknik Closing</div><div class="lms-mock-mod-s">8 modul · 2j 30m</div></div>
-                  <div class="lms-mock-mod"><div class="lms-mock-mod-ico" style="background:rgba(196,146,58,.2)"></div><div class="lms-mock-mod-t">Leadership Essentials</div><div class="lms-mock-mod-s">6 modul · 1j 45m</div></div>
-                  <div class="lms-mock-mod"><div class="lms-mock-mod-ico" style="background:rgba(55,138,221,.2)"></div><div class="lms-mock-mod-t">Latihan Soal LSPP</div><div class="lms-mock-mod-s">12 set · 600 soal</div></div>
-                  <div class="lms-mock-mod"><div class="lms-mock-mod-ico" style="background:rgba(255,255,255,.07)"></div><div class="lms-mock-mod-t">Service Excellence</div><div class="lms-mock-mod-s">5 modul · 1j 20m</div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-      <!-- Next step CTA -->
-      <section class="section--sm bg--mist">
-        <div class="wrap" style="text-align:center">
-          <span class="sec-label" style="display:block;text-align:center">Butuh Solusi untuk Organisasi?</span>
-          <h2 class="sec-h" style="font-size:28px;margin-bottom:10px">Kami Juga Menyediakan<br>Program untuk Perusahaan Anda</h2>
-          <p class="sec-sub" style="margin:0 auto 28px;max-width:460px;text-align:center">
-            Program belajar individu adalah langkah awal. Untuk pengembangan kompetensi skala organisasi,
-            DKN menyediakan layanan corporate training, advisory, dan assessment yang dikustomisasi penuh.
-          </p>
-          <a href="contact.html" class="btn btn--outline-dark btn--lg">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-            Diskusikan Kebutuhan Corporate
-          </a>
         </div>
       </section>
     </main>
@@ -264,9 +564,18 @@
 </template>
 
 <script setup lang="ts">
+import { useProfileStore } from "~/stores/profileStore";
+
 useSeoMeta({
   title: 'Program Pelatihan DKN Indonesia - Pengembangan Kompetensi SDM Terlengkap',
   description: 'Program Pelatihan DKN Indonesia - Pengembangan Kompetensi SDM terlengkap dengan harga terjangkau. Dapatkan sertifikat resmi dan tingkatkan kinerja tim Anda sekarang!',
+});
+
+const store = useProfileStore();
+const { profile } = storeToRefs(store);
+
+onMounted(() => {
+  store.fetchProfile();
 });
 
 const submitted = ref(false);
@@ -284,164 +593,152 @@ useHead({
 </script>
 
 <style scoped>
-/* ── PROGRAM PAGE SPECIFIC ─── */
 /* PAGE HERO */
-.page-hero {
-  background: var(--midnight);
-  padding: 100px 24px 80px;
-  position: relative;
-  overflow: hidden;
-  text-align: center;
-}
-.page-hero__glow {
-  position: absolute;
-  top: -150px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 600px;
-  height: 600px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(34, 160, 148, 0.12) 0%, transparent 70%);
-  pointer-events: none;
-}
-.page-hero__grid {
-  position: absolute;
-  inset: 0;
-  opacity: 0.03;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.5) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.5) 1px, transparent 1px);
-  background-size: 50px 50px;
-}
-.page-hero__inner {
-  position: relative;
-  z-index: 2;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-/* BENEFITS STRIP */
-.benefits-strip {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 1px; background: rgba(255,255,255,.08);
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: var(--r-lg); overflow: hidden;
-  margin-top: 48px;
-}
-.benefit-item {
-  background: var(--deep); padding: 28px 24px;
-  display: flex; align-items: flex-start; gap: 16px;
-}
-.benefit-item__ico {
-  width: 40px; height: 40px; border-radius: 9px;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-}
-.benefit-item__ico svg { width: 18px; height: 18px; }
-.benefit-item h4 { font-size: 14.5px; font-weight: 700; color: #fff; margin-bottom: 5px; }
-.benefit-item p  { font-size: 13px; color: rgba(255,255,255,.52); line-height: 1.6; }
-
+.page-hero{background:var(--midnight);padding:72px 52px;position:relative;overflow:hidden}
+.ph-grid{position:absolute;inset:0;opacity:.03;background-image:linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.5) 1px,transparent 1px);background-size:60px 60px}
+.ph-glow{position:absolute;top:-150px;right:-100px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(196,146,58,.09) 0%,transparent 70%);pointer-events:none}
+.ph-inner{max-width:760px;margin:0 auto;text-align:center;position:relative;z-index:2}
+.pill{display:inline-flex;align-items:center;gap:8px;background:rgba(196,146,58,.12);border:1px solid rgba(196,146,58,.28);color:var(--gold3);font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:5px 14px 5px 10px;border-radius:50px;margin-bottom:20px}
+.pill-dot{width:6px;height:6px;border-radius:50%;background:var(--gold3)}
+.ph-h{font-family:var(--serif);font-size:46px;line-height:1.1;color:#fff;font-weight:600;margin-bottom:12px}
+.ph-h em{color:var(--gold2);font-style:italic}
+.ph-sub{font-size:15px;color:rgba(255,255,255,.56);line-height:1.75;font-weight:300}
+.ph-stats{display:flex;gap:32px;justify-content:center;margin-top:32px;flex-wrap:wrap}
+.ph-stat{text-align:center}
+.ph-stat-n{font-family:var(--serif);font-size:32px;color:var(--gold2);font-weight:600;line-height:1}
+.ph-stat-l{font-size:12px;color:rgba(255,255,255,.4);margin-top:4px}
+.ph-stat-sep{width:1px;background:rgba(255,255,255,.12);align-self:stretch}
+/* SECTION */
+.sec{padding:72px 52px}
+.sec-sm{padding:52px 52px}
+.wrap{max-width:1100px;margin:0 auto}
+.bg-mist{background:var(--mist)}
+.bg-deep{background:var(--deep)}
+.bg-gold{background:var(--gold-pale)}
+.lbl{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal2);display:block;margin-bottom:10px}
+.lbl-gold{color:var(--gold)}
+.sh{font-family:var(--serif);font-size:36px;line-height:1.15;font-weight:600;margin-bottom:10px}
+.sh-w{color:#fff}
+.ss{font-size:15px;color:var(--slate);line-height:1.75;font-weight:300}
+/* BNSP HERO CARD */
+.bnsp-hero{background:linear-gradient(140deg,var(--navy),#0D1E35);border:1px solid rgba(196,146,58,.25);border-radius:20px;overflow:hidden;margin-top:40px}
+.bnsp-hero-top{padding:44px 52px;display:grid;grid-template-columns:1fr 360px;gap:56px;align-items:center}
+.bnsp-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(196,146,58,.13);border:1px solid rgba(196,146,58,.3);color:var(--gold3);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px 4px 9px;border-radius:50px;margin-bottom:14px}
+.bnsp-hero h2{font-family:var(--serif);font-size:32px;color:#fff;font-weight:600;line-height:1.2;margin-bottom:12px}
+.bnsp-hero h2 em{color:var(--gold2);font-style:italic}
+.bnsp-desc{font-size:14px;color:rgba(255,255,255,.56);line-height:1.7;font-weight:300;margin-bottom:20px}
+.bnsp-units{display:flex;flex-direction:column;gap:8px;margin-bottom:22px}
+.bnsp-unit{display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,.72)}
+.bnsp-unit-num{width:22px;height:22px;border-radius:50%;background:rgba(196,146,58,.2);border:1px solid rgba(196,146,58,.35);color:var(--gold2);font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.bnsp-info-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:28px}
+.bnsp-info-row{display:flex;flex-direction:column;gap:14px;margin-bottom:20px}
+.bnsp-ir{display:flex;align-items:flex-start;gap:12px}
+.bnsp-ir-ico{width:36px;height:36px;border-radius:8px;background:rgba(196,146,58,.15);border:1px solid rgba(196,146,58,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.bnsp-ir-ico svg{width:16px;height:16px}
+.bnsp-ir-lbl{font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:2px}
+.bnsp-ir-val{font-size:13.5px;color:rgba(255,255,255,.8);font-weight:600}
+.bnsp-ir-sub{font-size:11.5px;color:rgba(255,255,255,.4);margin-top:1px}
+.bnsp-price-note{background:rgba(196,146,58,.08);border:1px solid rgba(196,146,58,.18);border-radius:8px;padding:12px 14px;font-size:13px;color:var(--gold3);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.bnsp-price-note svg{width:14px;height:14px;flex-shrink:0}
+.btn-gold-full{width:100%;background:var(--gold);color:var(--midnight);border:none;padding:13px;border-radius:8px;font-size:14px;font-weight:800;cursor:pointer;font-family:var(--sans);transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
+.btn-gold-full:hover{background:var(--gold2)}
+.btn-gold-full svg{width:14px;height:14px}
+.bnsp-hero-bottom{padding:20px 52px;background:rgba(196,146,58,.06);border-top:1px solid rgba(196,146,58,.15);display:flex;align-items:center;gap:48px;flex-wrap:wrap}
+.bnsp-hb-item{display:flex;align-items:center;gap:8px;font-size:12.5px;color:rgba(255,255,255,.5)}
+.bnsp-hb-item svg{width:14px;height:14px;color:var(--gold2)}
 /* FILTER TABS */
-.filter-tabs {
-  display: flex; gap: 8px; flex-wrap: wrap;
-  margin-top: 40px; margin-bottom: 32px;
-}
-.filter-tab {
-  padding: 8px 18px; border-radius: 50px;
-  font-size: 13px; font-weight: 600;
-  background: var(--mist); color: var(--slate);
-  border: 1px solid var(--border);
-  cursor: pointer; transition: all .2s; text-decoration: none;
-}
-.filter-tab:hover, .filter-tab.is-active {
-  background: var(--teal2); color: #fff; border-color: var(--teal2);
-}
-
+.filter-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:36px;margin-bottom:28px}
+.ftab{padding:8px 18px;border-radius:50px;font-size:13px;font-weight:600;background:#fff;color:var(--slate);border:1px solid var(--border);cursor:pointer;transition:all .2s;text-decoration:none}
+.ftab:hover,.ftab.active{background:var(--ink);color:#fff;border-color:var(--ink)}
 /* PROGRAM CARD */
-.program-card {
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: var(--r-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  display: flex; flex-direction: column;
-  transition: transform .18s, box-shadow .18s;
+.prog-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.prog-card{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 1px 3px rgba(20,34,56,.05),0 4px 16px rgba(20,34,56,.05);display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s}
+.prog-card:hover{transform:translateY(-2px);box-shadow:0 4px 24px rgba(20,34,56,.1)}
+.prog-card-sig{border-color:rgba(196,146,58,.3);box-shadow:0 1px 3px rgba(196,146,58,.08),0 4px 16px rgba(196,146,58,.08)}
+.pc-head{padding:24px 26px 0}
+.pc-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px}
+.pc-cat-code{display:flex;flex-direction:column;gap:3px}
+.pc-cat{font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--teal2)}
+.pc-cat-sig{color:var(--gold)}
+.pc-code{font-size:10px;color:var(--slate)}
+.pc-tag{font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:3px 9px;border-radius:50px;flex-shrink:0}
+.tag-wl{background:rgba(34,160,148,.1);color:var(--teal);border:1px solid rgba(34,160,148,.18)}
+.tag-sig{background:rgba(196,146,58,.1);color:var(--gold);border:1px solid rgba(196,146,58,.2)}
+.pc-title{font-family:var(--serif);font-size:20px;font-weight:600;color:var(--ink);line-height:1.28;margin-bottom:10px}
+.pc-desc{font-size:13px;color:var(--slate);line-height:1.65;margin-bottom:14px}
+.pc-outcomes{background:var(--mist);border-radius:8px;padding:14px 16px;margin-bottom:0}
+.pc-outcomes h4{font-size:10.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--slate);margin-bottom:8px}
+.pc-outcome{display:flex;align-items:flex-start;gap:7px;font-size:12.5px;color:var(--ink);margin-bottom:5px;line-height:1.45}
+.pc-outcome:last-child{margin-bottom:0}
+.pc-outcome svg{width:11px;height:11px;flex-shrink:0;margin-top:2px;color:var(--teal2)}
+.pc-outcome-sig svg{color:var(--gold)}
+.pc-meta{padding:12px 26px;display:flex;gap:14px;flex-wrap:wrap;border-top:1px solid var(--border)}
+.pc-m{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--slate)}
+.pc-m svg{width:12px;height:12px}
+.pc-footer{padding:14px 26px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.pc-price-note{font-size:12.5px;color:var(--slate);font-style:italic}
+.btn-minat{background:none;color:var(--teal2);border:1.5px solid var(--teal2);padding:9px 18px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:var(--sans);text-decoration:none;display:inline-flex;align-items:center;gap:7px;transition:all .2s;white-space:nowrap}
+.btn-minat:hover{background:var(--teal2);color:#fff}
+.btn-minat svg{width:13px;height:13px}
+.btn-minat-gold{border-color:var(--gold);color:var(--gold)}
+.btn-minat-gold:hover{background:var(--gold);color:var(--midnight)}
+/* WL BANNER */
+.wl-banner{background:var(--midnight);border-radius:16px;padding:44px 52px;display:grid;grid-template-columns:1fr 400px;gap:48px;align-items:center;margin-top:32px}
+.wl-h{font-family:var(--serif);font-size:28px;color:#fff;font-weight:600;line-height:1.25;margin-bottom:10px}
+.wl-p{font-size:14px;color:rgba(255,255,255,.52);line-height:1.7;font-weight:300}
+.wl-form{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:26px}
+.wl-form-lbl{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:14px}
+.form-row{display:flex;flex-direction:column;gap:10px}
+.finput{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:11px 14px;font-size:13.5px;color:rgba(255,255,255,.85);font-family:var(--sans);outline:none;transition:border .2s;width:100%}
+.finput:focus{border-color:var(--teal2)}
+.finput::placeholder{color:rgba(255,255,255,.28)}
+.fselect{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.4)' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;cursor:pointer}
+.btn-submit{width:100%;background:var(--teal2);color:#fff;border:none;padding:12px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--sans);transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:4px}
+.btn-submit:hover{background:var(--teal)}
+.btn-submit svg{width:14px;height:14px}
+/* CORP CTA */
+.corp-strip{background:var(--gold-pale);border:1px solid rgba(196,146,58,.2);border-radius:16px;padding:40px 52px;display:flex;align-items:center;justify-content:space-between;gap:32px}
+.cs-left h2{font-family:var(--serif);font-size:26px;font-weight:600;color:var(--ink);margin-bottom:8px}
+.cs-left p{font-size:14px;color:var(--slate);line-height:1.65}
+.btn-outline-dark{background:none;color:var(--ink);border:1.5px solid var(--ink);padding:11px 22px;border-radius:8px;font-size:13.5px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s;flex-shrink:0}
+.btn-outline-dark:hover{background:var(--ink);color:#fff}
+/* FOOTER */
+footer{background:var(--midnight);padding:56px 52px 28px;border-top:1px solid rgba(255,255,255,.05)}
+.ft{max-width:1100px;margin:0 auto}
+.ft-top{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:48px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.07)}
+.ft-brand p{font-size:13px;color:rgba(255,255,255,.38);line-height:1.8;margin-top:14px;margin-bottom:20px}
+.ft-socials{display:flex;gap:8px}
+.fs-btn{width:32px;height:32px;border-radius:7px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);display:flex;align-items:center;justify-content:center}
+.fs-btn svg{width:13px;height:13px}
+.ft-col h5{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.26);margin-bottom:14px}
+.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.ft-col ul li a{font-size:13px;color:rgba(255,255,255,.44);text-decoration:none;transition:color .2s}
+.ft-col ul li a:hover{color:#fff}
+.ft-contact strong{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.22);display:block;margin-bottom:2px}
+.ft-contact p{font-size:13px;color:rgba(255,255,255,.44);line-height:2}
+.ft-bottom{padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.ft-bottom p{font-size:11.5px;color:rgba(255,255,255,.2)}
+.ft-legal{display:flex;gap:14px;flex-wrap:wrap}
+.ft-legal span{font-size:11px;color:rgba(255,255,255,.2)}
+.wa-fab{position:fixed;bottom:26px;right:26px;z-index:999;width:52px;height:52px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.28);transition:transform .2s}
+.wa-fab:hover{transform:scale(1.08)}
+.wa-fab svg{width:26px;height:26px}
+@media(max-width:900px){
+  nav{padding:0 20px}.nav-links,.nav-actions{display:none}
+  .sec,.sec-sm{padding:52px 20px}.page-hero{padding:52px 20px}
+  .ph-h{font-size:34px}.ph-stats{gap:20px}
+  .bnsp-hero-top{grid-template-columns:1fr;padding:32px}
+  .bnsp-hero-bottom{padding:16px 32px;gap:16px}
+  .prog-grid{grid-template-columns:1fr}
+  .wl-banner{grid-template-columns:1fr;padding:32px}
+  .corp-strip{flex-direction:column;padding:32px}
+  footer{padding:48px 20px 24px}
+  .ft-top{grid-template-columns:1fr 1fr;gap:28px}
 }
-.program-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-h); }
-
-.program-card__head {
-  height: 140px;
-  display: flex; align-items: center; justify-content: center;
-  position: relative;
-}
-.program-card__badge {
-  position: absolute; top: 12px; right: 12px;
-}
-.program-card__level {
-  position: absolute; top: 12px; left: 12px;
-  background: rgba(6,12,24,.65); color: rgba(255,255,255,.8);
-  font-size: 10px; font-weight: 700; letter-spacing: .8px;
-  text-transform: uppercase; padding: 3px 10px; border-radius: 50px;
-}
-.program-card__body { padding: 22px 24px; flex: 1; display: flex; flex-direction: column; }
-.program-card__cat { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--teal2); margin-bottom: 7px; }
-.program-card__title { font-family: var(--serif); font-size: 20px; color: var(--ink); font-weight: 600; line-height: 1.28; margin-bottom: 10px; }
-.program-card__desc { font-size: 13px; color: var(--slate); line-height: 1.65; flex: 1; margin-bottom: 16px; }
-.program-card__specs {
-  display: flex; gap: 14px; flex-wrap: wrap;
-  padding: 12px 0; border-top: 1px solid var(--border);
-  margin-bottom: 14px;
-}
-.program-card__spec { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--slate); }
-.program-card__spec svg { width: 12px; height: 12px; }
-.program-card__includes { display: flex; flex-direction: column; gap: 5px; margin-bottom: 16px; }
-.program-card__include { display: flex; align-items: center; gap: 7px; font-size: 12px; color: var(--slate); }
-.program-card__include svg { width: 12px; height: 12px; flex-shrink: 0; color: var(--teal2); }
-.program-card__footer { padding: 16px 24px; border-top: 1px solid var(--border); background: var(--mist); display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-.program-card__price { font-family: var(--serif); font-size: 22px; color: var(--ink); font-weight: 600; }
-.program-card__price-note { font-size: 11px; color: var(--slate); margin-top: 1px; }
-
-/* LMS ACCESS SECTION */
-.lms-access-box {
-  background: var(--midnight);
-  border-radius: var(--r-xl);
-  padding: 56px 52px;
-  display: grid; grid-template-columns: 1fr 380px;
-  gap: 56px; align-items: center;
-}
-.lms-screen-mock {
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: var(--r-lg); overflow: hidden;
-}
-.lms-mock-bar {
-  background: rgba(255,255,255,.04);
-  padding: 10px 16px;
-  display: flex; align-items: center; gap: 6px;
-  border-bottom: 1px solid rgba(255,255,255,.05);
-}
-.lms-mock-dot { width: 8px; height: 8px; border-radius: 50%; }
-.lms-mock-url { font-size: 11px; color: rgba(255,255,255,.2); margin-left: 8px; }
-.lms-mock-body { padding: 20px; }
-.lms-mock-title { font-size: 12px; font-weight: 700; color: rgba(255,255,255,.6); margin-bottom: 14px; }
-.lms-mock-prog-row { display: flex; justify-content: space-between; margin-bottom: 4px; }
-.lms-mock-prog-label { font-size: 11px; color: rgba(255,255,255,.4); }
-.lms-mock-bar2 { height: 4px; background: rgba(255,255,255,.07); border-radius: 2px; margin-bottom: 13px; }
-.lms-mock-fill { height: 100%; border-radius: 2px; }
-.lms-mock-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 6px; }
-.lms-mock-mod { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.06); border-radius: 8px; padding: 11px; }
-.lms-mock-mod-ico { width: 22px; height: 22px; border-radius: 5px; margin-bottom: 6px; }
-.lms-mock-mod-t { font-size: 11px; color: rgba(255,255,255,.75); font-weight: 600; margin-bottom: 2px; }
-.lms-mock-mod-s { font-size: 10px; color: rgba(255,255,255,.28); }
-.lms-access-feats { display: flex; flex-direction: column; gap: 11px; margin: 22px 0 28px; }
-.lms-feat { display: flex; align-items: flex-start; gap: 11px; }
-.lms-feat__dot { width: 18px; height: 18px; border-radius: 50%; background: rgba(34,160,148,.12); border: 1px solid rgba(34,160,148,.26); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
-.lms-feat__dot svg { width: 10px; height: 10px; }
-.lms-feat span { font-size: 14px; color: rgba(255,255,255,.7); line-height: 1.5; }
-
-@media (max-width:900px) {
+/* @media (max-width:900px) {
   .benefits-strip { grid-template-columns: 1fr; }
   .lms-access-box { grid-template-columns: 1fr; }
   .lms-screen-mock { display: none; }
   .program-card__footer { flex-direction: column; align-items: flex-start; }
-}
+} */
 </style>
