@@ -509,11 +509,21 @@
             </div>
             <div class="wl-form">
               <div class="wl-form-lbl">Form Waiting List Program</div>
-              <div class="form-row">
-                <input class="finput" type="text" placeholder="Nama lengkap">
-                <input class="finput" type="email" placeholder="Email aktif">
-                <input class="finput" type="tel" placeholder="Nomor WhatsApp">
-                <select class="finput fselect">
+              
+              <div v-if="submitted" class="success-message">
+                <div class="sm-ico">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <h3>Pendaftaran Berhasil!</h3>
+                <p>Terima kasih telah mendaftar. Tim DKN akan menghubungi Anda segera melalui WhatsApp atau Email ketika kuota kelas terpenuhi.</p>
+                <button @click="submitted = false" class="btn-reset">Daftar program lain</button>
+              </div>
+
+              <form v-else @submit.prevent="handleSubmit" class="form-row">
+                <input v-model="form.nama" class="finput" type="text" placeholder="Nama lengkap" required>
+                <input v-model="form.email" class="finput" type="email" placeholder="Email aktif" required>
+                <input v-model="form.whatsapp" class="finput" type="tel" placeholder="Nomor WhatsApp" required>
+                <select v-model="form.program" class="finput fselect" required>
                   <option value="">Pilih program yang diminati...</option>
                   <option>Sertifikasi Kepemimpinan BNSP</option>
                   <option>Smart Selling with AI</option>
@@ -531,11 +541,17 @@
                   <option>★ Ecosystem-Based Business Strategy</option>
                   <option>★ Strategic Funding Acquisition</option>
                 </select>
-                <button class="btn-submit">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-                  Daftar Waiting List Sekarang
+                <button class="btn-submit" :disabled="loading">
+                  <template v-if="loading">
+                    <svg class="ani-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><path d="M21 12a9 9 0 11-6.219-8.56"/></svg>
+                    Memproses...
+                  </template>
+                  <template v-else>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                    Daftar Waiting List Sekarang
+                  </template>
                 </button>
-              </div>
+              </form>
             </div>
           </div>
         </div>
@@ -579,10 +595,34 @@ onMounted(() => {
 });
 
 const submitted = ref(false);
+const loading = ref(false);
 
-const handleSubmit = () => {
-  // Logic for form submission would go here
-  submitted.value = true;
+const form = ref({
+  nama: "",
+  email: "",
+  whatsapp: "",
+  program: "",
+});
+
+const handleSubmit = async () => {
+  loading.value = true;
+  try {
+    await $fetch("/api/waiting-list", {
+      method: "POST",
+      body: form.value,
+    });
+    submitted.value = true;
+    form.value = {
+      nama: "",
+      email: "",
+      whatsapp: "",
+      program: "",
+    };
+  } catch (err) {
+    alert("Maaf, terjadi kesalahan. Silakan coba lagi atau hubungi kami via WhatsApp.");
+  } finally {
+    loading.value = false;
+  }
 };
 
 useHead({
@@ -695,7 +735,17 @@ useHead({
 .fselect{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.4)' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;cursor:pointer}
 .btn-submit{width:100%;background:var(--teal2);color:#fff;border:none;padding:12px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--sans);transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:4px}
 .btn-submit:hover{background:var(--teal)}
+.btn-submit:disabled{opacity:.6;cursor:not-allowed}
 .btn-submit svg{width:14px;height:14px}
+.success-message{text-align:center;padding:10px 0}
+.sm-ico{width:48px;height:48px;background:rgba(34,160,148,.15);color:var(--teal2);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.sm-ico svg{width:22px;height:22px}
+.success-message h3{font-family:var(--serif);font-size:20px;color:#fff;margin-bottom:8px}
+.success-message p{font-size:13.5px;color:rgba(255,255,255,.5);line-height:1.6;margin-bottom:20px}
+.btn-reset{background:none;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.7);padding:8px 16px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;transition:all .2s}
+.btn-reset:hover{background:rgba(255,255,255,.05);color:#fff}
+.ani-spin{animation:ani-spin 1s linear infinite}
+@keyframes ani-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 /* CORP CTA */
 .corp-strip{background:var(--gold-pale);border:1px solid rgba(196,146,58,.2);border-radius:16px;padding:40px 52px;display:flex;align-items:center;justify-content:space-between;gap:32px}
 .cs-left h2{font-family:var(--serif);font-size:26px;font-weight:600;color:var(--ink);margin-bottom:8px}

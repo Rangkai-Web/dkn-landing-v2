@@ -27,10 +27,10 @@
       <!-- TAB NAV -->
       <div class="tab-nav">
         <div class="tab-nav-inner">
-          <a href="#router" class="tnav-tab active">🗺 Cari Program</a>
-          <a href="#artikel" class="tnav-tab">📝 Artikel</a>
-          <a href="#insight" class="tnav-tab">💡 Insight Bisnis</a>
-          <a href="#katalog" class="tnav-tab">📋 Katalog Lengkap</a>
+          <a href="#router" @click="activeTab = '#router'" class="tnav-tab" :class="{ active: activeTab === '#router' }">🗺 Cari Program</a>
+          <a href="#artikel" @click="activeTab = '#artikel'" class="tnav-tab" :class="{ active: activeTab === '#artikel' }">📝 Artikel</a>
+          <a href="#insight" @click="activeTab = '#insight'" class="tnav-tab" :class="{ active: activeTab === '#insight' }">💡 Insight Bisnis</a>
+          <a href="#katalog" @click="activeTab = '#katalog'" class="tnav-tab" :class="{ active: activeTab === '#katalog' }">📋 Katalog Lengkap</a>
         </div>
       </div>
 
@@ -453,6 +453,8 @@
 import { useTrainingStore } from '~/stores/trainingStore';
 import { storeToRefs } from 'pinia';
 
+const activeTab = ref('#router');
+
 useSeoMeta({
   title: 'Resources - DKN Indonesia',
   description: 'Resources DKN Digital',
@@ -464,6 +466,12 @@ const { trainings: allTrainingsData, isLoading: trainingLoading } = storeToRefs(
 
 // Trigger fetch
 trainingStore.fetchTrainings();
+
+onMounted(() => {
+  if (window.location.hash) {
+    activeTab.value = window.location.hash;
+  }
+});
 
 const displayLimit = ref(10);
 const isLoadingMore = ref(false);
