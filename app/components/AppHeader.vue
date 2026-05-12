@@ -34,9 +34,7 @@
             class="text-[13px] md:text-[14px] font-bold tracking-[0.3px] text-white"
           >
             <span class="text-teal-secondary">
-              {{
-                profile?.site_name.split(" ").slice(0, 3).join(" ") || ""
-              }}
+              {{ profile?.site_name.split(" ").slice(0, 3).join(" ") || "" }}
             </span>
             {{ profile?.site_name.split(" ")[3] || "" }}
           </div>
@@ -151,10 +149,10 @@ onMounted(() => {
 });
 
 const navLinks = [
+  { label: "Tentang Kami", href: "/tentang" },
   { label: "Webinar", href: "/webinar#recording" },
-  { label: "Program Belajar Bersertifikat", href: "/program" },
+  { label: "Belajar Bersertifikat", href: "/program" },
   { label: "Layanan", href: "/#layanan" },
-  { label: "Tentang", href: "/tentang" },
   { label: "Resources", href: "/resources" },
   { label: "Produk", href: "/produk" },
   { label: "Konsultasi", href: "/contact" },

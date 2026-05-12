@@ -45,7 +45,7 @@
           <div class="router-grid">
 
             <!-- Jalur 1: Webinar -->
-            <a href="webinar.html" class="router-card rc-bg1">
+            <a href="/webinar" class="router-card rc-bg1">
               <div class="rc-num">1</div>
               <div class="rc-ico" style="background:rgba(34,160,148,.15)">
                 <svg viewBox="0 0 24 24" fill="none" stroke="#22A094" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
@@ -65,7 +65,7 @@
             </a>
 
             <!-- Jalur 2: Program Belajar -->
-            <a href="program.html" class="router-card rc-bg2">
+            <a href="/program" class="router-card rc-bg2">
               <div class="rc-num">2</div>
               <div class="rc-ico" style="background:rgba(196,146,58,.15)">
                 <svg viewBox="0 0 24 24" fill="none" stroke="#D9AA55" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
@@ -86,7 +86,7 @@
             </a>
 
             <!-- Jalur 3: Corporate -->
-            <a href="contact.html" class="router-card rc-bg3">
+            <a href="/contact" class="router-card rc-bg3">
               <div class="rc-num">3</div>
               <div class="rc-ico" style="background:rgba(139,92,246,.15)">
                 <svg viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
@@ -137,7 +137,7 @@
                   <div class="art-author-role">Co-Founder &amp; Senior Consultant · LPK DKN</div>
                 </div>
               </div>
-              <a href="webinar.html" class="btn-teal">
+              <a href="/webinar" class="btn-teal">
                 Artikel Segera Tersedia
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
@@ -245,7 +245,7 @@
               <div class="ic-cat">Tren SDM 2026</div>
               <div class="ic-title">Kompetensi Apa yang Paling Dicari Perbankan Tahun Ini?</div>
               <div class="ic-desc">Pergeseran kebutuhan kompetensi akibat digitalisasi, regulasi OJK terbaru, dan ekspektasi nasabah yang berubah — apa yang harus dipersiapkan profesional keuangan.</div>
-              <a href="webinar.html" class="btn-ic">Ikuti Webinar Terkait <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+              <a href="/webinar" class="btn-ic">Ikuti Webinar Terkait <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
             </div>
 
             <div class="insight-card">
@@ -255,7 +255,7 @@
               <div class="ic-cat">Pengembangan Organisasi</div>
               <div class="ic-title">Mengapa Program Training Mahal Tidak Selalu Menghasilkan Perubahan</div>
               <div class="ic-desc">Investasi training besar sering berakhir tanpa dampak terukur. Ini bukan soal konten — tapi soal desain program dan sistem reinforcement yang gagal dibangun.</div>
-              <a href="contact.html" class="btn-ic">Diskusikan dengan DKN <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+              <a href="/contact" class="btn-ic">Diskusikan dengan DKN <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
             </div>
 
             <div class="insight-card">
@@ -265,7 +265,7 @@
               <div class="ic-cat">Risk &amp; Compliance</div>
               <div class="ic-title">Dampak Regulasi OJK Terbaru terhadap Kebutuhan Kompetensi SDM Perbankan</div>
               <div class="ic-desc">Perubahan regulasi OJK membawa implikasi langsung pada persyaratan kompetensi. Apa yang harus dipersiapkan institusi keuangan dan profesionalnya sekarang.</div>
-              <a href="contact.html" class="btn-ic">Diskusikan dengan DKN <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+              <a href="/contact" class="btn-ic">Diskusikan dengan DKN <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
             </div>
 
             <div class="insight-card">
@@ -275,7 +275,7 @@
               <div class="ic-cat">Digital Learning</div>
               <div class="ic-title">Hybrid Learning sebagai Standar Baru Pengembangan Kompetensi Korporat</div>
               <div class="ic-desc">Kombinasi online-offline bukan lagi tren — ini adalah keharusan. Bagaimana merancang sistem hybrid learning yang benar-benar efektif untuk tim Anda.</div>
-              <a href="webinar.html" class="btn-ic">Lihat Webinar DKN <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+              <a href="/webinar" class="btn-ic">Lihat Webinar DKN <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
             </div>
 
             <div class="insight-card">
@@ -285,7 +285,7 @@
               <div class="ic-cat">Sales &amp; Performance</div>
               <div class="ic-title">Framework Coaching Sales yang Bisa Langsung Diterapkan Manajer</div>
               <div class="ic-desc">Manajer yang baik bukan yang paling pintar menjual — tapi yang paling efektif mengembangkan kemampuan tim. Model coaching yang terbukti bekerja di perbankan nasional.</div>
-              <a href="program.html" class="btn-ic">Lihat Program Coaching <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+              <a href="/program" class="btn-ic">Lihat Program Coaching <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
             </div>
 
             <div class="insight-card">
@@ -295,7 +295,7 @@
               <div class="ic-cat">Advisory &amp; Strategi</div>
               <div class="ic-title">Assessment Center: Investasi SDM yang Sering Dianggap Remeh</div>
               <div class="ic-desc">Keputusan promosi yang salah bisa merugikan organisasi berbulan-bulan produktivitas. Assessment center yang baik mencegah kesalahan mahal ini sebelum terjadi.</div>
-              <a href="contact.html" class="btn-ic">Diskusikan dengan DKN <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+              <a href="/contact" class="btn-ic">Diskusikan dengan DKN <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
             </div>
 
           </div>
@@ -313,7 +313,7 @@
           <div class="katalog-grid">
 
             <!-- Webinar Gratis -->
-            <a href="webinar.html#gratis" class="kat-card">
+            <a href="/webinar#gratis" class="kat-card">
               <div class="kat-ico" style="background:rgba(34,160,148,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#22A094" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
               <div class="kat-info">
                 <div class="kat-cat">Webinar Gratis</div>
@@ -324,7 +324,7 @@
             </a>
 
             <!-- Webinar Berbayar -->
-            <a href="webinar.html#berbayar" class="kat-card">
+            <a href="/webinar#berbayar" class="kat-card">
               <div class="kat-ico" style="background:rgba(196,146,58,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#C4923A" stroke-width="2"><path d="M9 11l3 3L22 4"/></svg></div>
               <div class="kat-info">
                 <div class="kat-cat">Webinar Berbayar</div>
@@ -335,7 +335,7 @@
             </a>
 
             <!-- Sertifikasi BNSP -->
-            <a href="program.html#sertifikasi" class="kat-card">
+            <a href="/program#sertifikasi" class="kat-card">
               <div class="kat-ico" style="background:rgba(196,146,58,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#C4923A" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
               <div class="kat-info">
                 <div class="kat-cat">★ Sertifikasi BNSP · LSP SIK</div>
@@ -346,7 +346,7 @@
             </a>
 
             <!-- Leadership -->
-            <a href="program.html#katalog" class="kat-card">
+            <a href="/program#katalog" class="kat-card">
               <div class="kat-ico" style="background:rgba(55,138,221,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#378ADD" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
               <div class="kat-info">
                 <div class="kat-cat">Leadership</div>
@@ -357,7 +357,7 @@
             </a>
 
             <!-- Sales & Service -->
-            <a href="program.html#katalog" class="kat-card">
+            <a href="/program#katalog" class="kat-card">
               <div class="kat-ico" style="background:rgba(34,160,148,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#22A094" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
               <div class="kat-info">
                 <div class="kat-cat">Sales &amp; Service</div>
@@ -368,7 +368,7 @@
             </a>
 
             <!-- Banking & Risk -->
-            <a href="program.html#katalog" class="kat-card">
+            <a href="/program#katalog" class="kat-card">
               <div class="kat-ico" style="background:rgba(139,92,246,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
               <div class="kat-info">
                 <div class="kat-cat">Banking &amp; Risk</div>
@@ -379,7 +379,7 @@
             </a>
 
             <!-- Strategy & Finance -->
-            <a href="program.html#katalog" class="kat-card">
+            <a href="/program#katalog" class="kat-card">
               <div class="kat-ico" style="background:rgba(196,146,58,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#C4923A" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
               <div class="kat-info">
                 <div class="kat-cat">Strategy &amp; Finance</div>
@@ -390,7 +390,7 @@
             </a>
 
             <!-- Program Signature -->
-            <a href="program.html#katalog" class="kat-card" style="border-color:rgba(196,146,58,.3);background:var(--gold-pale)">
+            <a href="/program#katalog" class="kat-card" style="border-color:rgba(196,146,58,.3);background:var(--gold-pale)">
               <div class="kat-ico" style="background:rgba(196,146,58,.15)"><svg viewBox="0 0 24 24" fill="none" stroke="#C4923A" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
               <div class="kat-info">
                 <div class="kat-cat" style="color:var(--gold)">★ Program Signature Eksklusif DKN</div>
@@ -401,7 +401,7 @@
             </a>
 
             <!-- Corporate In-House -->
-            <a href="contact.html" class="kat-card">
+            <a href="/contact" class="kat-card">
               <div class="kat-ico" style="background:rgba(26,122,110,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#1A7A6E" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
               <div class="kat-info">
                 <div class="kat-cat">Corporate Training</div>
@@ -430,7 +430,7 @@
               <p style="margin-top:10px">Ikuti webinar live gratis DKN via Zoom. Dapatkan wawasan nyata dari praktisi senior, dan tonton recording gratis di YouTube — tanpa perlu daftar apapun.</p>
             </div>
             <div class="wb-banner-right">
-              <a href="webinar.html" class="btn-gold">
+              <a href="/webinar" class="btn-gold">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
                 Lihat Jadwal Webinar
               </a>

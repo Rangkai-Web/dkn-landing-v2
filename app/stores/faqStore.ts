@@ -11,10 +11,12 @@ export interface IFaq {
 
 export const useFaqStore = defineStore("faq", () => {
   const faqs = ref<IFaq[]>([]);
-  const isLoading = ref(true);
+  const isLoading = ref(false);
   const error = ref<string | null>(null);
 
   const fetchFaqs = async () => {
+    if (faqs.value.length > 0) return;
+
     isLoading.value = true;
     error.value = null;
 
@@ -26,7 +28,7 @@ export const useFaqStore = defineStore("faq", () => {
         baseURL: baseUrl,
       });
 
-      if (data && data.data) {
+      if (data && data.status === "success" && data.data) {
         faqs.value = data.data.map((item: any) => ({
           id: item.id,
           question: item.question,

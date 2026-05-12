@@ -19,7 +19,12 @@
             sertifikat keikutsertaan.
           </p>
           <div class="ph-btns">
-            <a href="#recording" class="cta-A">
+            <a
+              href="#recording"
+              class="cta-A"
+              :class="{ active: activeSection === 'recording' }"
+              @click="activeSection = 'recording'"
+            >
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
@@ -30,7 +35,12 @@
               </svg>
               Tonton Recording
             </a>
-            <a href="#gratis" class="cta-ghost">
+            <a
+              href="#gratis"
+              class="cta-ghost"
+              :class="{ active: activeSection === 'gratis' }"
+              @click="activeSection = 'gratis'"
+            >
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
@@ -42,7 +52,12 @@
               </svg>
               Webinar Gratis
             </a>
-            <a href="#berbayar" class="cta-ghost">
+            <a
+              href="#berbayar"
+              class="cta-ghost"
+              :class="{ active: activeSection === 'berbayar' }"
+              @click="activeSection = 'berbayar'"
+            >
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
@@ -60,9 +75,27 @@
       <!-- TAB NAV -->
       <div class="tab-nav">
         <div class="tab-nav-inner">
-          <a href="#recording" class="tab active">🎬 Recording Tersedia</a>
-          <a href="#gratis" class="tab">✦ Webinar Gratis</a>
-          <a href="#berbayar" class="tab">★ Webinar Berbayar</a>
+          <a
+            href="#recording"
+            class="tab"
+            :class="{ active: activeSection === 'recording' }"
+            @click="activeSection = 'recording'"
+            >🎬 Recording Tersedia</a
+          >
+          <a
+            href="#gratis"
+            class="tab"
+            :class="{ active: activeSection === 'gratis' }"
+            @click="activeSection = 'gratis'"
+            >✦ Webinar Gratis</a
+          >
+          <a
+            href="#berbayar"
+            class="tab"
+            :class="{ active: activeSection === 'berbayar' }"
+            @click="activeSection = 'berbayar'"
+            >★ Webinar Berbayar</a
+          >
         </div>
       </div>
 
@@ -236,15 +269,15 @@
 
           <!-- WEBINAR GRATIS CARDS — COMING SOON -->
           <div class="wg-grid">
-            <!-- Card 1: START 90 -->
-            <div class="wg-card">
-              <div
-                class="wg-thumb"
-                style="
-                  background: linear-gradient(135deg, var(--midnight), #1a3050);
-                "
-              >
+            <div
+              v-for="webinar in freeWebinars"
+              :key="webinar.id"
+              class="wg-card"
+            >
+              <div class="wg-thumb" :style="{ background: webinar.gradient }">
+                <!-- Dynamic Icons -->
                 <svg
+                  v-if="webinar.icon === 'users'"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="rgba(34,160,148,.5)"
@@ -254,94 +287,8 @@
                   <circle cx="9" cy="7" r="4" />
                   <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
                 </svg>
-                <span class="wg-coming-tag">Segera Hadir</span>
-              </div>
-              <div class="wg-body">
-                <div class="wg-cat">Leadership · LPK-DKN-LEAD-01</div>
-                <div class="wg-title">
-                  START 90™: Cara Supervisor Baru Tidak Gagal di 90 Hari Pertama
-                </div>
-                <div class="wg-desc">
-                  Framework terbukti untuk supervisor baru — membangun
-                  kredibilitas, menghindari 5 jebakan fatal, dan memimpin dengan
-                  percaya diri sejak hari pertama.
-                </div>
-                <div class="wg-target">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                    <circle cx="9" cy="7" r="4" /></svg
-                  >Supervisor Baru, Team Leader, Middle Manager
-                </div>
-                <div
-                  style="
-                    background: rgba(196, 146, 58, 0.08);
-                    border: 1px solid rgba(196, 146, 58, 0.18);
-                    border-radius: 8px;
-                    padding: 11px 14px;
-                    font-size: 12.5px;
-                    color: var(--ink);
-                    margin-bottom: 12px;
-                  "
-                >
-                  <strong
-                    style="
-                      display: block;
-                      font-size: 11px;
-                      color: var(--gold);
-                      letter-spacing: 0.5px;
-                      text-transform: uppercase;
-                      margin-bottom: 3px;
-                    "
-                    >Format</strong
-                  >
-                  90 Menit · 6 Sesi Interaktif · Via Zoom
-                </div>
-              </div>
-              <div class="wg-footer">
-                <a
-                  href="https://wa.me/6281343583568?text=Saya+ingin+daftar+notifikasi+webinar+START+90+DKN"
-                  target="_blank"
-                  rel="noopener"
-                  class="btn-minat"
-                  style="width: 100%; justify-content: center"
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path
-                      d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
-                    />
-                  </svg>
-                  Beritahu Saya
-                </a>
-                <div class="wg-free-note">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path d="M9 11l3 3L22 4" /></svg
-                  >Gratis · Recording di YouTube
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 2: From Campus to Career -->
-            <div class="wg-card">
-              <div
-                class="wg-thumb"
-                style="background: linear-gradient(135deg, #071a12, #0d3824)"
-              >
                 <svg
+                  v-else-if="webinar.icon === 'graduation-cap'"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="rgba(26,122,110,.5)"
@@ -350,95 +297,8 @@
                   <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
                   <path d="M6 12v5c3 3 9 3 12 0v-5" />
                 </svg>
-                <span class="wg-coming-tag">Segera Hadir</span>
-              </div>
-              <div class="wg-body">
-                <div class="wg-cat">Career Development · LPK-DKN-LEAD-06</div>
-                <div class="wg-title">
-                  From Campus to Career: Blueprint Profesional untuk Fresh
-                  Graduate
-                </div>
-                <div class="wg-desc">
-                  Menjembatani gap antara dunia kampus dan dunia kerja — reality
-                  check, mindset shift, First 90 Days Blueprint, dan 7 kesalahan
-                  fatal fresh graduate.
-                </div>
-                <div class="wg-target">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                    <circle cx="9" cy="7" r="4" /></svg
-                  >Mahasiswa Tingkat Akhir, Fresh Graduate
-                </div>
-                <div
-                  style="
-                    background: rgba(196, 146, 58, 0.08);
-                    border: 1px solid rgba(196, 146, 58, 0.18);
-                    border-radius: 8px;
-                    padding: 11px 14px;
-                    font-size: 12.5px;
-                    color: var(--ink);
-                    margin-bottom: 12px;
-                  "
-                >
-                  <strong
-                    style="
-                      display: block;
-                      font-size: 11px;
-                      color: var(--gold);
-                      letter-spacing: 0.5px;
-                      text-transform: uppercase;
-                      margin-bottom: 3px;
-                    "
-                    >Format</strong
-                  >
-                  90–120 Menit · Via Zoom
-                </div>
-              </div>
-              <div class="wg-footer">
-                <a
-                  href="https://wa.me/6281343583568?text=Saya+ingin+daftar+notifikasi+webinar+From+Campus+to+Career+DKN"
-                  target="_blank"
-                  rel="noopener"
-                  class="btn-minat"
-                  style="width: 100%; justify-content: center"
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path
-                      d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
-                    />
-                  </svg>
-                  Beritahu Saya
-                </a>
-                <div class="wg-free-note">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path d="M9 11l3 3L22 4" /></svg
-                  >Gratis · Recording di YouTube
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 3: Building a Sales Culture -->
-            <div class="wg-card">
-              <div
-                class="wg-thumb"
-                style="background: linear-gradient(135deg, #1a0e00, #2a1500)"
-              >
                 <svg
+                  v-else-if="webinar.icon === 'activity'"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="rgba(196,146,58,.5)"
@@ -446,95 +306,8 @@
                 >
                   <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
                 </svg>
-                <span class="wg-coming-tag">Segera Hadir</span>
-              </div>
-              <div class="wg-body">
-                <div class="wg-cat">Sales Management · LPK-DKN-SALE-03</div>
-                <div class="wg-title">
-                  Building a Sales Culture: Tim Penjualan yang Sehat dan
-                  Konsisten
-                </div>
-                <div class="wg-desc">
-                  Membangun budaya sales berbasis kepercayaan — visi tim,
-                  psychological safety, EQ sebagai fondasi coaching, dan sistem
-                  accountability yang konsisten.
-                </div>
-                <div class="wg-target">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                    <circle cx="9" cy="7" r="4" /></svg
-                  >Sales Manager, Team Leader
-                </div>
-                <div
-                  style="
-                    background: rgba(196, 146, 58, 0.08);
-                    border: 1px solid rgba(196, 146, 58, 0.18);
-                    border-radius: 8px;
-                    padding: 11px 14px;
-                    font-size: 12.5px;
-                    color: var(--ink);
-                    margin-bottom: 12px;
-                  "
-                >
-                  <strong
-                    style="
-                      display: block;
-                      font-size: 11px;
-                      color: var(--gold);
-                      letter-spacing: 0.5px;
-                      text-transform: uppercase;
-                      margin-bottom: 3px;
-                    "
-                    >Format</strong
-                  >
-                  175 Menit · Via Zoom
-                </div>
-              </div>
-              <div class="wg-footer">
-                <a
-                  href="https://wa.me/6281343583568?text=Saya+ingin+daftar+notifikasi+webinar+Building+Sales+Culture+DKN"
-                  target="_blank"
-                  rel="noopener"
-                  class="btn-minat"
-                  style="width: 100%; justify-content: center"
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path
-                      d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
-                    />
-                  </svg>
-                  Beritahu Saya
-                </a>
-                <div class="wg-free-note">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path d="M9 11l3 3L22 4" /></svg
-                  >Gratis · Recording di YouTube
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 4: Inisiatif Kerja (SKKNI) -->
-            <div class="wg-card">
-              <div
-                class="wg-thumb"
-                style="background: linear-gradient(135deg, #060e28, #0a1a40)"
-              >
                 <svg
+                  v-else-if="webinar.icon === 'zap'"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="rgba(55,138,221,.5)"
@@ -542,96 +315,8 @@
                 >
                   <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
                 </svg>
-                <span class="wg-coming-tag">Segera Hadir</span>
-              </div>
-              <div class="wg-body">
-                <div class="wg-cat">
-                  Soft Skills · LPK-DKN-SOFT-01 · SKKNI No. 234/2020
-                </div>
-                <div class="wg-title">
-                  Mengembangkan Kemampuan Berinisiatif dalam Bekerja
-                </div>
-                <div class="wg-desc">
-                  Inisiatif bukan sifat bawaan — ini keterampilan yang bisa
-                  dilatih. 4 elemen kompetensi berbasis SKKNI untuk membangun
-                  kebiasaan bertindak mandiri yang berdampak.
-                </div>
-                <div class="wg-target">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                    <circle cx="9" cy="7" r="4" /></svg
-                  >Karyawan semua level, lintas industri
-                </div>
-                <div
-                  style="
-                    background: rgba(196, 146, 58, 0.08);
-                    border: 1px solid rgba(196, 146, 58, 0.18);
-                    border-radius: 8px;
-                    padding: 11px 14px;
-                    font-size: 12.5px;
-                    color: var(--ink);
-                    margin-bottom: 12px;
-                  "
-                >
-                  <strong
-                    style="
-                      display: block;
-                      font-size: 11px;
-                      color: var(--gold);
-                      letter-spacing: 0.5px;
-                      text-transform: uppercase;
-                      margin-bottom: 3px;
-                    "
-                    >Format</strong
-                  >
-                  150–170 Menit · Via Zoom
-                </div>
-              </div>
-              <div class="wg-footer">
-                <a
-                  href="https://wa.me/6281343583568?text=Saya+ingin+daftar+notifikasi+webinar+Inisiatif+Kerja+DKN"
-                  target="_blank"
-                  rel="noopener"
-                  class="btn-minat"
-                  style="width: 100%; justify-content: center"
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path
-                      d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
-                    />
-                  </svg>
-                  Beritahu Saya
-                </a>
-                <div class="wg-free-note">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path d="M9 11l3 3L22 4" /></svg
-                  >Gratis · Recording di YouTube
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 5: Integritas -->
-            <div class="wg-card">
-              <div
-                class="wg-thumb"
-                style="background: linear-gradient(135deg, #0a0a1a, #14143a)"
-              >
                 <svg
+                  v-else-if="webinar.icon === 'shield'"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="rgba(139,92,246,.5)"
@@ -639,96 +324,8 @@
                 >
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                 </svg>
-                <span class="wg-coming-tag">Segera Hadir</span>
-              </div>
-              <div class="wg-body">
-                <div class="wg-cat">
-                  Soft Skills · LPK-DKN-SOFT-02 · SKKNI No. 234/2020
-                </div>
-                <div class="wg-title">
-                  Membangun Integritas sebagai Tenaga Kerja Profesional
-                </div>
-                <div class="wg-desc">
-                  Integritas bukan sekadar jujur — ini kompetensi profesional
-                  yang terukur. Segitiga integritas, 4 komponen, kode etik, dan
-                  dampak nyata dalam lingkungan perbankan.
-                </div>
-                <div class="wg-target">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                    <circle cx="9" cy="7" r="4" /></svg
-                  >Karyawan semua level, khususnya perbankan
-                </div>
-                <div
-                  style="
-                    background: rgba(196, 146, 58, 0.08);
-                    border: 1px solid rgba(196, 146, 58, 0.18);
-                    border-radius: 8px;
-                    padding: 11px 14px;
-                    font-size: 12.5px;
-                    color: var(--ink);
-                    margin-bottom: 12px;
-                  "
-                >
-                  <strong
-                    style="
-                      display: block;
-                      font-size: 11px;
-                      color: var(--gold);
-                      letter-spacing: 0.5px;
-                      text-transform: uppercase;
-                      margin-bottom: 3px;
-                    "
-                    >Format</strong
-                  >
-                  155 Menit · Via Zoom
-                </div>
-              </div>
-              <div class="wg-footer">
-                <a
-                  href="https://wa.me/6281343583568?text=Saya+ingin+daftar+notifikasi+webinar+Integritas+DKN"
-                  target="_blank"
-                  rel="noopener"
-                  class="btn-minat"
-                  style="width: 100%; justify-content: center"
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path
-                      d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
-                    />
-                  </svg>
-                  Beritahu Saya
-                </a>
-                <div class="wg-free-note">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path d="M9 11l3 3L22 4" /></svg
-                  >Gratis · Recording di YouTube
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 6: EQ -->
-            <div class="wg-card">
-              <div
-                class="wg-thumb"
-                style="background: linear-gradient(135deg, #001a0a, #002a10)"
-              >
                 <svg
+                  v-else-if="webinar.icon === 'heart'"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="rgba(26,160,100,.5)"
@@ -738,19 +335,16 @@
                     d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"
                   />
                 </svg>
+
                 <span class="wg-coming-tag">Segera Hadir</span>
               </div>
               <div class="wg-body">
-                <div class="wg-cat">
-                  Soft Skills · LPK-DKN-SOFT-03 · SKKNI No. 234/2020
-                </div>
+                <div class="wg-cat">{{ webinar.cat }} · {{ webinar.code }}</div>
                 <div class="wg-title">
-                  Membangun Kemampuan Pengelolaan Emosi di Tempat Kerja
+                  {{ webinar.title }}
                 </div>
                 <div class="wg-desc">
-                  EQ adalah prediktor terkuat keunggulan kinerja. 5 dimensi
-                  kecerdasan emosional berbasis SKKNI — dari identifikasi pemicu
-                  hingga personal EQ Action Plan.
+                  {{ webinar.desc }}
                 </div>
                 <div class="wg-target">
                   <svg
@@ -760,8 +354,9 @@
                     stroke-width="2"
                   >
                     <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                    <circle cx="9" cy="7" r="4" /></svg
-                  >Karyawan semua level yang berinteraksi dengan orang lain
+                    <circle cx="9" cy="7" r="4" />
+                  </svg>
+                  {{ webinar.target }}
                 </div>
                 <div
                   style="
@@ -783,14 +378,15 @@
                       text-transform: uppercase;
                       margin-bottom: 3px;
                     "
-                    >Format</strong
                   >
-                  175 Menit · Via Zoom
+                    Format
+                  </strong>
+                  {{ webinar.format }}
                 </div>
               </div>
               <div class="wg-footer">
                 <a
-                  href="https://wa.me/6281343583568?text=Saya+ingin+daftar+notifikasi+webinar+Pengelolaan+Emosi+DKN"
+                  :href="webinar.waUrl"
                   target="_blank"
                   rel="noopener"
                   class="btn-minat"
@@ -815,12 +411,14 @@
                     stroke="currentColor"
                     stroke-width="2"
                   >
-                    <path d="M9 11l3 3L22 4" /></svg
-                  >Gratis · Recording di YouTube
+                    <path d="M9 11l3 3L22 4" />
+                  </svg>
+                  Gratis · Recording di YouTube
                 </div>
               </div>
             </div>
           </div>
+
 
           <!-- Interest banner -->
           <div class="interest-banner">
@@ -839,35 +437,73 @@
               </p>
             </div>
             <div class="ib-form">
-              <div class="ib-form-lbl">Daftar Notifikasi Webinar</div>
-              <div class="form-row">
-                <input
-                  class="finput"
-                  type="text"
-                  placeholder="Nama lengkap Anda"
-                />
-                <input class="finput" type="email" placeholder="Email aktif" />
-                <input class="finput" type="tel" placeholder="Nomor WhatsApp" />
-                <select class="finput fselect">
-                  <option value="">Topik yang diminati...</option>
-                  <option>Leadership &amp; Management</option>
-                  <option>Sales &amp; Marketing</option>
-                  <option>Soft Skills (SKKNI)</option>
-                  <option>Banking &amp; Risk</option>
-                  <option>Semua Topik</option>
-                </select>
-                <button class="btn-submit">
+              <div v-if="!isSuccess">
+                <div class="ib-form-lbl">Daftar Notifikasi Webinar</div>
+                <form @submit.prevent="handleSubmit" class="form-row">
+                  <input
+                    v-model="form.nama"
+                    class="finput"
+                    type="text"
+                    placeholder="Nama lengkap Anda"
+                    required
+                  />
+                  <input
+                    v-model="form.email"
+                    class="finput"
+                    type="email"
+                    placeholder="Email aktif"
+                    required
+                  />
+                  <input
+                    v-model="form.whatsapp"
+                    class="finput"
+                    type="tel"
+                    placeholder="Nomor WhatsApp"
+                    required
+                  />
+                  <select v-model="form.topik" class="finput fselect">
+                    <option value="">Topik yang diminati...</option>
+                    <option>Leadership &amp; Management</option>
+                    <option>Sales &amp; Marketing</option>
+                    <option>Soft Skills (SKKNI)</option>
+                    <option>Banking &amp; Risk</option>
+                    <option>Semua Topik</option>
+                  </select>
+                  <button type="submit" class="btn-submit" :disabled="isSending">
+                    <svg
+                      v-if="!isSending"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.5"
+                      width="14"
+                      height="14"
+                    >
+                      <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+                    </svg>
+                    <span v-if="isSending">Mendaftar...</span>
+                    <span v-else>Daftar Webinar Gratis</span>
+                  </button>
+                </form>
+              </div>
+              <div v-else class="ib-success">
+                <div class="sc-ico">
                   <svg
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    stroke-width="2.5"
-                    width="14"
-                    height="14"
+                    stroke-width="3"
                   >
-                    <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+                    <polyline points="20 6 9 17 4 12" />
                   </svg>
-                  Daftar Sekarang — Gratis
+                </div>
+                <h3>Terima Kasih!</h3>
+                <p>
+                  Data Anda telah tersimpan. Kami akan mengirimkan notifikasi jadwal
+                  webinar terbaru melalui WhatsApp atau Email Anda.
+                </p>
+                <button @click="isSuccess = false" class="btn-reset">
+                  Daftar Lagi
                 </button>
               </div>
             </div>
@@ -903,420 +539,89 @@
             </p>
           </div>
 
-          <div class="wb-grid">
-            <!-- Webinar Berbayar 1: Smart Selling with AI -->
-            <div class="wb-card">
+          <div class="wb-grid" id="berbayar">
+            <div
+              v-for="webinar in paidWebinars"
+              :key="webinar.id"
+              class="wb-card"
+            >
               <div class="wb-head">
-                <div class="wb-head-tag">Sales &amp; AI · LPK-DKN-SALE-02</div>
+                <div class="wb-head-tag">{{ webinar.tag }}</div>
                 <div class="wb-head-title">
-                  Smart Selling with AI for Financial Products
+                  {{ webinar.title }}
                 </div>
                 <div class="wb-head-desc">
-                  Mengintegrasikan consultative selling dengan AI tools untuk
-                  melipatgandakan produktivitas sales perbankan. SPIN Selling +
-                  Trusted Advisor + AI Prompt Engineering dalam satu program
-                  intensif.
+                  {{ webinar.desc }}
                 </div>
                 <div class="wb-outcomes">
-                  <h4>Yang Akan Anda Kuasai</h4>
-                  <div class="wb-outcome">
+                  <h4>{{ webinar.id === 3 ? "4 Modul Terintegrasi" : "Yang Akan Anda Kuasai" }}</h4>
+                  <div
+                    v-for="outcome in webinar.outcomes"
+                    :key="outcome"
+                    class="wb-outcome"
+                  >
                     <svg
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
                       stroke-width="2.5"
                     >
-                      <path d="M9 11l3 3L22 4" /></svg
-                    >Trust-based consultative selling dengan SPIN Selling
-                  </div>
-                  <div class="wb-outcome">
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2.5"
-                    >
-                      <path d="M9 11l3 3L22 4" /></svg
-                    >Value proposition, cross-selling, dan closing high-value
-                  </div>
-                  <div class="wb-outcome">
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2.5"
-                    >
-                      <path d="M9 11l3 3L22 4" /></svg
-                    >Hands-on AI tools dan prompting untuk produktivitas 50%+
+                      <path d="M9 11l3 3L22 4" />
+                    </svg>
+                    {{ outcome }}
                   </div>
                 </div>
               </div>
               <div class="wb-meta">
-                <div class="wb-m">
+                <div v-for="m in webinar.meta" :key="m.text" class="wb-m">
                   <svg
+                    v-if="m.icon === 'clock'"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
                     stroke-width="2"
                   >
                     <circle cx="12" cy="12" r="10" />
-                    <path d="M12 6v6l4 2" /></svg
-                  >1 Hari Penuh · 6 Modul
-                </div>
-                <div class="wb-m">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path d="M15 10l-4 4 6 6-8-16-2 8z" /></svg
-                  >Via Zoom
-                </div>
-                <div class="wb-m">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                    <circle cx="9" cy="7" r="4" /></svg
-                  >Sales Officer, RM, Funding Officer
-                </div>
-              </div>
-              <div class="wb-footer">
-                <div class="wb-price-row">
-                  <div class="wb-price-lbl">Investasi</div>
-                  <div class="wb-price-coming">Harga segera diumumkan</div>
-                </div>
-                <a
-                  href="https://wa.me/6281343583568?text=Saya+ingin+daftar+minat+Webinar+Smart+Selling+with+AI+DKN"
-                  target="_blank"
-                  rel="noopener"
-                  class="btn-minat"
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path
-                      d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
-                    />
+                    <path d="M12 6v6l4 2" />
                   </svg>
-                  Daftar Minat
-                </a>
-              </div>
-            </div>
-
-            <!-- Webinar Berbayar 2: Why Good Strategies Fail -->
-            <div class="wb-card">
-              <div class="wb-head">
-                <div class="wb-head-tag">
-                  Strategy Execution · LPK-DKN-LEAD-05
-                </div>
-                <div class="wb-head-title">
-                  Why Good Strategies Fail in Execution
-                </div>
-                <div class="wb-head-desc">
-                  Hanya 9% eksekutif merasa strategi dieksekusi secara
-                  konsisten. Webinar eksekutif 2 jam ini membedah kesenjangan
-                  kritis kepemimpinan dan cara membangun ritme eksekusi nyata.
-                </div>
-                <div class="wb-outcomes">
-                  <h4>Yang Akan Anda Kuasai</h4>
-                  <div class="wb-outcome">
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2.5"
-                    >
-                      <path d="M9 11l3 3L22 4" /></svg
-                    >Identifikasi 5 penyebab sistemik kegagalan eksekusi
-                  </div>
-                  <div class="wb-outcome">
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2.5"
-                    >
-                      <path d="M9 11l3 3L22 4" /></svg
-                    >4 Disciplines of Execution (4DX) secara praktis
-                  </div>
-                  <div class="wb-outcome">
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2.5"
-                    >
-                      <path d="M9 11l3 3L22 4" /></svg
-                    >Personal execution plan 30 hari yang siap dieksekusi
-                  </div>
-                </div>
-              </div>
-              <div class="wb-meta">
-                <div class="wb-m">
                   <svg
+                    v-else-if="m.icon === 'video'"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
                     stroke-width="2"
                   >
-                    <circle cx="12" cy="12" r="10" />
-                    <path d="M12 6v6l4 2" /></svg
-                  >120 Menit · Webinar Eksekutif
-                </div>
-                <div class="wb-m">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path d="M15 10l-4 4 6 6-8-16-2 8z" /></svg
-                  >Via Zoom
-                </div>
-                <div class="wb-m">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                    <circle cx="9" cy="7" r="4" /></svg
-                  >Middle Manager, semua industri
-                </div>
-              </div>
-              <div class="wb-footer">
-                <div class="wb-price-row">
-                  <div class="wb-price-lbl">Investasi</div>
-                  <div class="wb-price-coming">Harga segera diumumkan</div>
-                </div>
-                <a
-                  href="https://wa.me/6281343583568?text=Saya+ingin+daftar+minat+Webinar+Why+Good+Strategies+Fail+DKN"
-                  target="_blank"
-                  rel="noopener"
-                  class="btn-minat"
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path
-                      d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
-                    />
+                    <path d="M15 10l-4 4 6 6-8-16-2 8z" />
                   </svg>
-                  Daftar Minat
-                </a>
-              </div>
-            </div>
-
-            <!-- Webinar Berbayar 3: Seri Leadership Efektif -->
-            <div class="wb-card">
-              <div class="wb-head">
-                <div class="wb-head-tag">
-                  Leadership · LPK-DKN-LEAD-03 · 4 Modul Terintegrasi
-                </div>
-                <div class="wb-head-title">
-                  Seri Leadership Efektif untuk Praktisi
-                </div>
-                <div class="wb-head-desc">
-                  Perjalanan pengembangan kepemimpinan komprehensif — dari
-                  memimpin diri sendiri hingga memimpin secara strategis. 4
-                  modul terintegrasi, tersedia dalam format webinar
-                  bersertifikat.
-                </div>
-                <div class="wb-outcomes">
-                  <h4>4 Modul Terintegrasi</h4>
-                  <div class="wb-outcome">
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2.5"
-                    >
-                      <path d="M9 11l3 3L22 4" /></svg
-                    >Modul 1: Memimpin Diri Sendiri — integritas, EQ, growth
-                    mindset
-                  </div>
-                  <div class="wb-outcome">
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2.5"
-                    >
-                      <path d="M9 11l3 3L22 4" /></svg
-                    >Modul 2: Memimpin Tim — situational leadership, coaching
-                    GROW
-                  </div>
-                  <div class="wb-outcome">
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2.5"
-                    >
-                      <path d="M9 11l3 3L22 4" /></svg
-                    >Modul 3 &amp; 4: Mengelola Kinerja + Kepemimpinan Strategis
-                  </div>
-                </div>
-              </div>
-              <div class="wb-meta">
-                <div class="wb-m">
                   <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <circle cx="12" cy="12" r="10" />
-                    <path d="M12 6v6l4 2" /></svg
-                  >120 Menit (4×30) · Via Zoom
-                </div>
-                <div class="wb-m">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path d="M9 11l3 3L22 4" /></svg
-                  >Bersertifikat
-                </div>
-                <div class="wb-m">
-                  <svg
+                    v-else-if="m.icon === 'users'"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
                     stroke-width="2"
                   >
                     <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                    <circle cx="9" cy="7" r="4" /></svg
-                  >Semua level profesional
-                </div>
-              </div>
-              <div class="wb-footer">
-                <div class="wb-price-row">
-                  <div class="wb-price-lbl">Investasi</div>
-                  <div class="wb-price-coming">Harga segera diumumkan</div>
-                </div>
-                <a
-                  href="https://wa.me/6281343583568?text=Saya+ingin+daftar+minat+Seri+Leadership+Efektif+DKN"
-                  target="_blank"
-                  rel="noopener"
-                  class="btn-minat"
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path
-                      d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
-                    />
+                    <circle cx="9" cy="7" r="4" />
                   </svg>
-                  Daftar Minat
-                </a>
-              </div>
-            </div>
-
-            <!-- Webinar Berbayar 4: Communication for Auditor -->
-            <div class="wb-card">
-              <div class="wb-head">
-                <div class="wb-head-tag">
-                  Banking Operations · LPK-DKN-BANK-03
-                </div>
-                <div class="wb-head-title">Communication Skill for Auditor</div>
-                <div class="wb-head-desc">
-                  Keunggulan teknis audit saja tidak cukup. Program virtual
-                  classroom ini membekali auditor dengan structured questioning,
-                  framework 4C, dan teknik mengelola resistensi auditee.
-                </div>
-                <div class="wb-outcomes">
-                  <h4>Yang Akan Anda Kuasai</h4>
-                  <div class="wb-outcome">
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2.5"
-                    >
-                      <path d="M9 11l3 3L22 4" /></svg
-                    >Funnel technique &amp; active listening 3 level
-                  </div>
-                  <div class="wb-outcome">
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2.5"
-                    >
-                      <path d="M9 11l3 3L22 4" /></svg
-                    >Framework 4C: Clear, Concise, Constructive, Complete
-                  </div>
-                  <div class="wb-outcome">
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2.5"
-                    >
-                      <path d="M9 11l3 3L22 4" /></svg
-                    >De-escalation dalam percakapan audit yang sulit
-                  </div>
-                </div>
-              </div>
-              <div class="wb-meta">
-                <div class="wb-m">
                   <svg
+                    v-else-if="m.icon === 'award'"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
                     stroke-width="2"
                   >
-                    <circle cx="12" cy="12" r="10" />
-                    <path d="M12 6v6l4 2" /></svg
-                  >150 Menit · 4 Sesi
-                </div>
-                <div class="wb-m">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path d="M15 10l-4 4 6 6-8-16-2 8z" /></svg
-                  >Virtual Classroom
-                </div>
-                <div class="wb-m">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                    <circle cx="9" cy="7" r="4" /></svg
-                  >Junior–Senior Auditor Perbankan
+                    <path d="M9 11l3 3L22 4" />
+                  </svg>
+                  {{ m.text }}
                 </div>
               </div>
               <div class="wb-footer">
                 <div class="wb-price-row">
                   <div class="wb-price-lbl">Investasi</div>
-                  <div class="wb-price-coming">Harga segera diumumkan</div>
+                  <div class="wb-price-coming">{{ webinar.price }}</div>
                 </div>
                 <a
-                  href="https://wa.me/6281343583568?text=Saya+ingin+daftar+minat+Communication+for+Auditor+DKN"
+                  :href="webinar.waUrl"
                   target="_blank"
                   rel="noopener"
                   class="btn-minat"
@@ -1351,7 +656,7 @@
                 lihat Program Belajar offline DKN.
               </p>
             </div>
-            <a href="program.html" class="btn-gold">
+            <a href="/program" class="btn-gold">
               Lihat Program Belajar
               <svg
                 viewBox="0 0 24 24"
@@ -1395,6 +700,345 @@ useHead({
     lang: "id",
   },
 });
+
+const form = ref({
+  nama: "",
+  email: "",
+  whatsapp: "",
+  topik: "",
+});
+
+const isSending = ref(false);
+const isSuccess = ref(false);
+
+const activeSection = ref("recording");
+
+const freeWebinars = [
+  {
+    id: 1,
+    cat: "Leadership",
+    code: "LPK-DKN-LEAD-01",
+    title: "START 90™: Cara Supervisor Baru Tidak Gagal di 90 Hari Pertama",
+    desc: "Framework terbukti untuk supervisor baru — membangun kredibilitas, menghindari 5 jebakan fatal, dan memimpin dengan percaya diri sejak hari pertama.",
+    target: "Supervisor Baru, Team Leader, Middle Manager",
+    format: "90 Menit · 6 Sesi Interaktif · Via Zoom",
+    gradient: "linear-gradient(135deg, var(--midnight), #1a3050)",
+    icon: "users",
+    waUrl:
+      "https://wa.me/6281343583568?text=Saya+ingin+daftar+notifikasi+webinar+START+90+DKN",
+  },
+  {
+    id: 2,
+    cat: "Career Development",
+    code: "LPK-DKN-LEAD-06",
+    title: "From Campus to Career: Blueprint Profesional untuk Fresh Graduate",
+    desc: "Menjembatani gap antara dunia kampus dan dunia kerja — reality check, mindset shift, First 90 Days Blueprint, dan 7 kesalahan fatal fresh graduate.",
+    target: "Mahasiswa Tingkat Akhir, Fresh Graduate",
+    format: "90–120 Menit · Via Zoom",
+    gradient: "linear-gradient(135deg, #071a12, #0d3824)",
+    icon: "graduation-cap",
+    waUrl:
+      "https://wa.me/6281343583568?text=Saya+ingin+daftar+notifikasi+webinar+From+Campus+to+Career+DKN",
+  },
+  {
+    id: 3,
+    cat: "Sales Management",
+    code: "LPK-DKN-SALE-03",
+    title: "Building a Sales Culture: Tim Penjualan yang Sehat dan Konsisten",
+    desc: "Membangun budaya sales berbasis kepercayaan — visi tim, psychological safety, EQ sebagai fondasi coaching, dan sistem accountability yang konsisten.",
+    target: "Sales Manager, Team Leader",
+    format: "175 Menit · Via Zoom",
+    gradient: "linear-gradient(135deg, #1a0e00, #2a1500)",
+    icon: "activity",
+    waUrl:
+      "https://wa.me/6281343583568?text=Saya+ingin+daftar+notifikasi+webinar+Building+Sales+Culture+DKN",
+  },
+  {
+    id: 4,
+    cat: "Soft Skills",
+    code: "LPK-DKN-SOFT-01 · SKKNI No. 234/2020",
+    title: "Mengembangkan Kemampuan Berinisiatif dalam Bekerja",
+    desc: "Inisiatif bukan sifat bawaan — ini keterampilan yang bisa dilatih. 4 elemen kompetensi berbasis SKKNI untuk membangun kebiasaan bertindak mandiri yang berdampak.",
+    target: "Karyawan semua level, lintas industri",
+    format: "150–170 Menit · Via Zoom",
+    gradient: "linear-gradient(135deg, #060e28, #0a1a40)",
+    icon: "zap",
+    waUrl:
+      "https://wa.me/6281343583568?text=Saya+ingin+daftar+notifikasi+webinar+Inisiatif+Kerja+DKN",
+  },
+  {
+    id: 5,
+    cat: "Soft Skills",
+    code: "LPK-DKN-SOFT-02 · SKKNI No. 234/2020",
+    title: "Membangun Integritas sebagai Tenaga Kerja Profesional",
+    desc: "Integritas bukan sekadar jujur — ini kompetensi profesional yang terukur. Segitiga integritas, 4 komponen, kode etik, dan dampak nyata dalam lingkungan perbankan.",
+    target: "Karyawan semua level, khususnya perbankan",
+    format: "155 Menit · Via Zoom",
+    gradient: "linear-gradient(135deg, #0a0a1a, #14143a)",
+    icon: "shield",
+    waUrl:
+      "https://wa.me/6281343583568?text=Saya+ingin+daftar+notifikasi+webinar+Integritas+DKN",
+  },
+  {
+    id: 6,
+    cat: "Soft Skills",
+    code: "LPK-DKN-SOFT-03 · SKKNI No. 234/2020",
+    title: "Membangun Kemampuan Pengelolaan Emosi di Tempat Kerja",
+    desc: "EQ adalah prediktor terkuat keunggulan kinerja. 5 dimensi kecerdasan emosional berbasis SKKNI — dari identifikasi pemicu hingga personal EQ Action Plan.",
+    target: "Karyawan semua level yang berinteraksi dengan orang lain",
+    format: "175 Menit · Via Zoom",
+    gradient: "linear-gradient(135deg, #001a0a, #002a10)",
+    icon: "heart",
+    waUrl:
+      "https://wa.me/6281343583568?text=Saya+ingin+daftar+notifikasi+webinar+Pengelolaan+Emosi+DKN",
+  },
+];
+
+
+const paidWebinars = [
+  {
+    id: 1,
+    tag: "Sales & AI · LPK-DKN-SALE-02",
+    title: "Smart Selling with AI for Financial Products",
+    desc: "Mengintegrasikan consultative selling dengan AI tools untuk melipatgandakan produktivitas sales perbankan. SPIN Selling + Trusted Advisor + AI Prompt Engineering dalam satu program intensif.",
+    outcomes: [
+      "Trust-based consultative selling dengan SPIN Selling",
+      "Value proposition, cross-selling, dan closing high-value",
+      "Hands-on AI tools dan prompting untuk produktivitas 50%+",
+    ],
+    meta: [
+      { icon: "clock", text: "1 Hari Penuh · 6 Modul" },
+      { icon: "video", text: "Via Zoom" },
+      { icon: "users", text: "Sales Officer, RM, Funding Officer" },
+    ],
+    price: "Harga segera diumumkan",
+    waUrl:
+      "https://wa.me/6281343583568?text=Saya+ingin+daftar+minat+Webinar+Smart+Selling+with+AI+DKN",
+  },
+  {
+    id: 2,
+    tag: "Strategy Execution · LPK-DKN-LEAD-05",
+    title: "Why Good Strategies Fail in Execution",
+    desc: "Hanya 9% eksekutif merasa strategi dieksekusi secara konsisten. Webinar eksekutif 2 jam ini membedah kesenjangan kritis kepemimpinan dan cara membangun ritme eksekusi nyata.",
+    outcomes: [
+      "Identifikasi 5 penyebab sistemik kegagalan eksekusi",
+      "4 Disciplines of Execution (4DX) secara praktis",
+      "Personal execution plan 30 hari yang siap dieksekusi",
+    ],
+    meta: [
+      { icon: "clock", text: "120 Menit · Webinar Eksekutif" },
+      { icon: "video", text: "Via Zoom" },
+      { icon: "users", text: "Middle Manager, semua industri" },
+    ],
+    price: "Harga segera diumumkan",
+    waUrl:
+      "https://wa.me/6281343583568?text=Saya+ingin+daftar+minat+Webinar+Why+Good+Strategies+Fail+DKN",
+  },
+  {
+    id: 3,
+    tag: "Leadership · LPK-DKN-LEAD-03 · 4 Modul Terintegrasi",
+    title: "Seri Leadership Efektif untuk Praktisi",
+    desc: "Perjalanan pengembangan kepemimpinan komprehensif — dari memimpin diri sendiri hingga memimpin secara strategis. 4 modul terintegrasi, tersedia dalam format webinar bersertifikat.",
+    outcomes: [
+      "Modul 1: Memimpin Diri Sendiri — integritas, EQ, growth mindset",
+      "Modul 2: Memimpin Tim — situational leadership, coaching GROW",
+      "Modul 3 & 4: Mengelola Kinerja + Kepemimpinan Strategis",
+    ],
+    meta: [
+      { icon: "clock", text: "120 Menit (4×30) · Via Zoom" },
+      { icon: "award", text: "Bersertifikat" },
+      { icon: "users", text: "Semua level profesional" },
+    ],
+    price: "Harga segera diumumkan",
+    waUrl:
+      "https://wa.me/6281343583568?text=Saya+ingin+daftar+minat+Seri+Leadership+Efektif+DKN",
+  },
+  {
+    id: 4,
+    tag: "Banking Operations · LPK-DKN-BANK-03",
+    title: "Communication Skill for Auditor",
+    desc: "Keunggulan teknis audit saja tidak cukup. Program virtual classroom ini membekali auditor dengan structured questioning, framework 4C, dan teknik mengelola resistensi auditee.",
+    outcomes: [
+      "Funnel technique & active listening 3 level",
+      "Framework 4C: Clear, Concise, Constructive, Complete",
+      "De-escalation dalam percakapan audit yang sulit",
+    ],
+    meta: [
+      { icon: "clock", text: "150 Menit · 4 Sesi" },
+      { icon: "video", text: "Virtual Classroom" },
+      { icon: "users", text: "Junior–Senior Auditor Perbankan" },
+    ],
+    price: "Harga segera diumumkan",
+    waUrl:
+      "https://wa.me/6281343583568?text=Saya+ingin+daftar+minat+Communication+for+Auditor+DKN",
+  },
+  {
+    id: 5,
+    tag: "Leadership · LPK-DKN-LEAD-01",
+    title: "Intensif START 90™: Sertifikasi Supervisor Baru",
+    desc: "Program intensif 2 hari untuk memastikan supervisor baru memiliki fondasi kepemimpinan yang kuat dan strategi eksekusi 90 hari pertama.",
+    outcomes: [
+      "Framework 90 Hari Pertama",
+      "Teknik Delegasi & Monitoring",
+      "Personal Leadership Roadmap",
+    ],
+    meta: [
+      { icon: "clock", text: "2 Hari Intensif" },
+      { icon: "award", text: "E-Certificate & Materi" },
+      { icon: "users", text: "Supervisor & Team Leader" },
+    ],
+    price: "Harga segera diumumkan",
+    waUrl:
+      "https://wa.me/6281343583568?text=Saya+ingin+daftar+minat+Webinar+Intensif+START+90+DKN",
+  },
+  {
+    id: 6,
+    tag: "Career Development · LPK-DKN-LEAD-06",
+    title: "Professional Excellence: Blueprint Fresh Graduate",
+    desc: "Membangun karakter dan kompetensi profesional yang dicari perusahaan besar. Program sertifikasi kesiapan kerja standar industri.",
+    outcomes: [
+      "Professional Ethics & Etiquette",
+      "Analytical Thinking Foundation",
+      "Career Acceleration Blueprint",
+    ],
+    meta: [
+      { icon: "clock", text: "180 Menit" },
+      { icon: "award", text: "Sertifikat Kesiapan Kerja" },
+      { icon: "users", text: "Fresh Graduate & Mahasiswa" },
+    ],
+    price: "Harga segera diumumkan",
+    waUrl:
+      "https://wa.me/6281343583568?text=Saya+ingin+daftar+minat+Professional+Excellence+DKN",
+  },
+  {
+    id: 7,
+    tag: "Sales Management · LPK-DKN-SALE-03",
+    title: "Mastering Sales Culture & Performance",
+    desc: "Strategi manajerial untuk membangun tim penjualan yang resilien, berorientasi target, dan memiliki ritme kerja yang konsisten.",
+    outcomes: [
+      "Building High-Performance Culture",
+      "Sales Coaching GROW Model",
+      "Accountability System Setup",
+    ],
+    meta: [
+      { icon: "clock", text: "1 Hari Intensif" },
+      { icon: "video", text: "Virtual Classroom" },
+      { icon: "users", text: "Sales Manager & Director" },
+    ],
+    price: "Harga segera diumumkan",
+    waUrl:
+      "https://wa.me/6281343583568?text=Saya+ingin+daftar+minat+Sales+Culture+Webinar+DKN",
+  },
+  {
+    id: 8,
+    tag: "Soft Skills · LPK-DKN-SOFT-01",
+    title: "Sertifikasi Kompetensi: Inisiatif di Tempat Kerja",
+    desc: "Webinar berbasis standar SKKNI untuk mengukur dan meningkatkan proaktivitas karyawan dalam memberikan solusi bagi perusahaan.",
+    outcomes: [
+      "4 Elemen Kompetensi SKKNI",
+      "Problem Identification Matrix",
+      "Self-Management & Initiative",
+    ],
+    meta: [
+      { icon: "clock", text: "170 Menit" },
+      { icon: "award", text: "Sertifikat Berbasis SKKNI" },
+      { icon: "users", text: "Staf & Profesional" },
+    ],
+    price: "Harga segera diumumkan",
+    waUrl:
+      "https://wa.me/6281343583568?text=Saya+ingin+daftar+minat+Sertifikasi+Inisiatif+DKN",
+  },
+  {
+    id: 9,
+    tag: "Soft Skills · LPK-DKN-SOFT-02",
+    title: "Ethics & Integrity for Professional Banking",
+    desc: "Membangun standar moral dan kepatuhan yang tinggi di lingkungan perbankan melalui studi kasus nyata dan framework integritas.",
+    outcomes: [
+      "Segitiga Integritas Perbankan",
+      "Analisis Risiko Etika",
+      "Professional Code of Conduct",
+    ],
+    meta: [
+      { icon: "clock", text: "155 Menit" },
+      { icon: "award", text: "Sertifikat Kepatuhan" },
+      { icon: "users", text: "Praktisi Perbankan" },
+    ],
+    price: "Harga segera diumumkan",
+    waUrl:
+      "https://wa.me/6281343583568?text=Saya+ingin+daftar+minat+Ethics+Banking+Webinar+DKN",
+  },
+  {
+    id: 10,
+    tag: "Soft Skills · LPK-DKN-SOFT-03",
+    title: "Emotional Intelligence for Workplace Success",
+    desc: "Gunakan kecerdasan emosional untuk meningkatkan kolaborasi tim, mengelola stres, dan membangun hubungan profesional yang bermakna.",
+    outcomes: [
+      "5 Dimensi EQ Daniel Goleman",
+      "Conflict Resolution Strategy",
+      "Workplace Empathy Framework",
+    ],
+    meta: [
+      { icon: "clock", text: "175 Menit" },
+      { icon: "video", text: "Via Zoom" },
+      { icon: "users", text: "Semua Level Profesional" },
+    ],
+    price: "Harga segera diumumkan",
+    waUrl:
+      "https://wa.me/6281343583568?text=Saya+ingin+daftar+minat+EQ+Workplace+DKN",
+  },
+  {
+    id: 11,
+    tag: "Performance Management · LPK-DKN-LEAD-02",
+    title: "Sertifikasi KPI: Membangun Sistem Pengukuran Kinerja",
+    desc: "Bagaimana merancang KPI yang benar-benar mengukur apa yang penting — bukan sekadar angka yang mudah dicapai. Dipandu oleh praktisi senior perbankan nasional.",
+    outcomes: [
+      "Merancang KPI berbasis strategi bisnis",
+      "Teknik pengukuran kinerja yang objektif",
+      "Dashboard monitoring & feedback loop",
+    ],
+    meta: [
+      { icon: "clock", text: "120 Menit Intensif" },
+      { icon: "award", text: "Sertifikat KPI Specialist" },
+      { icon: "users", text: "Supervisor, Manager, Team Leader" },
+    ],
+    price: "Harga segera diumumkan",
+    waUrl:
+      "https://wa.me/6281343583568?text=Saya+ingin+daftar+minat+Sertifikasi+KPI+DKN",
+  },
+];
+
+
+
+const handleSubmit = async () => {
+  if (!form.value.nama || !form.value.email || !form.value.whatsapp) {
+    alert("Mohon lengkapi data Anda.");
+    return;
+  }
+
+  isSending.value = true;
+  try {
+    await $fetch("/api/webinar", {
+      method: "POST",
+      body: form.value,
+    });
+    isSuccess.value = true;
+    // Reset form
+    form.value = {
+      nama: "",
+      email: "",
+      whatsapp: "",
+      topik: "",
+    };
+  } catch (err) {
+    console.error(err);
+    alert(
+      "Gagal mendaftar. Silakan coba lagi atau hubungi kami via WhatsApp.",
+    );
+  } finally {
+    isSending.value = false;
+  }
+};
+
 </script>
 
 <style scoped>
@@ -1538,6 +1182,16 @@ useHead({
 }
 .cta-ghost:hover {
   background: rgba(255, 255, 255, 0.12);
+}
+.cta-ghost.active {
+  background: var(--gold);
+  color: var(--midnight);
+  border-color: var(--gold);
+  font-weight: 800;
+}
+.cta-A.active {
+  background: var(--gold);
+  box-shadow: 0 0 20px rgba(196, 146, 58, 0.3);
 }
 /* TAB NAV */
 .tab-nav {
@@ -1990,6 +1644,51 @@ useHead({
   width: 14px;
   height: 14px;
 }
+.ib-success {
+  text-align: center;
+  padding: 10px 0;
+}
+.sc-ico {
+  width: 48px;
+  height: 48px;
+  background: rgba(34, 160, 148, 0.15);
+  color: var(--teal2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+.sc-ico svg {
+  width: 20px;
+  height: 20px;
+}
+.ib-success h3 {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+.ib-success p {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 13.5px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+.btn-reset {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-reset:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
 /* BERBAYAR SECTION */
 .wb-grid {
   display: grid;

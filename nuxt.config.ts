@@ -81,6 +81,7 @@ export default defineNuxtConfig({
       // nuxt automatically maps NUXT_PUBLIC_API_BASE_URL from env to config.public.apiBaseUrl
       apiBaseUrl: process.env.NUXT_PUBLIC_API_BASE_URL || process.env.API_BASE_URL || "/",
     },
+    resendApiKey: process.env.RESEND_API_KEY,
   },
   routeRules: {
     "/": {
