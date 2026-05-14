@@ -457,43 +457,64 @@
           </div>
           <div class="wb-card">
             <div class="wc-type">Recording Tersedia Sekarang</div>
-            <div class="wc-label">
-              Webinar KPI: Membangun Sistem Pengukuran Kinerja yang Efektif
+
+            <div v-if="recordings && recordings.length > 0">
+              <Carousel :items-to-show="1" :wrap-around="true" :autoplay="5000">
+                <Slide v-for="rec in recordings" :key="rec.id">
+                  <div style="width: 100%; text-align: left">
+                    <div
+                      class="wc-label"
+                      style="min-height: 52px; margin-bottom: 20px"
+                    >
+                      {{ rec.title }}
+                    </div>
+                    <div class="wc-coming">
+                      <strong>✓ Recording Tersedia</strong>
+                      <p>
+                        Tonton rekaman webinar ini secara gratis di channel
+                        YouTube DKN. Daftar akun untuk notifikasi webinar
+                        berikutnya.
+                      </p>
+                    </div>
+                    <a
+                      :href="rec.url"
+                      target="_blank"
+                      rel="noopener"
+                      class="btn-wb"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                      >
+                        <polygon points="5 3 19 12 5 21 5 3" />
+                      </svg>
+                      Tonton di YouTube DKN
+                    </a>
+                    <a
+                      href="/webinar"
+                      class="btn-wb"
+                      style="
+                        background: rgba(255, 255, 255, 0.07);
+                        color: rgba(255, 255, 255, 0.85);
+                        border: 1px solid rgba(255, 255, 255, 0.15);
+                      "
+                    >
+                      Lihat Semua Webinar
+                    </a>
+                  </div>
+                </Slide>
+                <template #addons>
+                  <Navigation />
+                </template>
+              </Carousel>
             </div>
-            <div class="wc-coming">
-              <strong>✓ Recording Tersedia</strong>
-              <p>
-                Tonton rekaman webinar ini secara gratis di channel YouTube DKN.
-                Daftar akun untuk notifikasi webinar berikutnya.
-              </p>
+            <div v-else>
+              <div class="wc-label" style="margin-bottom: 20px">
+                Memuat rekaman...
+              </div>
             </div>
-            <a
-              href="https://youtu.be/lUfkloObIGM"
-              target="_blank"
-              rel="noopener"
-              class="btn-wb"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-              >
-                <polygon points="5 3 19 12 5 21 5 3" />
-              </svg>
-              Tonton di YouTube DKN
-            </a>
-            <a
-              href="/webinar"
-              class="btn-wb"
-              style="
-                background: rgba(255, 255, 255, 0.07);
-                color: rgba(255, 255, 255, 0.85);
-                border: 1px solid rgba(255, 255, 255, 0.15);
-              "
-            >
-              Lihat Semua Webinar
-            </a>
             <p class="wc-note">
               Daftar akun gratis untuk akses notifikasi webinar
             </p>
@@ -781,6 +802,16 @@
 </template>
 
 <script setup lang="ts">
+import { useWebinarStore } from "@/stores/webinarStore";
+import { storeToRefs } from "pinia";
+
+const webinarStore = useWebinarStore();
+const { recordings } = storeToRefs(webinarStore);
+
+onMounted(() => {
+  webinarStore.fetchRecordings();
+});
+
 useSeoMeta({
   title: "DKN Indonesia — Kompetensi yang Menggerakkan Kinerja",
   description:
@@ -1380,6 +1411,37 @@ h1 em {
   border-radius: 8px;
   padding: 16px;
   margin-bottom: 16px;
+}
+
+:deep(.carousel__track) {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+:deep(.carousel__slide) {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+:deep(.carousel__prev),
+:deep(.carousel__next) {
+  color: #fff;
+  background: var(--teal2);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:deep(.carousel__prev:hover),
+:deep(.carousel__next:hover) {
+  background: var(--ink);
+  color: #fff;
 }
 .wc-coming p {
   font-size: 13px;

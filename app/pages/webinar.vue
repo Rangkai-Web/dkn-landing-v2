@@ -110,98 +110,158 @@
           </p>
 
           <div style="margin-top: 40px">
-            <div class="rec-featured">
-              <div class="rec-thumb">
-                <div class="rec-thumb-ico">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="#22A094"
-                    stroke-width="1.5"
-                    width="28"
-                    height="28"
-                  >
-                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
-                    <polyline points="17 6 23 6 23 12" />
-                  </svg>
+            <Carousel
+              v-if="recordings.length > 0"
+              :items-to-show="1"
+              :wrap-around="true"
+              :autoplay="5000"
+            >
+              <Slide v-for="rec in recordings" :key="rec.id">
+                <div style="width: 100%">
+                  <div class="rec-featured">
+                    <!-- ... existing content ... -->
+                    <div class="rec-thumb">
+                      <div class="rec-thumb-ico">
+                        <svg
+                          v-if="rec.icon === 'activity'"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="#22A094"
+                          stroke-width="1.5"
+                          width="28"
+                          height="28"
+                        >
+                          <polyline points="22 12h-4l-3 9L9 3l-3 9H2" />
+                        </svg>
+                        <svg
+                          v-else-if="rec.icon === 'users'"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="#22A094"
+                          stroke-width="1.5"
+                          width="28"
+                          height="28"
+                        >
+                          <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                          <circle cx="9" cy="7" r="4" />
+                        </svg>
+                        <svg
+                          v-else
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="#22A094"
+                          stroke-width="1.5"
+                          width="28"
+                          height="28"
+                        >
+                          <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                          <polyline points="17 6 23 6 23 12" />
+                        </svg>
+                      </div>
+                      <div class="rec-yt-badge">
+                        <svg viewBox="0 0 24 24" fill="white">
+                          <polygon points="5 3 19 12 5 21 5 3" />
+                        </svg>
+                        YouTube
+                      </div>
+                    </div>
+                    <div class="rec-body">
+                      <div class="rec-tag">{{ rec.tag }}</div>
+                      <div class="rec-title">{{ rec.title }}</div>
+                      <div class="rec-desc">{{ rec.desc }}</div>
+                      <div class="rec-meta">
+                        <div class="rec-m">
+                          <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                          >
+                            <polygon points="5 3 19 12 5 21 5 3" />
+                          </svg>
+                          Tersedia di YouTube
+                        </div>
+                        <div class="rec-m">
+                          <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                          >
+                            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                          </svg>
+                          {{ rec.target }}
+                        </div>
+                        <div class="rec-m">
+                          <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                          >
+                            <path
+                              d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+                            />
+                          </svg>
+                          Gratis — Tanpa Daftar
+                        </div>
+                      </div>
+                      <div class="rec-actions">
+                        <a
+                          :href="rec.url"
+                          target="_blank"
+                          rel="noopener"
+                          class="btn-yt"
+                        >
+                          <svg
+                            viewBox="0 0 24 24"
+                            fill="white"
+                            width="14"
+                            height="14"
+                          >
+                            <polygon points="5 3 19 12 5 21 5 3" />
+                          </svg>
+                          Tonton di YouTube DKN
+                        </a>
+                        <a href="#gratis" class="btn-outline-w"
+                          >Daftar Notifikasi Webinar</a
+                        >
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="rec-yt-badge">
-                  <svg viewBox="0 0 24 24" fill="white">
-                    <polygon points="5 3 19 12 5 21 5 3" />
-                  </svg>
-                  YouTube
-                </div>
+              </Slide>
+              <template #addons>
+                <Navigation />
+              </template>
+            </Carousel>
+            <div v-else class="empty-state-card">
+              <div class="esc-ico">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <rect
+                    x="2"
+                    y="2"
+                    width="20"
+                    height="20"
+                    rx="2.18"
+                    ry="2.18"
+                  ></rect>
+                  <line x1="7" y1="2" x2="7" y2="22"></line>
+                  <line x1="17" y1="2" x2="17" y2="22"></line>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <line x1="2" y1="7" x2="7" y2="7"></line>
+                  <line x1="2" y1="17" x2="7" y2="17"></line>
+                  <line x1="17" y1="17" x2="22" y2="17"></line>
+                  <line x1="17" y1="7" x2="22" y2="7"></line>
+                </svg>
               </div>
-              <div class="rec-body">
-                <div class="rec-tag">
-                  Leadership &amp; Performance Management
-                </div>
-                <div class="rec-title">
-                  Webinar KPI: Membangun Sistem Pengukuran Kinerja yang Efektif
-                  untuk Tim Anda
-                </div>
-                <div class="rec-desc">
-                  Bagaimana merancang KPI yang benar-benar mengukur apa yang
-                  penting — bukan sekadar angka yang mudah dicapai. Dipandu oleh
-                  praktisi senior perbankan nasional.
-                </div>
-                <div class="rec-meta">
-                  <div class="rec-m">
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <polygon points="5 3 19 12 5 21 5 3" /></svg
-                    >Tersedia di YouTube
-                  </div>
-                  <div class="rec-m">
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                      <circle cx="9" cy="7" r="4" /></svg
-                    >Supervisor, Manager, Team Leader
-                  </div>
-                  <div class="rec-m">
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <path
-                        d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
-                      /></svg
-                    >Gratis — Tanpa Daftar
-                  </div>
-                </div>
-                <div class="rec-actions">
-                  <a
-                    href="https://youtu.be/lUfkloObIGM"
-                    target="_blank"
-                    rel="noopener"
-                    class="btn-yt"
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="white"
-                      width="14"
-                      height="14"
-                    >
-                      <polygon points="5 3 19 12 5 21 5 3" />
-                    </svg>
-                    Tonton di YouTube DKN
-                  </a>
-                  <a href="#gratis" class="btn-outline-w">
-                    Daftar Notifikasi Webinar
-                  </a>
-                </div>
-              </div>
+              <p>Belum ada rekaman webinar tersedia saat ini.</p>
             </div>
           </div>
 
@@ -267,10 +327,10 @@
             </p>
           </div>
 
-          <!-- WEBINAR GRATIS CARDS — COMING SOON -->
-          <div class="wg-grid">
+          <!-- WEBINAR GRATIS CARDS -->
+          <div v-if="freeWebinarsList.length > 0" class="wg-grid">
             <div
-              v-for="webinar in freeWebinars"
+              v-for="webinar in freeWebinarsList"
               :key="webinar.id"
               class="wg-card"
             >
@@ -402,7 +462,7 @@
                       d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
                     />
                   </svg>
-                  Beritahu Saya
+                  {{ webinar.button_name || "Beritahu Saya" }}
                 </a>
                 <div class="wg-free-note">
                   <svg
@@ -418,7 +478,24 @@
               </div>
             </div>
           </div>
-
+          <div v-else class="empty-state-card esc-mist">
+            <div class="esc-ico">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"
+                ></path>
+                <polyline points="13 2 13 9 20 9"></polyline>
+              </svg>
+            </div>
+            <p>
+              Belum ada jadwal webinar gratis. Silakan daftar webinar di bawah.
+            </p>
+          </div>
 
           <!-- Interest banner -->
           <div class="interest-banner">
@@ -469,7 +546,11 @@
                     <option>Banking &amp; Risk</option>
                     <option>Semua Topik</option>
                   </select>
-                  <button type="submit" class="btn-submit" :disabled="isSending">
+                  <button
+                    type="submit"
+                    class="btn-submit"
+                    :disabled="isSending"
+                  >
                     <svg
                       v-if="!isSending"
                       viewBox="0 0 24 24"
@@ -499,8 +580,8 @@
                 </div>
                 <h3>Terima Kasih!</h3>
                 <p>
-                  Data Anda telah tersimpan. Kami akan mengirimkan notifikasi jadwal
-                  webinar terbaru melalui WhatsApp atau Email Anda.
+                  Data Anda telah tersimpan. Kami akan mengirimkan notifikasi
+                  jadwal webinar terbaru melalui WhatsApp atau Email Anda.
                 </p>
                 <button @click="isSuccess = false" class="btn-reset">
                   Daftar Lagi
@@ -539,9 +620,9 @@
             </p>
           </div>
 
-          <div class="wb-grid" id="berbayar">
+          <div v-if="paidWebinarsList.length > 0" class="wb-grid" id="berbayar">
             <div
-              v-for="webinar in paidWebinars"
+              v-for="webinar in paidWebinarsList"
               :key="webinar.id"
               class="wb-card"
             >
@@ -554,7 +635,13 @@
                   {{ webinar.desc }}
                 </div>
                 <div class="wb-outcomes">
-                  <h4>{{ webinar.id === 3 ? "4 Modul Terintegrasi" : "Yang Akan Anda Kuasai" }}</h4>
+                  <h4>
+                    {{
+                      webinar.id === 3
+                        ? "4 Modul Terintegrasi"
+                        : "Yang Akan Anda Kuasai"
+                    }}
+                  </h4>
                   <div
                     v-for="outcome in webinar.outcomes"
                     :key="outcome"
@@ -636,10 +723,31 @@
                       d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
                     />
                   </svg>
-                  Daftar Minat
+                  {{ webinar.button_name || "Daftar Minat" }}
                 </a>
               </div>
             </div>
+          </div>
+          <div v-else class="empty-state-card">
+            <div class="esc-ico">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                ></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+            </div>
+            <p>
+              Jadwal webinar intensif segera hadir. Cek kembali secara berkala.
+            </p>
           </div>
         </div>
       </section>
@@ -680,6 +788,20 @@
 </template>
 
 <script setup lang="ts">
+import { useWebinarStore } from "@/stores/webinarStore";
+import { storeToRefs } from "pinia";
+
+const webinarStore = useWebinarStore();
+const {
+  recordings,
+  freeWebinars: freeWebinarsList,
+  paidWebinars: paidWebinarsList,
+  isLoading,
+} = storeToRefs(webinarStore);
+
+onMounted(() => {
+  webinarStore.fetchAll();
+});
 useSeoMeta({
   title: "Webinar Gratis — DKN Indonesia",
   description:
@@ -713,302 +835,6 @@ const isSuccess = ref(false);
 
 const activeSection = ref("recording");
 
-const freeWebinars = [
-  {
-    id: 1,
-    cat: "Leadership",
-    code: "LPK-DKN-LEAD-01",
-    title: "START 90™: Cara Supervisor Baru Tidak Gagal di 90 Hari Pertama",
-    desc: "Framework terbukti untuk supervisor baru — membangun kredibilitas, menghindari 5 jebakan fatal, dan memimpin dengan percaya diri sejak hari pertama.",
-    target: "Supervisor Baru, Team Leader, Middle Manager",
-    format: "90 Menit · 6 Sesi Interaktif · Via Zoom",
-    gradient: "linear-gradient(135deg, var(--midnight), #1a3050)",
-    icon: "users",
-    waUrl:
-      "https://wa.me/6281343583568?text=Saya+ingin+daftar+notifikasi+webinar+START+90+DKN",
-  },
-  {
-    id: 2,
-    cat: "Career Development",
-    code: "LPK-DKN-LEAD-06",
-    title: "From Campus to Career: Blueprint Profesional untuk Fresh Graduate",
-    desc: "Menjembatani gap antara dunia kampus dan dunia kerja — reality check, mindset shift, First 90 Days Blueprint, dan 7 kesalahan fatal fresh graduate.",
-    target: "Mahasiswa Tingkat Akhir, Fresh Graduate",
-    format: "90–120 Menit · Via Zoom",
-    gradient: "linear-gradient(135deg, #071a12, #0d3824)",
-    icon: "graduation-cap",
-    waUrl:
-      "https://wa.me/6281343583568?text=Saya+ingin+daftar+notifikasi+webinar+From+Campus+to+Career+DKN",
-  },
-  {
-    id: 3,
-    cat: "Sales Management",
-    code: "LPK-DKN-SALE-03",
-    title: "Building a Sales Culture: Tim Penjualan yang Sehat dan Konsisten",
-    desc: "Membangun budaya sales berbasis kepercayaan — visi tim, psychological safety, EQ sebagai fondasi coaching, dan sistem accountability yang konsisten.",
-    target: "Sales Manager, Team Leader",
-    format: "175 Menit · Via Zoom",
-    gradient: "linear-gradient(135deg, #1a0e00, #2a1500)",
-    icon: "activity",
-    waUrl:
-      "https://wa.me/6281343583568?text=Saya+ingin+daftar+notifikasi+webinar+Building+Sales+Culture+DKN",
-  },
-  {
-    id: 4,
-    cat: "Soft Skills",
-    code: "LPK-DKN-SOFT-01 · SKKNI No. 234/2020",
-    title: "Mengembangkan Kemampuan Berinisiatif dalam Bekerja",
-    desc: "Inisiatif bukan sifat bawaan — ini keterampilan yang bisa dilatih. 4 elemen kompetensi berbasis SKKNI untuk membangun kebiasaan bertindak mandiri yang berdampak.",
-    target: "Karyawan semua level, lintas industri",
-    format: "150–170 Menit · Via Zoom",
-    gradient: "linear-gradient(135deg, #060e28, #0a1a40)",
-    icon: "zap",
-    waUrl:
-      "https://wa.me/6281343583568?text=Saya+ingin+daftar+notifikasi+webinar+Inisiatif+Kerja+DKN",
-  },
-  {
-    id: 5,
-    cat: "Soft Skills",
-    code: "LPK-DKN-SOFT-02 · SKKNI No. 234/2020",
-    title: "Membangun Integritas sebagai Tenaga Kerja Profesional",
-    desc: "Integritas bukan sekadar jujur — ini kompetensi profesional yang terukur. Segitiga integritas, 4 komponen, kode etik, dan dampak nyata dalam lingkungan perbankan.",
-    target: "Karyawan semua level, khususnya perbankan",
-    format: "155 Menit · Via Zoom",
-    gradient: "linear-gradient(135deg, #0a0a1a, #14143a)",
-    icon: "shield",
-    waUrl:
-      "https://wa.me/6281343583568?text=Saya+ingin+daftar+notifikasi+webinar+Integritas+DKN",
-  },
-  {
-    id: 6,
-    cat: "Soft Skills",
-    code: "LPK-DKN-SOFT-03 · SKKNI No. 234/2020",
-    title: "Membangun Kemampuan Pengelolaan Emosi di Tempat Kerja",
-    desc: "EQ adalah prediktor terkuat keunggulan kinerja. 5 dimensi kecerdasan emosional berbasis SKKNI — dari identifikasi pemicu hingga personal EQ Action Plan.",
-    target: "Karyawan semua level yang berinteraksi dengan orang lain",
-    format: "175 Menit · Via Zoom",
-    gradient: "linear-gradient(135deg, #001a0a, #002a10)",
-    icon: "heart",
-    waUrl:
-      "https://wa.me/6281343583568?text=Saya+ingin+daftar+notifikasi+webinar+Pengelolaan+Emosi+DKN",
-  },
-];
-
-
-const paidWebinars = [
-  {
-    id: 1,
-    tag: "Sales & AI · LPK-DKN-SALE-02",
-    title: "Smart Selling with AI for Financial Products",
-    desc: "Mengintegrasikan consultative selling dengan AI tools untuk melipatgandakan produktivitas sales perbankan. SPIN Selling + Trusted Advisor + AI Prompt Engineering dalam satu program intensif.",
-    outcomes: [
-      "Trust-based consultative selling dengan SPIN Selling",
-      "Value proposition, cross-selling, dan closing high-value",
-      "Hands-on AI tools dan prompting untuk produktivitas 50%+",
-    ],
-    meta: [
-      { icon: "clock", text: "1 Hari Penuh · 6 Modul" },
-      { icon: "video", text: "Via Zoom" },
-      { icon: "users", text: "Sales Officer, RM, Funding Officer" },
-    ],
-    price: "Harga segera diumumkan",
-    waUrl:
-      "https://wa.me/6281343583568?text=Saya+ingin+daftar+minat+Webinar+Smart+Selling+with+AI+DKN",
-  },
-  {
-    id: 2,
-    tag: "Strategy Execution · LPK-DKN-LEAD-05",
-    title: "Why Good Strategies Fail in Execution",
-    desc: "Hanya 9% eksekutif merasa strategi dieksekusi secara konsisten. Webinar eksekutif 2 jam ini membedah kesenjangan kritis kepemimpinan dan cara membangun ritme eksekusi nyata.",
-    outcomes: [
-      "Identifikasi 5 penyebab sistemik kegagalan eksekusi",
-      "4 Disciplines of Execution (4DX) secara praktis",
-      "Personal execution plan 30 hari yang siap dieksekusi",
-    ],
-    meta: [
-      { icon: "clock", text: "120 Menit · Webinar Eksekutif" },
-      { icon: "video", text: "Via Zoom" },
-      { icon: "users", text: "Middle Manager, semua industri" },
-    ],
-    price: "Harga segera diumumkan",
-    waUrl:
-      "https://wa.me/6281343583568?text=Saya+ingin+daftar+minat+Webinar+Why+Good+Strategies+Fail+DKN",
-  },
-  {
-    id: 3,
-    tag: "Leadership · LPK-DKN-LEAD-03 · 4 Modul Terintegrasi",
-    title: "Seri Leadership Efektif untuk Praktisi",
-    desc: "Perjalanan pengembangan kepemimpinan komprehensif — dari memimpin diri sendiri hingga memimpin secara strategis. 4 modul terintegrasi, tersedia dalam format webinar bersertifikat.",
-    outcomes: [
-      "Modul 1: Memimpin Diri Sendiri — integritas, EQ, growth mindset",
-      "Modul 2: Memimpin Tim — situational leadership, coaching GROW",
-      "Modul 3 & 4: Mengelola Kinerja + Kepemimpinan Strategis",
-    ],
-    meta: [
-      { icon: "clock", text: "120 Menit (4×30) · Via Zoom" },
-      { icon: "award", text: "Bersertifikat" },
-      { icon: "users", text: "Semua level profesional" },
-    ],
-    price: "Harga segera diumumkan",
-    waUrl:
-      "https://wa.me/6281343583568?text=Saya+ingin+daftar+minat+Seri+Leadership+Efektif+DKN",
-  },
-  {
-    id: 4,
-    tag: "Banking Operations · LPK-DKN-BANK-03",
-    title: "Communication Skill for Auditor",
-    desc: "Keunggulan teknis audit saja tidak cukup. Program virtual classroom ini membekali auditor dengan structured questioning, framework 4C, dan teknik mengelola resistensi auditee.",
-    outcomes: [
-      "Funnel technique & active listening 3 level",
-      "Framework 4C: Clear, Concise, Constructive, Complete",
-      "De-escalation dalam percakapan audit yang sulit",
-    ],
-    meta: [
-      { icon: "clock", text: "150 Menit · 4 Sesi" },
-      { icon: "video", text: "Virtual Classroom" },
-      { icon: "users", text: "Junior–Senior Auditor Perbankan" },
-    ],
-    price: "Harga segera diumumkan",
-    waUrl:
-      "https://wa.me/6281343583568?text=Saya+ingin+daftar+minat+Communication+for+Auditor+DKN",
-  },
-  {
-    id: 5,
-    tag: "Leadership · LPK-DKN-LEAD-01",
-    title: "Intensif START 90™: Sertifikasi Supervisor Baru",
-    desc: "Program intensif 2 hari untuk memastikan supervisor baru memiliki fondasi kepemimpinan yang kuat dan strategi eksekusi 90 hari pertama.",
-    outcomes: [
-      "Framework 90 Hari Pertama",
-      "Teknik Delegasi & Monitoring",
-      "Personal Leadership Roadmap",
-    ],
-    meta: [
-      { icon: "clock", text: "2 Hari Intensif" },
-      { icon: "award", text: "E-Certificate & Materi" },
-      { icon: "users", text: "Supervisor & Team Leader" },
-    ],
-    price: "Harga segera diumumkan",
-    waUrl:
-      "https://wa.me/6281343583568?text=Saya+ingin+daftar+minat+Webinar+Intensif+START+90+DKN",
-  },
-  {
-    id: 6,
-    tag: "Career Development · LPK-DKN-LEAD-06",
-    title: "Professional Excellence: Blueprint Fresh Graduate",
-    desc: "Membangun karakter dan kompetensi profesional yang dicari perusahaan besar. Program sertifikasi kesiapan kerja standar industri.",
-    outcomes: [
-      "Professional Ethics & Etiquette",
-      "Analytical Thinking Foundation",
-      "Career Acceleration Blueprint",
-    ],
-    meta: [
-      { icon: "clock", text: "180 Menit" },
-      { icon: "award", text: "Sertifikat Kesiapan Kerja" },
-      { icon: "users", text: "Fresh Graduate & Mahasiswa" },
-    ],
-    price: "Harga segera diumumkan",
-    waUrl:
-      "https://wa.me/6281343583568?text=Saya+ingin+daftar+minat+Professional+Excellence+DKN",
-  },
-  {
-    id: 7,
-    tag: "Sales Management · LPK-DKN-SALE-03",
-    title: "Mastering Sales Culture & Performance",
-    desc: "Strategi manajerial untuk membangun tim penjualan yang resilien, berorientasi target, dan memiliki ritme kerja yang konsisten.",
-    outcomes: [
-      "Building High-Performance Culture",
-      "Sales Coaching GROW Model",
-      "Accountability System Setup",
-    ],
-    meta: [
-      { icon: "clock", text: "1 Hari Intensif" },
-      { icon: "video", text: "Virtual Classroom" },
-      { icon: "users", text: "Sales Manager & Director" },
-    ],
-    price: "Harga segera diumumkan",
-    waUrl:
-      "https://wa.me/6281343583568?text=Saya+ingin+daftar+minat+Sales+Culture+Webinar+DKN",
-  },
-  {
-    id: 8,
-    tag: "Soft Skills · LPK-DKN-SOFT-01",
-    title: "Sertifikasi Kompetensi: Inisiatif di Tempat Kerja",
-    desc: "Webinar berbasis standar SKKNI untuk mengukur dan meningkatkan proaktivitas karyawan dalam memberikan solusi bagi perusahaan.",
-    outcomes: [
-      "4 Elemen Kompetensi SKKNI",
-      "Problem Identification Matrix",
-      "Self-Management & Initiative",
-    ],
-    meta: [
-      { icon: "clock", text: "170 Menit" },
-      { icon: "award", text: "Sertifikat Berbasis SKKNI" },
-      { icon: "users", text: "Staf & Profesional" },
-    ],
-    price: "Harga segera diumumkan",
-    waUrl:
-      "https://wa.me/6281343583568?text=Saya+ingin+daftar+minat+Sertifikasi+Inisiatif+DKN",
-  },
-  {
-    id: 9,
-    tag: "Soft Skills · LPK-DKN-SOFT-02",
-    title: "Ethics & Integrity for Professional Banking",
-    desc: "Membangun standar moral dan kepatuhan yang tinggi di lingkungan perbankan melalui studi kasus nyata dan framework integritas.",
-    outcomes: [
-      "Segitiga Integritas Perbankan",
-      "Analisis Risiko Etika",
-      "Professional Code of Conduct",
-    ],
-    meta: [
-      { icon: "clock", text: "155 Menit" },
-      { icon: "award", text: "Sertifikat Kepatuhan" },
-      { icon: "users", text: "Praktisi Perbankan" },
-    ],
-    price: "Harga segera diumumkan",
-    waUrl:
-      "https://wa.me/6281343583568?text=Saya+ingin+daftar+minat+Ethics+Banking+Webinar+DKN",
-  },
-  {
-    id: 10,
-    tag: "Soft Skills · LPK-DKN-SOFT-03",
-    title: "Emotional Intelligence for Workplace Success",
-    desc: "Gunakan kecerdasan emosional untuk meningkatkan kolaborasi tim, mengelola stres, dan membangun hubungan profesional yang bermakna.",
-    outcomes: [
-      "5 Dimensi EQ Daniel Goleman",
-      "Conflict Resolution Strategy",
-      "Workplace Empathy Framework",
-    ],
-    meta: [
-      { icon: "clock", text: "175 Menit" },
-      { icon: "video", text: "Via Zoom" },
-      { icon: "users", text: "Semua Level Profesional" },
-    ],
-    price: "Harga segera diumumkan",
-    waUrl:
-      "https://wa.me/6281343583568?text=Saya+ingin+daftar+minat+EQ+Workplace+DKN",
-  },
-  {
-    id: 11,
-    tag: "Performance Management · LPK-DKN-LEAD-02",
-    title: "Sertifikasi KPI: Membangun Sistem Pengukuran Kinerja",
-    desc: "Bagaimana merancang KPI yang benar-benar mengukur apa yang penting — bukan sekadar angka yang mudah dicapai. Dipandu oleh praktisi senior perbankan nasional.",
-    outcomes: [
-      "Merancang KPI berbasis strategi bisnis",
-      "Teknik pengukuran kinerja yang objektif",
-      "Dashboard monitoring & feedback loop",
-    ],
-    meta: [
-      { icon: "clock", text: "120 Menit Intensif" },
-      { icon: "award", text: "Sertifikat KPI Specialist" },
-      { icon: "users", text: "Supervisor, Manager, Team Leader" },
-    ],
-    price: "Harga segera diumumkan",
-    waUrl:
-      "https://wa.me/6281343583568?text=Saya+ingin+daftar+minat+Sertifikasi+KPI+DKN",
-  },
-];
-
-
-
 const handleSubmit = async () => {
   if (!form.value.nama || !form.value.email || !form.value.whatsapp) {
     alert("Mohon lengkapi data Anda.");
@@ -1031,14 +857,11 @@ const handleSubmit = async () => {
     };
   } catch (err) {
     console.error(err);
-    alert(
-      "Gagal mendaftar. Silakan coba lagi atau hubungi kami via WhatsApp.",
-    );
+    alert("Gagal mendaftar. Silakan coba lagi atau hubungi kami via WhatsApp.");
   } finally {
     isSending.value = false;
   }
 };
-
 </script>
 
 <style scoped>
@@ -1271,6 +1094,80 @@ const handleSubmit = async () => {
   overflow: hidden;
   display: grid;
   grid-template-columns: 340px 1fr;
+  width: 100%;
+}
+
+:deep(.carousel__track) {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+:deep(.carousel__slide) {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+:deep(.carousel__prev),
+:deep(.carousel__next) {
+  color: #fff;
+  background: var(--teal2);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  margin: 0 10px;
+}
+
+:deep(.carousel__prev:hover),
+:deep(.carousel__next:hover) {
+  background: var(--ink);
+  color: #fff;
+}
+
+/* EMPTY STATE */
+.empty-state-card {
+  background: var(--midnight);
+  border-radius: 16px;
+  padding: 64px 32px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-top: 40px;
+}
+.esc-mist {
+  background: #fff;
+  border: 1px dashed var(--border);
+}
+.esc-ico {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(34, 160, 148, 0.1);
+  color: var(--teal2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.esc-ico svg {
+  width: 24px;
+  height: 24px;
+}
+.empty-state-card p {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.5);
+  max-width: 320px;
+  line-height: 1.6;
+}
+.esc-mist p {
+  color: var(--slate);
 }
 .rec-thumb {
   height: 100%;
