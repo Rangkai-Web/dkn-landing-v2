@@ -156,7 +156,7 @@ useHead({
                   Beli di Gramedia
                 </a>
                 <a
-                  href="https://lynk.id/dknindonesia"
+                  href="https://lynk.id/dknofficial"
                   target="_blank"
                   rel="noopener"
                   class="btn-buy-teal"
@@ -477,7 +477,7 @@ useHead({
               </div>
               <div class="cta-row">
                 <a
-                  href="https://lynk.id/dknindonesia"
+                  href="https://lynk.id/dknofficial"
                   target="_blank"
                   rel="noopener"
                   class="btn-lynk"
