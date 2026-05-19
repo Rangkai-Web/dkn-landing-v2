@@ -50,7 +50,7 @@
             diverifikasi.
           </p>
 
-          <div class="bnsp-hero">
+          <div class="bnsp-hero" v-if="bnspData">
             <div class="bnsp-hero-top">
               <div>
                 <div class="bnsp-badge">
@@ -64,62 +64,36 @@
                   >
                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                   </svg>
-                  Sertifikasi BNSP · Bermitra LSP SIK
+                  {{ bnspData.badge }}
                 </div>
-                <h2>
-                  Skema Pengembangan<br />Kepemimpinan
-                  <em>Bersertifikat BNSP</em>
-                </h2>
+                <h2 v-html="bnspData.titleHtml"></h2>
                 <p class="bnsp-desc">
-                  Program sertifikasi kepemimpinan profesional yang terdiri dari
-                  5 unit kompetensi inti — dirancang untuk membuktikan
-                  kapabilitas kepemimpinan Anda melalui standar nasional yang
-                  diakui oleh BNSP.
+                  {{ bnspData.description }}
                 </p>
                 <div class="bnsp-units">
-                  <div class="bnsp-unit">
-                    <div class="bnsp-unit-num">1</div>
-                    <span
-                      ><strong>Integrity</strong> — Menjunjung tinggi kejujuran,
-                      etika, dan tanggung jawab</span
-                    >
-                  </div>
-                  <div class="bnsp-unit">
-                    <div class="bnsp-unit-num">2</div>
-                    <span
-                      ><strong>Initiative</strong> — Proaktif mencari peluang
-                      dan mengambil tindakan terbaik</span
-                    >
-                  </div>
-                  <div class="bnsp-unit">
-                    <div class="bnsp-unit-num">3</div>
-                    <span
-                      ><strong>Challenge</strong> — Berani menghadapi tantangan
-                      dan mendorong perubahan</span
-                    >
-                  </div>
-                  <div class="bnsp-unit">
-                    <div class="bnsp-unit-num">4</div>
-                    <span
-                      ><strong>Teamwork</strong> — Berkolaborasi efektif dan
-                      membangun sinergi tim</span
-                    >
-                  </div>
-                  <div class="bnsp-unit">
-                    <div class="bnsp-unit-num">5</div>
-                    <span
-                      ><strong>Leadership</strong> — Menginspirasi, membimbing,
-                      dan mendorong kinerja tim</span
-                    >
+                  <div
+                    v-for="unit in bnspData.units"
+                    :key="unit.id"
+                    class="bnsp-unit"
+                  >
+                    <div class="bnsp-unit-num">{{ unit.id }}</div>
+                    <span>
+                      <strong>{{ unit.title }}</strong> — {{ unit.desc }}
+                    </span>
                   </div>
                 </div>
               </div>
               <div>
                 <div class="bnsp-info-card">
                   <div class="bnsp-info-row">
-                    <div class="bnsp-ir">
+                    <div
+                      v-for="card in bnspData.infoCards"
+                      :key="card.label"
+                      class="bnsp-ir"
+                    >
                       <div class="bnsp-ir-ico">
                         <svg
+                          v-if="card.type === 'format'"
                           viewBox="0 0 24 24"
                           fill="none"
                           stroke="var(--gold2)"
@@ -128,18 +102,8 @@
                           <rect x="3" y="4" width="18" height="18" rx="2" />
                           <path d="M16 2v4M8 2v4M3 10h18" />
                         </svg>
-                      </div>
-                      <div>
-                        <div class="bnsp-ir-lbl">Format Pelaksanaan</div>
-                        <div class="bnsp-ir-val">2 Hari Intensif</div>
-                        <div class="bnsp-ir-sub">
-                          1,5 hari training + 0,5 hari uji kompetensi
-                        </div>
-                      </div>
-                    </div>
-                    <div class="bnsp-ir">
-                      <div class="bnsp-ir-ico">
                         <svg
+                          v-else-if="card.type === 'partner'"
                           viewBox="0 0 24 24"
                           fill="none"
                           stroke="var(--gold2)"
@@ -149,18 +113,8 @@
                             d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
                           />
                         </svg>
-                      </div>
-                      <div>
-                        <div class="bnsp-ir-lbl">Mitra Sertifikasi</div>
-                        <div class="bnsp-ir-val">LSP SIK</div>
-                        <div class="bnsp-ir-sub">
-                          Lembaga Sertifikasi Profesi — BNSP
-                        </div>
-                      </div>
-                    </div>
-                    <div class="bnsp-ir">
-                      <div class="bnsp-ir-ico">
                         <svg
+                          v-else-if="card.type === 'target'"
                           viewBox="0 0 24 24"
                           fill="none"
                           stroke="var(--gold2)"
@@ -169,18 +123,8 @@
                           <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
                           <circle cx="9" cy="7" r="4" />
                         </svg>
-                      </div>
-                      <div>
-                        <div class="bnsp-ir-lbl">Target Peserta</div>
-                        <div class="bnsp-ir-val">Semua Level Profesional</div>
-                        <div class="bnsp-ir-sub">
-                          Supervisor, Manager, Team Leader
-                        </div>
-                      </div>
-                    </div>
-                    <div class="bnsp-ir">
-                      <div class="bnsp-ir-ico">
                         <svg
+                          v-else-if="card.type === 'status'"
                           viewBox="0 0 24 24"
                           fill="none"
                           stroke="var(--gold2)"
@@ -192,10 +136,10 @@
                         </svg>
                       </div>
                       <div>
-                        <div class="bnsp-ir-lbl">Status Kelas</div>
-                        <div class="bnsp-ir-val">Waiting List</div>
+                        <div class="bnsp-ir-lbl">{{ card.label }}</div>
+                        <div class="bnsp-ir-val">{{ card.value }}</div>
                         <div class="bnsp-ir-sub">
-                          Dibuka setelah kuota terpenuhi
+                          {{ card.sub }}
                         </div>
                       </div>
                     </div>
@@ -210,11 +154,10 @@
                       <circle cx="12" cy="12" r="10" />
                       <path d="M12 8v4M12 16h.01" />
                     </svg>
-                    Investasi: Harga akan diumumkan. Daftar minat sekarang untuk
-                    mendapatkan informasi pertama.
+                    {{ bnspData.priceNote }}
                   </div>
                   <a
-                    :href="`https://wa.me/${profile?.contact?.whatsapp_number}?text=Saya%20ingin%20daftar%20minat%20Sertifikasi%20Kepemimpinan%20BNSP%20DKN`"
+                    :href="`https://wa.me/${profile?.contact?.whatsapp_number}?text=${encodeURIComponent(bnspData.whatsappMessage)}`"
                     target="_blank"
                     rel="noopener"
                     class="btn-gold-full"
@@ -231,61 +174,26 @@
                         d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
                       />
                     </svg>
-                    Daftar Minat Sertifikasi BNSP
+                    {{ bnspData.ctaText }}
                   </a>
                 </div>
               </div>
             </div>
             <div class="bnsp-hero-bottom">
-              <div class="bnsp-hb-item">
+              <div
+                v-for="benefit in bnspData.benefits"
+                :key="benefit"
+                class="bnsp-hb-item"
+              >
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
                   stroke-width="2"
                 >
-                  <path d="M9 11l3 3L22 4" /></svg
-                >Sertifikat BNSP diakui nasional
-              </div>
-              <div class="bnsp-hb-item">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M9 11l3 3L22 4" /></svg
-                >Bermitra LSP SIK resmi
-              </div>
-              <div class="bnsp-hb-item">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M9 11l3 3L22 4" /></svg
-                >Uji kompetensi terstandar
-              </div>
-              <div class="bnsp-hb-item">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M9 11l3 3L22 4" /></svg
-                >Tatap muka 2 hari intensif
-              </div>
-              <div class="bnsp-hb-item">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M9 11l3 3L22 4" /></svg
-                >Dibuka setelah kuota terpenuhi
+                  <path d="M9 11l3 3L22 4" />
+                </svg>
+                {{ benefit }}
               </div>
             </div>
           </div>
@@ -604,6 +512,7 @@
 <script setup lang="ts">
 import { useProfileStore } from "~/stores/profileStore";
 import { useProgramStore } from "~/stores/programStore";
+import { useBnspStore } from "~/stores/bnspStore";
 
 useSeoMeta({
   title:
@@ -625,9 +534,13 @@ const {
   error,
 } = storeToRefs(programStore);
 
+const bnspStore = useBnspStore();
+const { bnspData } = storeToRefs(bnspStore);
+
 onMounted(() => {
   profileStore.fetchProfile();
   programStore.fetchPrograms();
+  bnspStore.fetchBnspData();
 });
 
 const submitted = ref(false);
