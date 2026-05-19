@@ -443,7 +443,7 @@
                 Gratis · Tanpa komitmen · Respons 1×24 jam
               </div>
               <a
-                :href="`https://wa.me/${profile?.contact?.whatsapp_number}?text=Halo%20DKN%2C%20saya%20ingin%20berkonsultasi.`"
+                :href="`https://wa.me/${profile?.contact?.whatsapp_number}?text=Halo%20DKN%2C%20saya%20ingin%20berkonsultasi%20tentang%20kebutuhan%20program%20atau%20pelatihan%20untuk%20instansi/organisasi%20saya.`"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="btn btn--ghost-w btn--md"

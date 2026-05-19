@@ -70,9 +70,8 @@ export default defineEventHandler(async (event) => {
         "Content-Type": "application/json",
       },
       body: {
-        // Catatan: Ganti ke 'system@dkn.digital' setelah domain diverifikasi di Resend
-        from: "DKN Digital <onboarding@resend.dev>",
-        to: ["info@dkn.digital"],
+        from: config.resendFromEmail,
+        to: [config.resendToEmail],
         reply_to: email,
         subject: `[Konsultasi Corporate] ${perusahaan} - ${nama}`,
         html: htmlContent,

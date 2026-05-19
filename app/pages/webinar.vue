@@ -224,8 +224,12 @@
                           </svg>
                           Tonton di YouTube DKN
                         </a>
-                        <a href="#gratis" class="btn-outline-w"
-                          >Daftar Notifikasi Webinar</a
+                        <NuxtLink
+                          :to="`https://wa.me/+62${profile?.contact?.whatsapp_number}?text=Halo%2C%20saya%20tertarik%20untuk%20mendapatkan%20sertifikat%20webinar%20gratis%20dari%20${rec.title}.%20Apakah%20masih%20tersedia%3F`"
+                          target="_blank"
+                          rel="noopener"
+                          class="btn-outline-w"
+                          >Dapatkan Sertifikat</NuxtLink
                         >
                       </div>
                     </div>
@@ -790,6 +794,10 @@
 <script setup lang="ts">
 import { useWebinarStore } from "@/stores/webinarStore";
 import { storeToRefs } from "pinia";
+import { useProfileStore } from "~/stores/profileStore";
+
+const store = useProfileStore();
+const { profile } = storeToRefs(store);
 
 const webinarStore = useWebinarStore();
 const {
@@ -801,6 +809,7 @@ const {
 
 onMounted(() => {
   webinarStore.fetchAll();
+  store.fetchProfile();
 });
 useSeoMeta({
   title: "Webinar Gratis — DKN Indonesia",

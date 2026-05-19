@@ -442,7 +442,11 @@
                 >
               </div>
             </div>
-            <a href="/webinar" class="cta-A" style="align-self: flex-start">
+            <a
+              href="/webinar#berbayar"
+              class="cta-A"
+              style="align-self: flex-start"
+            >
               <svg
                 viewBox="0 0 24 24"
                 fill="none"

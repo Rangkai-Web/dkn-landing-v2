@@ -65,250 +65,267 @@
       <!-- MAIN LAYOUT -->
       <div class="contact-layout">
         <!-- FORM -->
-          <form v-if="!isSuccess" @submit.prevent="handleSubmit" class="form-section">
+        <form
+          v-if="!isSuccess"
+          @submit.prevent="handleSubmit"
+          class="form-section"
+        >
+          <h2>Ceritakan Kebutuhan <em>Organisasi Anda</em></h2>
+          <p>
+            Isi form di bawah ini dan tim DKN akan menghubungi Anda dalam 1 hari
+            kerja dengan proposal awal yang relevan — tidak ada komitmen apapun
+            di tahap ini.
+          </p>
 
-            <h2>Ceritakan Kebutuhan <em>Organisasi Anda</em></h2>
-            <p>
-              Isi form di bawah ini dan tim DKN akan menghubungi Anda dalam 1 hari
-              kerja dengan proposal awal yang relevan — tidak ada komitmen apapun
-              di tahap ini.
-            </p>
+          <div class="form-card">
+            <div class="form-row">
+              <div class="form-section-title">Informasi Kontak Anda</div>
 
-            <div class="form-card">
-              <div class="form-row">
-                <div class="form-section-title">Informasi Kontak Anda</div>
-
-                <div class="fg">
-                  <label class="flbl">Nama Lengkap <span>*</span></label>
-                  <input
-                    v-model="form.nama"
-                    class="finput"
-                    type="text"
-                    placeholder="Nama lengkap Anda"
-                    required
-                  />
-                </div>
-                <div class="fg">
-                  <label class="flbl">Jabatan / Posisi <span>*</span></label>
-                  <input
-                    v-model="form.jabatan"
-                    class="finput"
-                    type="text"
-                    placeholder="Jabatan Anda saat ini"
-                    required
-                  />
-                </div>
-                <div class="fg">
-                  <label class="flbl">Nomor WhatsApp <span>*</span></label>
-                  <input
-                    v-model="form.whatsapp"
-                    class="finput"
-                    type="tel"
-                    placeholder="+62 ..."
-                    required
-                  />
-                </div>
-                <div class="fg">
-                  <label class="flbl">Email Kantor</label>
-                  <input
-                    v-model="form.email"
-                    class="finput"
-                    type="email"
-                    placeholder="email@perusahaan.com"
-                  />
-                </div>
-
-                <div class="form-section-title">Informasi Organisasi</div>
-
-                <div class="fg">
-                  <label class="flbl"
-                    >Nama Perusahaan / Institusi <span>*</span></label
-                  >
-                  <input
-                    v-model="form.perusahaan"
-                    class="finput"
-                    type="text"
-                    placeholder="PT / Lembaga / Bank ..."
-                    required
-                  />
-                </div>
-                <div class="fg">
-                  <label class="flbl">Jenis Organisasi <span>*</span></label>
-                  <select v-model="form.jenis_organisasi" class="finput fselect" required>
-                    <option value="">Pilih jenis organisasi...</option>
-                    <option>Bank Umum (BUMN)</option>
-                    <option>Bank Pembangunan Daerah (BPD)</option>
-                    <option>Bank Perkreditan Rakyat (BPR / BPR Syariah)</option>
-                    <option>Bank Swasta Nasional</option>
-                    <option>Perusahaan Multifinance / Leasing</option>
-                    <option>Perusahaan Asuransi</option>
-                    <option>BUMN Non-Bank</option>
-                    <option>Perusahaan Swasta (Non-Bank)</option>
-                    <option>Instansi Pemerintah / Dinas</option>
-                    <option>Universitas / Lembaga Pendidikan</option>
-                    <option>Lainnya</option>
-                  </select>
-                </div>
-                <div class="fg">
-                  <label class="flbl">Estimasi Jumlah Peserta</label>
-                  <select v-model="form.jumlah_peserta" class="finput fselect">
-                    <option value="">Pilih estimasi peserta...</option>
-                    <option>Kurang dari 15 orang</option>
-                    <option>15–30 orang</option>
-                    <option>30–60 orang</option>
-                    <option>60–100 orang</option>
-                    <option>Lebih dari 100 orang</option>
-                    <option>Belum ditentukan</option>
-                  </select>
-                </div>
-                <div class="fg">
-                  <label class="flbl">Target Level Peserta</label>
-                  <select v-model="form.level_peserta" class="finput fselect">
-                    <option value="">Pilih level peserta...</option>
-                    <option>Staff / Officer</option>
-                    <option>Supervisor / Team Leader</option>
-                    <option>Manager / Assistant Manager</option>
-                    <option>Senior Manager / AVP</option>
-                    <option>VP / Director</option>
-                    <option>Mixed / Lintas Level</option>
-                  </select>
-                </div>
-
-                <div class="form-section-title">Kebutuhan Pelatihan</div>
-
-                <div class="fg fg-full">
-                  <label class="flbl"
-                    >Layanan yang Dibutuhkan <span>*</span></label
-                  >
-                  <select v-model="form.layanan" class="finput fselect" required>
-                    <option value="">Pilih jenis layanan...</option>
-                    <option>
-                      Corporate Training In-House (Program Standar DKN)
-                    </option>
-                    <option>
-                      Corporate Training Customized (Desain dari Nol)
-                    </option>
-                    <option>Advisory &amp; Konsultasi Strategis SDM</option>
-                    <option>Assessment Center</option>
-                    <option>Training Needs Analysis (TNA)</option>
-                    <option>Sertifikasi BNSP (LSP SIK)</option>
-                    <option>Webinar Korporat (Online)</option>
-                    <option>Tidak yakin — mohon bantu rekomendasikan</option>
-                  </select>
-                </div>
-
-                <div class="fg fg-full">
-                  <label class="flbl">Topik / Area yang Ingin Dibahas</label>
-                  <select v-model="form.topik" class="finput fselect">
-                    <option value="">Pilih topik prioritas...</option>
-                    <option>Leadership &amp; Management</option>
-                    <option>
-                      Sales &amp; Marketing (termasuk Smart Selling with AI)
-                    </option>
-                    <option>Banking Strategy &amp; Credit</option>
-                    <option>Risk Management</option>
-                    <option>Soft Skills (SKKNI)</option>
-                    <option>Service Excellence</option>
-                    <option>Collection &amp; Recovery</option>
-                    <option>Corporate Finance &amp; Strategy</option>
-                    <option>AI Productivity untuk Perbankan</option>
-                    <option>
-                      Program Signature DKN (Integrated Banking / Ecosystem /
-                      Funding)
-                    </option>
-                    <option>Lainnya / Tidak yakin</option>
-                  </select>
-                </div>
-
-                <div class="fg fg-full">
-                  <label class="flbl"
-                    >Ceritakan Tantangan atau Kebutuhan Spesifik Anda</label
-                  >
-                  <textarea
-                    v-model="form.kebutuhan"
-                    class="finput ftextarea"
-                    placeholder="Contoh: Tim RM kami kesulitan cross-selling produk DPK kepada nasabah kredit. Kami butuh program 1-2 hari yang bisa langsung diterapkan dengan hasil terukur dalam 90 hari ke depan..."
-                  ></textarea>
-                </div>
-
-                <div class="fg">
-                  <label class="flbl">Estimasi Waktu Pelaksanaan</label>
-                  <select v-model="form.waktu" class="finput fselect">
-                    <option value="">Pilih estimasi waktu...</option>
-                    <option>1–2 minggu ke depan (Segera)</option>
-                    <option>1 bulan ke depan</option>
-                    <option>2–3 bulan ke depan</option>
-                    <option>3–6 bulan ke depan</option>
-                    <option>Masih eksplorasi / belum pasti</option>
-                  </select>
-                </div>
-                <div class="fg">
-                  <label class="flbl">Lokasi Pelaksanaan (jika offline)</label>
-                  <input
-                    v-model="form.lokasi"
-                    class="finput"
-                    type="text"
-                    placeholder="Kota / Provinsi"
-                  />
-                </div>
-
-                <div class="checkbox-row">
-                  <input
-                    class="finput-check"
-                    type="checkbox"
-                    id="agree"
-                    required
-                    checked
-                  />
-                  <label for="agree"
-                    >Saya setuju untuk dihubungi oleh tim DKN melalui WhatsApp
-                    atau email untuk diskusi lebih lanjut mengenai kebutuhan
-                    pelatihan yang disampaikan.</label
-                  >
-                </div>
-
-                <button type="submit" class="btn-submit" :disabled="isSending">
-                  <svg
-                    v-if="!isSending"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.5"
-                  >
-                    <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
-                  </svg>
-                  <span v-if="isSending">Mengirim Pesan...</span>
-                  <span v-else>Kirim — Tim DKN akan Merespons dalam 1 Hari Kerja</span>
-                </button>
-
-                <div class="form-note">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="var(--slate)"
-                    stroke-width="2"
-                  >
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                  </svg>
-                  Konsultasi awal gratis · Tanpa komitmen · Data Anda aman
-                </div>
+              <div class="fg">
+                <label class="flbl">Nama Lengkap <span>*</span></label>
+                <input
+                  v-model="form.nama"
+                  class="finput"
+                  type="text"
+                  placeholder="Nama lengkap Anda"
+                  required
+                />
               </div>
-            </div>
-          </form>
-          <div v-else class="success-section">
-            <div class="success-card">
-              <div class="sc-ico">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                  <polyline points="20 6 9 17 4 12" />
+              <div class="fg">
+                <label class="flbl">Jabatan / Posisi <span>*</span></label>
+                <input
+                  v-model="form.jabatan"
+                  class="finput"
+                  type="text"
+                  placeholder="Jabatan Anda saat ini"
+                  required
+                />
+              </div>
+              <div class="fg">
+                <label class="flbl">Nomor WhatsApp <span>*</span></label>
+                <input
+                  v-model="form.whatsapp"
+                  class="finput"
+                  type="tel"
+                  placeholder="+62 ..."
+                  required
+                />
+              </div>
+              <div class="fg">
+                <label class="flbl">Email Kantor</label>
+                <input
+                  v-model="form.email"
+                  class="finput"
+                  type="email"
+                  placeholder="email@perusahaan.com"
+                />
+              </div>
+
+              <div class="form-section-title">Informasi Organisasi</div>
+
+              <div class="fg">
+                <label class="flbl"
+                  >Nama Perusahaan / Institusi <span>*</span></label
+                >
+                <input
+                  v-model="form.perusahaan"
+                  class="finput"
+                  type="text"
+                  placeholder="PT / Lembaga / Bank ..."
+                  required
+                />
+              </div>
+              <div class="fg">
+                <label class="flbl">Jenis Organisasi <span>*</span></label>
+                <select
+                  v-model="form.jenis_organisasi"
+                  class="finput fselect"
+                  required
+                >
+                  <option value="">Pilih jenis organisasi...</option>
+                  <option>Bank Umum (BUMN)</option>
+                  <option>Bank Pembangunan Daerah (BPD)</option>
+                  <option>Bank Perkreditan Rakyat (BPR / BPR Syariah)</option>
+                  <option>Bank Swasta Nasional</option>
+                  <option>Perusahaan Multifinance / Leasing</option>
+                  <option>Perusahaan Asuransi</option>
+                  <option>BUMN Non-Bank</option>
+                  <option>Perusahaan Swasta (Non-Bank)</option>
+                  <option>Instansi Pemerintah / Dinas</option>
+                  <option>Universitas / Lembaga Pendidikan</option>
+                  <option>Lainnya</option>
+                </select>
+              </div>
+              <div class="fg">
+                <label class="flbl">Estimasi Jumlah Peserta</label>
+                <select v-model="form.jumlah_peserta" class="finput fselect">
+                  <option value="">Pilih estimasi peserta...</option>
+                  <option>Kurang dari 15 orang</option>
+                  <option>15–30 orang</option>
+                  <option>30–60 orang</option>
+                  <option>60–100 orang</option>
+                  <option>Lebih dari 100 orang</option>
+                  <option>Belum ditentukan</option>
+                </select>
+              </div>
+              <div class="fg">
+                <label class="flbl">Target Level Peserta</label>
+                <select v-model="form.level_peserta" class="finput fselect">
+                  <option value="">Pilih level peserta...</option>
+                  <option>Staff / Officer</option>
+                  <option>Supervisor / Team Leader</option>
+                  <option>Manager / Assistant Manager</option>
+                  <option>Senior Manager / AVP</option>
+                  <option>VP / Director</option>
+                  <option>Mixed / Lintas Level</option>
+                </select>
+              </div>
+
+              <div class="form-section-title">Kebutuhan Pelatihan</div>
+
+              <div class="fg fg-full">
+                <label class="flbl"
+                  >Layanan yang Dibutuhkan <span>*</span></label
+                >
+                <select v-model="form.layanan" class="finput fselect" required>
+                  <option value="">Pilih jenis layanan...</option>
+                  <option>
+                    Corporate Training In-House (Program Standar DKN)
+                  </option>
+                  <option>
+                    Corporate Training Customized (Desain dari Nol)
+                  </option>
+                  <option>Advisory &amp; Konsultasi Strategis SDM</option>
+                  <option>Assessment Center</option>
+                  <option>Training Needs Analysis (TNA)</option>
+                  <option>Sertifikasi BNSP (LSP SIK)</option>
+                  <option>Webinar Korporat (Online)</option>
+                  <option>Tidak yakin — mohon bantu rekomendasikan</option>
+                </select>
+              </div>
+
+              <div class="fg fg-full">
+                <label class="flbl">Topik / Area yang Ingin Dibahas</label>
+                <select v-model="form.topik" class="finput fselect">
+                  <option value="">Pilih topik prioritas...</option>
+                  <option>Leadership &amp; Management</option>
+                  <option>
+                    Sales &amp; Marketing (termasuk Smart Selling with AI)
+                  </option>
+                  <option>Banking Strategy &amp; Credit</option>
+                  <option>Risk Management</option>
+                  <option>Soft Skills (SKKNI)</option>
+                  <option>Service Excellence</option>
+                  <option>Collection &amp; Recovery</option>
+                  <option>Corporate Finance &amp; Strategy</option>
+                  <option>AI Productivity untuk Perbankan</option>
+                  <option>
+                    Program Signature DKN (Integrated Banking / Ecosystem /
+                    Funding)
+                  </option>
+                  <option>Lainnya / Tidak yakin</option>
+                </select>
+              </div>
+
+              <div class="fg fg-full">
+                <label class="flbl"
+                  >Ceritakan Tantangan atau Kebutuhan Spesifik Anda</label
+                >
+                <textarea
+                  v-model="form.kebutuhan"
+                  class="finput ftextarea"
+                  placeholder="Contoh: Tim RM kami kesulitan cross-selling produk DPK kepada nasabah kredit. Kami butuh program 1-2 hari yang bisa langsung diterapkan dengan hasil terukur dalam 90 hari ke depan..."
+                ></textarea>
+              </div>
+
+              <div class="fg">
+                <label class="flbl">Estimasi Waktu Pelaksanaan</label>
+                <select v-model="form.waktu" class="finput fselect">
+                  <option value="">Pilih estimasi waktu...</option>
+                  <option>1–2 minggu ke depan (Segera)</option>
+                  <option>1 bulan ke depan</option>
+                  <option>2–3 bulan ke depan</option>
+                  <option>3–6 bulan ke depan</option>
+                  <option>Masih eksplorasi / belum pasti</option>
+                </select>
+              </div>
+              <div class="fg">
+                <label class="flbl">Lokasi Pelaksanaan (jika offline)</label>
+                <input
+                  v-model="form.lokasi"
+                  class="finput"
+                  type="text"
+                  placeholder="Kota / Provinsi"
+                />
+              </div>
+
+              <div class="checkbox-row">
+                <input
+                  class="finput-check"
+                  type="checkbox"
+                  id="agree"
+                  required
+                  checked
+                />
+                <label for="agree"
+                  >Saya setuju untuk dihubungi oleh tim DKN melalui WhatsApp
+                  atau email untuk diskusi lebih lanjut mengenai kebutuhan
+                  pelatihan yang disampaikan.</label
+                >
+              </div>
+
+              <button type="submit" class="btn-submit" :disabled="isSending">
+                <svg
+                  v-if="!isSending"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
                 </svg>
+                <span v-if="isSending">Mengirim Pesan...</span>
+                <span v-else
+                  >Kirim — Tim DKN akan Merespons dalam 1 Hari Kerja</span
+                >
+              </button>
+
+              <div class="form-note">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="var(--slate)"
+                  stroke-width="2"
+                >
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+                Konsultasi awal gratis · Tanpa komitmen · Data Anda aman
               </div>
-              <h2>Pesan Terkirim!</h2>
-              <p>Terima kasih telah menghubungi DKN Digital. Konsultan kami akan merespons permintaan Anda dalam maksimal 1 hari kerja.</p>
-              <button @click="isSuccess = false" class="btn-back">Kirim Form Lain</button>
             </div>
           </div>
-
-
+        </form>
+        <div v-else class="success-section">
+          <div class="success-card">
+            <div class="sc-ico">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="3"
+              >
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+            <h2>Pesan Terkirim!</h2>
+            <p>
+              Terima kasih telah menghubungi DKN Digital. Konsultan kami akan
+              merespons permintaan Anda dalam maksimal 1 hari kerja.
+            </p>
+            <button @click="isSuccess = false" class="btn-back">
+              Kirim Form Lain
+            </button>
+          </div>
+        </div>
 
         <!-- SIDEBAR -->
         <div class="sidebar">
@@ -560,7 +577,6 @@
               </div>
             </div>
           </div>
-
         </div>
       </section>
     </main>
@@ -574,7 +590,6 @@
 import { useProfileStore } from "~/stores/profileStore";
 import { useFaqStore } from "~/stores/faqStore";
 import { storeToRefs } from "pinia";
-
 
 useSeoMeta({
   title: "Konsultasi Corporate — DKN Indonesia",
@@ -643,7 +658,6 @@ onMounted(() => {
   store.fetchProfile();
   faqStore.fetchFaqs();
 });
-
 </script>
 
 <style scoped>

@@ -722,7 +722,9 @@
               </div>
               <h4>Informasi Kontak</h4>
               <p>
-                www.dkn.digital<br />info@dkn.digital<br />+62 813 4358 3568
+                www.dkn.digital<br />{{ profile?.contact?.email }}<br />+{{
+                  profile?.contact?.whatsapp_number
+                }}
               </p>
             </div>
           </div>
@@ -792,6 +794,14 @@
 
 <script setup lang="ts">
 import { storeToRefs } from "pinia";
+import { useProfileStore } from "~/stores/profileStore";
+
+const store = useProfileStore();
+const { profile, isLoading, error } = storeToRefs(store);
+
+onMounted(() => {
+  store.fetchProfile();
+});
 
 useSeoMeta({
   title: "Tentang DKN Digital",

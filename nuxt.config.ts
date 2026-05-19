@@ -82,6 +82,8 @@ export default defineNuxtConfig({
       apiBaseUrl: process.env.NUXT_PUBLIC_API_BASE_URL || process.env.API_BASE_URL || "/",
     },
     resendApiKey: process.env.RESEND_API_KEY,
+    resendFromEmail: process.env.RESEND_FROM_EMAIL || "DKN Digital <onboarding@resend.dev>",
+    resendToEmail: process.env.RESEND_TO_EMAIL || "info@dkn.digital",
   },
   routeRules: {
     "/": {
