@@ -343,14 +343,17 @@
               </div>
               <div class="pc-footer">
                 <div class="pc-price-note">Harga akan diumumkan</div>
-                <a
-                  :href="
+                <!-- :href="
                     prog.button_link.includes('wa.me')
                       ? prog.button_link
                       : '/program#daftar-waiting-list'
-                  "
+                  " -->
+                <a
+                  href="#daftar-waiting-list"
                   rel="noopener"
-                  :target="prog.button_link.includes('wa.me') ? '_blank' : '_self'"
+                  :target="
+                    prog.button_link.includes('wa.me') ? '_blank' : '_self'
+                  "
                   class="btn-minat"
                   :class="{ 'btn-minat-gold': prog.is_signature }"
                 >
