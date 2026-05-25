@@ -56,16 +56,23 @@
           <ul class="flex flex-col gap-[9px] list-none p-0">
             <li>
               <NuxtLink
-                to="/webinar"
+                to="/webinar#recording"
+                class="text-[13px] text-white/44 no-underline transition-colors hover:text-white"
+                >Rekaman Webinar</NuxtLink
+              >
+            </li>
+            <li>
+              <NuxtLink
+                to="/webinar#gratis"
                 class="text-[13px] text-white/44 no-underline transition-colors hover:text-white"
                 >Webinar Gratis</NuxtLink
               >
             </li>
             <li>
               <NuxtLink
-                to="/webinar#rekaman"
+                to="/webinar#berbayar"
                 class="text-[13px] text-white/44 no-underline transition-colors hover:text-white"
-                >Rekaman Webinar</NuxtLink
+                >Webinar Berbayar</NuxtLink
               >
             </li>
             <li>
@@ -77,7 +84,8 @@
             </li>
             <li>
               <NuxtLink
-                to="/program#lms"
+                to="https://elearning.dkn.digital/login/index.php"
+                target="_blank"
                 class="text-[13px] text-white/44 no-underline transition-colors hover:text-white"
                 >Akses LMS</NuxtLink
               >
@@ -89,35 +97,42 @@
           <h5
             class="mb-3.5 text-[10px] font-bold uppercase tracking-[1.5px] text-white/24"
           >
-            Layanan Corporate
+            Layanan
           </h5>
           <ul class="flex flex-col gap-[9px] list-none p-0">
             <li>
               <NuxtLink
                 to="/#layanan"
                 class="text-[13px] text-white/44 no-underline transition-colors hover:text-white"
-                >Corporate Training</NuxtLink
+                >Layanan DKN</NuxtLink
               >
             </li>
             <li>
               <NuxtLink
-                to="/#layanan"
+                to="/produk"
                 class="text-[13px] text-white/44 no-underline transition-colors hover:text-white"
-                >Advisory</NuxtLink
+                >Produk</NuxtLink
               >
             </li>
             <li>
               <NuxtLink
-                to="/#layanan"
+                to="/resources#artikel"
                 class="text-[13px] text-white/44 no-underline transition-colors hover:text-white"
-                >Assessment Center</NuxtLink
+                >Artikel</NuxtLink
               >
             </li>
             <li>
               <NuxtLink
-                to="/#layanan"
+              to="/resources#insight"
+              class="text-[13px] text-white/44 no-underline transition-colors hover:text-white"
+              >Insight Bisnis</NuxtLink
+              >
+            </li>
+            <li>
+              <NuxtLink
+                to="/resources#katalog"
                 class="text-[13px] text-white/44 no-underline transition-colors hover:text-white"
-                >Certification</NuxtLink
+                >Katalog Program</NuxtLink
               >
             </li>
             <li>

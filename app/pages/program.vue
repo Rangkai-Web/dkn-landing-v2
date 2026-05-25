@@ -36,6 +36,15 @@
               <div class="ph-stat-l">Program Signature eksklusif</div>
             </div>
           </div>
+          <div class="flex items-center justify-center mt-32">
+            <NuxtLink
+              to="https://elearning.dkn.digital/login/index.php?loginredirect=1"
+              target="_blank"
+              class="inline-flex items-center rounded-md bg-teal-secondary px-3.5 md:px-5 py-[9px] text-[13px] font-semibold text-white no-underline transition-all hover:bg-teal-primary"
+            >
+              Akses Learning Managemen System Kami
+            </NuxtLink>
+          </div>
         </div>
       </section>
 
