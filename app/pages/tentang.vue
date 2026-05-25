@@ -477,6 +477,150 @@
         </div>
       </section>
 
+      <!-- PARTNER & INSTRUKTUR LAINNYA -->
+      <section class="sec bg-white" id="partners">
+        <div class="wrap">
+          <span class="lbl">Partner &amp; Instruktur DKN</span>
+          <h2 class="sh">Partner &amp; Instruktur Kami Lainnya</h2>
+          <p class="ss" style="margin-bottom: 32px">
+            Didukung oleh jejaring praktisi, akademisi, dan konsultan lintas
+            industri yang siap mengakselerasi kompetensi tim Anda.
+          </p>
+
+          <div class="partners-grid">
+            <div class="partner-card">
+              <div class="partner-info">
+                <h3 class="partner-name">Kamilah ZH</h3>
+                <div class="partner-skills">
+                  <strong>Spesialisasi:</strong> Islamic Finance · Shariah Audit · Islamic Wealth Management
+                </div>
+                <div class="partner-certs">
+                  <span class="p-cert-tag">Assessor BNSP</span>
+                  <span class="p-cert-tag">CIB</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="partner-card">
+              <div class="partner-info">
+                <h3 class="partner-name">Dicky Adisaputra</h3>
+                <div class="partner-skills">
+                  <strong>Spesialisasi:</strong> Enterprise Risk Management · Banking Compliance · Credit Analysis
+                </div>
+                <div class="partner-certs">
+                  <span class="p-cert-tag">BSMR Level 4</span>
+                  <span class="p-cert-tag">ERMCP</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="partner-card">
+              <div class="partner-info">
+                <h3 class="partner-name">Indrajid Karim</h3>
+                <div class="partner-skills">
+                  <strong>Spesialisasi:</strong> Sales Leadership · Negotiation Skills · Relationship Management
+                </div>
+                <div class="partner-certs">
+                  <span class="p-cert-tag">Certified Executive Coach</span>
+                  <span class="p-cert-tag">BNSP ToT</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="partner-card">
+              <div class="partner-info">
+                <h3 class="partner-name">Dr. Riko Hendrawan</h3>
+                <div class="partner-skills">
+                  <strong>Spesialisasi:</strong> Corporate Finance · Investment Advisory · Strategic Valuation
+                </div>
+                <div class="partner-certs">
+                  <span class="p-cert-tag">CFA Charterholder</span>
+                  <span class="p-cert-tag">Certified Valuation Specialist</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="partner-card">
+              <div class="partner-info">
+                <h3 class="partner-name">Amin K</h3>
+                <div class="partner-skills">
+                  <strong>Spesialisasi:</strong> Lean Six Sigma · Banking Operations · Business Process Reengineering
+                </div>
+                <div class="partner-certs">
+                  <span class="p-cert-tag">Six Sigma Black Belt</span>
+                  <span class="p-cert-tag">BNSP Auditor</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="partner-card">
+              <div class="partner-info">
+                <h3 class="partner-name">Dr. Lin Yan Syah</h3>
+                <div class="partner-skills">
+                  <strong>Spesialisasi:</strong> Competency Framework · Training &amp; Development · Talent Management
+                </div>
+                <div class="partner-certs">
+                  <span class="p-cert-tag">BNSP Lead Assessor</span>
+                  <span class="p-cert-tag">CHRP</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="partner-card">
+              <div class="partner-info">
+                <h3 class="partner-name">Datuk Marelo</h3>
+                <div class="partner-skills">
+                  <strong>Spesialisasi:</strong> Executive Leadership · Strategic Management · Corporate Governance
+                </div>
+                <div class="partner-certs">
+                  <span class="p-cert-tag">Certified Director</span>
+                  <span class="p-cert-tag">BNSP Master Trainer</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="partner-card">
+              <div class="partner-info">
+                <h3 class="partner-name">Dra. Sri Wahyuni</h3>
+                <div class="partner-skills">
+                  <strong>Spesialisasi:</strong> Internal Audit · Quality Management Systems · ISO Standards
+                </div>
+                <div class="partner-certs">
+                  <span class="p-cert-tag">CIA (Certified Internal Auditor)</span>
+                  <span class="p-cert-tag">QIA</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="partner-card">
+              <div class="partner-info">
+                <h3 class="partner-name">Faisal Bachri, MM</h3>
+                <div class="partner-skills">
+                  <strong>Spesialisasi:</strong> Digital Marketing · FinTech Operations · Customer Acquisition
+                </div>
+                <div class="partner-certs">
+                  <span class="p-cert-tag">Google Digital Expert</span>
+                  <span class="p-cert-tag">Certified FinTech Professional</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="partner-card">
+              <div class="partner-info">
+                <h3 class="partner-name">Hendra Wijaya, CFRP</h3>
+                <div class="partner-skills">
+                  <strong>Spesialisasi:</strong> Industrial Relations · Labor Law Mitigation · Conflict Management
+                </div>
+                <div class="partner-certs">
+                  <span class="p-cert-tag">CFRP</span>
+                  <span class="p-cert-tag">Certified Mediator</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- NILAI KAMI -->
       <section class="sec bg-deep">
         <div class="wrap">
@@ -1285,6 +1429,59 @@ useHead({
   color: var(--ink);
   font-family: monospace;
 }
+/* PARTNER & INSTRUKTUR */
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 36px;
+}
+.partner-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--teal2);
+  border-radius: 12px;
+  padding: 24px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+}
+.partner-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(20, 34, 56, 0.06);
+  border-left-color: var(--gold);
+}
+.partner-name {
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.partner-skills {
+  font-size: 12.5px;
+  color: var(--slate);
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+.partner-skills strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+.partner-certs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.p-cert-tag {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: rgba(34, 160, 148, 0.07);
+  color: var(--teal2);
+  border: 1px solid rgba(34, 160, 148, 0.15);
+}
 /* CTA BOTTOM */
 .cta-bottom {
   background: linear-gradient(140deg, var(--navy), #0d1e35);
@@ -1501,7 +1698,8 @@ footer {
   .eco-cards,
   .founders-grid,
   .nilai-grid,
-  .legal-grid {
+  .legal-grid,
+  .partners-grid {
     grid-template-columns: 1fr;
   }
   .cta-bottom {
