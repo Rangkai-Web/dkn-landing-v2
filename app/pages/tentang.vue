@@ -487,133 +487,31 @@
             industri yang siap mengakselerasi kompetensi tim Anda.
           </p>
 
-          <div class="partners-grid">
-            <div class="partner-card">
-              <div class="partner-info">
-                <h3 class="partner-name">Kamilah ZH</h3>
-                <div class="partner-skills">
-                  <strong>Spesialisasi:</strong> Islamic Finance · Shariah Audit · Islamic Wealth Management
-                </div>
-                <div class="partner-certs">
-                  <span class="p-cert-tag">Assessor BNSP</span>
-                  <span class="p-cert-tag">CIB</span>
-                </div>
-              </div>
-            </div>
+          <!-- LOADING STATE -->
+          <div v-if="isLoading" class="partners-loading">
+            <div class="partners-spinner"></div>
+            <p>Memuat partner &amp; instruktur kami...</p>
+          </div>
 
-            <div class="partner-card">
+          <div v-else class="partners-grid">
+            <div
+              v-for="partner in partners"
+              :key="partner.name"
+              class="partner-card"
+            >
               <div class="partner-info">
-                <h3 class="partner-name">Dicky Adisaputra</h3>
+                <h3 class="partner-name">{{ partner.name }}</h3>
                 <div class="partner-skills">
-                  <strong>Spesialisasi:</strong> Enterprise Risk Management · Banking Compliance · Credit Analysis
+                  <strong>Spesialisasi:</strong> {{ partner.skills.join(" · ") }}
                 </div>
                 <div class="partner-certs">
-                  <span class="p-cert-tag">BSMR Level 4</span>
-                  <span class="p-cert-tag">ERMCP</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="partner-card">
-              <div class="partner-info">
-                <h3 class="partner-name">Indrajid Karim</h3>
-                <div class="partner-skills">
-                  <strong>Spesialisasi:</strong> Sales Leadership · Negotiation Skills · Relationship Management
-                </div>
-                <div class="partner-certs">
-                  <span class="p-cert-tag">Certified Executive Coach</span>
-                  <span class="p-cert-tag">BNSP ToT</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="partner-card">
-              <div class="partner-info">
-                <h3 class="partner-name">Dr. Riko Hendrawan</h3>
-                <div class="partner-skills">
-                  <strong>Spesialisasi:</strong> Corporate Finance · Investment Advisory · Strategic Valuation
-                </div>
-                <div class="partner-certs">
-                  <span class="p-cert-tag">CFA Charterholder</span>
-                  <span class="p-cert-tag">Certified Valuation Specialist</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="partner-card">
-              <div class="partner-info">
-                <h3 class="partner-name">Amin K</h3>
-                <div class="partner-skills">
-                  <strong>Spesialisasi:</strong> Lean Six Sigma · Banking Operations · Business Process Reengineering
-                </div>
-                <div class="partner-certs">
-                  <span class="p-cert-tag">Six Sigma Black Belt</span>
-                  <span class="p-cert-tag">BNSP Auditor</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="partner-card">
-              <div class="partner-info">
-                <h3 class="partner-name">Dr. Lin Yan Syah</h3>
-                <div class="partner-skills">
-                  <strong>Spesialisasi:</strong> Competency Framework · Training &amp; Development · Talent Management
-                </div>
-                <div class="partner-certs">
-                  <span class="p-cert-tag">BNSP Lead Assessor</span>
-                  <span class="p-cert-tag">CHRP</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="partner-card">
-              <div class="partner-info">
-                <h3 class="partner-name">Datuk Marelo</h3>
-                <div class="partner-skills">
-                  <strong>Spesialisasi:</strong> Executive Leadership · Strategic Management · Corporate Governance
-                </div>
-                <div class="partner-certs">
-                  <span class="p-cert-tag">Certified Director</span>
-                  <span class="p-cert-tag">BNSP Master Trainer</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="partner-card">
-              <div class="partner-info">
-                <h3 class="partner-name">Dra. Sri Wahyuni</h3>
-                <div class="partner-skills">
-                  <strong>Spesialisasi:</strong> Internal Audit · Quality Management Systems · ISO Standards
-                </div>
-                <div class="partner-certs">
-                  <span class="p-cert-tag">CIA (Certified Internal Auditor)</span>
-                  <span class="p-cert-tag">QIA</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="partner-card">
-              <div class="partner-info">
-                <h3 class="partner-name">Faisal Bachri, MM</h3>
-                <div class="partner-skills">
-                  <strong>Spesialisasi:</strong> Digital Marketing · FinTech Operations · Customer Acquisition
-                </div>
-                <div class="partner-certs">
-                  <span class="p-cert-tag">Google Digital Expert</span>
-                  <span class="p-cert-tag">Certified FinTech Professional</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="partner-card">
-              <div class="partner-info">
-                <h3 class="partner-name">Hendra Wijaya, CFRP</h3>
-                <div class="partner-skills">
-                  <strong>Spesialisasi:</strong> Industrial Relations · Labor Law Mitigation · Conflict Management
-                </div>
-                <div class="partner-certs">
-                  <span class="p-cert-tag">CFRP</span>
-                  <span class="p-cert-tag">Certified Mediator</span>
+                  <span
+                    v-for="cert in partner.certs"
+                    :key="cert"
+                    class="p-cert-tag"
+                  >
+                    {{ cert }}
+                  </span>
                 </div>
               </div>
             </div>
@@ -939,12 +837,17 @@
 <script setup lang="ts">
 import { storeToRefs } from "pinia";
 import { useProfileStore } from "~/stores/profileStore";
+import { usePartnerStore } from "~/stores/partnerStore";
 
 const store = useProfileStore();
-const { profile, isLoading, error } = storeToRefs(store);
+const { profile } = storeToRefs(store);
+
+const partnerStore = usePartnerStore();
+const { partners, isLoading } = storeToRefs(partnerStore);
 
 onMounted(() => {
   store.fetchProfile();
+  partnerStore.fetchPartners();
 });
 
 useSeoMeta({
@@ -1481,6 +1384,33 @@ useHead({
   background: rgba(34, 160, 148, 0.07);
   color: var(--teal2);
   border: 1px solid rgba(34, 160, 148, 0.15);
+}
+/* LOADING STATE */
+.partners-loading {
+  text-align: center;
+  padding: 60px 0;
+}
+.partners-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(34, 160, 148, 0.1);
+  border-top-color: var(--teal2);
+  border-radius: 50%;
+  margin: 0 auto 16px;
+  animation: partners-spin 0.8s linear infinite;
+}
+.partners-loading p {
+  font-size: 14px;
+  color: var(--slate);
+}
+
+@keyframes partners-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 /* CTA BOTTOM */
 .cta-bottom {
