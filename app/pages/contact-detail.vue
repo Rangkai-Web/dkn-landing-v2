@@ -266,7 +266,7 @@
                                   : "Media Sosial"
                       }}
                     </h4>
-                    <p>DKN Digital</p>
+                    <p>{{ profile?.site_name }}</p>
                   </div>
                 </a>
               </template>
