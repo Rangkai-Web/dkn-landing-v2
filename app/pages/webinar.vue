@@ -841,6 +841,7 @@ const form = ref({
 
 const isSending = ref(false);
 const isSuccess = ref(false);
+const config = useRuntimeConfig();
 
 const activeSection = ref("recording");
 
@@ -852,8 +853,9 @@ const handleSubmit = async () => {
 
   isSending.value = true;
   try {
-    await $fetch("/api/webinar", {
+    await $fetch("webinar", {
       method: "POST",
+      baseURL: config.public.apiBaseUrl,
       body: form.value,
     });
     isSuccess.value = true;

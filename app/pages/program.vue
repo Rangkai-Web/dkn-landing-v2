@@ -557,6 +557,7 @@ onMounted(() => {
 
 const submitted = ref(false);
 const loading = ref(false);
+const config = useRuntimeConfig();
 
 const form = ref({
   nama: "",
@@ -568,8 +569,9 @@ const form = ref({
 const handleSubmit = async () => {
   loading.value = true;
   try {
-    await $fetch("/api/waiting-list", {
+    await $fetch("waiting-list", {
       method: "POST",
+      baseURL: config.public.apiBaseUrl,
       body: form.value,
     });
     submitted.value = true;

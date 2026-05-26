@@ -614,12 +614,14 @@ const form = ref({
 });
 const isSending = ref(false);
 const isSuccess = ref(false);
+const config = useRuntimeConfig();
 
 const handleSubmit = async () => {
   isSending.value = true;
   try {
-    await $fetch("/api/contact", {
+    await $fetch("contact", {
       method: "POST",
+      baseURL: config.public.apiBaseUrl,
       body: form.value,
     });
     isSuccess.value = true;
