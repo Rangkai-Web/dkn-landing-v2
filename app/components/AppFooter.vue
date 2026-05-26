@@ -9,7 +9,7 @@
       >
         <div class="ft-brand">
           <NuxtLink to="/" class="flex items-center gap-3 no-underline">
-            <NuxtImg
+            <img
               :src="profile?.logo_url || '/logo/dkn-logo.webp'"
               alt="Logo DKN"
               width="48"

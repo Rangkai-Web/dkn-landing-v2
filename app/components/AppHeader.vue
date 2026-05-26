@@ -22,7 +22,7 @@
         class="flex items-center gap-2.5 md:gap-3 no-underline"
         @click="closeMenu"
       >
-        <NuxtImg
+        <img
           :src="profile?.logo_url || '/logo/dkn-logo.webp'"
           alt="Logo DKN"
           width="40"
