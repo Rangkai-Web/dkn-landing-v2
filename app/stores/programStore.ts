@@ -14,6 +14,7 @@ export interface IProgram {
   is_signature: boolean;
   button_name: string;
   button_link: string;
+  image_full_url: string;
 }
 
 export const useProgramStore = defineStore("program", () => {

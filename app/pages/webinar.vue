@@ -121,7 +121,13 @@
                   <div class="rec-featured">
                     <!-- ... existing content ... -->
                     <div class="rec-thumb">
-                      <div class="rec-thumb-ico">
+                      <img
+                        v-if="rec.image_full_url"
+                        :src="rec.image_full_url || '/img/others/placeholder.jpg'"
+                        :alt="rec.title"
+                        class="rec-thumb-img"
+                      />
+                      <div v-else class="rec-thumb-ico">
                         <svg
                           v-if="rec.icon === 'activity'"
                           viewBox="0 0 24 24"
@@ -229,6 +235,13 @@
                           target="_blank"
                           rel="noopener"
                           class="btn-outline-w"
+                          @click="
+                            pushEvent('wa_click', {
+                              source: 'webinar_recording',
+                              id: rec.id,
+                              title: rec.title,
+                            })
+                          "
                           >Dapatkan Sertifikat</NuxtLink
                         >
                       </div>
@@ -339,66 +352,74 @@
               class="wg-card"
             >
               <div class="wg-thumb" :style="{ background: webinar.gradient }">
+                <img
+                  v-if="webinar.image_full_url"
+                  :src="webinar.image_full_url"
+                  :alt="webinar.title"
+                  class="wg-thumb-img"
+                />
                 <!-- Dynamic Icons -->
-                <svg
-                  v-if="webinar.icon === 'users'"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="rgba(34,160,148,.5)"
-                  stroke-width="1.5"
-                >
-                  <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                  <circle cx="9" cy="7" r="4" />
-                  <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
-                </svg>
-                <svg
-                  v-else-if="webinar.icon === 'graduation-cap'"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="rgba(26,122,110,.5)"
-                  stroke-width="1.5"
-                >
-                  <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-                  <path d="M6 12v5c3 3 9 3 12 0v-5" />
-                </svg>
-                <svg
-                  v-else-if="webinar.icon === 'activity'"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="rgba(196,146,58,.5)"
-                  stroke-width="1.5"
-                >
-                  <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-                </svg>
-                <svg
-                  v-else-if="webinar.icon === 'zap'"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="rgba(55,138,221,.5)"
-                  stroke-width="1.5"
-                >
-                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-                </svg>
-                <svg
-                  v-else-if="webinar.icon === 'shield'"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="rgba(139,92,246,.5)"
-                  stroke-width="1.5"
-                >
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                </svg>
-                <svg
-                  v-else-if="webinar.icon === 'heart'"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="rgba(26,160,100,.5)"
-                  stroke-width="1.5"
-                >
-                  <path
-                    d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"
-                  />
-                </svg>
+                <template v-else>
+                  <svg
+                    v-if="webinar.icon === 'users'"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="rgba(34,160,148,.5)"
+                    stroke-width="1.5"
+                  >
+                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
+                  </svg>
+                  <svg
+                    v-else-if="webinar.icon === 'graduation-cap'"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="rgba(26,122,110,.5)"
+                    stroke-width="1.5"
+                  >
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                    <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                  </svg>
+                  <svg
+                    v-else-if="webinar.icon === 'activity'"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="rgba(196,146,58,.5)"
+                    stroke-width="1.5"
+                  >
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                  </svg>
+                  <svg
+                    v-else-if="webinar.icon === 'zap'"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="rgba(55,138,221,.5)"
+                    stroke-width="1.5"
+                  >
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                  </svg>
+                  <svg
+                    v-else-if="webinar.icon === 'shield'"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="rgba(139,92,246,.5)"
+                    stroke-width="1.5"
+                  >
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  </svg>
+                  <svg
+                    v-else-if="webinar.icon === 'heart'"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="rgba(26,160,100,.5)"
+                    stroke-width="1.5"
+                  >
+                    <path
+                      d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"
+                    />
+                  </svg>
+                </template>
 
                 <span class="wg-coming-tag">Segera Hadir</span>
               </div>
@@ -455,6 +476,13 @@
                   rel="noopener"
                   class="btn-minat"
                   style="width: 100%; justify-content: center"
+                  @click="
+                    pushEvent('wa_click', {
+                      source: 'webinar_gratis',
+                      id: webinar.id,
+                      title: webinar.title,
+                    })
+                  "
                 >
                   <svg
                     viewBox="0 0 24 24"
@@ -624,16 +652,25 @@
             </p>
           </div>
 
-          <div v-if="paidWebinarsList.length > 0" class="wb-grid" id="berbayar">
+          <div v-if="paidWebinarsList.length > 0" class="wb-grid" id="berbayar-card">
             <div
               v-for="webinar in paidWebinarsList"
               :key="webinar.id"
+              :id="`berbayar-${webinar.id}`"
               class="wb-card"
             >
               <div class="wb-head">
                 <div class="wb-head-tag">{{ webinar.tag }}</div>
                 <div class="wb-head-title">
                   {{ webinar.title }}
+                </div>
+                <div style="display: flex; justify-content: center; align-items: center;">
+                  <img
+                    v-if="webinar.image_full_url"
+                    :src="webinar.image_full_url || '/img/others/placeholder.jpg'"
+                    style="margin-bottom: 20px; border-radius: 8px; height: 200px; object-fit: cover;"
+                    alt="Program Webinar"
+                  />
                 </div>
                 <div class="wb-head-desc">
                   {{ webinar.desc }}
@@ -711,24 +748,50 @@
                   <div class="wb-price-lbl">Investasi</div>
                   <div class="wb-price-coming">{{ webinar.price }}</div>
                 </div>
-                <a
-                  :href="webinar.waUrl"
-                  target="_blank"
-                  rel="noopener"
-                  class="btn-minat"
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
+                <div style="display: flex; justify-content: center; gap: 10px;">
+                  <a
+                    :href="webinar.waUrl"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn-minat"
+                    @click="
+                      pushEvent('wa_click', {
+                        source: 'webinar_berbayar',
+                        id: webinar.id,
+                        title: webinar.title,
+                      })
+                    "
                   >
-                    <path
-                      d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
-                    />
-                  </svg>
-                  {{ webinar.button_name || "Daftar Minat" }}
-                </a>
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
+                      />
+                    </svg>
+                    {{ webinar.button_name || "Daftar Minat" }}
+                  </a>
+                  <a
+                    v-if="isSafeHttpUrl(webinar.cta_url)"
+                    :href="webinar.cta_url"
+                    class="btn-teal"
+                    style="width: fit-content"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click="
+                      pushEvent('cta_click', {
+                        source: 'webinar_berbayar',
+                        id: webinar.id,
+                        title: webinar.title,
+                      })
+                    "
+                  >
+                    Kunjungi
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -796,6 +859,8 @@ import { useWebinarStore } from "@/stores/webinarStore";
 import { storeToRefs } from "pinia";
 import { useProfileStore } from "~/stores/profileStore";
 
+const { pushEvent } = useAnalytics();
+
 const store = useProfileStore();
 const { profile } = storeToRefs(store);
 
@@ -807,9 +872,29 @@ const {
   isLoading,
 } = storeToRefs(webinarStore);
 
-onMounted(() => {
-  webinarStore.fetchAll();
-  store.fetchProfile();
+onMounted(async () => {
+  const hash = window.location.hash;
+  let targetCardId: string | null = null;
+
+  if (hash) {
+    const cardMatch = hash.match(/^#berbayar-(\d+)$/);
+    if (cardMatch) {
+      activeSection.value = "berbayar";
+      targetCardId = hash.slice(1);
+    } else if (hash === "#berbayar" || hash === "#gratis" || hash === "#recording") {
+      activeSection.value = hash.slice(1);
+    }
+  }
+
+  await Promise.all([webinarStore.fetchAll(), store.fetchProfile()]);
+
+  if (targetCardId) {
+    await nextTick();
+    document.getElementById(targetCardId)?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
 });
 useSeoMeta({
   title: "Webinar Gratis — DKN Indonesia",
@@ -859,6 +944,7 @@ const handleSubmit = async () => {
       body: form.value,
     });
     isSuccess.value = true;
+    pushEvent("form_submit", { form: "webinar_interest" });
     // Reset form
     form.value = {
       nama: "",
@@ -1104,8 +1190,9 @@ const handleSubmit = async () => {
   border-radius: 16px;
   overflow: hidden;
   display: grid;
-  grid-template-columns: 340px 1fr;
+  grid-template-columns: 420px 1fr;
   width: 100%;
+  height: 420px;
 }
 
 :deep(.carousel__track) {
@@ -1199,6 +1286,13 @@ const handleSubmit = async () => {
   align-items: center;
   justify-content: center;
 }
+.rec-thumb-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 .rec-thumb-ico svg {
   width: 28px;
   height: 28px;
@@ -1244,6 +1338,11 @@ const handleSubmit = async () => {
   font-weight: 600;
   line-height: 1.25;
   margin-bottom: 12px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
 }
 .rec-desc {
   font-size: 14px;
@@ -1251,6 +1350,11 @@ const handleSubmit = async () => {
   line-height: 1.7;
   font-weight: 300;
   margin-bottom: 24px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
 }
 .rec-meta {
   display: flex;
@@ -1273,6 +1377,26 @@ const handleSubmit = async () => {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
+}
+.btn-teal {
+  background: var(--teal2);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+.btn-teal:hover {
+  background: var(--teal);
+}
+.btn-teal svg {
+  width: 13px;
+  height: 13px;
 }
 .btn-yt {
   background: #ff0000;
@@ -1370,7 +1494,7 @@ const handleSubmit = async () => {
   box-shadow: 0 4px 24px rgba(20, 34, 56, 0.1);
 }
 .wg-thumb {
-  height: 140px;
+  height: 240px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1379,6 +1503,13 @@ const handleSubmit = async () => {
 .wg-thumb svg {
   width: 40px;
   height: 40px;
+}
+.wg-thumb-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 .wg-coming-tag {
   position: absolute;
@@ -1614,6 +1745,7 @@ const handleSubmit = async () => {
     0 4px 16px rgba(20, 34, 56, 0.05);
   display: flex;
   flex-direction: column;
+  scroll-margin-top: 140px;
 }
 .wb-head {
   padding: 28px 28px 0;

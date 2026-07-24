@@ -42,7 +42,7 @@
               target="_blank"
               class="inline-flex items-center rounded-md bg-teal-secondary px-3.5 md:px-5 py-[9px] text-[13px] font-semibold text-white no-underline transition-all hover:bg-teal-primary"
             >
-              Akses Learning Managemen System Kami
+              Akses Learning Management System Kami
             </NuxtLink>
           </div>
         </div>
@@ -170,6 +170,7 @@
                     target="_blank"
                     rel="noopener"
                     class="btn-gold-full"
+                    @click="pushEvent('wa_click', { source: 'bnsp' })"
                   >
                     <svg
                       viewBox="0 0 24 24"
@@ -297,6 +298,14 @@
                   </span>
                 </div>
                 <div class="pc-title">{{ prog.title }}</div>
+                <div style="display: flex; justify-content: center; align-items: center;">
+                  <img
+                    v-if="prog.image_full_url"
+                    :src="prog.image_full_url || '/img/others/placeholder.jpg'"
+                    style="margin-bottom: 20px; border-radius: 8px; height: 200px; object-fit: contain;"
+                    alt="Program Webinar"
+                  />
+                </div>
                 <div class="pc-desc">{{ prog.desc }}</div>
                 <div class="pc-outcomes">
                   <h4>
@@ -526,6 +535,8 @@ import { useProfileStore } from "~/stores/profileStore";
 import { useProgramStore } from "~/stores/programStore";
 import { useBnspStore } from "~/stores/bnspStore";
 
+const { pushEvent } = useAnalytics();
+
 useSeoMeta({
   title:
     "Program Pelatihan DKN Indonesia - Pengembangan Kompetensi SDM Terlengkap",
@@ -575,6 +586,7 @@ const handleSubmit = async () => {
       body: form.value,
     });
     submitted.value = true;
+    pushEvent("form_submit", { form: "program_waiting_list" });
     form.value = {
       nama: "",
       email: "",

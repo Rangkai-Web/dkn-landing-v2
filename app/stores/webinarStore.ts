@@ -9,6 +9,7 @@ export interface IRecording {
   target: string;
   url: string;
   icon: string;
+  image_full_url: string;
 }
 
 export interface IFreeWebinar {
@@ -23,6 +24,7 @@ export interface IFreeWebinar {
   icon: string;
   waUrl: string;
   button_name: string;
+  image_full_url: string;
 }
 
 export interface IPaidWebinar {
@@ -35,6 +37,8 @@ export interface IPaidWebinar {
   price: string;
   waUrl: string;
   button_name: string;
+  image_full_url: string;
+  cta_url: string;
 }
 
 export const useWebinarStore = defineStore("webinar", () => {

@@ -341,6 +341,7 @@
                 target="_blank"
                 rel="noopener"
                 class="cc-ch"
+                @click="pushEvent('wa_click', { source: 'contact_sidebar' })"
               >
                 <div
                   class="cc-ch-ico"
@@ -591,6 +592,8 @@ import { useProfileStore } from "~/stores/profileStore";
 import { useFaqStore } from "~/stores/faqStore";
 import { storeToRefs } from "pinia";
 
+const { pushEvent } = useAnalytics();
+
 useSeoMeta({
   title: "Konsultasi Corporate — DKN Indonesia",
   description:
@@ -625,6 +628,7 @@ const handleSubmit = async () => {
       body: form.value,
     });
     isSuccess.value = true;
+    pushEvent("form_submit", { form: "contact" });
     // Reset form
     Object.keys(form.value).forEach((key) => {
       (form.value as any)[key] = "";

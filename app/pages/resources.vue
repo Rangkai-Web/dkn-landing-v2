@@ -95,6 +95,11 @@
           <div class="router-grid">
             <!-- Jalur 1: Webinar -->
             <a href="/webinar" class="router-card rc-bg1">
+              <img
+                src="/img/others/program-webinar.jpg"
+                style="margin-bottom: 20px; border-radius: 8px; height: 160px; object-fit: cover;"
+                alt="Program Webinar"
+              />
               <div class="rc-num">1</div>
               <div class="rc-ico" style="background: rgba(34, 160, 148, 0.15)">
                 <svg
@@ -134,6 +139,11 @@
 
             <!-- Jalur 2: Program Belajar -->
             <a href="/program" class="router-card rc-bg2">
+              <img
+                src="/img/others/program-belajar.jpg"
+                style="margin-bottom: 20px; border-radius: 8px; height: 160px; object-fit: cover;"
+                alt="Program Belajar"
+              />
               <div class="rc-num">2</div>
               <div class="rc-ico" style="background: rgba(196, 146, 58, 0.15)">
                 <svg
@@ -176,6 +186,11 @@
 
             <!-- Jalur 3: Corporate -->
             <a href="/contact" class="router-card rc-bg3">
+              <img
+                src="/img/others/program-corporate.jpg"
+                style="margin-bottom: 20px; border-radius: 8px; height: 160px; object-fit: cover;"
+                alt="Program Corporate"
+              />
               <div class="rc-num">3</div>
               <div class="rc-ico" style="background: rgba(139, 92, 246, 0.15)">
                 <svg
@@ -345,12 +360,24 @@
 
           <!-- ARTIKEL GRID 3 COL -->
           <div v-else class="art-grid" style="margin-top: 2rem">
-            <div v-for="art in articles" :key="art.id" class="art-card">
+            <div
+              v-for="art in articles"
+              :key="art.id"
+              :id="`artikel-${art.id}`"
+              class="art-card"
+            >
               <div
                 class="art-card-thumb"
                 :style="`background: ${getArticleMeta(art.category).grad}`"
               >
+                <img
+                  v-if="art.image_full_url"
+                  :src="art.image_full_url || '/img/others/placeholder.jpg'"
+                  :alt="art.title"
+                  class="art-card-img"
+                />
                 <svg
+                  v-else
                   viewBox="0 0 24 24"
                   fill="none"
                   :stroke="getArticleMeta(art.category).ico"
@@ -378,13 +405,22 @@
                     d="M4 19.5A2.5 2.5 0 016.5 17H20M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"
                   />
                 </svg>
+                <div v-if="art.image_full_url" class="art-card-scrim"></div>
                 <div
                   class="art-card-badge"
-                  :style="{
-                    background: getArticleMeta(art.category).badgeBg,
-                    color: getArticleMeta(art.category).badgeColor,
-                    border: `1px solid ${getArticleMeta(art.category).badgeBorder}`,
-                  }"
+                  :style="
+                    art.image_full_url
+                      ? {
+                          background: 'rgba(0, 0, 0, 0.55)',
+                          color: '#fff',
+                          border: '1px solid rgba(255, 255, 255, 0.25)',
+                        }
+                      : {
+                          background: getArticleMeta(art.category).badgeBg,
+                          color: getArticleMeta(art.category).badgeColor,
+                          border: `1px solid ${getArticleMeta(art.category).badgeBorder}`,
+                        }
+                  "
                 >
                   {{ art.category }}
                 </div>
@@ -407,23 +443,42 @@
                 <div class="art-card-summary">
                   {{ art.summary }}
                 </div>
-                <a
-                  :href="art.file_full_url"
-                  class="btn-teal"
-                  style="width: fit-content"
-                  target="_blank"
-                  download
-                >
-                  Download File
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.5"
+                <div class="flex gap-2 items-center">
+                  <a
+                    :href="art.file_full_url"
+                    class="btn-teal"
+                    style="width: fit-content"
+                    target="_blank"
+                    download
                   >
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                </a>
+                    Download File
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.5"
+                    >
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </a>
+                  <a
+                    v-if="isSafeHttpUrl(art.cta_url)"
+                    :href="art.cta_url"
+                    class="btn-minat"
+                    style="width: fit-content"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    @click="
+                      pushEvent('cta_click', {
+                        source: 'artikel',
+                        id: art.id,
+                        title: art.title,
+                      })
+                    "
+                  >
+                    Kunjungi
+                  </a>
+                </div>
               </div>
               <div class="art-card-footer">
                 <div class="art-card-author">
@@ -521,6 +576,11 @@
 
           <div v-else class="insight-grid">
             <div v-for="ins in insights" :key="ins.id" class="insight-card">
+              <img
+                :src="ins.image_full_url || '/img/others/placeholder.jpg'"
+                style="margin-bottom: 20px; border-radius: 8px; height: 160px; object-fit: contain;"
+                alt="Program Webinar"
+              />
               <div
                 class="ic-ico"
                 :style="`background: ${getInsightMeta(ins.icon_type).bg}`"
@@ -641,74 +701,91 @@
                     ? 'border-color:rgba(196,146,58,0.3);background:var(--gold-pale)'
                     : ''
                 "
+                @click="
+                  prog.button_link.includes('wa.me')
+                    ? pushEvent('wa_click', {
+                        source: 'katalog_program',
+                        id: prog.id,
+                        title: prog.title,
+                      })
+                    : null
+                "
               >
-                <div
-                  class="kat-ico"
-                  :style="`background: ${getProgramMeta(prog.category, prog.is_signature).bg}`"
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    :stroke="
-                      getProgramMeta(prog.category, prog.is_signature).color
-                    "
-                    stroke-width="2"
-                  >
-                    <!-- Signature Icon -->
-                    <polygon
-                      v-if="
-                        getProgramMeta(prog.category, prog.is_signature)
-                          .icon === 'signature'
-                      "
-                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                    />
-                    <!-- User/Leadership Icon -->
-                    <g
-                      v-else-if="
-                        getProgramMeta(prog.category, prog.is_signature)
-                          .icon === 'user'
-                      "
-                    >
-                      <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                      <circle cx="9" cy="7" r="4" />
-                    </g>
-                    <!-- Zap/Sales Icon -->
-                    <path
-                      v-else-if="
-                        getProgramMeta(prog.category, prog.is_signature)
-                          .icon === 'zap'
-                      "
-                      d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"
-                    />
-                    <!-- Check/Banking Icon -->
-                    <path
-                      v-else-if="
-                        getProgramMeta(prog.category, prog.is_signature)
-                          .icon === 'check'
-                      "
-                      d="M22 11.08V12a10 10 0 11-5.93-9.14M22 4L12 14.01l-3-3"
-                    />
-                    <!-- Trend/Finance Icon -->
-                    <polyline
-                      v-else-if="
-                        getProgramMeta(prog.category, prog.is_signature)
-                          .icon === 'trend'
-                      "
-                      points="23 6 13.5 15.5 8.5 10.5 1 18"
-                    />
-                    <!-- Default Icon -->
-                    <path
-                      v-else
-                      d="M4 19.5A2.5 2.5 0 016.5 17H20M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"
-                    />
-                  </svg>
-                </div>
+                
+                <img
+                  :src="prog.image_full_url || '/img/others/placeholder.jpg'"
+                  style="margin-bottom: 20px; border-radius: 8px; height: 140px; width: 140px; object-fit: contain;"
+                  alt="Program Webinar"
+                />
                 <div class="kat-info">
-                  <div
-                    class="kat-cat"
-                    :style="prog.is_signature ? 'color:var(--gold)' : ''"
-                  >
-                    {{ prog.is_signature ? "★ " : "" }}{{ prog.category }}
+                  <div style="display: flex; align-items: center; gap: 8px">
+                    <div
+                      class="kat-ico"
+                      :style="`background: ${getProgramMeta(prog.category, prog.is_signature).bg}`"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        :stroke="
+                          getProgramMeta(prog.category, prog.is_signature).color
+                        "
+                        stroke-width="2"
+                      >
+                        <!-- Signature Icon -->
+                        <polygon
+                          v-if="
+                            getProgramMeta(prog.category, prog.is_signature)
+                              .icon === 'signature'
+                          "
+                          points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                        />
+                        <!-- User/Leadership Icon -->
+                        <g
+                          v-else-if="
+                            getProgramMeta(prog.category, prog.is_signature)
+                              .icon === 'user'
+                          "
+                        >
+                          <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                          <circle cx="9" cy="7" r="4" />
+                        </g>
+                        <!-- Zap/Sales Icon -->
+                        <path
+                          v-else-if="
+                            getProgramMeta(prog.category, prog.is_signature)
+                              .icon === 'zap'
+                          "
+                          d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"
+                        />
+                        <!-- Check/Banking Icon -->
+                        <path
+                          v-else-if="
+                            getProgramMeta(prog.category, prog.is_signature)
+                              .icon === 'check'
+                          "
+                          d="M22 11.08V12a10 10 0 11-5.93-9.14M22 4L12 14.01l-3-3"
+                        />
+                        <!-- Trend/Finance Icon -->
+                        <polyline
+                          v-else-if="
+                            getProgramMeta(prog.category, prog.is_signature)
+                              .icon === 'trend'
+                          "
+                          points="23 6 13.5 15.5 8.5 10.5 1 18"
+                        />
+                        <!-- Default Icon -->
+                        <path
+                          v-else
+                          d="M4 19.5A2.5 2.5 0 016.5 17H20M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"
+                        />
+                      </svg>
+                    </div>
+                    <div
+                      class="kat-cat"
+                      :style="prog.is_signature ? 'color:var(--gold)' : ''"
+                    >
+                      {{ prog.is_signature ? "★ " : "" }}{{ prog.category }}
+                    </div>
                   </div>
                   <div class="kat-title">{{ prog.title }}</div>
                   <div class="kat-desc">{{ prog.desc }}</div>
@@ -834,6 +911,8 @@ import { useArticleStore } from "~/stores/articleStore";
 import { useInsightStore } from "~/stores/insightStore";
 import { storeToRefs } from "pinia";
 
+const { pushEvent } = useAnalytics();
+
 const activeTab = ref("#router");
 
 useSeoMeta({
@@ -870,14 +949,34 @@ const {
   error: insightError,
 } = storeToRefs(insightStore);
 
-onMounted(() => {
-  if (window.location.hash) {
-    activeTab.value = window.location.hash;
+onMounted(async () => {
+  const hash = window.location.hash;
+  let targetCardId: string | null = null;
+
+  if (hash) {
+    const cardMatch = hash.match(/^#artikel-(\d+)$/);
+    if (cardMatch) {
+      activeTab.value = "#artikel";
+      targetCardId = hash.slice(1);
+    } else {
+      activeTab.value = hash;
+    }
   }
+
   // trainingStore.fetchTrainings();
-  programStore.fetchPrograms();
-  articleStore.fetchArticles();
-  insightStore.fetchInsights();
+  await Promise.all([
+    programStore.fetchPrograms(),
+    articleStore.fetchArticles(),
+    insightStore.fetchInsights(),
+  ]);
+
+  if (targetCardId) {
+    await nextTick();
+    document.getElementById(targetCardId)?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
 });
 
 const displayLimit = ref(10);
@@ -1476,6 +1575,30 @@ useHead({
   font-size: 11.5px;
   color: var(--slate);
 }
+.btn-minat {
+  background: none;
+  color: var(--teal2);
+  border: 1.5px solid var(--teal2);
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: var(--sans);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  transition: all 0.2s;
+}
+.btn-minat:hover {
+  background: var(--teal2);
+  color: #fff;
+}
+.btn-minat svg {
+  width: 13px;
+  height: 13px;
+}
 .btn-teal {
   background: var(--teal2);
   color: #fff;
@@ -1516,13 +1639,14 @@ useHead({
   transition:
     transform 0.18s,
     box-shadow 0.18s;
+  scroll-margin-top: 140px;
 }
 .art-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 4px 24px rgba(20, 34, 56, 0.1);
 }
 .art-card-thumb {
-  height: 140px;
+  height: 240px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1532,6 +1656,22 @@ useHead({
   width: 40px;
   height: 40px;
   opacity: 0.55;
+}
+.art-card-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.art-card-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0) 55%
+  );
 }
 .art-card-badge {
   position: absolute;
@@ -1543,6 +1683,7 @@ useHead({
   text-transform: uppercase;
   padding: 3px 10px;
   border-radius: 50px;
+  z-index: 1;
 }
 .art-card-body {
   padding: 20px 22px;
@@ -1805,6 +1946,7 @@ useHead({
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  margin-bottom: 10px;
 }
 .kat-ico svg {
   width: 20px;
@@ -1814,7 +1956,7 @@ useHead({
   flex: 1;
 }
 .kat-cat {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.8px;
   text-transform: uppercase;

@@ -13,6 +13,9 @@ export interface IArticle {
   author_role: string;
   author_initial: string;
   read_time: string;
+  cta_url: string;
+  image_url: string;
+  image_full_url: string;
 }
 
 export const useArticleStore = defineStore("article", () => {

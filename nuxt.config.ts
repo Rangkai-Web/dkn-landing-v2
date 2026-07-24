@@ -80,6 +80,8 @@ export default defineNuxtConfig({
     public: {
       // nuxt automatically maps NUXT_PUBLIC_API_BASE_URL from env to config.public.apiBaseUrl
       apiBaseUrl: process.env.NUXT_PUBLIC_API_BASE_URL || process.env.API_BASE_URL || "/",
+      // Kosong = gtag.js gak di-inject.
+      gaId: process.env.NUXT_PUBLIC_GA_ID || "",
     },
     resendApiKey: process.env.RESEND_API_KEY,
     resendFromEmail: process.env.RESEND_FROM_EMAIL || "DKN Digital <onboarding@resend.dev>",
@@ -113,7 +115,7 @@ export default defineNuxtConfig({
           "Strict-Transport-Security":
             "max-age=31536000; includeSubDomains; preload",
           "Content-Security-Policy":
-            "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob: http://127.0.0.1:8000 https://panel.dkn.digital; connect-src 'self' https://wa.me http://127.0.0.1:8000 https://panel.dkn.digital https://api.iconify.design; frame-src 'self' https://www.google.com https://maps.google.com https://calendar.google.com; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;",
+            "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob: http://127.0.0.1:8000 https://panel.dkn.digital https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://wa.me http://127.0.0.1:8000 https://panel.dkn.digital https://api.iconify.design https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com; frame-src 'self' https://www.google.com https://maps.google.com https://calendar.google.com https://www.googletagmanager.com; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;",
           "X-DNS-Prefetch-Control": "on",
           "X-Permitted-Cross-Domain-Policies": "none",
         },

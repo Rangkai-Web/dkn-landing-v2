@@ -9,6 +9,7 @@ export interface IInsight {
   button_text?: string;
   button_link?: string;
   icon_type?: "trend" | "user" | "shield" | "monitor" | "zap" | "info";
+  image_full_url?: string;
 }
 
 export const useInsightStore = defineStore("insight", () => {

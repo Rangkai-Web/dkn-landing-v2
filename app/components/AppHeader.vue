@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="sticky top-0 z-100 flex h-[68px] items-center justify-between border-b border-white/10 bg-midnight/97 px-4 md:px-[52px] backdrop-blur-lg"
+    class="sticky top-0 z-100 flex h-17 items-center justify-between border-b border-white/10 bg-midnight/97 px-4 md:px-8 backdrop-blur-lg"
   >
     <div class="flex items-center gap-4 xl:gap-0">
       <!-- Mobile Menu Toggle (Index Only) -->
