@@ -8,42 +8,74 @@
         <div class="ph-grid"></div>
         <div class="ph-glow"></div>
         <div class="ph-inner">
-          <div class="pill">
-            <div class="pill-dot"></div>
-            Offline · Intensif · Bersertifikat
+          <div class="ph-left">
+            <div class="pill">
+              <div class="pill-dot"></div>
+              Offline · Intensif · Bersertifikat
+            </div>
+            <h1 class="ph-h">
+              Program Belajar<br /><em>Bersertifikat LPK DKN</em>
+            </h1>
+            <p class="ph-sub">
+              Pelatihan tatap muka intensif 1–2 hari yang dirancang dari
+              pengalaman nyata lapangan — bukan teori akademis. Dibuka setelah
+              kuota terpenuhi.
+            </p>
+            <div class="ph-stats">
+              <div class="ph-stat">
+                <div class="ph-stat-n">14</div>
+                <div class="ph-stat-l">Program tersedia</div>
+              </div>
+              <div class="ph-stat-sep"></div>
+              <div class="ph-stat">
+                <div class="ph-stat-n">6</div>
+                <div class="ph-stat-l">Kategori keahlian</div>
+              </div>
+              <div class="ph-stat-sep"></div>
+              <div class="ph-stat">
+                <div class="ph-stat-n">3★</div>
+                <div class="ph-stat-l">Program Signature eksklusif</div>
+              </div>
+            </div>
+            <div class="flex items-center justify-start mt-32">
+              <NuxtLink
+                to="https://elearning.dkn.digital/login/index.php?loginredirect=1"
+                target="_blank"
+                class="inline-flex items-center rounded-md bg-teal-secondary px-3.5 md:px-5 py-[9px] text-[13px] font-semibold text-white no-underline transition-all hover:bg-teal-primary"
+              >
+                Akses Learning Management System Kami
+              </NuxtLink>
+            </div>
           </div>
-          <h1 class="ph-h">
-            Program Belajar<br /><em>Bersertifikat LPK DKN</em>
-          </h1>
-          <p class="ph-sub">
-            Pelatihan tatap muka intensif 1–2 hari yang dirancang dari
-            pengalaman nyata lapangan — bukan teori akademis. Dibuka setelah
-            kuota terpenuhi.
-          </p>
-          <div class="ph-stats">
-            <div class="ph-stat">
-              <div class="ph-stat-n">14</div>
-              <div class="ph-stat-l">Program tersedia</div>
+          <div class="ph-right">
+            <div class="ph-gallery">
+              <Carousel :items-to-show="1" :wrap-around="true" :autoplay="4000">
+                <Slide v-for="item in bannerItems" :key="item.key">
+                  <div class="phg-slide">
+                    <img
+                      v-if="item.image"
+                      :src="item.image"
+                      :alt="item.alt"
+                      class="phg-img-real"
+                    />
+                    <div v-else class="phg-img" :style="{ background: item.bg }">
+                      <span v-if="item.alt">{{ item.alt }}</span>
+                    </div>
+                    <a
+                      v-if="item.link"
+                      :href="item.link"
+                      target="_blank"
+                      rel="noopener"
+                      class="phg-slide-link"
+                      :aria-label="item.alt"
+                    ></a>
+                  </div>
+                </Slide>
+                <template #addons>
+                  <Pagination />
+                </template>
+              </Carousel>
             </div>
-            <div class="ph-stat-sep"></div>
-            <div class="ph-stat">
-              <div class="ph-stat-n">6</div>
-              <div class="ph-stat-l">Kategori keahlian</div>
-            </div>
-            <div class="ph-stat-sep"></div>
-            <div class="ph-stat">
-              <div class="ph-stat-n">3★</div>
-              <div class="ph-stat-l">Program Signature eksklusif</div>
-            </div>
-          </div>
-          <div class="flex items-center justify-center mt-32">
-            <NuxtLink
-              to="https://elearning.dkn.digital/login/index.php?loginredirect=1"
-              target="_blank"
-              class="inline-flex items-center rounded-md bg-teal-secondary px-3.5 md:px-5 py-[9px] text-[13px] font-semibold text-white no-underline transition-all hover:bg-teal-primary"
-            >
-              Akses Learning Management System Kami
-            </NuxtLink>
           </div>
         </div>
       </section>
@@ -537,6 +569,14 @@ import { useBnspStore } from "~/stores/bnspStore";
 
 const { pushEvent } = useAnalytics();
 
+// Fallback dipakai kalau belum ada banner aktif untuk halaman ini di admin panel
+const phImagesFallback = [
+  { alt: "Sesi Pelatihan Tatap Muka", bg: "linear-gradient(135deg, #22A094 0%, #0d1e35 100%)" },
+  { alt: "Sertifikasi BNSP", bg: "linear-gradient(135deg, #C4923A 0%, #0d1e35 100%)" },
+  { alt: "Kelas Intensif Lapangan", bg: "linear-gradient(135deg, #378ADD 0%, #0d1e35 100%)" },
+];
+const { items: bannerItems } = usePageBanners("program", phImagesFallback);
+
 useSeoMeta({
   title:
     "Program Pelatihan DKN Indonesia - Pengembangan Kompetensi SDM Terlengkap",
@@ -641,11 +681,73 @@ useHead({
   pointer-events: none;
 }
 .ph-inner {
-  max-width: 760px;
+  max-width: 1100px;
   margin: 0 auto;
-  text-align: center;
   position: relative;
   z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 56px;
+  align-items: center;
+}
+.ph-left {
+  text-align: left;
+}
+.ph-gallery {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.phg-slide {
+  position: relative;
+  width: 100%;
+}
+.phg-slide-link {
+  position: absolute;
+  inset: 0;
+}
+.phg-img-real {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+.phg-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: flex-end;
+  padding: 16px;
+  box-sizing: border-box;
+}
+.phg-img span {
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.92);
+  background: rgba(0, 0, 0, 0.28);
+  padding: 5px 12px;
+  border-radius: 50px;
+}
+:deep(.ph-gallery .carousel) {
+  position: relative;
+}
+:deep(.ph-gallery .carousel__pagination) {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+}
+:deep(.ph-gallery .carousel__pagination-button)::after {
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.4);
+}
+:deep(.ph-gallery .carousel__pagination-button--active)::after {
+  background: var(--gold2);
 }
 .pill {
   display: inline-flex;
@@ -689,7 +791,7 @@ useHead({
 .ph-stats {
   display: flex;
   gap: 32px;
-  justify-content: center;
+  justify-content: flex-start;
   margin-top: 32px;
   flex-wrap: wrap;
 }
@@ -1571,6 +1673,20 @@ footer {
   }
   .ph-h {
     font-size: 34px;
+  }
+  .ph-inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .ph-left {
+    text-align: center;
+  }
+  .ph-stats {
+    justify-content: center;
+  }
+  .ph-gallery {
+    max-width: 420px;
+    margin: 0 auto;
   }
   .ph-stats {
     gap: 20px;

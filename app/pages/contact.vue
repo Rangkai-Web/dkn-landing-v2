@@ -8,55 +8,87 @@
         <div class="ph-grid"></div>
         <div class="ph-glow"></div>
         <div class="ph-inner">
-          <div class="pill">
-            <div class="pill-dot"></div>
-            Respons dalam 1 Hari Kerja
+          <div class="ph-left">
+            <div class="pill">
+              <div class="pill-dot"></div>
+              Respons dalam 1 Hari Kerja
+            </div>
+            <h1 class="ph-h">
+              Konsultasi Corporate<br /><em>dengan Tim DKN</em>
+            </h1>
+            <p class="ph-sub">
+              Ceritakan kebutuhan pengembangan SDM organisasi Anda. Tim
+              konsultan senior DKN akan merespons dalam satu hari kerja dengan
+              proposal yang relevan.
+            </p>
+            <div class="ph-channels">
+              <div class="ch-pill">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
+                  /></svg
+                >Form Online
+              </div>
+              <div class="ch-pill">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"
+                  /></svg
+                >WhatsApp Direct
+              </div>
+              <div class="ch-pill">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  />
+                  <polyline points="22,6 12,13 2,6" /></svg
+                >Email
+              </div>
+            </div>
           </div>
-          <h1 class="ph-h">
-            Konsultasi Corporate<br /><em>dengan Tim DKN</em>
-          </h1>
-          <p class="ph-sub">
-            Ceritakan kebutuhan pengembangan SDM organisasi Anda. Tim konsultan
-            senior DKN akan merespons dalam satu hari kerja dengan proposal yang
-            relevan.
-          </p>
-          <div class="ph-channels">
-            <div class="ch-pill">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
-                /></svg
-              >Form Online
-            </div>
-            <div class="ch-pill">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"
-                /></svg
-              >WhatsApp Direct
-            </div>
-            <div class="ch-pill">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-                />
-                <polyline points="22,6 12,13 2,6" /></svg
-              >Email
+          <div class="ph-right">
+            <div class="ph-gallery">
+              <Carousel :items-to-show="1" :wrap-around="true" :autoplay="4000">
+                <Slide v-for="item in bannerItems" :key="item.key">
+                  <div class="phg-slide">
+                    <img
+                      v-if="item.image"
+                      :src="item.image"
+                      :alt="item.alt"
+                      class="phg-img-real"
+                    />
+                    <div v-else class="phg-img" :style="{ background: item.bg }">
+                      <span v-if="item.alt">{{ item.alt }}</span>
+                    </div>
+                    <a
+                      v-if="item.link"
+                      :href="item.link"
+                      target="_blank"
+                      rel="noopener"
+                      class="phg-slide-link"
+                      :aria-label="item.alt"
+                    ></a>
+                  </div>
+                </Slide>
+                <template #addons>
+                  <Pagination />
+                </template>
+              </Carousel>
             </div>
           </div>
         </div>
@@ -594,6 +626,14 @@ import { storeToRefs } from "pinia";
 
 const { pushEvent } = useAnalytics();
 
+// Fallback dipakai kalau belum ada banner aktif untuk halaman ini di admin panel
+const phImagesFallback = [
+  { alt: "Tim Konsultan DKN", bg: "linear-gradient(135deg, #22A094 0%, #0d1e35 100%)" },
+  { alt: "Sesi Konsultasi Corporate", bg: "linear-gradient(135deg, #C4923A 0%, #0d1e35 100%)" },
+  { alt: "Respons Cepat Tim Kami", bg: "linear-gradient(135deg, #378ADD 0%, #0d1e35 100%)" },
+];
+const { items: bannerItems } = usePageBanners("contact", phImagesFallback);
+
 useSeoMeta({
   title: "Konsultasi Corporate — DKN Indonesia",
   description:
@@ -699,11 +739,73 @@ onMounted(() => {
   pointer-events: none;
 }
 .ph-inner {
-  max-width: 720px;
+  max-width: 1100px;
   margin: 0 auto;
-  text-align: center;
   position: relative;
   z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 56px;
+  align-items: center;
+}
+.ph-left {
+  text-align: left;
+}
+.ph-gallery {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.phg-slide {
+  position: relative;
+  width: 100%;
+}
+.phg-slide-link {
+  position: absolute;
+  inset: 0;
+}
+.phg-img-real {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+.phg-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: flex-end;
+  padding: 16px;
+  box-sizing: border-box;
+}
+.phg-img span {
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.92);
+  background: rgba(0, 0, 0, 0.28);
+  padding: 5px 12px;
+  border-radius: 50px;
+}
+:deep(.ph-gallery .carousel) {
+  position: relative;
+}
+:deep(.ph-gallery .carousel__pagination) {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+}
+:deep(.ph-gallery .carousel__pagination-button)::after {
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.4);
+}
+:deep(.ph-gallery .carousel__pagination-button--active)::after {
+  background: var(--gold2);
 }
 .pill {
   display: inline-flex;
@@ -748,7 +850,7 @@ onMounted(() => {
 .ph-channels {
   display: flex;
   gap: 12px;
-  justify-content: center;
+  justify-content: flex-start;
   margin-top: 28px;
   flex-wrap: wrap;
 }
@@ -1390,6 +1492,20 @@ footer {
   }
   .ph-h {
     font-size: 32px;
+  }
+  .ph-inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .ph-left {
+    text-align: center;
+  }
+  .ph-channels {
+    justify-content: center;
+  }
+  .ph-gallery {
+    max-width: 420px;
+    margin: 0 auto;
   }
   .contact-layout {
     grid-template-columns: 1fr;

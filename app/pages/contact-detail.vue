@@ -8,51 +8,75 @@
         <div class="page-hero__glow"></div>
         <div class="page-hero__grid"></div>
         <div class="page-hero__inner">
-          <div class="chip chip--teal">
-            <div class="chip__dot"></div>
-            Hubungi Kami
-          </div>
-          <h1 class="sec-h sec-h--lg sec-h--white">
-            Informasi Kontak DKN Indonesia
-          </h1>
-          <p class="sec-sub sec-sub--white mt-16">
-            Kami siap membantu — baik untuk pertanyaan tentang program,
-            konsultasi corporate, maupun kebutuhan informasi lainnya.
-          </p>
-          <div
-            class="mt-32"
-            style="
-              display: flex;
-              gap: 14px;
-              justify-content: center;
-              flex-wrap: wrap;
-            "
-          >
-            <a
-              :href="`https://wa.me/${profile?.contact?.whatsapp_number}?text=Halo%20DKN%2C%20saya%20ingin%20berkonsultasi.`"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn--gold btn--lg"
-              aria-label="Chat via WhatsApp"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                width="20"
-                height="20"
-                aria-hidden="true"
+          <div class="page-hero__left">
+            <div class="chip chip--teal">
+              <div class="chip__dot"></div>
+              Hubungi Kami
+            </div>
+            <h1 class="sec-h sec-h--lg sec-h--white">
+              Informasi Kontak DKN Indonesia
+            </h1>
+            <p class="sec-sub sec-sub--white mt-16">
+              Kami siap membantu — baik untuk pertanyaan tentang program,
+              konsultasi corporate, maupun kebutuhan informasi lainnya.
+            </p>
+            <div class="mt-32 page-hero__actions">
+              <a
+                :href="`https://wa.me/${profile?.contact?.whatsapp_number}?text=Halo%20DKN%2C%20saya%20ingin%20berkonsultasi.`"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn--gold btn--lg"
+                aria-label="Chat via WhatsApp"
               >
-                <path
-                  d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
-                />
-              </svg>
-              Chat WhatsApp Sekarang
-            </a>
-            <NuxtLink to="/contact" class="btn btn--ghost-w btn--lg"
-              >Ajukan Konsultasi Corporate</NuxtLink
-            >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  width="20"
+                  height="20"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
+                  />
+                </svg>
+                Chat WhatsApp Sekarang
+              </a>
+              <NuxtLink to="/contact" class="btn btn--ghost-w btn--lg"
+                >Ajukan Konsultasi Corporate</NuxtLink
+              >
+            </div>
+          </div>
+          <div class="page-hero__right">
+            <div class="page-hero__gallery">
+              <Carousel :items-to-show="1" :wrap-around="true" :autoplay="4000">
+                <Slide v-for="item in bannerItems" :key="item.key">
+                  <div class="phg-slide">
+                    <img
+                      v-if="item.image"
+                      :src="item.image"
+                      :alt="item.alt"
+                      class="phg-img-real"
+                    />
+                    <div v-else class="phg-img" :style="{ background: item.bg }">
+                      <span v-if="item.alt">{{ item.alt }}</span>
+                    </div>
+                    <a
+                      v-if="item.link"
+                      :href="item.link"
+                      target="_blank"
+                      rel="noopener"
+                      class="phg-slide-link"
+                      :aria-label="item.alt"
+                    ></a>
+                  </div>
+                </Slide>
+                <template #addons>
+                  <Pagination />
+                </template>
+              </Carousel>
+            </div>
           </div>
         </div>
       </section>
@@ -474,6 +498,14 @@ useSeoMeta({
 const store = useProfileStore();
 const { profile, isLoading, error } = storeToRefs(store);
 
+// Fallback dipakai kalau belum ada banner aktif untuk halaman ini di admin panel
+const phImagesFallback = [
+  { alt: "Kantor DKN Indonesia", bg: "linear-gradient(135deg, #22A094 0%, #0d1e35 100%)" },
+  { alt: "Tim Layanan Pelanggan", bg: "linear-gradient(135deg, #C4923A 0%, #0d1e35 100%)" },
+  { alt: "Siap Membantu Anda", bg: "linear-gradient(135deg, #378ADD 0%, #0d1e35 100%)" },
+];
+const { items: bannerItems } = usePageBanners("contact-detail", phImagesFallback);
+
 onMounted(() => {
   store.fetchProfile();
 });
@@ -500,7 +532,6 @@ useHead({
   padding: 100px 24px 80px;
   position: relative;
   overflow: hidden;
-  text-align: center;
 }
 .page-hero__glow {
   position: absolute;
@@ -529,8 +560,77 @@ useHead({
 .page-hero__inner {
   position: relative;
   z-index: 2;
-  max-width: 800px;
+  max-width: 1100px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 56px;
+  align-items: center;
+}
+.page-hero__left {
+  text-align: left;
+}
+.page-hero__actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.page-hero__gallery {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.phg-slide {
+  position: relative;
+  width: 100%;
+}
+.phg-slide-link {
+  position: absolute;
+  inset: 0;
+}
+.phg-img-real {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+.phg-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: flex-end;
+  padding: 16px;
+  box-sizing: border-box;
+}
+.phg-img span {
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.92);
+  background: rgba(0, 0, 0, 0.28);
+  padding: 5px 12px;
+  border-radius: 50px;
+}
+:deep(.page-hero__gallery .carousel) {
+  position: relative;
+}
+:deep(.page-hero__gallery .carousel__pagination) {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+}
+:deep(.page-hero__gallery .carousel__pagination-button)::after {
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.4);
+}
+:deep(.page-hero__gallery .carousel__pagination-button--active)::after {
+  background: var(--gold2);
 }
 
 /* CONTACT INFO GRID */
@@ -782,6 +882,20 @@ useHead({
 }
 
 @media (max-width: 900px) {
+  .page-hero__inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .page-hero__left {
+    text-align: center;
+  }
+  .page-hero__actions {
+    justify-content: center;
+  }
+  .page-hero__gallery {
+    max-width: 420px;
+    margin: 0 auto;
+  }
   .contact-info-grid {
     grid-template-columns: 1fr;
   }

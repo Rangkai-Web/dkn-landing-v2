@@ -87,6 +87,34 @@
             </div>
           </div>
           <div class="hero-right">
+            <div class="hero-gallery">
+              <Carousel :items-to-show="1" :wrap-around="true" :autoplay="4000">
+                <Slide v-for="item in bannerItems" :key="item.key">
+                  <div class="hg-slide">
+                    <img
+                      v-if="item.image"
+                      :src="item.image"
+                      :alt="item.alt"
+                      class="hg-img-real"
+                    />
+                    <div v-else class="hg-img" :style="{ background: item.bg }">
+                      <span v-if="item.alt">{{ item.alt }}</span>
+                    </div>
+                    <a
+                      v-if="item.link"
+                      :href="item.link"
+                      target="_blank"
+                      rel="noopener"
+                      class="hg-slide-link"
+                      :aria-label="item.alt"
+                    ></a>
+                  </div>
+                </Slide>
+                <template #addons>
+                  <Pagination />
+                </template>
+              </Carousel>
+            </div>
             <div class="hero-card">
               <div class="hc-label">Keunggulan LPK DKN</div>
               <div class="hc-grid">
@@ -812,6 +840,14 @@ import { storeToRefs } from "pinia";
 const webinarStore = useWebinarStore();
 const { recordings } = storeToRefs(webinarStore);
 
+// Fallback dipakai kalau belum ada banner aktif untuk halaman ini di admin panel
+const heroImagesFallback = [
+  { alt: "Sesi Corporate Training", bg: "linear-gradient(135deg, #22A094 0%, #1A2E4A 100%)" },
+  { alt: "Webinar Praktisi Senior", bg: "linear-gradient(135deg, #C4923A 0%, #1A2E4A 100%)" },
+  { alt: "Sertifikasi BNSP", bg: "linear-gradient(135deg, #378ADD 0%, #1A2E4A 100%)" },
+];
+const { items: bannerItems } = usePageBanners("home", heroImagesFallback);
+
 onMounted(() => {
   webinarStore.fetchRecordings();
 });
@@ -1028,10 +1064,67 @@ h1 em {
 .hero-right {
   align-self: end;
 }
+.hero-gallery {
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.hg-slide {
+  position: relative;
+  width: 100%;
+}
+.hg-slide-link {
+  position: absolute;
+  inset: 0;
+}
+.hg-img-real {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+.hg-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: flex-end;
+  padding: 16px;
+  box-sizing: border-box;
+}
+.hg-img span {
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.92);
+  background: rgba(0, 0, 0, 0.28);
+  padding: 5px 12px;
+  border-radius: 50px;
+}
+:deep(.hero-gallery .carousel__pagination) {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+}
+:deep(.hero-gallery .carousel__pagination-button)::after {
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.4);
+}
+:deep(.hero-gallery .carousel__pagination-button--active)::after {
+  background: var(--gold2);
+}
+:deep(.hero-gallery .carousel) {
+  position: relative;
+}
 .hero-card {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px 16px 0 0;
+  border-radius: 16px;
   padding: 28px;
 }
 .hc-label {

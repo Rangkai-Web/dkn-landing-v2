@@ -8,6 +8,14 @@ const productStore = useProductStore();
 const store = useProfileStore();
 const { profile } = storeToRefs(store);
 
+// Fallback dipakai kalau belum ada banner aktif untuk halaman ini di admin panel
+const phImagesFallback = [
+  { alt: "Efisiensi yang Tersembunyi", bg: "linear-gradient(135deg, #22A094 0%, #0d1e35 100%)" },
+  { alt: "Karya Kedua DKN", bg: "linear-gradient(135deg, #C4923A 0%, #0d1e35 100%)" },
+  { alt: "Koleksi Buku Praktisi", bg: "linear-gradient(135deg, #378ADD 0%, #0d1e35 100%)" },
+];
+const { items: bannerItems } = usePageBanners("produk", phImagesFallback);
+
 onMounted(() => {
   productStore.fetchProducts();
   store.fetchProfile();
@@ -36,15 +44,47 @@ useHead({
         <div class="ph-grid"></div>
         <div class="ph-glow"></div>
         <div class="ph-inner">
-          <div class="pill">
-            <div class="pill-dot"></div>
-            2 Buku · Terbit 2026
+          <div class="ph-left">
+            <div class="pill">
+              <div class="pill-dot"></div>
+              2 Buku · Terbit 2026
+            </div>
+            <h1 class="ph-h">Karya Pengetahuan<br /><em>dari Praktisi</em></h1>
+            <p class="ph-sub">
+              Dua buku yang lahir dari pengalaman nyata lapangan dan penelitian
+              mendalam — tersedia di Gramedia dan Lynk.id DKN.
+            </p>
           </div>
-          <h1 class="ph-h">Karya Pengetahuan<br /><em>dari Praktisi</em></h1>
-          <p class="ph-sub">
-            Dua buku yang lahir dari pengalaman nyata lapangan dan penelitian
-            mendalam — tersedia di Gramedia dan Lynk.id DKN.
-          </p>
+          <div class="ph-right">
+            <div class="ph-gallery">
+              <Carousel :items-to-show="1" :wrap-around="true" :autoplay="4000">
+                <Slide v-for="item in bannerItems" :key="item.key">
+                  <div class="phg-slide">
+                    <img
+                      v-if="item.image"
+                      :src="item.image"
+                      :alt="item.alt"
+                      class="phg-img-real"
+                    />
+                    <div v-else class="phg-img" :style="{ background: item.bg }">
+                      <span v-if="item.alt">{{ item.alt }}</span>
+                    </div>
+                    <a
+                      v-if="item.link"
+                      :href="item.link"
+                      target="_blank"
+                      rel="noopener"
+                      class="phg-slide-link"
+                      :aria-label="item.alt"
+                    ></a>
+                  </div>
+                </Slide>
+                <template #addons>
+                  <Pagination />
+                </template>
+              </Carousel>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -891,11 +931,73 @@ useHead({
   pointer-events: none;
 }
 .ph-inner {
-  max-width: 700px;
+  max-width: 1100px;
   margin: 0 auto;
-  text-align: center;
   position: relative;
   z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 56px;
+  align-items: center;
+}
+.ph-left {
+  text-align: left;
+}
+.ph-gallery {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.phg-slide {
+  position: relative;
+  width: 100%;
+}
+.phg-slide-link {
+  position: absolute;
+  inset: 0;
+}
+.phg-img-real {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+.phg-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: flex-end;
+  padding: 16px;
+  box-sizing: border-box;
+}
+.phg-img span {
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.92);
+  background: rgba(0, 0, 0, 0.28);
+  padding: 5px 12px;
+  border-radius: 50px;
+}
+:deep(.ph-gallery .carousel) {
+  position: relative;
+}
+:deep(.ph-gallery .carousel__pagination) {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+}
+:deep(.ph-gallery .carousel__pagination-button)::after {
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.4);
+}
+:deep(.ph-gallery .carousel__pagination-button--active)::after {
+  background: var(--gold2);
 }
 .pill {
   display: inline-flex;
@@ -1577,6 +1679,17 @@ footer {
   }
   .ph-h {
     font-size: 32px;
+  }
+  .ph-inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .ph-left {
+    text-align: center;
+  }
+  .ph-gallery {
+    max-width: 420px;
+    margin: 0 auto;
   }
   .buku-card {
     grid-template-columns: 1fr;
