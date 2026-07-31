@@ -234,116 +234,41 @@
             profesional Indonesia.
           </p>
 
-          <div class="founders-grid">
-            <!-- FOUNDER 1: DR. ADE SALMAN -->
-            <div class="founder-card">
-              <div
-                class="founder-av"
-                style="
-                  background: linear-gradient(135deg, var(--navy), var(--teal));
-                "
-              >
-                AS
-              </div>
-              <div class="founder-role">
-                Co-Founder &amp; Principal Consultant
-              </div>
-              <div class="founder-name">Dr. Ade Salman Alfarisi</div>
-              <div class="founder-cred">SE, MM, CFRP</div>
-              <div class="founder-divider"></div>
-              <div class="founder-highlights">
-                <div class="fh">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.5"
-                  >
-                    <path d="M9 11l3 3L22 4" /></svg
-                  >30+ tahun perbankan konvensional &amp; syariah
-                </div>
-                <div class="fh">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.5"
-                  >
-                    <path d="M9 11l3 3L22 4" /></svg
-                  >Doktor Keuangan — Universitas Padjadjaran
-                </div>
-                <div class="fh">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.5"
-                  >
-                    <path d="M9 11l3 3L22 4" /></svg
-                  >Peneliti atas 105 bank selama dua dekade
-                </div>
-                <div class="fh">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.5"
-                  >
-                    <path d="M9 11l3 3L22 4" /></svg
-                  >Penulis: <em>Efisiensi yang Tersembunyi</em> (Rajawali Pers,
-                  2026)
-                </div>
-              </div>
-              <div class="founder-sertifikasi">
-                <div class="fs-title">Sertifikasi</div>
-                <div class="cert-tags">
-                  <span class="cert-tag">BNSP ToT</span>
-                  <span class="cert-tag">Assessor Competency</span>
-                  <span class="cert-tag">Risk Management</span>
-                  <span class="cert-tag">CFRP</span>
-                </div>
-              </div>
-              <div
-                style="
-                  margin-top: 14px;
-                  font-size: 12.5px;
-                  color: var(--slate);
-                  line-height: 1.5;
-                "
-              >
-                <strong
-                  style="
-                    display: block;
-                    font-size: 10px;
-                    font-weight: 700;
-                    letter-spacing: 0.8px;
-                    text-transform: uppercase;
-                    color: var(--slate);
-                    margin-bottom: 4px;
-                  "
-                  >Spesialisasi</strong
-                >
-                Banking Strategy · Corporate Finance · Risk Management · Islamic
-                Banking
-              </div>
-            </div>
+          <!-- LOADING STATE -->
+          <div v-if="isFoundersLoading" class="partners-loading">
+            <div class="partners-spinner"></div>
+            <p>Memuat tim pendiri kami...</p>
+          </div>
 
-            <!-- FOUNDER 2: YUNUS MULIA -->
-            <div class="founder-card">
+          <div v-else class="founders-grid">
+            <div
+              v-for="(founder, idx) in founders"
+              :key="founder.id"
+              class="founder-card"
+            >
+              <img
+                v-if="founder.imageFullUrl"
+                :src="founder.imageFullUrl"
+                :alt="founder.name"
+                class="founder-av founder-av-photo"
+              />
               <div
+                v-else
                 class="founder-av"
-                style="
-                  background: linear-gradient(135deg, #142238, var(--gold));
-                "
+                :style="{
+                  background: founderGradients[idx % founderGradients.length],
+                }"
               >
-                YM
+                {{ founderInitials(founder.name) }}
               </div>
-              <div class="founder-role">Co-Founder &amp; Managing Director</div>
-              <div class="founder-name">Yunus Mulia</div>
-              <div class="founder-cred">SE</div>
+              <div v-if="founder.role" class="founder-role">
+                {{ founder.role }}
+              </div>
+              <div class="founder-name">{{ founder.name }}</div>
+              <div v-if="founder.cred" class="founder-cred">{{ founder.cred }}</div>
               <div class="founder-divider"></div>
-              <div class="founder-highlights">
-                <div class="fh">
+              <div v-if="founder.highlights.length" class="founder-highlights">
+                <div v-for="h in founder.highlights" :key="h" class="fh">
                   <svg
                     viewBox="0 0 24 24"
                     fill="none"
@@ -351,49 +276,23 @@
                     stroke-width="2.5"
                   >
                     <path d="M9 11l3 3L22 4" /></svg
-                  >30+ tahun perbankan — PT Bank Mandiri (Persero) Tbk
-                </div>
-                <div class="fh">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.5"
-                  >
-                    <path d="M9 11l3 3L22 4" /></svg
-                  >Penghargaan: Mandiri Best Employee 2018
-                </div>
-                <div class="fh">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.5"
-                  >
-                    <path d="M9 11l3 3L22 4" /></svg
-                  >Penghargaan: Pegawai Teladan 2012
-                </div>
-                <div class="fh">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.5"
-                  >
-                    <path d="M9 11l3 3L22 4" /></svg
-                  >Keahlian: Corporate &amp; Regional Banking Operations
+                  >{{ h }}
                 </div>
               </div>
-              <div class="founder-sertifikasi">
+              <div v-if="founder.certs.length" class="founder-sertifikasi">
                 <div class="fs-title">Sertifikasi</div>
                 <div class="cert-tags">
-                  <span class="cert-tag">BNSP ToT</span>
-                  <span class="cert-tag">Assessor Competency</span>
-                  <span class="cert-tag">Risk Management</span>
-                  <span class="cert-tag">SKSP</span>
+                  <span
+                    v-for="cert in founder.certs"
+                    :key="cert"
+                    class="cert-tag"
+                  >
+                    {{ cert }}
+                  </span>
                 </div>
               </div>
               <div
+                v-if="founder.skills.length"
                 style="
                   margin-top: 14px;
                   font-size: 12.5px;
@@ -413,96 +312,7 @@
                   "
                   >Spesialisasi</strong
                 >
-                Corporate Banking · Risk Management · Regional Operations
-              </div>
-            </div>
-
-            <!-- FOUNDER 3: ONY SURYONO -->
-            <div class="founder-card">
-              <div
-                class="founder-av"
-                style="
-                  background: linear-gradient(135deg, #0d3824, var(--teal2));
-                "
-              >
-                OS
-              </div>
-              <div class="founder-role">Co-Founder &amp; Senior Consultant</div>
-              <div class="founder-name">Ony Suryono Widodo</div>
-              <div class="founder-cred">ST, MMT</div>
-              <div class="founder-divider"></div>
-              <div class="founder-highlights">
-                <div class="fh">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.5"
-                  >
-                    <path d="M9 11l3 3L22 4" /></svg
-                  >30+ tahun perbankan — PT Bank Mandiri (Persero) Tbk
-                </div>
-                <div class="fh">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.5"
-                  >
-                    <path d="M9 11l3 3L22 4" /></svg
-                  >Vice President, Area Head 3 wilayah
-                </div>
-                <div class="fh">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.5"
-                  >
-                    <path d="M9 11l3 3L22 4" /></svg
-                  >Branch Manager di 4 kota lintas Jawa &amp; luar Jawa
-                </div>
-                <div class="fh">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.5"
-                  >
-                    <path d="M9 11l3 3L22 4" /></svg
-                  >Magister Manajemen Teknik — ITS Surabaya
-                </div>
-              </div>
-              <div class="founder-sertifikasi">
-                <div class="fs-title">Sertifikasi</div>
-                <div class="cert-tags">
-                  <span class="cert-tag">BNSP ToT</span>
-                  <span class="cert-tag">Risk Management</span>
-                  <span class="cert-tag">SKSP</span>
-                </div>
-              </div>
-              <div
-                style="
-                  margin-top: 14px;
-                  font-size: 12.5px;
-                  color: var(--slate);
-                  line-height: 1.5;
-                "
-              >
-                <strong
-                  style="
-                    display: block;
-                    font-size: 10px;
-                    font-weight: 700;
-                    letter-spacing: 0.8px;
-                    text-transform: uppercase;
-                    color: var(--slate);
-                    margin-bottom: 4px;
-                  "
-                  >Spesialisasi</strong
-                >
-                Branch Operations · Sales Leadership · People Development ·
-                Personal Finance
+                {{ founder.skills.join(" · ") }}
               </div>
             </div>
           </div>
@@ -527,10 +337,25 @@
 
           <div v-else class="partners-grid">
             <div
-              v-for="partner in partners"
+              v-for="(partner, idx) in partners"
               :key="partner.name"
               class="partner-card"
             >
+              <img
+                v-if="partner.imageFullUrl"
+                :src="partner.imageFullUrl"
+                :alt="partner.name"
+                class="partner-av partner-av-photo"
+              />
+              <div
+                v-else
+                class="partner-av"
+                :style="{
+                  background: partnerGradients[idx % partnerGradients.length],
+                }"
+              >
+                {{ partnerInitials(partner.name) }}
+              </div>
               <div class="partner-info">
                 <h3 class="partner-name">{{ partner.name }}</h3>
                 <div class="partner-skills">
@@ -870,12 +695,39 @@
 import { storeToRefs } from "pinia";
 import { useProfileStore } from "~/stores/profileStore";
 import { usePartnerStore } from "~/stores/partnerStore";
+import { useFounderStore } from "~/stores/founderStore";
 
 const store = useProfileStore();
 const { profile } = storeToRefs(store);
 
 const partnerStore = usePartnerStore();
 const { partners, isLoading } = storeToRefs(partnerStore);
+
+const founderStore = useFounderStore();
+const { founders, isLoading: isFoundersLoading } = storeToRefs(founderStore);
+
+const founderGradients = [
+  "linear-gradient(135deg, var(--navy), var(--teal))",
+  "linear-gradient(135deg, #142238, var(--gold))",
+  "linear-gradient(135deg, #0d3824, var(--teal2))",
+];
+
+const founderInitials = (name: string) =>
+  name
+    .split(" ")
+    .filter((w) => w && !w.includes("."))
+    .slice(0, 2)
+    .map((w) => w[0])
+    .join("")
+    .toUpperCase();
+
+const partnerGradients = [
+  "linear-gradient(135deg, var(--navy), var(--teal))",
+  "linear-gradient(135deg, #142238, var(--gold))",
+  "linear-gradient(135deg, #0d3824, var(--teal2))",
+];
+
+const partnerInitials = founderInitials;
 
 // Fallback dipakai kalau belum ada banner aktif untuk halaman ini di admin panel
 const phImagesFallback = [
@@ -888,6 +740,7 @@ const { items: bannerItems } = usePageBanners("tentang", phImagesFallback);
 onMounted(() => {
   store.fetchProfile();
   partnerStore.fetchPartners();
+  founderStore.fetchFounders();
 });
 
 useSeoMeta({
@@ -1274,6 +1127,9 @@ useHead({
   color: #fff;
   flex-shrink: 0;
 }
+.founder-av-photo {
+  object-fit: cover;
+}
 .founder-role {
   font-size: 11px;
   font-weight: 700;
@@ -1455,6 +1311,23 @@ useHead({
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(20, 34, 56, 0.06);
   border-left-color: var(--gold);
+}
+.partner-av {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  flex-shrink: 0;
+}
+.partner-av-photo {
+  object-fit: cover;
 }
 .partner-name {
   font-family: var(--serif);

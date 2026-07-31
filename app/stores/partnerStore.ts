@@ -6,6 +6,7 @@ export interface IPartner {
   name: string;
   skills: string[];
   certs: string[];
+  imageFullUrl: string | null;
 }
 
 interface IApiPartner {
@@ -13,6 +14,7 @@ interface IApiPartner {
   name: string;
   skills: string[] | string;
   certs: string[] | string;
+  image_full_url: string | null;
 }
 
 interface IPartnerResponse {
@@ -66,6 +68,7 @@ export const usePartnerStore = defineStore("partner", () => {
             name: p.name,
             skills: skillsArray,
             certs: certsArray,
+            imageFullUrl: p.image_full_url,
           };
         });
       }
