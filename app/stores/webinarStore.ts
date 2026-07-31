@@ -39,6 +39,7 @@ export interface IPaidWebinar {
   button_name: string;
   image_full_url: string;
   cta_url: string;
+  youtube_url?: string;
 }
 
 export const useWebinarStore = defineStore("webinar", () => {

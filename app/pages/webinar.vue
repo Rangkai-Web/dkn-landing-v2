@@ -807,9 +807,9 @@
                     {{ webinar.button_name || "Daftar Minat" }}
                   </a>
                   <a
-                    v-if="isSafeHttpUrl(webinar.cta_url)"
-                    :href="webinar.cta_url"
-                    class="btn-teal"
+                    v-if="isSafeHttpUrl(webinar.youtube_url)"
+                    :href="webinar.youtube_url"
+                    class="btn-yt"
                     style="width: fit-content"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -821,6 +821,9 @@
                       })
                     "
                   >
+                    <svg viewBox="0 0 24 24" fill="white" width="14" height="14">
+                      <polygon points="5 3 19 12 5 21 5 3" />
+                    </svg>
                     Kunjungi
                   </a>
                 </div>
