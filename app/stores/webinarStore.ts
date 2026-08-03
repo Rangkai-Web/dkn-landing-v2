@@ -34,7 +34,7 @@ export interface IPaidWebinar {
   desc: string;
   outcomes: string[];
   meta: { icon: string; text: string }[];
-  price: string;
+  price: number;
   waUrl: string;
   button_name: string;
   image_full_url: string;

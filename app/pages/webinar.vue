@@ -778,7 +778,8 @@
               <div class="wb-footer">
                 <div class="wb-price-row">
                   <div class="wb-price-lbl">Investasi</div>
-                  <div class="wb-price-coming">{{ webinar.price }}</div>
+                  <div v-if="webinar.price === 0" class="wb-price-coming">Harga segera diumumkan</div>
+                  <div v-else class="wb-price-coming">Rp{{ formatPrice(webinar.price) }}</div>
                 </div>
                 <div style="display: flex; justify-content: center; gap: 10px;">
                   <a
@@ -895,6 +896,12 @@ import { storeToRefs } from "pinia";
 import { useProfileStore } from "~/stores/profileStore";
 
 const { pushEvent } = useAnalytics();
+
+const formatPrice = (price: string | number) => {
+  const num = Number(price);
+  if (Number.isNaN(num)) return price;
+  return new Intl.NumberFormat("id-ID").format(num);
+};
 
 const store = useProfileStore();
 const { profile } = storeToRefs(store);
